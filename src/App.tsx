@@ -66,14 +66,15 @@ export default function App() {
       </nav>
 
       <Hero />
+      <Certifications />
+      <CategoryGrid />
       <Intro />
-      <About />
       <Gummies />
       <HardCandies />
       <Chili />
       <Process />
-      <Certifications />
-      <CategoryGrid />
+      <About />
+
       
       {/* CTA Section */}
       <section className="py-32 w-full bg-white flex flex-col items-center justify-center border-t border-stone-200">
