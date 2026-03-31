@@ -3,10 +3,6 @@ import { motion, useScroll, useSpring } from 'motion/react';
 import { Hero } from './components/sections/hero/Hero';
 import { Intro } from './components/sections/Intro';
 import { ScrollLogo } from './components/sections/ScrollLogo';
-import { Gummies } from './components/sections/Gummies';
-import { HardCandies } from './components/sections/HardCandies';
-import { Chili } from './components/sections/Chili';
-import { Process } from './components/sections/Process';
 import { Certifications } from './components/sections/Certifications';
 import { About } from './components/sections/brand/About';
 import { CategoryGrid } from './components/sections/products/category-grid/CategoryGrid';
@@ -69,9 +65,6 @@ export default function App() {
       <Certifications />
       <CategoryGrid />
       <Intro />
-      <Gummies />
-      <HardCandies />
-      <Chili />
       <About />
 
       
