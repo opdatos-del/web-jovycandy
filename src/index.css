@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --color-stone-300: #b9afa7;
+  --color-stone-400: #8f847b;
+  --color-stone-500: #6f655d;
+  --color-stone-600: #564d46;
+  --color-stone-700: #433b35;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: #FFFFFF;
+  }
+
+  body {
+    @apply antialiased text-stone-900 overflow-x-hidden;
+    background: #FFFFFF;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.mix-blend-difference {
+  mix-blend-mode: difference;
+}
