@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Roboto Condensed", "Open Sans", "Roboto", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
   --color-stone-300: #b9afa7;
   --color-stone-400: #8f847b;
