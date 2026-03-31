@@ -72,7 +72,6 @@ export default function App() {
       <Gummies />
       <HardCandies />
       <Chili />
-      <Process />
       <About />
 
       

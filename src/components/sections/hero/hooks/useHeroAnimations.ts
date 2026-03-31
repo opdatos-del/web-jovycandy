@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
+import gsap from 'gsap';
 
+import { HERO_IMAGE_FLOAT_Y } from '../constants/hero.constants';
 import { createHeroEntranceContext, createHeroTransitionTimeline } from '../utils/heroAnimations';
 import type { HeroPromo, HeroSceneRefs, SetHeroImageRef } from '../types/hero.types';
 
@@ -15,6 +17,7 @@ export const useHeroAnimations = (promos: HeroPromo[], activeIndex: number) => {
   const raysRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<Array<HTMLImageElement | null>>([]);
   const previousIndexRef = useRef(0);
+  const imageFloatTweenRef = useRef<gsap.core.Tween | null>(null);
 
   const refs = useMemo<HeroSceneRefs>(
     () => ({
@@ -40,8 +43,22 @@ export const useHeroAnimations = (promos: HeroPromo[], activeIndex: number) => {
     }
 
     const context = createHeroEntranceContext(refs, firstPromo);
+    const firstImage = imageRefs.current[0];
+
+    if (firstImage) {
+      imageFloatTweenRef.current?.kill();
+      imageFloatTweenRef.current = gsap.to(firstImage, {
+        y: HERO_IMAGE_FLOAT_Y,
+        duration: 5.6,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+    }
 
     return () => {
+      imageFloatTweenRef.current?.kill();
+      imageFloatTweenRef.current = null;
       context?.revert();
     };
   }, [promos, refs]);
@@ -53,11 +70,30 @@ export const useHeroAnimations = (promos: HeroPromo[], activeIndex: number) => {
       return undefined;
     }
 
+    imageFloatTweenRef.current?.kill();
+    imageFloatTweenRef.current = null;
+
     const transitionTimeline = createHeroTransitionTimeline({
       refs,
       promos,
       activeIndex,
       previousIndex,
+    });
+    const nextImage = imageRefs.current[activeIndex];
+
+    transitionTimeline?.eventCallback('onComplete', () => {
+      if (!nextImage) {
+        return;
+      }
+
+      imageFloatTweenRef.current?.kill();
+      imageFloatTweenRef.current = gsap.to(nextImage, {
+        y: HERO_IMAGE_FLOAT_Y,
+        duration: 5.6,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
     });
 
     previousIndexRef.current = activeIndex;

@@ -73,9 +73,8 @@ export const createHeroEntranceContext = (refs: HeroSceneRefs, firstPromo: HeroP
 
     gsap.set(imageElements, {
       autoAlpha: 0,
-      scale: 0.84,
+      scale: 0.94,
       y: HERO_IMAGE_ENTRY_Y,
-      rotation: -8,
       filter: HERO_IMAGE_BLUR,
       transformOrigin: 'center center',
     });
@@ -85,7 +84,6 @@ export const createHeroEntranceContext = (refs: HeroSceneRefs, firstPromo: HeroP
         autoAlpha: 1,
         scale: 1,
         y: 0,
-        rotation: 0,
         filter: HERO_IMAGE_CLEAR,
       });
     }
@@ -151,15 +149,6 @@ export const createHeroEntranceContext = (refs: HeroSceneRefs, firstPromo: HeroP
       });
     }
 
-    if (imageElements[0]) {
-      gsap.to(imageElements[0], {
-        y: HERO_IMAGE_FLOAT_Y,
-        duration: 5.6,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      });
-    }
   }, scope);
 };
 
@@ -191,11 +180,10 @@ export const createHeroTransitionTimeline = ({
       previousImage,
       {
         autoAlpha: 0,
-        scale: 0.84,
+        scale: 0.96,
         y: HERO_IMAGE_SWITCH_OUT_Y,
-        rotation: -8,
         filter: HERO_IMAGE_BLUR,
-        duration: 0.42,
+        duration: 0.34,
       },
       0
     );
@@ -206,18 +194,16 @@ export const createHeroTransitionTimeline = ({
       nextImage,
       {
         autoAlpha: 0,
-        scale: 1.08,
+        scale: 1.03,
         y: HERO_IMAGE_SWITCH_IN_Y,
-        rotation: 8,
         filter: HERO_IMAGE_BLUR,
       },
       {
         autoAlpha: 1,
         scale: 1,
         y: 0,
-        rotation: 0,
         filter: HERO_IMAGE_CLEAR,
-        duration: 0.82,
+        duration: 0.64,
       },
       0.08
     );

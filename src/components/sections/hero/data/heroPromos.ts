@@ -2,69 +2,47 @@ import type { HeroPromo } from '../types/hero.types';
 
 export const HERO_PROMOS: HeroPromo[] = [
   {
-    id: 'bears-12-flavors',
-    src: '/hero/bears-12-flavors_transparent.png',
-    alt: 'Promocion de ositos gummies de 12 sabores',
-    label: '12 Flavors Bears',
-    note: 'Una mezcla vistosa y dulce para que la promo se sienta como pieza central.',
-    accent: '#ff7b62',
-    secondary: '#ffe16f',
-    shadow: 'rgba(255, 123, 98, 0.30)',
+    id: 'baby-gummy-mix',
+    src: '/hero/baby-gummy-mix.png',
+    alt: 'Promoción de Baby Gummy Mix',
+    label: 'Baby Gummy Mix',
+    note: 'Una mezcla colorida y juguetona para un hero con presencia inmediata y perfil más dulce.',
+    accent: '#ff8aa0',
+    secondary: '#9ff3eb',
+    shadow: 'rgba(255, 138, 160, 0.30)',
+    imageTop: {
+      mobile: '41%',
+      desktop: '47%',
+    },
+    imageWidth: {
+      mobile: 'min(92vw, 22rem)',
+      desktop: 'min(48vw, 34rem)',
+    },
+    imageOffset: {
+      mobile: '0rem',
+      desktop: '0.55rem',
+    },
+  },
+  {
+    id: 'happy-mix-58',
+    src: '/hero/happy-mix-58.png',
+    alt: 'Promoción de Happy Mix 58',
+    label: 'Happy Mix 58',
+    note: 'Una promo más festiva y vibrante, pensada para que el empaque se sienta como protagonista total.',
+    accent: '#ffd166',
+    secondary: '#7fd8ff',
+    shadow: 'rgba(255, 209, 102, 0.30)',
     imageTop: {
       mobile: '40%',
       desktop: '45%',
     },
     imageWidth: {
       mobile: 'min(92vw, 22rem)',
-      desktop: 'min(48vw, 35rem)',
+      desktop: 'min(48vw, 34rem)',
     },
     imageOffset: {
-      mobile: '-0.35rem',
-      desktop: '0.15rem',
-    },
-  },
-  {
-    id: 'peach-rings',
-    src: '/hero/peach-rings_transparent.png',
-    alt: 'Promocion de peach rings',
-    label: 'Peach Rings',
-    note: 'Aros con presencia fuerte en anaquel y una silueta perfecta para hero visual.',
-    accent: '#ffae58',
-    secondary: '#ffdba0',
-    shadow: 'rgba(255, 174, 88, 0.30)',
-    imageTop: {
-      mobile: '39%',
-      desktop: '46%',
-    },
-    imageWidth: {
-      mobile: 'min(92vw, 22rem)',
-      desktop: 'min(48vw, 35rem)',
-    },
-    imageOffset: {
-      mobile: '-0.75rem',
-      desktop: '0.45rem',
-    },
-  },
-  {
-    id: 'watermelon-rings',
-    src: '/hero/watermerlon-rings_transparent.png',
-    alt: 'Promocion de watermelon rings',
-    label: 'Watermelon Rings',
-    note: 'Color alto contraste y un look mas explosivo para una campana con mucho punch.',
-    accent: '#ef5d73',
-    secondary: '#8fe07f',
-    shadow: 'rgba(239, 93, 115, 0.30)',
-    imageTop: {
-      mobile: '39%',
-      desktop: '45%',
-    },
-    imageWidth: {
-      mobile: 'min(92vw, 22rem)',
-      desktop: 'min(48vw, 35rem)',
-    },
-    imageOffset: {
-      mobile: '-0.6rem',
-      desktop: '0.1rem',
+      mobile: '-0.2rem',
+      desktop: '0.2rem',
     },
   },
 ];

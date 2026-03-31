@@ -5,20 +5,13 @@ import { AboutLayerCard } from './AboutLayerCard';
 
 type AboutLayersProps = {
   layers: AboutLayer[];
-  viewportRef: RefObject<HTMLDivElement | null>;
-  trackRef: RefObject<HTMLDivElement | null>;
+  layersRef: RefObject<HTMLDivElement | null>;
 };
 
-export const AboutLayers = ({ layers, viewportRef, trackRef }: AboutLayersProps) => (
-  <div className="relative lg:border-l lg:border-black lg:pl-10">
-    <div
-      ref={viewportRef}
-      className="relative lg:h-[calc(100vh-10rem)] lg:overflow-hidden"
-    >
-      <div className="pointer-events-none absolute inset-x-0 -top-8 z-10 hidden h-36 bg-gradient-to-b from-white via-white/95 via-white/80 to-transparent lg:block" />
-      <div className="pointer-events-none absolute inset-x-0 -bottom-8 z-10 hidden h-36 bg-gradient-to-t from-white via-white/95 via-white/80 to-transparent lg:block" />
-
-      <div ref={trackRef} className="flex flex-col gap-5 lg:gap-6 lg:py-24">
+export const AboutLayers = ({ layers, layersRef }: AboutLayersProps) => (
+  <div className="relative">
+    <div className="relative rounded-[2rem] border border-stone-200/80 bg-stone-50/65 p-4 shadow-[0_28px_80px_-65px_rgba(28,25,23,0.28)] backdrop-blur-sm sm:p-5 lg:p-6">
+      <div ref={layersRef} className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6">
         {layers.map((item) => (
           <AboutLayerCard key={item.id} item={item} />
         ))}

@@ -20,8 +20,8 @@ export type AboutContent = {
   description: string;
 };
 
-export type AboutScrollRefs = {
+export type AboutAnimationRefs = {
   sectionRef: RefObject<HTMLElement | null>;
-  viewportRef: RefObject<HTMLDivElement | null>;
-  trackRef: RefObject<HTMLDivElement | null>;
+  contentRef: RefObject<HTMLDivElement | null>;
+  layersRef: RefObject<HTMLDivElement | null>;
 };
