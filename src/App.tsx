@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Facebook, Instagram } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 import { Hero } from './components/sections/hero/Hero';
@@ -12,6 +13,19 @@ import { ContactModal } from './components/ui/contact-modal';
 import { LocationModal } from './components/ui/LocationModal';
 
 type ActiveModal = 'contact' | 'location' | null;
+
+const SOCIAL_LINKS = [
+  {
+    href: 'https://www.facebook.com/jovymx/?locale=es_LA',
+    label: 'Facebook de Jovy',
+    Icon: Facebook,
+  },
+  {
+    href: 'https://www.instagram.com/jovymx',
+    label: 'Instagram de Jovy',
+    Icon: Instagram,
+  },
+] as const;
 
 export default function App() {
   const [activeModal, setActiveModal] = useState<ActiveModal>(null);
@@ -36,21 +50,38 @@ export default function App() {
       <nav className="fixed left-0 top-0 z-40 flex w-full items-center justify-between bg-transparent p-8">
         <img src="/logo.png" alt="Jovy" className="h-15 w-auto object-contain" draggable={false} />
 
-        <div className="flex gap-3 text-xs font-medium uppercase tracking-widest">
-          <button
-            type="button"
-            onClick={openContactModal}
-            className="rounded-full border border-white/40 bg-white/12 px-5 py-2.5 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-stone-900"
-          >
-            Contacto
-          </button>
-          <button
-            type="button"
-            onClick={openLocationModal}
-            className="rounded-full border border-white/40 bg-white/12 px-5 py-2.5 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-stone-900"
-          >
-            Ubicacion
-          </button>
+        <div className="flex items-center gap-3">
+          <div className="flex gap-3 text-xs font-medium uppercase tracking-widest">
+            <button
+              type="button"
+              onClick={openContactModal}
+              className="rounded-full border border-white/40 bg-white/12 px-5 py-2.5 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-stone-900"
+            >
+              Contacto
+            </button>
+            <button
+              type="button"
+              onClick={openLocationModal}
+              className="rounded-full border border-white/40 bg-white/12 px-5 py-2.5 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-stone-900"
+            >
+              Ubicacion
+            </button>
+          </div>
+
+          <div className="flex items-center gap-2">
+            {SOCIAL_LINKS.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-white/12 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-stone-900"
+              >
+                <Icon size={16} strokeWidth={2.1} />
+              </a>
+            ))}
+          </div>
         </div>
       </nav>
 
