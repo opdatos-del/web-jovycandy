@@ -10,8 +10,8 @@ export const HeroBackdrop = ({
   raysRef,
 }: HeroBackdropProps) => (
   <>
-    <div className="absolute inset-0 bg-[linear-gradient(180deg,#18c6c1_0%,#00AFAA_44%,#008f8b_100%)]" />
-    <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:28px_28px] opacity-40" />
+    <div className="absolute inset-0 " />
+    <div className="absolute inset-0" />
 
     <div ref={backgroundRef} className="absolute inset-0 flex translate-y-8 flex-col justify-center gap-3 overflow-hidden md:translate-y-8">
       {HERO_BACKGROUND_ROWS.map((row) => (
