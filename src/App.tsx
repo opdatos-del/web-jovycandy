@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
+
 import { Hero } from './components/sections/hero/Hero';
 import { UpcomingEvents } from './components/sections/UpcomingEvents';
 import { Intro } from './components/sections/Intro';
@@ -7,58 +8,69 @@ import { ScrollLogo } from './components/sections/ScrollLogo';
 import { Certifications } from './components/sections/Certifications';
 import { About } from './components/sections/brand/About';
 import { CategoryGrid } from './components/sections/products/category-grid/CategoryGrid';
-import { CustomCursor } from './components/ui/CustomCursor';
+import { ContactModal } from './components/ui/contact-modal';
+import { LocationModal } from './components/ui/LocationModal';
+
+type ActiveModal = 'contact' | 'location' | null;
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [activeModal, setActiveModal] = useState<ActiveModal>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
+  const openContactModal = () => setActiveModal('contact');
+  const openLocationModal = () => setActiveModal('location');
+  const closeModal = () => setActiveModal(null);
+
   useEffect(() => {
-    // Simulate premium loading
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
     return (
-      <div className="h-screen w-full bg-white flex items-center justify-center">
+      <div className="flex h-screen w-full items-center justify-center bg-white">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-stone-900 font-mono text-xs tracking-[1em] uppercase"
+          className="font-mono text-xs uppercase tracking-[1em] text-stone-900"
         >
-          Iniciando Experiencia
+          Iniciando experiencia
         </motion.div>
       </div>
     );
   }
 
   return (
-    <main className="relative bg-white selection:bg-stone-900 selection:text-white cursor-none">
-      <CustomCursor />
-      {/* Custom Scroll Progress */}
+    <main className="relative bg-white selection:bg-stone-900 selection:text-white">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-stone-900 z-50 origin-left"
+        className="fixed left-0 right-0 top-0 z-50 h-1 origin-left bg-stone-900"
         style={{ scaleX }}
       />
 
-      {/* Navigation Overlay */}
-      <nav className="fixed top-0 left-0 w-full p-8 flex justify-between items-center z-40 bg-transparent">
-        <img
-          src="/logo.png"
-          alt="Jovy"
-          className="h-15 w-auto object-contain"
-          draggable={false}
-        />
-        <div className="flex gap-8 text-black text-xs uppercase tracking-widest font-medium">
-          <a href="#" className="hover:text-white transition-colors">Opción 1</a>
-          <a href="#" className="hover:text-white transition-colors">Opción 2</a>
-          <a href="#" className="hover:text-white transition-colors">Opción 3</a>
+      <nav className="fixed left-0 top-0 z-40 flex w-full items-center justify-between bg-transparent p-8">
+        <img src="/logo.png" alt="Jovy" className="h-15 w-auto object-contain" draggable={false} />
+
+        <div className="flex gap-3 text-xs font-medium uppercase tracking-widest">
+          <button
+            type="button"
+            onClick={openContactModal}
+            className="rounded-full border border-white/40 bg-white/12 px-5 py-2.5 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-stone-900"
+          >
+            Contacto
+          </button>
+          <button
+            type="button"
+            onClick={openLocationModal}
+            className="rounded-full border border-white/40 bg-white/12 px-5 py-2.5 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-stone-900"
+          >
+            Ubicacion
+          </button>
         </div>
       </nav>
 
@@ -69,31 +81,40 @@ export default function App() {
       <Intro />
       <About />
 
-      
-      {/* CTA Section */}
-      <section className="py-32 w-full bg-white flex flex-col items-center justify-center border-t border-stone-200">
-        <motion.h2 
+      <section className="flex w-full flex-col items-center justify-center border-t border-stone-200 bg-white py-32">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-stone-900 text-4xl md:text-6xl font-light tracking-tighter text-center px-6"
+          className="px-6 text-center text-4xl font-light tracking-tighter text-stone-900 md:text-6xl"
         >
-          El sabor también puede ser diseño.
+          El sabor tambien puede ser diseno.
         </motion.h2>
         <motion.button
+          type="button"
+          onClick={openContactModal}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-12 px-12 py-4 border border-stone-200 text-stone-900 uppercase tracking-widest text-xs hover:bg-stone-900 hover:text-white transition-all duration-500"
+          className="mt-12 border border-stone-200 px-12 py-4 text-xs uppercase tracking-widest text-stone-900 transition-all duration-500 hover:bg-stone-900 hover:text-white"
         >
-          Contactar con el Atelier
+          Contactar con el atelier
         </motion.button>
       </section>
+
       <ScrollLogo />
-      <footer className="py-12 px-8 border-t border-stone-200 bg-white text-center">
-        <p className="text-stone-500 text-xs uppercase tracking-widest">
-          &copy; 2026 Jovy — El sabor también puede ser diseño.
+
+      <footer className="border-t border-stone-200 bg-white px-8 py-12 text-center">
+        <p className="text-xs uppercase tracking-widest text-stone-500">
+          &copy; 2026 Jovy - El sabor tambien puede ser diseno.
         </p>
       </footer>
+
+      <ContactModal open={activeModal === 'contact'} onClose={closeModal} />
+      <LocationModal
+        open={activeModal === 'location'}
+        onClose={closeModal}
+        onOpenContact={() => setActiveModal('contact')}
+      />
     </main>
   );
 }
