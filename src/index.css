@@ -13,12 +13,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background: #FFFFFF;
+    background: linear-gradient(180deg, #e83e8c 0%, #dc3545 100%);
   }
 
   body {
     @apply antialiased text-stone-900 overflow-x-hidden;
-    background: #FFFFFF;
+    background: linear-gradient(180deg, #e83e8c 0%, #dc3545 100%);
   }
 
   /* Hide scrollbar but keep functionality */

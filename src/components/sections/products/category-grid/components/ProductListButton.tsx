@@ -27,11 +27,11 @@ export const ProductListButton = ({
     onMouseLeave={onProductHoverEnd}
     onMouseMove={onTooltipMouseMove}
     className={`text-left py-3 px-4 rounded transition-all duration-300 flex flex-col w-full ${
-      isSelected ? 'bg-stone-100' : 'hover:bg-stone-50'
+      isSelected ? 'bg-white/25' : 'hover:bg-white/15'
     }`}
   >
     <div className="flex items-center justify-between w-full">
-      <span className={`text-sm ${isSelected ? 'text-stone-900 font-medium' : 'text-stone-500 hover:text-stone-700'}`}>
+      <span className={`text-sm ${isSelected ? 'text-white font-medium' : 'text-white/75 hover:text-white'}`}>
         {product.name}
       </span>
       {isSelected && (
