@@ -1,12 +1,15 @@
-"use client";
-
-import React, { useEffect, useMemo, useRef } from "react";
-import { motion, useMotionValueEvent, useScroll, useTransform } from "motion/react";
+import { useEffect, useRef, useState } from 'react';
+import { motion, useMotionValueEvent, useScroll, useTransform } from 'motion/react';
 
 const TOTAL_FRAMES = 120;
 const FRAME_PADDING = 2;
-const FRAME_PATH = "/frames/logo";
-const SECTION_HEIGHT = "300vh";
+const FRAME_PATH = '/frames/logo';
+const SECTION_HEIGHT = '300vh';
+const FRAME_ROOT_MARGIN = '150% 0px';
+const FRAMES = Array.from({ length: TOTAL_FRAMES }, (_, index) => {
+  const frameNumber = String(index + 1).padStart(FRAME_PADDING, '0');
+  return `${FRAME_PATH}/frame_${frameNumber}.webp`;
+});
 
 export function ScrollLogo() {
   const containerRef = useRef<HTMLElement | null>(null);
@@ -15,17 +18,11 @@ export function ScrollLogo() {
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
   const currentFrameRef = useRef(0);
   const rafRef = useRef<number | null>(null);
-
-  const frames = useMemo(() => {
-    return Array.from({ length: TOTAL_FRAMES }, (_, index) => {
-      const frameNumber = String(index + 1).padStart(FRAME_PADDING, "0");
-      return `${FRAME_PATH}/frame_${frameNumber}.webp`;
-    });
-  }, []);
+  const [shouldLoadFrames, setShouldLoadFrames] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
+    offset: ['start start', 'end end'],
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.08, 1], [0, 1, 1]);
@@ -53,7 +50,7 @@ export function ScrollLogo() {
       canvas.height = targetHeight;
     }
 
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext('2d');
 
     if (!context) {
       return;
@@ -63,7 +60,7 @@ export function ScrollLogo() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.setTransform(dpr, 0, 0, dpr, 0, 0);
     context.imageSmoothingEnabled = true;
-    context.imageSmoothingQuality = "high";
+    context.imageSmoothingQuality = 'high';
 
     const containScale = Math.min(cssWidth / image.naturalWidth, cssHeight / image.naturalHeight);
     const drawWidth = image.naturalWidth * containScale;
@@ -88,14 +85,42 @@ export function ScrollLogo() {
   };
 
   useEffect(() => {
+    const section = containerRef.current;
+
+    if (!section || shouldLoadFrames) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) {
+          return;
+        }
+
+        setShouldLoadFrames(true);
+        observer.disconnect();
+      },
+      { rootMargin: FRAME_ROOT_MARGIN }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, [shouldLoadFrames]);
+
+  useEffect(() => {
+    if (!shouldLoadFrames) {
+      return;
+    }
+
     let isCancelled = false;
     const loadedImages: HTMLImageElement[] = [];
 
     imagesRef.current = new Array(TOTAL_FRAMES).fill(null);
 
-    frames.forEach((src, index) => {
+    FRAMES.forEach((src, index) => {
       const image = new Image();
-      image.decoding = "async";
+      image.decoding = 'async';
       image.src = src;
 
       image.onload = () => {
@@ -124,10 +149,10 @@ export function ScrollLogo() {
       loadedImages.forEach((image) => {
         image.onload = null;
         image.onerror = null;
-        image.src = "";
+        image.src = '';
       });
     };
-  }, [frames]);
+  }, [shouldLoadFrames]);
 
   useEffect(() => {
     const redraw = () => requestDraw(currentFrameRef.current);
@@ -139,19 +164,16 @@ export function ScrollLogo() {
       resizeObserver.observe(stageRef.current);
     }
 
-    window.addEventListener("resize", redraw);
+    window.addEventListener('resize', redraw);
 
     return () => {
       resizeObserver.disconnect();
-      window.removeEventListener("resize", redraw);
+      window.removeEventListener('resize', redraw);
     };
   }, []);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const nextFrame = Math.max(
-      0,
-      Math.min(TOTAL_FRAMES - 1, Math.round(latest * (TOTAL_FRAMES - 1)))
-    );
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    const nextFrame = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.round(latest * (TOTAL_FRAMES - 1))));
 
     if (nextFrame !== currentFrameRef.current) {
       requestDraw(nextFrame);
@@ -159,11 +181,7 @@ export function ScrollLogo() {
   });
 
   return (
-    <section
-      ref={containerRef}
-      className="relative bg-stone-50"
-      style={{ height: SECTION_HEIGHT }}
-    >
+    <section ref={containerRef} className="relative bg-stone-50" style={{ height: SECTION_HEIGHT }}>
       <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
         <motion.div
           ref={stageRef}
@@ -172,7 +190,7 @@ export function ScrollLogo() {
         >
           <canvas
             ref={canvasRef}
-            aria-label="Animación del logo"
+            aria-label="Animacion del logo"
             className="pointer-events-none h-full w-full select-none"
           />
         </motion.div>

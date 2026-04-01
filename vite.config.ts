@@ -10,6 +10,43 @@ export default defineConfig(({mode}) => {
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            const normalizedId = id.split(path.sep).join('/');
+
+            if (normalizedId.includes('/src/components/sections/products/category-grid/')) {
+              return 'category-grid';
+            }
+
+            if (
+              normalizedId.includes('/src/components/ui/contact-modal/') ||
+              normalizedId.includes('/src/components/ui/LocationModal.tsx') ||
+              normalizedId.includes('/src/components/ui/ModalShell.tsx')
+            ) {
+              return 'modals';
+            }
+
+            if (normalizedId.includes('/src/components/sections/ScrollLogo.tsx')) {
+              return 'scroll-logo';
+            }
+
+            if (normalizedId.includes('/node_modules/')) {
+              if (normalizedId.includes('/gsap/')) {
+                return 'gsap';
+              }
+
+              if (normalizedId.includes('/lucide-react/')) {
+                return 'icons';
+              }
+
+              return 'vendor';
+            }
+          },
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

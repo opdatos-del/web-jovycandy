@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 import { Hero } from './components/sections/hero/Hero';
@@ -14,7 +14,6 @@ import { LocationModal } from './components/ui/LocationModal';
 type ActiveModal = 'contact' | 'location' | null;
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [activeModal, setActiveModal] = useState<ActiveModal>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -26,25 +25,6 @@ export default function App() {
   const openContactModal = () => setActiveModal('contact');
   const openLocationModal = () => setActiveModal('location');
   const closeModal = () => setActiveModal(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="flex h-screen w-full items-center justify-center bg-white">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="font-mono text-xs uppercase tracking-[1em] text-stone-900"
-        >
-          Iniciando experiencia
-        </motion.div>
-      </div>
-    );
-  }
 
   return (
     <main className="relative bg-white selection:bg-stone-900 selection:text-white">
