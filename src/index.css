@@ -11,14 +11,23 @@
 }
 
 @layer base {
+  :root {
+    --page-ivory: #fff5d4;
+    --page-cream: #fff1bf;
+    --page-aqua: #e8fbf7;
+    --page-blush: #fff0ec;
+    --page-blue: #edf5ff;
+    --page-line: #ffd88f;
+  }
+
   html {
     scroll-behavior: smooth;
-    background: linear-gradient(180deg, #e83e8c 0%, #dc3545 100%);
+    background: var(--page-ivory);
   }
 
   body {
     @apply antialiased text-stone-900 overflow-x-hidden;
-    background: linear-gradient(180deg, #e83e8c 0%, #dc3545 100%);
+    background: var(--page-ivory);
   }
 
   /* Hide scrollbar but keep functionality */

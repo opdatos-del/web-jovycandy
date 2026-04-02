@@ -35,16 +35,16 @@ export const CategoryAccordion = ({
   const hasSubcategories = category.branches.some((branch) => branch.subcategoryId);
 
   return (
-    <div className="border-b border-white/15 last:border-0">
+    <div className="border-b border-stone-200 last:border-0">
       <button onClick={() => onCategoryToggle(category.id)} className="w-full py-4 flex justify-between items-center text-left group">
         <span
           className={`text-lg font-bold uppercase tracking-wide transition-colors ${
-            isOpen ? 'text-white' : 'text-white/70 group-hover:text-white'
+            isOpen ? 'text-stone-900' : 'text-stone-500 group-hover:text-stone-900'
           }`}
         >
           {category.title}
         </span>
-        <ChevronDown size={16} className={`text-white/60 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown size={16} className={`text-stone-400 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -62,7 +62,7 @@ export const CategoryAccordion = ({
                   return (
                     <div key={branch.key} className="flex flex-col space-y-1">
                       {hasSubcategories && (
-                        <p className="px-4 pt-2 text-[10px] uppercase tracking-[0.35em] text-white/60 font-mono">
+                        <p className="px-4 pt-2 text-[10px] uppercase tracking-[0.35em] text-stone-400 font-mono">
                           {CATEGORY_GRID_GENERAL_LABEL}
                         </p>
                       )}

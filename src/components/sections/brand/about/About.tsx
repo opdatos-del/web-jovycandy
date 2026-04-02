@@ -11,7 +11,7 @@ export const About = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-x-hidden border-t border-stone-200 bg-white px-6 py-20 md:px-10 md:py-24 lg:px-20 lg:py-24"
+      className="relative overflow-x-hidden bg-[#fff0ec] px-6 py-20 md:px-10 md:py-24 lg:px-20 lg:py-24"
     >
       <AboutBackground />
 

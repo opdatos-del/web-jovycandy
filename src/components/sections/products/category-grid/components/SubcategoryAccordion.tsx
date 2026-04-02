@@ -28,18 +28,18 @@ export const SubcategoryAccordion = ({
   onProductHoverEnd,
   onTooltipMouseMove,
 }: SubcategoryAccordionProps) => (
-  <div className="border border-white/15 rounded-lg overflow-hidden bg-white/10">
+  <div className="border border-stone-200 rounded-lg overflow-hidden bg-[#faf5f0]">
     <button onClick={() => onToggle(branch.key)} className="w-full px-4 py-3 flex items-center justify-between text-left group">
       <span
         className={`text-xs uppercase tracking-[0.28em] font-mono transition-colors ${
-          isActive ? 'text-white' : 'text-white/70 group-hover:text-white'
+          isActive ? 'text-stone-900' : 'text-stone-500 group-hover:text-stone-900'
         }`}
       >
         {branch.title}
       </span>
       <ChevronDown
         size={14}
-        className={`text-white/60 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+        className={`text-stone-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
       />
     </button>
 

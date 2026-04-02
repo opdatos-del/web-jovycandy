@@ -36,7 +36,7 @@ export const Intro: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="min-h-[50vh] w-full bg-white flex flex-col items-center justify-center px-6 py-24 lg:py-32">
+    <section ref={containerRef} className="min-h-[50vh] w-full bg-[#e8fbf7] flex flex-col items-center justify-center px-6 py-24 lg:py-32">
       <div ref={textRef} className="max-w-4xl text-center">
         <h2 className="text-stone-400 text-xs uppercase tracking-[0.5em] mb-8 font-mono">
           01 — La Fábrica
@@ -53,7 +53,7 @@ export const Intro: React.FC = () => {
       </div>
       
       {/* Industrial Line Element */}
-      <div className="mt-16 w-px h-24 bg-gradient-to-b from-stone-200 to-transparent" />
+      <div className="mt-16 h-24 w-px bg-gradient-to-b from-[#ff8b6d] to-transparent" />
     </section>
   );
 };

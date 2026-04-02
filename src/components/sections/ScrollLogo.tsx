@@ -181,7 +181,7 @@ export function ScrollLogo() {
   });
 
   return (
-    <section ref={containerRef} className="relative bg-stone-50" style={{ height: SECTION_HEIGHT }}>
+    <section ref={containerRef} className="relative bg-[#edf5ff]" style={{ height: SECTION_HEIGHT }}>
       <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
         <motion.div
           ref={stageRef}
@@ -197,7 +197,7 @@ export function ScrollLogo() {
 
         <motion.div
           style={{ opacity: hintOpacity }}
-          className="absolute bottom-20 font-mono text-xs uppercase tracking-[0.3em] text-stone-400"
+          className="absolute bottom-20 font-mono text-xs uppercase tracking-[0.3em] text-[#1f4ea8]/65"
         >
           Scroll para descubrir
         </motion.div>

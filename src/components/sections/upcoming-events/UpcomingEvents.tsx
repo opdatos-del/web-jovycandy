@@ -5,8 +5,8 @@ export const UpcomingEvents = () => {
   const { sectionRef, viewportRef, trackRef } = useUpcomingEventsHorizontalScroll();
 
   return (
-    <section ref={sectionRef} className="relative h-screen overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-white" />
+    <section ref={sectionRef} className="relative h-screen overflow-hidden bg-[#fff5d4]">
+      <div className="absolute inset-0 bg-[#fff5d4]" />
 
       <div ref={viewportRef} className="relative h-full overflow-hidden">
         <UpcomingEventsTrack trackRef={trackRef} />

@@ -32,9 +32,9 @@ export const CategoryGrid = () => {
   const activeAccentColor = currentCategory?.accent ?? DEFAULT_ACCENT_COLOR;
 
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-[linear-gradient(180deg,#e83e8c_0%,#dc3545_100%)] min-h-screen flex flex-col relative z-10 text-white">
+    <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-white min-h-screen flex flex-col relative z-10 text-stone-900">
       <div className="max-w-[1600px] mx-auto w-full flex-grow flex flex-col">
-        <h2 className="text-white/70 text-xs uppercase tracking-[0.5em] mb-12 font-mono opacity-90 text-center md:text-left">
+        <h2 className="text-stone-400 text-xs uppercase tracking-[0.5em] mb-12 font-mono opacity-90 text-center md:text-left">
           {CATEGORY_GRID_SECTION_TITLE}
         </h2>
 

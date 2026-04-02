@@ -28,7 +28,7 @@ export const CatalogSidebar = ({
   onProductHoverEnd,
   onTooltipMouseMove,
 }: CatalogSidebarProps) => (
-  <div className="w-full lg:w-1/5 flex flex-col space-y-2 border-b lg:border-b-0 lg:border-r border-white/20 pb-8 lg:pb-0 lg:pr-8">
+  <div className="w-full lg:w-1/5 flex flex-col space-y-2 border-b lg:border-b-0 lg:border-r border-stone-200 pb-8 lg:pb-0 lg:pr-8">
     {catalogTree.map((category) => (
       <CategoryAccordion
         key={category.id}

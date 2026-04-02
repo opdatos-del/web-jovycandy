@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring } from 'motion/react';
 
 import { Hero } from './components/sections/hero/Hero';
 import { HeroEventsTransition } from './components/sections/HeroEventsTransition';
+import { SectionColorTransition } from './components/sections/SectionColorTransition';
 import { UpcomingEvents } from './components/sections/upcoming-events';
 import { Intro } from './components/sections/Intro';
 import { ScrollLogo } from './components/sections/ScrollLogo';
@@ -42,7 +43,7 @@ export default function App() {
   const closeModal = () => setActiveModal(null);
 
   return (
-    <main className="relative bg-white selection:bg-stone-900 selection:text-white">
+    <main className="relative bg-[#fff5d4] selection:bg-stone-900 selection:text-white">
       <motion.div
         className="fixed left-0 right-0 top-0 z-50 h-1 origin-left bg-stone-900"
         style={{ scaleX }}
@@ -89,12 +90,18 @@ export default function App() {
       <Hero />
       <HeroEventsTransition />
       <UpcomingEvents />
+      <SectionColorTransition fromColor="#fff5d4" toColor="#ff6a86" heightClassName="h-14 md:h-16 lg:h-20" />
       <Certifications />
+      <SectionColorTransition fromColor="#ff7f69" toColor="#ffffff" heightClassName="h-14 md:h-16 lg:h-20" />
       <CategoryGrid />
+      <SectionColorTransition fromColor="#ffffff" toColor="#e8fbf7" heightClassName="h-12 md:h-14 lg:h-16" />
       <Intro />
+      <SectionColorTransition fromColor="#e8fbf7" toColor="#fff0ec" heightClassName="h-12 md:h-14 lg:h-16" />
       <About />
 
-      <section className="flex w-full flex-col items-center justify-center border-t border-stone-200 bg-white py-32">
+      <SectionColorTransition fromColor="#fff0ec" toColor="#fff3c7" heightClassName="h-12 md:h-14 lg:h-16" />
+
+      <section className="flex w-full flex-col items-center justify-center bg-[#fff3c7] py-32">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -108,16 +115,19 @@ export default function App() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-12 border border-stone-200 px-12 py-4 text-xs uppercase tracking-widest text-stone-900 transition-all duration-500 hover:bg-stone-900 hover:text-white"
+          className="mt-12 border border-[#ff7f69] px-12 py-4 text-xs uppercase tracking-widest text-stone-900 transition-all duration-500 hover:bg-[#0f3daa] hover:text-white"
         >
           Contactar con el atelier
         </motion.button>
       </section>
 
+      <SectionColorTransition fromColor="#fff3c7" toColor="#edf5ff" heightClassName="h-12 md:h-14 lg:h-16" />
       <ScrollLogo />
 
-      <footer className="border-t border-stone-200 bg-white px-8 py-12 text-center">
-        <p className="text-xs uppercase tracking-widest text-stone-500">
+      <SectionColorTransition fromColor="#edf5ff" toColor="#00afaa" heightClassName="h-10 md:h-12 lg:h-14" />
+
+      <footer className="bg-[#00afaa] px-8 py-12 text-center">
+        <p className="text-xs uppercase tracking-widest text-white/80">
           &copy; 2026 Jovy - El sabor tambien puede ser diseno.
         </p>
       </footer>
