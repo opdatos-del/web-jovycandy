@@ -27,7 +27,7 @@ export const ContactForm = ({ topic, formState, onFieldChange, onSubmit }: Conta
         onFieldChange={onFieldChange}
       />
 
-      <div className="flex flex-col gap-4 rounded-[1.4rem] border border-[#efe0d7] bg-[#fffaf7] p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+      <div className="contact-form-footer flex flex-col rounded-[1.4rem] border border-[#efe0d7] bg-[#fffaf7]">
         <p className="max-w-xl text-xs leading-relaxed text-stone-500">
           Completa tus datos y dirigimos la solicitud al equipo correcto.
         </p>

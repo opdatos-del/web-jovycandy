@@ -12,7 +12,7 @@ export const ProductHeader = ({ product, branchLogo, accentColor, currentPathLab
   const certificationBadges = product.certifications.map((certification) => (
     <span
       key={certification}
-      className="rounded-sm border border-stone-200 bg-stone-100 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.16em] whitespace-nowrap text-stone-600 sm:tracking-widest md:text-[10px]"
+      className="product-header-badge rounded-sm border border-stone-200 bg-stone-100 px-2 py-1 font-mono text-[9px] uppercase whitespace-nowrap text-stone-600"
       title={certification}
     >
       {formatCertificationLabel(certification)}
@@ -20,8 +20,8 @@ export const ProductHeader = ({ product, branchLogo, accentColor, currentPathLab
   ));
 
   return (
-    <div className="relative mb-6 flex flex-col gap-4 border-b border-stone-200 pb-4 lg:min-h-[11rem]">
-      <div className="lg:pr-56 xl:pr-64">
+    <div className="product-header relative mb-6 flex flex-col gap-4 border-b border-stone-200 pb-4">
+      <div className="product-header-main">
         <h2
           className="mb-1 text-2xl font-bold uppercase tracking-tight transition-colors duration-500 sm:text-3xl lg:text-4xl"
           style={{ color: accentColor }}
@@ -30,7 +30,7 @@ export const ProductHeader = ({ product, branchLogo, accentColor, currentPathLab
         </h2>
         <p className="whitespace-pre-line text-xs font-medium text-stone-500 sm:text-sm">{product.subtitle}</p>
         {currentPathLabel && (
-          <p className="mt-3 break-words font-mono text-[10px] uppercase tracking-[0.18em] text-stone-400 sm:tracking-[0.35em]">{currentPathLabel}</p>
+          <p className="product-header-path mt-3 break-words font-mono text-[10px] uppercase text-stone-400">{currentPathLabel}</p>
         )}
 
         {product.certifications.length > 0 && (
@@ -41,12 +41,12 @@ export const ProductHeader = ({ product, branchLogo, accentColor, currentPathLab
       </div>
 
       {branchLogo && (
-        <div className="flex w-full flex-col items-start gap-4 lg:absolute lg:right-0 lg:top-0 lg:w-[13rem] lg:items-end lg:gap-5">
+        <div className="product-header-brand flex flex-col items-start">
           {branchLogo && (
             <img
               src={branchLogo.src}
               alt={branchLogo.alt}
-              className="h-auto w-auto max-w-[10rem] object-contain drop-shadow-[0_10px_18px_rgba(28,25,23,0.14)] sm:max-w-[11rem]"
+              className="product-header-logo h-auto w-auto object-contain drop-shadow-[0_10px_18px_rgba(28,25,23,0.14)]"
             />
           )}
         </div>

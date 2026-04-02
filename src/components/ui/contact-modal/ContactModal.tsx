@@ -19,14 +19,14 @@ export const ContactModal = ({ open, onClose }: ContactModalProps) => {
 
   return (
     <ModalShell open={open} onClose={onClose} title="Contacto" subtitle="Selecciona el area adecuada" size="xl">
-      <div className="grid gap-4 xl:grid-cols-[19.5rem_minmax(0,1fr)] xl:items-start">
+      <div className="contact-modal-layout grid">
         <ContactTopicList
           topics={topics}
           activeTopicId={activeTopicId}
           onTopicSelect={handleTopicSelect}
         />
 
-        <section className="rounded-[2rem] border border-[#edd8cf] bg-white p-4 shadow-[0_28px_80px_rgba(42,33,28,0.08)] sm:p-5 md:p-6">
+        <section className="contact-modal-panel rounded-[2rem] border border-[#edd8cf] bg-white shadow-[0_28px_80px_rgba(42,33,28,0.08)]">
           {isSubmittedSuccessfully ? (
             <ContactSuccessState topic={activeTopic} onReset={handleResetForm} onClose={onClose} />
           ) : (

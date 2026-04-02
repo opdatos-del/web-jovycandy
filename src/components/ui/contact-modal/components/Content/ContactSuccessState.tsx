@@ -10,11 +10,11 @@ export const ContactSuccessState = ({ topic, onReset, onClose }: ContactSuccessS
   <div className="overflow-hidden rounded-[1.7rem] border border-[#edd8cf] bg-[#fffaf6]">
     <div className={`h-1.5 w-full bg-gradient-to-r ${topic.accentClassName}`} />
 
-    <div className="flex min-h-0 flex-col justify-between gap-8 p-5 sm:min-h-[24rem] sm:p-6">
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start">
+    <div className="contact-success-shell flex min-h-0 flex-col justify-between">
+      <div className="contact-success-grid grid">
         <div>
           <p className="text-[10px] uppercase tracking-[0.24em] text-stone-400 sm:tracking-[0.4em]">{topic.eyebrow}</p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.05em] text-stone-900 sm:text-3xl">{topic.title}</h3>
+          <h3 className="contact-topic-header-title mt-3 font-semibold tracking-[-0.05em] text-stone-900">{topic.title}</h3>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-600">{topic.successMessage}</p>
         </div>
 
@@ -27,7 +27,7 @@ export const ContactSuccessState = ({ topic, onReset, onClose }: ContactSuccessS
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row">
+      <div className="contact-success-actions flex flex-col">
         <button
           type="button"
           onClick={onReset}

@@ -1,0 +1,311 @@
+@layer components {
+  .modal-shell-overlay {
+    align-items: flex-end;
+    padding: 0.75rem;
+  }
+
+  .modal-shell-surface {
+    border-radius: 1.5rem;
+  }
+
+  .modal-shell-header {
+    gap: 0.75rem;
+    padding-inline: 1rem;
+    padding-block: 1rem;
+  }
+
+  .modal-shell-subtitle {
+    letter-spacing: 0.24em;
+  }
+
+  .modal-shell-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-shell-close {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .modal-shell-content {
+    padding-inline: 1rem;
+    padding-block: 1rem;
+  }
+
+  .location-modal-body {
+    padding-inline: 0.75rem;
+    padding-block: 0.75rem;
+  }
+
+  .location-modal-grid {
+    gap: 1rem;
+  }
+
+  .location-modal-intro {
+    gap: 1rem;
+    padding-inline: 1rem;
+    padding-block: 1rem;
+  }
+
+  .location-modal-title {
+    font-size: 1.7rem;
+  }
+
+  .location-modal-description {
+    font-size: 0.875rem;
+  }
+
+  .location-modal-frame {
+    padding: 0.625rem;
+  }
+
+  .location-modal-map {
+    height: 16rem;
+  }
+
+  .location-modal-aside {
+    gap: 1rem;
+  }
+
+  .contact-modal-layout {
+    gap: 1rem;
+  }
+
+  .contact-modal-panel {
+    padding: 1rem;
+  }
+
+  .contact-topic-list {
+    position: static;
+    top: auto;
+    align-self: auto;
+  }
+
+  .contact-topic-list-title {
+    font-size: 1.25rem;
+  }
+
+  .contact-topic-list-grid {
+    gap: 0.75rem;
+  }
+
+  .contact-topic-header-inner {
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .contact-topic-header-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-topic-header-description {
+    font-size: 0.875rem;
+  }
+
+  .contact-topic-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .contact-form-footer {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .contact-success-shell {
+    gap: 2rem;
+    padding: 1.25rem;
+  }
+
+  .contact-success-grid {
+    gap: 1.25rem;
+  }
+
+  .contact-success-actions {
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .modal-shell-overlay {
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .modal-shell-surface {
+    border-radius: 2rem;
+  }
+
+  .modal-shell-header {
+    gap: 1rem;
+    padding-inline: 1.5rem;
+    padding-block: 1.25rem;
+  }
+
+  .modal-shell-subtitle {
+    letter-spacing: 0.4em;
+  }
+
+  .modal-shell-title {
+    font-size: 1.875rem;
+  }
+
+  .modal-shell-close {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .modal-shell-content {
+    padding-inline: 1.5rem;
+    padding-block: 1.5rem;
+  }
+
+  .location-modal-body {
+    padding-inline: 1rem;
+    padding-block: 1rem;
+  }
+
+  .location-modal-title {
+    font-size: 2.15rem;
+  }
+
+  .location-modal-description {
+    font-size: 0.96rem;
+  }
+
+  .location-modal-map {
+    height: 18rem;
+  }
+
+  .contact-modal-panel {
+    padding: 1.25rem;
+  }
+
+  .contact-topic-list-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-topic-list-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-topic-header-title {
+    font-size: 1.875rem;
+  }
+
+  .contact-topic-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .contact-form-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+  }
+
+  .contact-success-shell {
+    min-height: 24rem;
+    padding: 1.5rem;
+  }
+
+  .contact-success-actions {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-shell-header {
+    padding-inline: 2rem;
+  }
+
+  .modal-shell-title {
+    font-size: 2.25rem;
+  }
+
+  .modal-shell-content {
+    padding-inline: 2rem;
+    padding-block: 2rem;
+  }
+
+  .location-modal-body {
+    padding-inline: 1.5rem;
+    padding-block: 1.25rem;
+  }
+
+  .location-modal-intro {
+    padding-inline: 1.25rem;
+    padding-block: 1.25rem;
+  }
+
+  .location-modal-frame {
+    padding: 0.75rem;
+  }
+
+  .location-modal-map {
+    height: 20rem;
+  }
+
+  .location-modal-aside {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-modal-panel {
+    padding: 1.5rem;
+  }
+
+  .contact-topic-header-inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem;
+  }
+
+  .contact-topic-header-description {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .location-modal-intro {
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    align-items: flex-start;
+  }
+
+  .contact-success-grid {
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1280px) {
+  .location-modal-grid {
+    grid-template-columns: minmax(0, 1.55fr) 17.5rem;
+  }
+
+  .location-modal-map {
+    height: min(24rem, 38vh);
+  }
+
+  .location-modal-aside {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .contact-modal-layout {
+    grid-template-columns: 19.5rem minmax(0, 1fr);
+    align-items: flex-start;
+  }
+
+  .contact-topic-list {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+  }
+
+  .contact-topic-list-grid {
+    grid-template-columns: 1fr;
+  }
+}

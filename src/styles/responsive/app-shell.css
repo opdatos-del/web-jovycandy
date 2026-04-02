@@ -1,0 +1,107 @@
+@layer components {
+  .app-navbar-shell {
+    padding-block: 0.75rem;
+  }
+
+  .app-navbar-inner {
+    gap: 0.75rem;
+    padding-inline: 0.25rem;
+    padding-block: 0.25rem;
+  }
+
+  .app-navbar-logo {
+    height: 2.5rem;
+  }
+
+  .app-final-cta {
+    padding-block: 5rem;
+  }
+
+  .app-final-cta-title {
+    font-size: 1.875rem;
+  }
+
+  .app-final-cta-button {
+    margin-top: 2.5rem;
+    width: 100%;
+    padding-inline: 1.5rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+  }
+
+  .app-footer {
+    padding-block: 2.5rem;
+  }
+
+  .app-footer-copy {
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+  }
+}
+
+@media (min-width: 640px) {
+  .app-navbar-shell {
+    padding-block: 1rem;
+  }
+
+  .app-navbar-inner {
+    padding-inline: 0;
+  }
+
+  .app-navbar-logo {
+    height: 2.75rem;
+  }
+
+  .app-final-cta {
+    padding-block: 6rem;
+  }
+
+  .app-final-cta-title {
+    font-size: 2.25rem;
+  }
+
+  .app-final-cta-button {
+    margin-top: 3rem;
+    width: auto;
+    padding-inline: 3rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+  }
+
+  .app-footer {
+    padding-block: 3rem;
+  }
+
+  .app-footer-copy {
+    font-size: 0.75rem;
+    letter-spacing: 0.32em;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-navbar-logo {
+    height: 3rem;
+  }
+
+  .app-final-cta-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-navbar-shell {
+    padding-block: 1.5rem;
+  }
+
+  .app-navbar-logo {
+    height: 3.75rem;
+  }
+
+  .app-final-cta {
+    padding-block: 8rem;
+  }
+
+  .app-final-cta-title {
+    font-size: 3.75rem;
+  }
+}

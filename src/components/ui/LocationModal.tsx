@@ -15,21 +15,21 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
     title="Ubicacion"
     subtitle="Visitas y coordinacion"
     size="xl"
-    contentClassName="px-3 py-3 sm:px-4 sm:py-4 md:px-6 md:py-5"
+    contentClassName="location-modal-body"
   >
-    <div className="grid items-start gap-4 xl:grid-cols-[minmax(0,1.55fr)_17.5rem]">
+    <div className="location-modal-grid grid items-start">
       <section className="overflow-hidden rounded-[1.8rem] border border-[#eedcd3] bg-white shadow-[0_24px_64px_rgba(42,33,28,0.07)]">
-        <div className="grid gap-4 border-b border-[#f1e1d7] px-4 py-4 md:px-5 md:py-5 lg:grid-cols-[minmax(0,1fr)_13rem] lg:items-start">
+        <div className="location-modal-intro grid border-b border-[#f1e1d7]">
           <div>
             <span className="inline-flex rounded-full border border-[#ffe0a2] bg-[#fff5d4] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#cf6f4f] sm:tracking-[0.35em]">
               Mexico
             </span>
 
-            <h3 className="mt-4 max-w-2xl text-[1.7rem] font-semibold leading-[0.95] tracking-[-0.05em] text-stone-900 sm:text-[2.15rem]">
+            <h3 className="location-modal-title mt-4 max-w-2xl font-semibold leading-[0.95] tracking-[-0.05em] text-stone-900">
               Coordinamos visitas comerciales y reuniones con cita previa.
             </h3>
 
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-stone-600 sm:text-[0.96rem]">
+            <p className="location-modal-description mt-3 max-w-3xl leading-relaxed text-stone-600">
               Esta es la ubicacion de Procesadora De Alimentos Cale, S.A. De C.V. para referencia comercial y coordinacion de visitas.
             </p>
           </div>
@@ -49,7 +49,7 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
           </div>
         </div>
 
-        <div className="p-2.5 md:p-3">
+        <div className="location-modal-frame">
           <div className="overflow-hidden rounded-[1.45rem] border border-[#ead8cf] bg-[#fffaf7] p-2 shadow-[0_12px_32px_rgba(42,33,28,0.06)]">
             <div className="overflow-hidden rounded-[1.1rem]">
               <iframe
@@ -61,14 +61,14 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Mapa de ubicacion de Procesadora De Alimentos Cale"
-                className="h-[16rem] w-full sm:h-[18rem] md:h-[20rem] xl:h-[min(24rem,38vh)]"
+                className="location-modal-map w-full"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <aside className="grid gap-4 md:grid-cols-2 xl:flex xl:h-full xl:flex-col">
+      <aside className="location-modal-aside grid">
         <div className="rounded-[1.8rem] border border-[#eedcd3] bg-[#fffaf6] p-5">
           <div className="flex items-start gap-3">
             <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[1rem] bg-[#0f3daa] text-white">

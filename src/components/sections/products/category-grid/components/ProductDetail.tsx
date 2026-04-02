@@ -32,8 +32,8 @@ export const ProductDetail = ({
 }: ProductDetailProps) => (
   <ScrollReveal className="w-full min-w-0 xl:flex-1" direction="right" distance={34} delay={0.12}>
     <div className="flex min-w-0 flex-col">
-      <div className="flex flex-col overflow-hidden rounded-xl border border-stone-200 bg-white shadow-xl lg:flex-row">
-        <div className="relative flex w-full items-center justify-center border-b border-stone-200 bg-gradient-to-br from-stone-50 to-white p-5 sm:p-6 lg:w-2/5 lg:border-b-0 lg:border-r lg:p-8">
+      <div className="product-detail-card flex overflow-hidden rounded-xl border border-stone-200 bg-white shadow-xl">
+        <div className="product-detail-media-panel relative flex items-center justify-center bg-gradient-to-br from-stone-50 to-white">
           <ProductMedia
             variant="primary"
             src={product.image}
@@ -43,7 +43,7 @@ export const ProductDetail = ({
           />
         </div>
 
-        <div className="flex w-full flex-col bg-white p-5 text-stone-900 transition-colors duration-500 sm:p-6 lg:w-3/5 lg:p-8">
+        <div className="product-detail-content-panel flex flex-col bg-white text-stone-900 transition-colors duration-500">
           <motion.div
             key={`details-${product.id}-${branch.key}`}
             initial={{ opacity: 0, x: 20 }}
@@ -58,11 +58,11 @@ export const ProductDetail = ({
               currentPathLabel={currentPathLabel}
             />
 
-            <div className="grid flex-grow grid-cols-1 gap-6 xl:grid-cols-2 xl:gap-8">
+            <div className="product-detail-grid grid flex-grow">
               <ProductSpecs specs={product.specs} accentColor={category.accent} />
 
               <div className="flex flex-col">
-                <div className="mb-4 h-28 w-full shrink-0 overflow-hidden rounded-sm border border-stone-200 shadow-sm sm:h-32">
+                <div className="product-detail-secondary-media mb-4 w-full shrink-0 overflow-hidden rounded-sm border border-stone-200 shadow-sm">
                   <ProductMedia variant="secondary" src={product.secondaryImage} alt={`${product.name} detail`} />
                 </div>
 

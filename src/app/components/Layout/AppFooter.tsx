@@ -1,10 +1,10 @@
 import { ScrollReveal } from '../../../components/ui/ScrollReveal';
 
 export const AppFooter = () => (
-  <footer className="bg-[#00afaa] py-10 text-center sm:py-12">
+  <footer className="app-footer bg-[#00afaa] text-center">
     <div className="page-shell">
       <ScrollReveal>
-        <p className="text-[11px] uppercase tracking-[0.22em] text-white/80 sm:text-xs sm:tracking-[0.32em]">
+        <p className="app-footer-copy uppercase text-white/80">
           &copy; 2026 Jovy - El sabor tambien puede ser diseno.
         </p>
       </ScrollReveal>

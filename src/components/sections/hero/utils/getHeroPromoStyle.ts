@@ -7,4 +7,6 @@ export const getHeroPromoStyle = (promo: HeroPromo): HeroPromoStyle => ({
   '--promo-width-desktop': promo.imageWidth.desktop,
   '--promo-offset-mobile': promo.imageOffset.mobile,
   '--promo-offset-desktop': promo.imageOffset.desktop,
+  '--promo-rays-anchor-top-mobile': promo.raysAnchorTop.mobile,
+  '--promo-rays-anchor-top-desktop': promo.raysAnchorTop.desktop,
 });

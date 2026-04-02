@@ -1,19 +1,11 @@
 import { HERO_BACKGROUND_COPY, HERO_BACKGROUND_ROWS } from '../constants/hero.constants';
 import type { HeroSceneRefs } from '../types/hero.types';
 
-type HeroBackdropProps = Pick<HeroSceneRefs, 'backgroundRef' | 'haloRef' | 'glowRef' | 'raysRef'>;
+type HeroBackdropProps = Pick<HeroSceneRefs, 'backgroundRef'>;
 
-export const HeroBackdrop = ({
-  backgroundRef,
-  haloRef,
-  glowRef,
-  raysRef,
-}: HeroBackdropProps) => (
+export const HeroBackdrop = ({ backgroundRef }: HeroBackdropProps) => (
   <>
-    <div className="absolute inset-0 " />
-    <div className="absolute inset-0" />
-
-    <div ref={backgroundRef} className="absolute inset-0 flex translate-y-4 flex-col justify-center gap-3 overflow-hidden sm:translate-y-6 md:translate-y-8">
+    <div ref={backgroundRef} className="hero-backdrop-copy absolute inset-0 flex flex-col justify-center overflow-hidden">
       {HERO_BACKGROUND_ROWS.map((row) => (
         <p
           key={row.id}
@@ -23,27 +15,5 @@ export const HeroBackdrop = ({
         </p>
       ))}
     </div>
-
-    <div
-      ref={haloRef}
-      className="absolute left-1/2 top-[52%] h-[15rem] w-[15rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[110px] sm:h-[18rem] sm:w-[18rem] md:top-[54%] md:h-[30rem] md:w-[30rem]"
-    />
-    <div
-      ref={glowRef}
-      className="absolute left-1/2 top-[55%] h-[11rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px] sm:h-[14rem] sm:w-[24rem] md:top-[57%] md:h-[20rem] md:w-[38rem]"
-    />
-    <div
-      ref={raysRef}
-      className="absolute left-1/2 top-[52%] h-[18rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 opacity-60 sm:h-[24rem] sm:w-[24rem] md:top-[54%] md:h-[38rem] md:w-[38rem]"
-      style={{
-        backgroundImage:
-          'repeating-conic-gradient(from 0deg, rgba(255,255,255,0.75) 0deg 5deg, rgba(255,255,255,0) 5deg 20deg)',
-        WebkitMaskImage:
-          'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 16%, rgba(0,0,0,0) 74%)',
-        maskImage:
-          'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 16%, rgba(0,0,0,0) 74%)',
-      }}
-    />
-    <div className="absolute bottom-[10%] left-1/2 h-12 w-[min(82vw,28rem)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,79,77,0.32),transparent_72%)] blur-[22px] sm:h-14 sm:w-[min(76vw,32rem)] md:bottom-[12%] md:h-16 md:w-[min(72vw,36rem)] md:blur-[24px]" />
   </>
 );

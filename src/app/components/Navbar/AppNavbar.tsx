@@ -15,12 +15,12 @@ export const AppNavbar = ({
   toggleMobileMenu,
 }: AppNavbarProps) => (
   <nav className="fixed inset-x-0 top-0 z-40">
-    <div className="page-shell-wide py-3 sm:py-4 lg:py-6">
-      <div className="flex items-center justify-between gap-3 bg-transparent px-1 py-1 text-stone-900 sm:px-0 lg:px-0">
+    <div className="app-navbar-shell page-shell-wide">
+      <div className="app-navbar-inner flex items-center justify-between bg-transparent text-stone-900">
         <img
           src="/logo.png"
           alt="Jovy"
-          className="h-10 w-auto object-contain drop-shadow-[0_8px_18px_rgba(68,54,40,0.12)] sm:h-11 md:h-12 lg:h-15"
+          className="app-navbar-logo w-auto object-contain drop-shadow-[0_8px_18px_rgba(68,54,40,0.12)]"
           draggable={false}
         />
 

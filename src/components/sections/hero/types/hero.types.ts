@@ -17,6 +17,7 @@ export type HeroPromo = {
   imageTop: HeroResponsiveValue;
   imageWidth: HeroResponsiveValue;
   imageOffset: HeroResponsiveValue;
+  raysAnchorTop: HeroResponsiveValue;
 };
 
 export type HeroBackgroundRow = {
@@ -31,6 +32,8 @@ export type HeroPromoStyle = CSSProperties & {
   '--promo-width-desktop': string;
   '--promo-offset-mobile': string;
   '--promo-offset-desktop': string;
+  '--promo-rays-anchor-top-mobile': string;
+  '--promo-rays-anchor-top-desktop': string;
 };
 
 export type HeroSceneRefs = {

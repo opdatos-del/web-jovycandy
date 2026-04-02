@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./styles/responsive.css";
+@import "./styles/responsive/index.css";
 
 @theme {
   --font-sans: "Roboto Condensed", "Open Sans", "Roboto", ui-sans-serif, system-ui, sans-serif;

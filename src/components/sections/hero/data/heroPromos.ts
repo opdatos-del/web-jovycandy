@@ -11,16 +11,20 @@ export const HERO_PROMOS: HeroPromo[] = [
     secondary: '#9ff3eb',
     shadow: 'rgba(255, 138, 160, 0.30)',
     imageTop: {
-      mobile: '41%',
-      desktop: '47%',
+      mobile: '49%',
+      desktop: '48.5%',
     },
     imageWidth: {
-      mobile: 'min(86vw, 19rem)',
-      desktop: 'min(48vw, 34rem)',
+      mobile: 'min(96vw, 23rem)',
+      desktop: 'min(50vw, 35.5rem)',
     },
     imageOffset: {
-      mobile: '0rem',
-      desktop: '0.55rem',
+      mobile: '1.15rem',
+      desktop: '1.1rem',
+    },
+    raysAnchorTop: {
+      mobile: '48%',
+      desktop: '48%',
     },
   },
   {
@@ -33,16 +37,20 @@ export const HERO_PROMOS: HeroPromo[] = [
     secondary: '#7fd8ff',
     shadow: 'rgba(255, 209, 102, 0.30)',
     imageTop: {
-      mobile: '40%',
+      mobile: '46%',
       desktop: '45%',
     },
     imageWidth: {
-      mobile: 'min(86vw, 19rem)',
-      desktop: 'min(48vw, 34rem)',
+      mobile: 'min(96vw, 23rem)',
+      desktop: 'min(50vw, 35.5rem)',
     },
     imageOffset: {
-      mobile: '-0.2rem',
+      mobile: '-0.05rem',
       desktop: '0.2rem',
+    },
+    raysAnchorTop: {
+      mobile: '46%',
+      desktop: '46%',
     },
   },
 ];

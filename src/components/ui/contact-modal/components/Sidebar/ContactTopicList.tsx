@@ -8,16 +8,16 @@ type ContactTopicListProps = {
 };
 
 export const ContactTopicList = ({ topics, activeTopicId, onTopicSelect }: ContactTopicListProps) => (
-  <aside className="rounded-[2rem] border border-[#f1deb5] bg-[#fff4d9] p-4 xl:sticky xl:top-0 xl:self-start">
+  <aside className="contact-topic-list rounded-[2rem] border border-[#f1deb5] bg-[#fff4d9] p-4">
     <div className="border-b border-[#f0dfb5] pb-4">
       <p className="text-[10px] uppercase tracking-[0.24em] text-[#cf6f4f] sm:tracking-[0.4em]">Canales de contacto</p>
-      <h3 className="mt-3 text-xl font-semibold tracking-[-0.05em] text-stone-900 sm:text-2xl">Elige el tema correcto.</h3>
+      <h3 className="contact-topic-list-title mt-3 font-semibold tracking-[-0.05em] text-stone-900">Elige el tema correcto.</h3>
       <p className="mt-3 text-sm leading-relaxed text-stone-600">
         Un solo formulario para ventas, soporte y material comercial, con el contexto correcto desde el inicio.
       </p>
     </div>
 
-    <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+    <div className="contact-topic-list-grid mt-4 grid">
       {topics.map((topic) => (
         <ContactTopicButton
           key={topic.id}

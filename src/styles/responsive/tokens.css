@@ -1,0 +1,69 @@
+@layer base {
+  :root {
+    --site-nav-height: 4.5rem;
+    --section-gutter: 1rem;
+    --section-max-width: 90rem;
+    --section-max-width-wide: 100rem;
+    --section-space: clamp(4.5rem, 8vw, 7.5rem);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    min-width: 320px;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg,
+  iframe {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+@media (max-width: 389px) {
+  :root {
+    --section-gutter: 0.875rem;
+  }
+}
+
+@media (min-width: 640px) {
+  :root {
+    --site-nav-height: 5rem;
+    --section-gutter: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --site-nav-height: 5.5rem;
+    --section-gutter: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-gutter: 2.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --section-max-width: 96rem;
+    --section-max-width-wide: 104rem;
+  }
+}
