@@ -20,7 +20,7 @@ export const AboutLayerCard = ({ item }: AboutLayerCardProps) => (
 
     <div className="relative flex items-start justify-between gap-5">
       <div className="max-w-[16rem]">
-        <p className="text-[10px] font-mono uppercase tracking-[0.45em] text-stone-400">
+        <p className="text-[10px] font-mono uppercase tracking-[0.24em] text-stone-400 sm:tracking-[0.45em]">
           {item.kicker}
         </p>
         <h3 className="mt-3 max-w-[12ch] text-[1.45rem] font-light leading-tight tracking-tight text-stone-900 sm:mt-4 sm:text-[1.65rem] lg:text-[1.85rem]">
@@ -38,7 +38,7 @@ export const AboutLayerCard = ({ item }: AboutLayerCardProps) => (
         {item.body}
       </p>
 
-      <div className="mt-5 flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.35em] text-stone-500">
+      <div className="mt-5 flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-stone-500 sm:tracking-[0.35em]">
         <span className="h-px w-10 bg-stone-300" />
         <span>{item.detail}</span>
       </div>

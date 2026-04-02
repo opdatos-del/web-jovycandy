@@ -20,7 +20,7 @@ export const AppFinalCta = ({ onContactClick }: AppFinalCtaProps) => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="mt-10 inline-flex w-full items-center justify-center border border-[#ff7f69] px-8 py-4 text-xs uppercase tracking-[0.3em] text-stone-900 transition-all duration-500 hover:bg-[#0f3daa] hover:text-white sm:mt-12 sm:w-auto sm:px-12"
+        className="mt-10 inline-flex w-full items-center justify-center border border-[#ff7f69] px-6 py-4 text-[11px] uppercase tracking-[0.22em] text-stone-900 transition-all duration-500 hover:bg-[#0f3daa] hover:text-white sm:mt-12 sm:w-auto sm:px-12 sm:text-xs sm:tracking-[0.3em]"
       >
         Contactar con el atelier
       </motion.button>

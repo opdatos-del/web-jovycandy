@@ -21,7 +21,7 @@ export const ContactTopicButton = ({ topic, isActive, onSelect }: ContactTopicBu
     >
       <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${topic.accentClassName} ${isActive ? 'opacity-100' : 'opacity-0 transition-opacity group-hover:opacity-70'}`} />
 
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 items-start gap-3">
         <span
           className={`inline-flex h-10 w-10 items-center justify-center rounded-[1rem] ${
             isActive ? `bg-gradient-to-br ${topic.accentClassName} text-white` : 'bg-[#fff3ed] text-[#ff6b71]'
@@ -29,11 +29,11 @@ export const ContactTopicButton = ({ topic, isActive, onSelect }: ContactTopicBu
         >
           <Icon size={18} />
         </span>
-        <div>
-          <p className={`text-[10px] uppercase tracking-[0.32em] ${isActive ? 'text-[#cf6f4f]' : 'text-stone-400'}`}>
+        <div className="min-w-0">
+          <p className={`text-[10px] uppercase tracking-[0.2em] ${isActive ? 'text-[#cf6f4f]' : 'text-stone-400'} sm:tracking-[0.32em]`}>
             {topic.eyebrow}
           </p>
-          <p className="mt-1 text-sm font-semibold uppercase tracking-[0.08em]">{topic.label}</p>
+          <p className="mt-1 break-words text-sm font-semibold uppercase leading-snug tracking-[0.04em] sm:tracking-[0.08em]">{topic.label}</p>
         </div>
       </div>
     </button>

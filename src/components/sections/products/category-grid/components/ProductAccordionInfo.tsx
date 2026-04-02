@@ -13,8 +13,8 @@ export const ProductAccordionInfo = ({ items, activeInfoIndex, onInfoToggle }: P
   <div className="space-y-1">
     {items.map((item, index) => (
       <div key={`${item.title}-${index}`} className="border-b border-stone-200">
-        <button onClick={() => onInfoToggle(index)} className="w-full py-2 flex justify-between items-center text-left group">
-          <span className="text-xs uppercase tracking-widest font-bold text-stone-700 group-hover:text-stone-900 transition-colors">
+        <button onClick={() => onInfoToggle(index)} className="flex w-full items-center justify-between py-2 text-left group">
+          <span className="pr-3 text-xs font-bold uppercase tracking-[0.18em] text-stone-700 transition-colors group-hover:text-stone-900 sm:tracking-widest">
             {item.title}
           </span>
           <span className="text-stone-400 group-hover:text-stone-600 transition-colors">

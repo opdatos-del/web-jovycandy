@@ -12,7 +12,7 @@ export const Certifications: React.FC = () => {
           viewport={{ once: true }}
           className="flex flex-col"
         >
-          <h2 className="mb-6 text-xs font-mono uppercase tracking-[0.5em] text-white/75">
+          <h2 className="mb-6 text-xs font-mono uppercase tracking-[0.24em] text-white/75 sm:tracking-[0.5em]">
             Nuestros Certificados
           </h2>
           <h3 className="mb-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:mb-8 lg:text-6xl">

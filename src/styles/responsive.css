@@ -42,6 +42,12 @@
   }
 }
 
+@media (max-width: 389px) {
+  :root {
+    --section-gutter: 0.875rem;
+  }
+}
+
 @media (min-width: 768px) {
   :root {
     --site-nav-height: 5.5rem;

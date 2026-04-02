@@ -29,9 +29,9 @@ export const SubcategoryAccordion = ({
   onTooltipMouseMove,
 }: SubcategoryAccordionProps) => (
   <div className="border border-stone-200 rounded-lg overflow-hidden bg-[#faf5f0]">
-    <button onClick={() => onToggle(branch.key)} className="w-full px-4 py-3 flex items-center justify-between text-left group">
+    <button onClick={() => onToggle(branch.key)} className="flex w-full items-center justify-between px-4 py-3 text-left group">
       <span
-        className={`text-xs uppercase tracking-[0.28em] font-mono transition-colors ${
+        className={`pr-3 font-mono text-xs uppercase tracking-[0.18em] transition-colors sm:tracking-[0.28em] ${
           isActive ? 'text-stone-900' : 'text-stone-500 group-hover:text-stone-900'
         }`}
       >

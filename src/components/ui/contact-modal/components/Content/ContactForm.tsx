@@ -34,7 +34,7 @@ export const ContactForm = ({ topic, formState, onFieldChange, onSubmit }: Conta
 
         <button
           type="submit"
-          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-white transition-transform hover:-translate-y-0.5 sm:w-auto"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition-transform hover:-translate-y-0.5 sm:w-auto sm:tracking-[0.24em]"
         >
           {topic.submitLabel} <ArrowRight size={16} />
         </button>

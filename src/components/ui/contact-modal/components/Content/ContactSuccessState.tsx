@@ -13,13 +13,13 @@ export const ContactSuccessState = ({ topic, onReset, onClose }: ContactSuccessS
     <div className="flex min-h-0 flex-col justify-between gap-8 p-5 sm:min-h-[24rem] sm:p-6">
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.4em] text-stone-400">{topic.eyebrow}</p>
+          <p className="text-[10px] uppercase tracking-[0.24em] text-stone-400 sm:tracking-[0.4em]">{topic.eyebrow}</p>
           <h3 className="mt-3 text-2xl font-semibold tracking-[-0.05em] text-stone-900 sm:text-3xl">{topic.title}</h3>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-stone-600">{topic.successMessage}</p>
         </div>
 
         <div className="rounded-[1.35rem] border border-[#efe0d7] bg-white p-4">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-[#00a39d]">Estado</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#00a39d] sm:tracking-[0.35em]">Estado</p>
           <p className="mt-2 text-lg font-semibold tracking-[-0.03em] text-stone-900">Solicitud recibida</p>
           <p className="mt-2 text-sm leading-relaxed text-stone-600">
             El siguiente paso sera responderte por el correo que capturaste en el formulario.
@@ -31,14 +31,14 @@ export const ContactSuccessState = ({ topic, onReset, onClose }: ContactSuccessS
         <button
           type="button"
           onClick={onReset}
-          className="inline-flex w-full items-center justify-center rounded-full border border-[#e9d5cb] px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-stone-700 transition-colors hover:border-[#ffb79d] sm:w-auto"
+          className="inline-flex w-full items-center justify-center rounded-full border border-[#e9d5cb] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-stone-700 transition-colors hover:border-[#ffb79d] sm:w-auto sm:tracking-[0.24em]"
         >
           Nueva solicitud
         </button>
         <button
           type="button"
           onClick={onClose}
-          className="inline-flex w-full items-center justify-center rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-white transition-opacity hover:opacity-90 sm:w-auto"
+          className="inline-flex w-full items-center justify-center rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-90 sm:w-auto sm:tracking-[0.24em]"
         >
           Cerrar
         </button>

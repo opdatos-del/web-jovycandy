@@ -12,7 +12,7 @@ export const ProductHeader = ({ product, branchLogo, accentColor, currentPathLab
   const certificationBadges = product.certifications.map((certification) => (
     <span
       key={certification}
-      className="rounded-sm border border-stone-200 bg-stone-100 px-2 py-1 font-mono text-[9px] uppercase tracking-widest whitespace-nowrap text-stone-600 md:text-[10px]"
+      className="rounded-sm border border-stone-200 bg-stone-100 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.16em] whitespace-nowrap text-stone-600 sm:tracking-widest md:text-[10px]"
       title={certification}
     >
       {formatCertificationLabel(certification)}
@@ -30,7 +30,7 @@ export const ProductHeader = ({ product, branchLogo, accentColor, currentPathLab
         </h2>
         <p className="whitespace-pre-line text-xs font-medium text-stone-500 sm:text-sm">{product.subtitle}</p>
         {currentPathLabel && (
-          <p className="mt-3 text-[10px] uppercase tracking-[0.35em] text-stone-400 font-mono">{currentPathLabel}</p>
+          <p className="mt-3 break-words font-mono text-[10px] uppercase tracking-[0.18em] text-stone-400 sm:tracking-[0.35em]">{currentPathLabel}</p>
         )}
 
         {product.certifications.length > 0 && (

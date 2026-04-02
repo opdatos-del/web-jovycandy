@@ -26,7 +26,7 @@ const getGridClassName = (fields: ContactFormFieldConfig[]) =>
 
 const ContactInputField = ({ field, value, onFieldChange }: ContactInputFieldProps) => (
   <label className="block">
-    <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.28em] text-stone-500">
+    <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500 sm:tracking-[0.28em]">
       {field.label}
     </span>
     <input
@@ -51,7 +51,7 @@ export const ContactFormFields = ({
     <>
       <section className="rounded-[1.4rem] border border-[#f0dfd5] bg-[#fffdfa] p-4 md:p-5">
         <div className="mb-4">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-[#cf6f4f]">Datos de contacto</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#cf6f4f] sm:tracking-[0.35em]">Datos de contacto</p>
           <p className="mt-2 text-sm leading-relaxed text-stone-600">
             Usaremos esta informacion para responderte y canalizar la solicitud.
           </p>
@@ -71,7 +71,7 @@ export const ContactFormFields = ({
           </div>
 
           <div className="rounded-[1.25rem] border border-[#f2e4db] bg-white p-4">
-            <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-[#00a39d]">Ubicacion</p>
+            <p className="mb-3 text-[10px] uppercase tracking-[0.22em] text-[#00a39d] sm:tracking-[0.35em]">Ubicacion</p>
             <div className={getGridClassName(location)}>
               {location.map((field) => (
                 <ContactInputField key={field.name} field={field} value={formState[field.name]} onFieldChange={onFieldChange} />
@@ -83,14 +83,14 @@ export const ContactFormFields = ({
 
       <section className="rounded-[1.4rem] border border-[#f0dfd5] bg-[#fff6f1] p-4 md:p-5">
         <div className="mb-4">
-          <p className="text-[10px] uppercase tracking-[0.35em] text-[#0f3daa]">Detalle de solicitud</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#0f3daa] sm:tracking-[0.35em]">Detalle de solicitud</p>
           <p className="mt-2 text-sm leading-relaxed text-stone-600">
             Comparte el contexto para dirigir el seguimiento con mayor claridad.
           </p>
         </div>
 
         <label className="block">
-          <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.28em] text-stone-500">
+          <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500 sm:tracking-[0.28em]">
             {CONTACT_FORM_MESSAGE_FIELD.label}
           </span>
           <textarea

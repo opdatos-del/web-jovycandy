@@ -15,7 +15,7 @@ export const HERO_PROMOS: HeroPromo[] = [
       desktop: '47%',
     },
     imageWidth: {
-      mobile: 'min(92vw, 22rem)',
+      mobile: 'min(86vw, 19rem)',
       desktop: 'min(48vw, 34rem)',
     },
     imageOffset: {
@@ -37,7 +37,7 @@ export const HERO_PROMOS: HeroPromo[] = [
       desktop: '45%',
     },
     imageWidth: {
-      mobile: 'min(92vw, 22rem)',
+      mobile: 'min(86vw, 19rem)',
       desktop: 'min(48vw, 34rem)',
     },
     imageOffset: {

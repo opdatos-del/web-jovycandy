@@ -86,7 +86,7 @@ export const ModalShell = ({
             <div className="relative flex items-start justify-between gap-3 border-b border-[#f1ded5] px-4 py-4 sm:gap-4 sm:px-6 sm:py-5 md:px-8">
               <div>
                 {subtitle ? (
-                  <p className="text-[10px] uppercase tracking-[0.4em] text-stone-400">{subtitle}</p>
+                  <p className="text-[10px] uppercase tracking-[0.24em] text-stone-400 sm:tracking-[0.4em]">{subtitle}</p>
                 ) : null}
                 <h2 className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-stone-900 sm:text-3xl md:text-4xl">{title}</h2>
               </div>

@@ -8,7 +8,7 @@ export const AboutHeader = ({ content }: AboutHeaderProps) => (
   <>
     <div className="flex items-center gap-3 sm:gap-4">
       <span className="h-px w-10 bg-stone-300 sm:w-12" />
-      <p className="text-[10px] font-mono uppercase tracking-[0.5em] text-stone-400">
+      <p className="text-[10px] font-mono uppercase tracking-[0.28em] text-stone-400 sm:tracking-[0.5em]">
         {content.eyebrow}
       </p>
     </div>

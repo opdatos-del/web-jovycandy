@@ -11,7 +11,7 @@ type UpcomingEventsTrackProps = {
 export const UpcomingEventsTrack = ({ trackRef }: UpcomingEventsTrackProps) => (
   <div
     ref={trackRef}
-    className="relative z-20 flex min-w-max items-stretch gap-4 px-4 py-2 will-change-transform sm:gap-5 sm:px-6 md:py-4 lg:h-full lg:items-center lg:gap-10 lg:px-16 lg:py-12"
+    className="relative z-20 flex min-w-max items-stretch gap-3 px-3 py-2 will-change-transform sm:gap-5 sm:px-6 md:py-4 lg:h-full lg:items-center lg:gap-10 lg:px-16 lg:py-12"
   >
     <UpcomingEventsIntroCard />
 

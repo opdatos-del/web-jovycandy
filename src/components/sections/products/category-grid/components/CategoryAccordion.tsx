@@ -36,9 +36,9 @@ export const CategoryAccordion = ({
 
   return (
     <div className="border-b border-stone-200 last:border-0">
-      <button onClick={() => onCategoryToggle(category.id)} className="w-full py-4 flex justify-between items-center text-left group">
+      <button onClick={() => onCategoryToggle(category.id)} className="flex w-full items-center justify-between py-4 text-left group">
         <span
-          className={`text-lg font-bold uppercase tracking-wide transition-colors ${
+          className={`pr-3 text-base font-bold uppercase tracking-[0.06em] transition-colors sm:text-lg sm:tracking-wide ${
             isOpen ? 'text-stone-900' : 'text-stone-500 group-hover:text-stone-900'
           }`}
         >
@@ -62,7 +62,7 @@ export const CategoryAccordion = ({
                   return (
                     <div key={branch.key} className="flex flex-col space-y-1">
                       {hasSubcategories && (
-                        <p className="px-4 pt-2 text-[10px] uppercase tracking-[0.35em] text-stone-400 font-mono">
+                        <p className="px-4 pt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-stone-400 sm:tracking-[0.35em]">
                           {CATEGORY_GRID_GENERAL_LABEL}
                         </p>
                       )}

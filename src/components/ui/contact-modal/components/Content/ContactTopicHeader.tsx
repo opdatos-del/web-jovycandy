@@ -13,7 +13,7 @@ export const ContactTopicHeader = ({ topic }: ContactTopicHeaderProps) => {
 
       <div className="flex flex-col gap-5 p-5 md:flex-row md:items-start md:justify-between md:p-6">
         <div className="max-w-2xl">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-stone-400">{topic.eyebrow}</p>
+          <p className="text-[10px] uppercase tracking-[0.24em] text-stone-400 sm:tracking-[0.4em]">{topic.eyebrow}</p>
           <h3 className="mt-3 text-2xl font-semibold tracking-[-0.05em] text-stone-900 sm:text-3xl">{topic.title}</h3>
           <p className="mt-3 text-sm leading-relaxed text-stone-600 md:text-base">{topic.description}</p>
         </div>
