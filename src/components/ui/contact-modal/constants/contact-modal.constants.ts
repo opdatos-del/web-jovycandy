@@ -14,7 +14,7 @@ export const EMPTY_CONTACT_FORM_STATE: ContactFormState = {
 };
 
 export const CONTACT_INPUT_CLASSNAME =
-  'w-full rounded-2xl border border-[#ebd8ce] bg-white px-4 py-3 text-sm text-stone-900 outline-none transition-colors placeholder:text-stone-400 focus:border-[#ff7a86]';
+  'w-full rounded-[1.15rem] border border-[#ebd8ce] bg-white px-4 py-3.5 text-sm text-stone-900 outline-none transition-colors placeholder:text-stone-400 focus:border-[#ff7a86]';
 
 export const CONTACT_FORM_FIELD_ROWS: ContactFieldConfig[][] = [
   [

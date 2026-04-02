@@ -9,12 +9,14 @@ type ModalShellProps = {
   subtitle?: string;
   children: ReactNode;
   size?: 'md' | 'lg' | 'xl';
+  contentScrollable?: boolean;
+  contentClassName?: string;
 };
 
 const SIZE_CLASSNAME: Record<NonNullable<ModalShellProps['size']>, string> = {
   md: 'max-w-3xl',
   lg: 'max-w-5xl',
-  xl: 'max-w-6xl',
+  xl: 'max-w-[82rem]',
 };
 
 export const ModalShell = ({
@@ -24,6 +26,8 @@ export const ModalShell = ({
   subtitle,
   children,
   size = 'lg',
+  contentScrollable = true,
+  contentClassName = '',
 }: ModalShellProps) => {
   useEffect(() => {
     if (!open) {
@@ -97,7 +101,11 @@ export const ModalShell = ({
               </button>
             </div>
 
-            <div className="relative overflow-y-auto px-6 py-6 md:px-8 md:py-8">{children}</div>
+            <div
+              className={`relative px-6 py-6 md:px-8 md:py-8 ${contentScrollable ? 'overflow-y-auto' : 'overflow-hidden'} ${contentClassName}`}
+            >
+              {children}
+            </div>
           </motion.div>
         </motion.div>
       ) : null}

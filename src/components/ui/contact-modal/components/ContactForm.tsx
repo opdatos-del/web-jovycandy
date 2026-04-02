@@ -20,21 +20,21 @@ export const ContactForm = ({ topic, formState, onFieldChange, onSubmit }: Conta
   <>
     <ContactTopicHeader topic={topic} />
 
-    <form className="mt-5 grid gap-4" onSubmit={onSubmit}>
+    <form className="mt-5 grid gap-5" onSubmit={onSubmit}>
       <ContactFormFields
         formState={formState}
         messagePlaceholder={topic.messagePlaceholder}
         onFieldChange={onFieldChange}
       />
 
-      <div className="flex flex-col gap-4 border-t border-[#efe0d7] pt-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs leading-relaxed text-stone-500">
+      <div className="flex flex-col gap-4 rounded-[1.4rem] border border-[#efe0d7] bg-[#fffaf7] p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+        <p className="max-w-xl text-xs leading-relaxed text-stone-500">
           Completa tus datos y dirigimos la solicitud al equipo correcto.
         </p>
 
         <button
           type="submit"
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-stone-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-white transition-transform hover:-translate-y-0.5"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-white transition-transform hover:-translate-y-0.5"
         >
           {topic.submitLabel} <ArrowRight size={16} />
         </button>
