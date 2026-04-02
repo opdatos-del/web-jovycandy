@@ -34,21 +34,35 @@ export type ContactFormState = {
 
 export type ContactFormFieldName = keyof ContactFormState;
 
-export type ContactFieldConfig = {
+export type ContactFormFieldConfig = {
   name: ContactFormFieldName;
   label: string;
   placeholder: string;
   required?: boolean;
   type?: 'text' | 'email' | 'tel';
-  kind?: 'input' | 'textarea';
   rows?: number;
 };
 
-export type ContactFormFieldChangeHandler = <FieldName extends ContactFormFieldName>(
-  field: FieldName,
-  value: ContactFormState[FieldName]
-) => void;
+export type ContactFormFieldGroups = {
+  identity: ContactFormFieldConfig[];
+  communication: ContactFormFieldConfig[];
+  location: ContactFormFieldConfig[];
+};
+
+export type ContactFormFieldChangeHandler = (field: ContactFormFieldName, value: string) => void;
 
 export type ContactTopicSelectHandler = (topicId: ContactTopicId) => void;
 
 export type ContactFormSubmitHandler = (event: FormEvent<HTMLFormElement>) => void;
+
+export type ContactModalStateResult = {
+  activeTopic: ContactTopic;
+  activeTopicId: ContactTopicId;
+  formState: ContactFormState;
+  isSubmittedSuccessfully: boolean;
+  topics: ContactTopic[];
+  handleFieldChange: ContactFormFieldChangeHandler;
+  handleResetForm: () => void;
+  handleSubmit: ContactFormSubmitHandler;
+  handleTopicSelect: ContactTopicSelectHandler;
+};

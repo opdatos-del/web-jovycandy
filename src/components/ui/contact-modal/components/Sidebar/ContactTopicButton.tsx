@@ -1,12 +1,12 @@
-import type { ContactTopic, ContactTopicSelectHandler } from '../types/contact-modal.types';
+import type { ContactTopic, ContactTopicSelectHandler } from '../../types/contact-modal.types';
 
-type ContactTopicCardProps = {
+type ContactTopicButtonProps = {
   topic: ContactTopic;
   isActive: boolean;
   onSelect: ContactTopicSelectHandler;
 };
 
-export const ContactTopicCard = ({ topic, isActive, onSelect }: ContactTopicCardProps) => {
+export const ContactTopicButton = ({ topic, isActive, onSelect }: ContactTopicButtonProps) => {
   const Icon = topic.icon;
 
   return (

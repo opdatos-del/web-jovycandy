@@ -1,4 +1,4 @@
-import type { ContactTopic } from '../types/contact-modal.types';
+import type { ContactTopic } from '../../types/contact-modal.types';
 
 type ContactSuccessStateProps = {
   topic: ContactTopic;

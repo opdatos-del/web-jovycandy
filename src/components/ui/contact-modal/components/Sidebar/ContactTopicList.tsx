@@ -1,5 +1,5 @@
-import { ContactTopicCard } from './ContactTopicCard';
-import type { ContactTopic, ContactTopicId, ContactTopicSelectHandler } from '../types/contact-modal.types';
+import { ContactTopicButton } from './ContactTopicButton';
+import type { ContactTopic, ContactTopicId, ContactTopicSelectHandler } from '../../types/contact-modal.types';
 
 type ContactTopicListProps = {
   topics: ContactTopic[];
@@ -19,7 +19,7 @@ export const ContactTopicList = ({ topics, activeTopicId, onTopicSelect }: Conta
 
     <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
       {topics.map((topic) => (
-        <ContactTopicCard
+        <ContactTopicButton
           key={topic.id}
           topic={topic}
           isActive={topic.id === activeTopicId}

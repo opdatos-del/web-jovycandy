@@ -1,9 +1,7 @@
 import { ModalShell } from '../ModalShell';
 
-import { ContactForm } from './components/ContactForm';
-import { ContactSuccessState } from './components/ContactSuccessState';
-import { ContactTopicList } from './components/ContactTopicList';
-import { useContactModalForm } from './hooks/useContactModalForm';
+import { ContactForm, ContactSuccessState, ContactTopicList } from './components';
+import { useContactModalState } from './hooks/useContactModalState';
 import type { ContactModalProps } from './types/contact-modal.types';
 
 export const ContactModal = ({ open, onClose }: ContactModalProps) => {
@@ -11,13 +9,13 @@ export const ContactModal = ({ open, onClose }: ContactModalProps) => {
     activeTopic,
     activeTopicId,
     formState,
+    isSubmittedSuccessfully,
+    topics,
     handleFieldChange,
     handleResetForm,
     handleSubmit,
     handleTopicSelect,
-    isSubmitted,
-    topics,
-  } = useContactModalForm(open);
+  } = useContactModalState(open);
 
   return (
     <ModalShell open={open} onClose={onClose} title="Contacto" subtitle="Selecciona el area adecuada" size="xl">
@@ -29,7 +27,7 @@ export const ContactModal = ({ open, onClose }: ContactModalProps) => {
         />
 
         <section className="rounded-[2rem] border border-[#edd8cf] bg-white p-4 shadow-[0_28px_80px_rgba(42,33,28,0.08)] sm:p-5 md:p-6">
-          {isSubmitted ? (
+          {isSubmittedSuccessfully ? (
             <ContactSuccessState topic={activeTopic} onReset={handleResetForm} onClose={onClose} />
           ) : (
             <ContactForm

@@ -7,7 +7,7 @@ import type {
   ContactFormState,
   ContactFormSubmitHandler,
   ContactTopic,
-} from '../types/contact-modal.types';
+} from '../../types/contact-modal.types';
 
 type ContactFormProps = {
   topic: ContactTopic;

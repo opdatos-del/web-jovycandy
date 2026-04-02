@@ -1,13 +1,13 @@
 import {
-  CONTACT_FORM_FIELD_ROWS,
-  CONTACT_INPUT_CLASSNAME,
-  CONTACT_MESSAGE_FIELD,
-} from '../constants/contact-modal.constants';
+  CONTACT_FORM_FIELD_GROUPS,
+  CONTACT_FORM_INPUT_CLASSNAME,
+  CONTACT_FORM_MESSAGE_FIELD,
+} from '../../constants/contact-form.constants';
 import type {
-  ContactFieldConfig,
   ContactFormFieldChangeHandler,
+  ContactFormFieldConfig,
   ContactFormState,
-} from '../types/contact-modal.types';
+} from '../../types/contact-modal.types';
 
 type ContactFormFieldsProps = {
   formState: ContactFormState;
@@ -15,24 +15,26 @@ type ContactFormFieldsProps = {
   onFieldChange: ContactFormFieldChangeHandler;
 };
 
-const getGridClassName = (fields: ContactFieldConfig[]) =>
+type ContactInputFieldProps = {
+  field: ContactFormFieldConfig;
+  value: string;
+  onFieldChange: ContactFormFieldChangeHandler;
+};
+
+const getGridClassName = (fields: ContactFormFieldConfig[]) =>
   `grid gap-4 ${fields.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`;
 
-const renderInputField = (
-  field: ContactFieldConfig,
-  formState: ContactFormState,
-  onFieldChange: ContactFormFieldChangeHandler
-) => (
-  <label key={field.name} className="block">
+const ContactInputField = ({ field, value, onFieldChange }: ContactInputFieldProps) => (
+  <label className="block">
     <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.28em] text-stone-500">
       {field.label}
     </span>
     <input
       type={field.type ?? 'text'}
       required={field.required}
-      value={formState[field.name]}
+      value={value}
       onChange={(event) => onFieldChange(field.name, event.target.value)}
-      className={CONTACT_INPUT_CLASSNAME}
+      className={CONTACT_FORM_INPUT_CLASSNAME}
       placeholder={field.placeholder}
     />
   </label>
@@ -43,7 +45,7 @@ export const ContactFormFields = ({
   messagePlaceholder,
   onFieldChange,
 }: ContactFormFieldsProps) => {
-  const [identityFields, communicationFields, locationFields] = CONTACT_FORM_FIELD_ROWS;
+  const { identity, communication, location } = CONTACT_FORM_FIELD_GROUPS;
 
   return (
     <>
@@ -56,26 +58,26 @@ export const ContactFormFields = ({
         </div>
 
         <div className="grid gap-4">
-          {identityFields ? (
-            <div className={getGridClassName(identityFields)}>
-              {identityFields.map((field) => renderInputField(field, formState, onFieldChange))}
-            </div>
-          ) : null}
+          <div className={getGridClassName(identity)}>
+            {identity.map((field) => (
+              <ContactInputField key={field.name} field={field} value={formState[field.name]} onFieldChange={onFieldChange} />
+            ))}
+          </div>
 
-          {communicationFields ? (
-            <div className={getGridClassName(communicationFields)}>
-              {communicationFields.map((field) => renderInputField(field, formState, onFieldChange))}
-            </div>
-          ) : null}
+          <div className={getGridClassName(communication)}>
+            {communication.map((field) => (
+              <ContactInputField key={field.name} field={field} value={formState[field.name]} onFieldChange={onFieldChange} />
+            ))}
+          </div>
 
-          {locationFields ? (
-            <div className="rounded-[1.25rem] border border-[#f2e4db] bg-white p-4">
-              <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-[#00a39d]">Ubicacion</p>
-              <div className={getGridClassName(locationFields)}>
-                {locationFields.map((field) => renderInputField(field, formState, onFieldChange))}
-              </div>
+          <div className="rounded-[1.25rem] border border-[#f2e4db] bg-white p-4">
+            <p className="mb-3 text-[10px] uppercase tracking-[0.35em] text-[#00a39d]">Ubicacion</p>
+            <div className={getGridClassName(location)}>
+              {location.map((field) => (
+                <ContactInputField key={field.name} field={field} value={formState[field.name]} onFieldChange={onFieldChange} />
+              ))}
             </div>
-          ) : null}
+          </div>
         </div>
       </section>
 
@@ -89,14 +91,14 @@ export const ContactFormFields = ({
 
         <label className="block">
           <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.28em] text-stone-500">
-            {CONTACT_MESSAGE_FIELD.label}
+            {CONTACT_FORM_MESSAGE_FIELD.label}
           </span>
           <textarea
-            required={CONTACT_MESSAGE_FIELD.required}
-            rows={CONTACT_MESSAGE_FIELD.rows}
+            required={CONTACT_FORM_MESSAGE_FIELD.required}
+            rows={CONTACT_FORM_MESSAGE_FIELD.rows}
             value={formState.message}
-            onChange={(event) => onFieldChange('message', event.target.value)}
-            className={`${CONTACT_INPUT_CLASSNAME} resize-none`}
+            onChange={(event) => onFieldChange(CONTACT_FORM_MESSAGE_FIELD.name, event.target.value)}
+            className={`${CONTACT_FORM_INPUT_CLASSNAME} resize-none`}
             placeholder={messagePlaceholder}
           />
         </label>

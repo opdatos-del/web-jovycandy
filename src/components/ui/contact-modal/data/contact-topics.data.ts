@@ -1,6 +1,6 @@
 import { Download, Globe2, Headset, Store } from 'lucide-react';
 
-import type { ContactTopic } from '../types/contact-modal.types';
+import type { ContactTopic, ContactTopicId } from '../types/contact-modal.types';
 
 export const CONTACT_TOPICS: ContactTopic[] = [
   {
@@ -52,3 +52,11 @@ export const CONTACT_TOPICS: ContactTopic[] = [
     messagePlaceholder: 'Indica que linea, mercado o tipo de catalogo necesitas.',
   },
 ];
+
+export const CONTACT_TOPICS_BY_ID = CONTACT_TOPICS.reduce<Record<ContactTopicId, ContactTopic>>(
+  (topicsById, topic) => {
+    topicsById[topic.id] = topic;
+    return topicsById;
+  },
+  {} as Record<ContactTopicId, ContactTopic>
+);
