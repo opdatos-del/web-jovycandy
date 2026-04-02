@@ -2,9 +2,9 @@ import type { HeroBackgroundRow } from '../types/hero.types';
 
 export const HERO_AUTOPLAY_INTERVAL_MS = 3600;
 
-export const HERO_BACKGROUND_COPY = 'NUEVO PRODUCTO NUEVO PRODUCTO NUEVO PRODUCTO';
+export const HERO_BACKGROUND_COPY = 'NUEVO PRODUCTO NUEVO PRODUCTO NUEVO PRODUCTO NUEVO PRODUCTO NUEVO PRODUCTO';
 
-export const HERO_BACKGROUND_ROWS: HeroBackgroundRow[] = Array.from({ length: 5 }, (_, index) => ({
+export const HERO_BACKGROUND_ROWS: HeroBackgroundRow[] = Array.from({ length: 7 }, (_, index) => ({
   id: index,
   offsetClass: index % 2 === 0 ? '-translate-x-[6%]' : 'translate-x-[4%]',
 }));

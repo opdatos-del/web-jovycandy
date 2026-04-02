@@ -19,7 +19,7 @@ const getIntroElements = (refs: HeroSceneRefs) =>
   [refs.headlineRef.current, refs.detailRef.current].filter(Boolean);
 
 export const applyHeroAccentState = (
-  refs: Pick<HeroSceneRefs, 'haloRef' | 'glowRef' | 'shellRef'>,
+  refs: Pick<HeroSceneRefs, 'haloRef' | 'glowRef'>,
   promo: HeroPromo,
   immediate = false
 ) => {
@@ -37,13 +37,6 @@ export const applyHeroAccentState = (
     animate(refs.glowRef.current, {
       backgroundColor: promo.secondary,
       opacity: 0.46,
-      duration: immediate ? 0 : 0.95,
-    });
-  }
-
-  if (refs.shellRef.current) {
-    animate(refs.shellRef.current, {
-      boxShadow: `0 28px 90px ${promo.shadow}`,
       duration: immediate ? 0 : 0.95,
     });
   }
