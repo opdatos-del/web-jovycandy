@@ -4,12 +4,23 @@ import { motion, useMotionValueEvent, useScroll, useTransform } from 'motion/rea
 const TOTAL_FRAMES = 120;
 const FRAME_PADDING = 2;
 const FRAME_PATH = '/frames/logo';
-const SECTION_HEIGHT = '300vh';
 const FRAME_ROOT_MARGIN = '150% 0px';
 const FRAMES = Array.from({ length: TOTAL_FRAMES }, (_, index) => {
   const frameNumber = String(index + 1).padStart(FRAME_PADDING, '0');
   return `${FRAME_PATH}/frame_${frameNumber}.webp`;
 });
+
+const getSectionHeight = () => {
+  if (window.innerWidth < 640) {
+    return '220vh';
+  }
+
+  if (window.innerWidth < 1024) {
+    return '250vh';
+  }
+
+  return '300vh';
+};
 
 export function ScrollLogo() {
   const containerRef = useRef<HTMLElement | null>(null);
@@ -19,6 +30,9 @@ export function ScrollLogo() {
   const currentFrameRef = useRef(0);
   const rafRef = useRef<number | null>(null);
   const [shouldLoadFrames, setShouldLoadFrames] = useState(false);
+  const [sectionHeight, setSectionHeight] = useState(() =>
+    typeof window === 'undefined' ? '300vh' : getSectionHeight()
+  );
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -109,6 +123,23 @@ export function ScrollLogo() {
   }, [shouldLoadFrames]);
 
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleResize = () => {
+      setSectionHeight(getSectionHeight());
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     if (!shouldLoadFrames) {
       return;
     }
@@ -181,12 +212,12 @@ export function ScrollLogo() {
   });
 
   return (
-    <section ref={containerRef} className="relative bg-[#edf5ff]" style={{ height: SECTION_HEIGHT }}>
-      <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative bg-[#edf5ff]" style={{ height: sectionHeight }}>
+      <div className="sticky top-0 flex min-h-screen min-h-[100svh] w-full items-center justify-center overflow-hidden">
         <motion.div
           ref={stageRef}
           style={{ opacity, scale }}
-          className="relative aspect-video w-full max-w-5xl px-4"
+          className="relative aspect-video w-full max-w-[min(92vw,72rem)] px-4 sm:px-6 lg:px-8"
         >
           <canvas
             ref={canvasRef}
@@ -197,7 +228,7 @@ export function ScrollLogo() {
 
         <motion.div
           style={{ opacity: hintOpacity }}
-          className="absolute bottom-20 font-mono text-xs uppercase tracking-[0.3em] text-[#1f4ea8]/65"
+          className="absolute bottom-8 px-4 text-center font-mono text-[10px] uppercase tracking-[0.28em] text-[#1f4ea8]/65 sm:bottom-12 sm:text-xs md:bottom-20"
         >
           Scroll para descubrir
         </motion.div>

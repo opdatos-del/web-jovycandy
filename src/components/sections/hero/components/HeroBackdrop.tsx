@@ -13,11 +13,11 @@ export const HeroBackdrop = ({
     <div className="absolute inset-0 " />
     <div className="absolute inset-0" />
 
-    <div ref={backgroundRef} className="absolute inset-0 flex translate-y-8 flex-col justify-center gap-3 overflow-hidden md:translate-y-8">
+    <div ref={backgroundRef} className="absolute inset-0 flex translate-y-4 flex-col justify-center gap-3 overflow-hidden sm:translate-y-6 md:translate-y-8">
       {HERO_BACKGROUND_ROWS.map((row) => (
         <p
           key={row.id}
-          className={`whitespace-nowrap text-[clamp(3.6rem,10vw,8.4rem)] font-black uppercase leading-none tracking-[-0.08em] text-white/[0.065] ${row.offsetClass}`}
+          className={`whitespace-nowrap text-[clamp(3.1rem,16vw,8.4rem)] font-black uppercase leading-none tracking-[-0.08em] text-white/[0.065] ${row.offsetClass}`}
         >
           {HERO_BACKGROUND_COPY}
         </p>
@@ -26,15 +26,15 @@ export const HeroBackdrop = ({
 
     <div
       ref={haloRef}
-      className="absolute left-1/2 top-[54%] h-[18rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] md:h-[30rem] md:w-[30rem]"
+      className="absolute left-1/2 top-[52%] h-[15rem] w-[15rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[110px] sm:h-[18rem] sm:w-[18rem] md:top-[54%] md:h-[30rem] md:w-[30rem]"
     />
     <div
       ref={glowRef}
-      className="absolute left-1/2 top-[57%] h-[14rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[90px] md:h-[20rem] md:w-[38rem]"
+      className="absolute left-1/2 top-[55%] h-[11rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px] sm:h-[14rem] sm:w-[24rem] md:top-[57%] md:h-[20rem] md:w-[38rem]"
     />
     <div
       ref={raysRef}
-      className="absolute left-1/2 top-[54%] h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 opacity-60 md:h-[38rem] md:w-[38rem]"
+      className="absolute left-1/2 top-[52%] h-[18rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 opacity-60 sm:h-[24rem] sm:w-[24rem] md:top-[54%] md:h-[38rem] md:w-[38rem]"
       style={{
         backgroundImage:
           'repeating-conic-gradient(from 0deg, rgba(255,255,255,0.75) 0deg 5deg, rgba(255,255,255,0) 5deg 20deg)',
@@ -44,6 +44,6 @@ export const HeroBackdrop = ({
           'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 16%, rgba(0,0,0,0) 74%)',
       }}
     />
-    <div className="absolute bottom-[12%] left-1/2 h-16 w-[min(72vw,36rem)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,79,77,0.32),transparent_72%)] blur-[24px]" />
+    <div className="absolute bottom-[10%] left-1/2 h-12 w-[min(82vw,28rem)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,79,77,0.32),transparent_72%)] blur-[22px] sm:h-14 sm:w-[min(76vw,32rem)] md:bottom-[12%] md:h-16 md:w-[min(72vw,36rem)] md:blur-[24px]" />
   </>
 );

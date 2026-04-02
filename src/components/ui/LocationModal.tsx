@@ -15,22 +15,21 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
     title="Ubicacion"
     subtitle="Visitas y coordinacion"
     size="xl"
-    contentScrollable={false}
-    contentClassName="px-4 py-4 md:px-6 md:py-5"
+    contentClassName="px-3 py-3 sm:px-4 sm:py-4 md:px-6 md:py-5"
   >
-    <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1.55fr)_17.5rem]">
+    <div className="grid items-start gap-4 xl:grid-cols-[minmax(0,1.55fr)_17.5rem]">
       <section className="overflow-hidden rounded-[1.8rem] border border-[#eedcd3] bg-white shadow-[0_24px_64px_rgba(42,33,28,0.07)]">
-        <div className="grid gap-4 border-b border-[#f1e1d7] px-4 py-4 md:px-5 md:py-5 xl:grid-cols-[minmax(0,1fr)_13rem] xl:items-start">
+        <div className="grid gap-4 border-b border-[#f1e1d7] px-4 py-4 md:px-5 md:py-5 lg:grid-cols-[minmax(0,1fr)_13rem] lg:items-start">
           <div>
             <span className="inline-flex rounded-full border border-[#ffe0a2] bg-[#fff5d4] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.35em] text-[#cf6f4f]">
               Mexico
             </span>
 
-            <h3 className="mt-4 max-w-2xl text-2xl font-semibold leading-[0.95] tracking-[-0.05em] text-stone-900 md:text-[2.15rem]">
+            <h3 className="mt-4 max-w-2xl text-2xl font-semibold leading-[0.95] tracking-[-0.05em] text-stone-900 sm:text-[2.15rem]">
               Coordinamos visitas comerciales y reuniones con cita previa.
             </h3>
 
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-stone-600 md:text-[0.96rem]">
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-stone-600 sm:text-[0.96rem]">
               Esta es la ubicacion de Procesadora De Alimentos Cale, S.A. De C.V. para referencia comercial y coordinacion de visitas.
             </p>
           </div>
@@ -62,14 +61,14 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Mapa de ubicacion de Procesadora De Alimentos Cale"
-                className="h-[18rem] w-full sm:h-[20rem] md:h-[min(22rem,34vh)] xl:h-[min(24rem,38vh)]"
+                className="h-[16rem] w-full sm:h-[18rem] md:h-[20rem] xl:h-[min(24rem,38vh)]"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <aside className="flex h-full flex-col gap-4">
+      <aside className="grid gap-4 md:grid-cols-2 xl:flex xl:h-full xl:flex-col">
         <div className="rounded-[1.8rem] border border-[#eedcd3] bg-[#fffaf6] p-5">
           <div className="flex items-start gap-3">
             <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[1rem] bg-[#0f3daa] text-white">
@@ -108,7 +107,7 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
             <button
               type="button"
               onClick={onOpenContact}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-white transition-transform hover:-translate-y-0.5"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-white transition-transform hover:-translate-y-0.5"
             >
               Ir a contacto <ArrowRight size={16} />
             </button>
@@ -117,7 +116,7 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
               href="https://www.google.com/maps?q=Procesadora+De+Alimentos+Cale,+S.A.+De+C.V."
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#cde1ff] bg-[#edf5ff] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#0f3daa] transition-colors hover:bg-[#e1efff]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#cde1ff] bg-[#edf5ff] px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#0f3daa] transition-colors hover:bg-[#e1efff]"
             >
               Abrir mapa <ArrowUpRight size={16} />
             </a>
@@ -125,7 +124,7 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex items-center justify-center rounded-full border border-[#e7d7ce] px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-stone-700 transition-colors hover:border-[#ffb79d]"
+              className="inline-flex w-full items-center justify-center rounded-full border border-[#e7d7ce] px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-stone-700 transition-colors hover:border-[#ffb79d]"
             >
               Cerrar
             </button>

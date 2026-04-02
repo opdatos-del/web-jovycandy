@@ -29,8 +29,8 @@ export const CatalogSidebar = ({
   onProductHoverEnd,
   onTooltipMouseMove,
 }: CatalogSidebarProps) => (
-  <ScrollReveal className="w-full lg:w-1/5" direction="left" distance={32} delay={0.08}>
-    <div className="flex flex-col space-y-2 border-b border-stone-200 pb-8 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8">
+  <ScrollReveal className="w-full xl:sticky xl:top-28 xl:w-[20rem] xl:shrink-0" direction="left" distance={32} delay={0.08}>
+    <div className="flex flex-col space-y-2 border-b border-stone-200 pb-8 xl:border-b-0 xl:border-r xl:pb-0 xl:pr-8">
       {catalogTree.map((category) => (
         <CategoryAccordion
           key={category.id}

@@ -7,7 +7,7 @@ type HeroPromoStageProps = {
 };
 
 export const HeroPromoStage = ({ promos, setImageRef }: HeroPromoStageProps) => (
-  <div className="relative z-10 mt-[-2.5rem] h-[26rem] w-full md:mt-[-5.75rem] md:h-[60vh]">
+  <div className="relative z-10 mx-auto mt-[-1rem] h-[clamp(17rem,43vh,24rem)] w-full max-w-5xl md:mt-[-3.5rem] md:h-[clamp(24rem,56vh,34rem)] lg:mt-[-5rem] lg:h-[clamp(28rem,60vh,40rem)]">
     {promos.map((promo, index) => (
       <div
         key={promo.id}

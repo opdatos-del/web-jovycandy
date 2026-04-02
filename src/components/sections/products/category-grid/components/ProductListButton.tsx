@@ -26,18 +26,20 @@ export const ProductListButton = ({
     onMouseEnter={() => onProductHoverStart(product)}
     onMouseLeave={onProductHoverEnd}
     onMouseMove={onTooltipMouseMove}
-    className={`text-left py-3 px-4 rounded transition-all duration-300 flex flex-col w-full ${
+    className={`flex w-full min-w-0 flex-col rounded px-4 py-3 text-left transition-all duration-300 ${
       isSelected ? 'bg-white shadow-sm' : 'hover:bg-white/70'
     }`}
   >
-    <div className="flex items-center justify-between w-full">
-      <span className={`text-sm ${isSelected ? 'text-stone-900 font-medium' : 'text-stone-600 hover:text-stone-900'}`}>
+    <div className="flex w-full items-center justify-between">
+      <span
+        className={`min-w-0 pr-2 text-sm leading-snug ${isSelected ? 'font-medium text-stone-900' : 'text-stone-600 hover:text-stone-900'}`}
+      >
         {product.name}
       </span>
       {isSelected && (
         <motion.div
           layoutId="active-indicator"
-          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+          className="h-1.5 w-1.5 flex-shrink-0 rounded-full"
           style={{ backgroundColor: accentColor }}
         />
       )}

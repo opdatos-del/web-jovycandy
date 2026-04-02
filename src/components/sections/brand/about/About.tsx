@@ -11,12 +11,12 @@ export const About = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-x-hidden bg-[#fff0ec] px-6 py-20 md:px-10 md:py-24 lg:px-20 lg:py-24"
+      className="section-space relative overflow-x-hidden bg-[#fff0ec]"
     >
       <AboutBackground />
 
-      <div className="mx-auto grid max-w-[90rem] gap-12 lg:grid-cols-[minmax(18rem,0.78fr)_minmax(0,1.22fr)] lg:items-start lg:gap-12 xl:gap-16">
-        <div ref={contentRef} className="relative z-10 max-w-2xl lg:sticky lg:top-28">
+      <div className="page-shell-wide grid gap-10 xl:grid-cols-[minmax(18rem,0.78fr)_minmax(0,1.22fr)] xl:items-start xl:gap-14">
+        <div ref={contentRef} className="relative z-10 max-w-2xl xl:sticky xl:top-28">
           <AboutHeader content={ABOUT_CONTENT} />
           <AboutMetrics metrics={ABOUT_METRICS} />
         </div>

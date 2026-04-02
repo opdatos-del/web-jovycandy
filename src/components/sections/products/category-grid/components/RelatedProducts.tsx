@@ -23,17 +23,17 @@ export const RelatedProducts = ({ branch, products, accentColor, onProductSelect
       transition={{ duration: 0.6, delay: 0.3 }}
       className="mt-8 md:mt-12"
     >
-      <h3 className="text-stone-400 uppercase tracking-[0.2em] text-xs font-bold mb-6 font-mono">
+      <h3 className="mb-6 font-mono text-xs font-bold uppercase tracking-[0.2em] text-stone-400">
         {formatRelatedProductsTitle(branch)}
       </h3>
-      <div className="flex overflow-x-auto gap-4 md:gap-6 pb-4 scrollbar-hide snap-x">
+      <div className="mobile-scroll flex gap-4 overflow-x-auto pb-4 snap-x md:gap-6">
         {products.map((product) => (
           <button
             key={`${branch.key}-${product.id}`}
             onClick={() => onProductSelect(product.id, branch.key)}
-            className="min-w-[160px] md:min-w-[200px] bg-white border border-stone-200 rounded-xl p-4 md:p-6 flex flex-col items-center hover:border-stone-300 hover:shadow-md transition-all duration-500 group text-left snap-start shrink-0"
+            className="group flex min-w-[11rem] shrink-0 snap-start flex-col items-center rounded-xl border border-stone-200 bg-white p-4 text-left transition-all duration-500 hover:border-stone-300 hover:shadow-md sm:min-w-[12rem] md:min-w-[13rem] md:p-6"
           >
-            <div className="h-24 md:h-32 w-full flex items-center justify-center mb-4">
+            <div className="mb-4 flex h-24 w-full items-center justify-center md:h-32">
               <img
                 src={product.image}
                 alt={product.name}
@@ -41,7 +41,7 @@ export const RelatedProducts = ({ branch, products, accentColor, onProductSelect
               />
             </div>
             <span className="text-stone-900 font-bold text-sm w-full truncate">{product.name}</span>
-            <span className="text-xs w-full mt-1 truncate transition-colors group-hover:text-stone-700" style={{ color: accentColor || DEFAULT_MUTED_COLOR }}>
+            <span className="mt-1 w-full truncate text-xs transition-colors group-hover:text-stone-700" style={{ color: accentColor || DEFAULT_MUTED_COLOR }}>
               {CATEGORY_GRID_VIEW_DETAILS_LABEL}
             </span>
           </button>

@@ -30,21 +30,23 @@ export const useUpcomingEventsHorizontalScroll = (): UpcomingEventsHorizontalScr
       return;
     }
 
-    const refreshScrollTrigger = () => {
-      ScrollTrigger.refresh();
-    };
+    const matchMedia = gsap.matchMedia();
 
-    const resizeObserver = createResizeRefreshObserver(
-      [section, viewport, track],
-      refreshScrollTrigger,
-    );
-    const trackImages = getTrackImages(track);
-    const removeImageLoadRefreshListeners = attachImageLoadRefreshListeners(
-      trackImages,
-      refreshScrollTrigger,
-    );
+    matchMedia.add('(min-width: 1024px)', () => {
+      const refreshScrollTrigger = () => {
+        ScrollTrigger.refresh();
+      };
 
-    const context = gsap.context(() => {
+      const resizeObserver = createResizeRefreshObserver(
+        [section, viewport, track],
+        refreshScrollTrigger,
+      );
+      const trackImages = getTrackImages(track);
+      const removeImageLoadRefreshListeners = attachImageLoadRefreshListeners(
+        trackImages,
+        refreshScrollTrigger,
+      );
+
       gsap.set(track, {
         x: 0,
         force3D: true,
@@ -72,15 +74,21 @@ export const useUpcomingEventsHorizontalScroll = (): UpcomingEventsHorizontalScr
         ease: 'none',
         force3D: true,
       });
-    }, section);
 
-    const refreshFrame = window.requestAnimationFrame(refreshScrollTrigger);
+      const refreshFrame = window.requestAnimationFrame(refreshScrollTrigger);
+
+      return () => {
+        window.cancelAnimationFrame(refreshFrame);
+        removeImageLoadRefreshListeners();
+        resizeObserver.disconnect();
+        timeline.kill();
+        gsap.set(track, { clearProps: 'transform,willChange' });
+      };
+    });
 
     return () => {
-      window.cancelAnimationFrame(refreshFrame);
-      removeImageLoadRefreshListeners();
-      resizeObserver.disconnect();
-      context.revert();
+      matchMedia.revert();
+      gsap.set(track, { clearProps: 'transform,willChange' });
     };
   }, []);
 

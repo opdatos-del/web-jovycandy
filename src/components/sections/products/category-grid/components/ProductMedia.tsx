@@ -16,7 +16,7 @@ export const ProductMedia = ({ src, sampleImage, alt, variant, mediaKey }: Produ
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="group relative w-full max-w-[240px] md:max-w-[320px]"
+        className="group relative w-full max-w-[220px] sm:max-w-[260px] md:max-w-[300px] lg:max-w-[320px]"
       >
         <img
           src={src}

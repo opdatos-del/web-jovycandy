@@ -12,7 +12,7 @@ export const ProductHeader = ({ product, branchLogo, accentColor, currentPathLab
   const certificationBadges = product.certifications.map((certification) => (
     <span
       key={certification}
-      className="text-[9px] md:text-[10px] uppercase tracking-widest font-mono px-2 py-1 rounded-sm bg-stone-100 text-stone-600 border border-stone-200 whitespace-nowrap"
+      className="rounded-sm border border-stone-200 bg-stone-100 px-2 py-1 font-mono text-[9px] uppercase tracking-widest whitespace-nowrap text-stone-600 md:text-[10px]"
       title={certification}
     >
       {formatCertificationLabel(certification)}
@@ -20,33 +20,33 @@ export const ProductHeader = ({ product, branchLogo, accentColor, currentPathLab
   ));
 
   return (
-    <div className="relative mb-6 flex flex-col gap-4 border-b border-stone-200 pb-4 md:min-h-[11rem]">
-      <div className="md:pr-56 lg:pr-64">
+    <div className="relative mb-6 flex flex-col gap-4 border-b border-stone-200 pb-4 lg:min-h-[11rem]">
+      <div className="lg:pr-56 xl:pr-64">
         <h2
-          className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-1 transition-colors duration-500"
+          className="mb-1 text-2xl font-bold uppercase tracking-tight transition-colors duration-500 sm:text-3xl lg:text-4xl"
           style={{ color: accentColor }}
         >
           {product.name}
         </h2>
-        <p className="text-stone-500 text-xs md:text-sm whitespace-pre-line font-medium">{product.subtitle}</p>
+        <p className="whitespace-pre-line text-xs font-medium text-stone-500 sm:text-sm">{product.subtitle}</p>
         {currentPathLabel && (
           <p className="mt-3 text-[10px] uppercase tracking-[0.35em] text-stone-400 font-mono">{currentPathLabel}</p>
         )}
 
         {product.certifications.length > 0 && (
-          <div className="mt-4 flex max-w-[26rem] flex-wrap gap-2">
+          <div className="mt-4 flex max-w-full flex-wrap gap-2 lg:max-w-[26rem]">
             {certificationBadges}
           </div>
         )}
       </div>
 
       {branchLogo && (
-        <div className="flex w-full flex-col items-start gap-4 md:absolute md:right-0 md:top-0 md:w-[13rem] md:items-end md:gap-5">
+        <div className="flex w-full flex-col items-start gap-4 lg:absolute lg:right-0 lg:top-0 lg:w-[13rem] lg:items-end lg:gap-5">
           {branchLogo && (
             <img
               src={branchLogo.src}
               alt={branchLogo.alt}
-              className="h-auto w-auto max-w-[11rem] object-contain drop-shadow-[0_10px_18px_rgba(28,25,23,0.14)]"
+              className="h-auto w-auto max-w-[10rem] object-contain drop-shadow-[0_10px_18px_rgba(28,25,23,0.14)] sm:max-w-[11rem]"
             />
           )}
         </div>

@@ -30,10 +30,10 @@ export const ProductDetail = ({
   onInfoToggle,
   onProductSelect,
 }: ProductDetailProps) => (
-  <ScrollReveal className="w-full lg:w-4/5" direction="right" distance={34} delay={0.12}>
-    <div className="flex flex-col">
-      <div className="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-xl border border-stone-200">
-        <div className="w-full md:w-2/5 bg-gradient-to-br from-stone-50 to-white p-6 md:p-8 flex items-center justify-center relative border-b md:border-b-0 md:border-r border-stone-200">
+  <ScrollReveal className="w-full min-w-0 xl:flex-1" direction="right" distance={34} delay={0.12}>
+    <div className="flex min-w-0 flex-col">
+      <div className="flex flex-col overflow-hidden rounded-xl border border-stone-200 bg-white shadow-xl lg:flex-row">
+        <div className="relative flex w-full items-center justify-center border-b border-stone-200 bg-gradient-to-br from-stone-50 to-white p-5 sm:p-6 lg:w-2/5 lg:border-b-0 lg:border-r lg:p-8">
           <ProductMedia
             variant="primary"
             src={product.image}
@@ -43,13 +43,13 @@ export const ProductDetail = ({
           />
         </div>
 
-        <div className="w-full md:w-3/5 bg-white p-6 md:p-8 flex flex-col text-stone-900 transition-colors duration-500">
+        <div className="flex w-full flex-col bg-white p-5 text-stone-900 transition-colors duration-500 sm:p-6 lg:w-3/5 lg:p-8">
           <motion.div
             key={`details-${product.id}-${branch.key}`}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="flex flex-col h-full"
+            className="flex h-full flex-col"
           >
             <ProductHeader
               product={product}
@@ -58,11 +58,11 @@ export const ProductDetail = ({
               currentPathLabel={currentPathLabel}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 flex-grow">
+            <div className="grid flex-grow grid-cols-1 gap-6 xl:grid-cols-2 xl:gap-8">
               <ProductSpecs specs={product.specs} accentColor={category.accent} />
 
               <div className="flex flex-col">
-                <div className="mb-4 w-full h-24 md:h-32 border border-stone-200 rounded-sm overflow-hidden shadow-sm shrink-0">
+                <div className="mb-4 h-28 w-full shrink-0 overflow-hidden rounded-sm border border-stone-200 shadow-sm sm:h-32">
                   <ProductMedia variant="secondary" src={product.secondaryImage} alt={`${product.name} detail`} />
                 </div>
 
@@ -72,12 +72,11 @@ export const ProductDetail = ({
                   onInfoToggle={onInfoToggle}
                 />
 
-                <div className="mt-6 md:hidden">
+                <div className="mt-6 xl:hidden">
                   <ProductDownloadButton accentColor={category.accent} />
                 </div>
               </div>
             </div>
-
           </motion.div>
         </div>
       </div>

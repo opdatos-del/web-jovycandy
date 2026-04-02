@@ -17,17 +17,18 @@ export const Intro: React.FC = () => {
     }
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(text,
+      gsap.fromTo(
+        text,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
           duration: 1.2,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: container,
-            start: "top 60%",
-          }
+            start: 'top 60%',
+          },
         }
       );
     }, container);
@@ -36,24 +37,23 @@ export const Intro: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="min-h-[50vh] w-full bg-[#e8fbf7] flex flex-col items-center justify-center px-6 py-24 lg:py-32">
-      <div ref={textRef} className="max-w-4xl text-center">
-        <h2 className="text-stone-400 text-xs uppercase tracking-[0.5em] mb-8 font-mono">
-          01 — La Fábrica
+    <section ref={containerRef} className="section-space flex min-h-[42vh] w-full flex-col items-center justify-center bg-[#e8fbf7]">
+      <div ref={textRef} className="page-shell max-w-4xl text-center">
+        <h2 className="mb-6 text-xs font-mono uppercase tracking-[0.38em] text-stone-400 sm:mb-8 sm:tracking-[0.5em]">
+          01 - La Fabrica
         </h2>
-        <p className="text-stone-900 text-3xl md:text-5xl font-light leading-tight tracking-tight">
-          En el corazón de nuestra manufactura, la <span className="text-stone-600">precisión industrial</span> se encuentra con la <span className="text-stone-600">visión artística</span>. Cada gramo es pesado, cada textura es esculpida.
+        <p className="text-2xl font-light leading-tight tracking-tight text-stone-900 sm:text-3xl md:text-4xl lg:text-5xl">
+          En el corazon de nuestra manufactura, la <span className="text-stone-600">precision industrial</span> se encuentra con la <span className="text-stone-600">vision artistica</span>. Cada gramo es pesado, cada textura es esculpida.
         </p>
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-stone-400 text-[10px] uppercase tracking-widest font-mono">
-          <div>[ TEMP: 24°C ]</div>
+        <div className="mt-10 grid grid-cols-1 gap-4 text-[10px] uppercase tracking-widest text-stone-400 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <div>[ TEMP: 24C ]</div>
           <div>[ HUMIDITY: 42% ]</div>
           <div>[ PRESSURE: 1.2 BAR ]</div>
           <div>[ STATUS: OPTIMAL ]</div>
         </div>
       </div>
-      
-      {/* Industrial Line Element */}
-      <div className="mt-16 h-24 w-px bg-gradient-to-b from-[#ff8b6d] to-transparent" />
+
+      <div className="mt-12 h-16 w-px bg-gradient-to-b from-[#ff8b6d] to-transparent sm:mt-16 sm:h-24" />
     </section>
   );
 };

@@ -13,7 +13,7 @@ export const ContactTopicCard = ({ topic, isActive, onSelect }: ContactTopicCard
     <button
       type="button"
       onClick={() => onSelect(topic.id)}
-      className={`group relative w-full overflow-hidden rounded-[1.6rem] border px-4 py-4 text-left transition-all ${
+      className={`group relative h-full w-full overflow-hidden rounded-[1.6rem] border px-4 py-4 text-left transition-all ${
         isActive
           ? 'border-[#ffba9e] bg-white text-stone-900 shadow-[0_22px_60px_rgba(255,125,105,0.18)]'
           : 'border-[#edd9cf] bg-white/80 text-stone-700 hover:border-[#ffb69e] hover:bg-white'

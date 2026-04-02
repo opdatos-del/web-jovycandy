@@ -8,7 +8,7 @@ type ContactTopicListProps = {
 };
 
 export const ContactTopicList = ({ topics, activeTopicId, onTopicSelect }: ContactTopicListProps) => (
-  <aside className="rounded-[2rem] border border-[#f1deb5] bg-[#fff4d9] p-4 lg:sticky lg:top-0 lg:self-start">
+  <aside className="rounded-[2rem] border border-[#f1deb5] bg-[#fff4d9] p-4 xl:sticky xl:top-0 xl:self-start">
     <div className="border-b border-[#f0dfb5] pb-4">
       <p className="text-[10px] uppercase tracking-[0.4em] text-[#cf6f4f]">Canales de contacto</p>
       <h3 className="mt-3 text-2xl font-semibold tracking-[-0.05em] text-stone-900">Elige el tema correcto.</h3>
@@ -17,7 +17,7 @@ export const ContactTopicList = ({ topics, activeTopicId, onTopicSelect }: Conta
       </p>
     </div>
 
-    <div className="mt-4 space-y-3">
+    <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
       {topics.map((topic) => (
         <ContactTopicCard
           key={topic.id}
