@@ -1,7 +1,10 @@
 import { CATEGORY_GRID_EMPTY_STATE } from '../constants/catalog.constants';
+import { ScrollReveal } from '../../../../ui/ScrollReveal';
 
 export const EmptyState = () => (
-  <div className="w-full lg:w-4/5 flex items-center justify-center opacity-95 min-h-[400px] border border-stone-200 rounded-xl bg-[#faf5f0]">
-    <p className="text-stone-500 uppercase tracking-widest font-mono text-sm">{CATEGORY_GRID_EMPTY_STATE}</p>
-  </div>
+  <ScrollReveal className="w-full lg:w-4/5" direction="right" distance={30} delay={0.12}>
+    <div className="flex min-h-[400px] items-center justify-center rounded-xl border border-stone-200 bg-[#faf5f0] opacity-95">
+      <p className="text-stone-500 uppercase tracking-widest font-mono text-sm">{CATEGORY_GRID_EMPTY_STATE}</p>
+    </div>
+  </ScrollReveal>
 );

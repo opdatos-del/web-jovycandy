@@ -13,6 +13,7 @@ import { About } from './components/sections/brand/About';
 import { CategoryGrid } from './components/sections/products/category-grid/CategoryGrid';
 import { ContactModal } from './components/ui/contact-modal';
 import { LocationModal } from './components/ui/LocationModal';
+import { ScrollReveal } from './components/ui/ScrollReveal';
 
 type ActiveModal = 'contact' | 'location' | null;
 
@@ -127,9 +128,11 @@ export default function App() {
       <SectionColorTransition fromColor="#edf5ff" toColor="#00afaa" heightClassName="h-10 md:h-12 lg:h-14" />
 
       <footer className="bg-[#00afaa] px-8 py-12 text-center">
-        <p className="text-xs uppercase tracking-widest text-white/80">
-          &copy; 2026 Jovy - El sabor tambien puede ser diseno.
-        </p>
+        <ScrollReveal>
+          <p className="text-xs uppercase tracking-widest text-white/80">
+            &copy; 2026 Jovy - El sabor tambien puede ser diseno.
+          </p>
+        </ScrollReveal>
       </footer>
 
       <ContactModal open={activeModal === 'contact'} onClose={closeModal} />
