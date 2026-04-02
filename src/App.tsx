@@ -3,7 +3,8 @@ import { Facebook, Instagram } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 import { Hero } from './components/sections/hero/Hero';
-import { UpcomingEvents } from './components/sections/UpcomingEvents';
+import { HeroEventsTransition } from './components/sections/HeroEventsTransition';
+import { UpcomingEvents } from './components/sections/upcoming-events';
 import { Intro } from './components/sections/Intro';
 import { ScrollLogo } from './components/sections/ScrollLogo';
 import { Certifications } from './components/sections/Certifications';
@@ -86,6 +87,7 @@ export default function App() {
       </nav>
 
       <Hero />
+      <HeroEventsTransition />
       <UpcomingEvents />
       <Certifications />
       <CategoryGrid />
