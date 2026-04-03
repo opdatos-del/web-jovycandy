@@ -12,7 +12,7 @@ export const AppFinalCta = ({ onContactClick }: AppFinalCtaProps) => (
         whileInView={{ opacity: 1, y: 0 }}
         className="app-final-cta-title max-w-4xl text-center font-light tracking-tighter text-stone-900"
       >
-        El sabor tambien puede ser diseno.
+        El sabor también puede ser diseño.
       </motion.h2>
       <motion.button
         type="button"

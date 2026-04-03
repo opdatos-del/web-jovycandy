@@ -5,7 +5,7 @@ export const AppFooter = () => (
     <div className="page-shell">
       <ScrollReveal>
         <p className="app-footer-copy uppercase text-white/80">
-          &copy; 2026 Jovy - El sabor tambien puede ser diseno.
+          &copy; 2026 Jovy - El sabor también puede ser diseño.
         </p>
       </ScrollReveal>
     </div>
