@@ -68,9 +68,13 @@ export const Certifications: React.FC = () => {
           viewport={{ once: true }}
           className="certifications-grid mx-auto grid"
         >
-          {certificationItems.map((item) => (
-            <div
+          {certificationItems.map((item, index) => (
+            <motion.div
               key={item.alt}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 + index * 0.15 }}
+              viewport={{ once: true }}
               className={`${certificationCardClassName} ${item.cardClassName ?? ''}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#fff0e7] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -79,7 +83,7 @@ export const Certifications: React.FC = () => {
                 alt={item.alt}
                 className={`relative z-10 ${item.imageClassName}`}
               />
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
