@@ -17,41 +17,23 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
     size="xl"
     contentClassName="location-modal-body"
   >
-    <div className="location-modal-grid grid items-start">
-      <section className="overflow-hidden rounded-[1.8rem] border border-[#eedcd3] bg-white shadow-[0_24px_64px_rgba(42,33,28,0.07)]">
-        <div className="location-modal-intro grid border-b border-[#f1e1d7]">
+    <div className="location-modal-grid grid items-start gap-6">
+      <section className="overflow-hidden rounded-lg border border-stone-200 bg-stone-50">
+        <div className="location-modal-intro grid border-b border-stone-100 p-6">
           <div>
-            <span className="inline-flex rounded-full border border-[#ffe0a2] bg-[#fff5d4] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#cf6f4f] sm:tracking-[0.35em]">
-              Mexico
-            </span>
-
-            <h3 className="location-modal-title mt-4 max-w-2xl font-semibold leading-[0.95] tracking-[-0.05em] text-stone-900">
-              Coordinamos visitas comerciales y reuniones con cita previa.
+            <h3 className="location-modal-title text-2xl font-semibold tracking-[-0.02em] text-stone-900">
+              Coordinamos visitas comerciales y reuniones
             </h3>
 
-            <p className="location-modal-description mt-3 max-w-3xl leading-relaxed text-stone-600">
-              Esta es la ubicacion de Procesadora De Alimentos Cale, S.A. De C.V. para referencia comercial y coordinacion de visitas.
+            <p className="location-modal-description mt-3 max-w-3xl text-base leading-relaxed text-stone-600">
+              Procesadora De Alimentos Cale, S.A. De C.V. abre sus puertas bajo coordinación previa. Contáctanos para preparar tu visita.
             </p>
-          </div>
-
-          <div className="grid gap-3">
-            <div className="rounded-[1.25rem] border border-[#ffe0a2] bg-[#fff8e6] p-3.5">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-[#cf6f4f] sm:tracking-[0.35em]">Referencia</p>
-              <p className="mt-2 text-sm font-semibold text-stone-900">Tlaquepaque, Jalisco</p>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">Punto de referencia comercial de la planta.</p>
-            </div>
-
-            <div className="rounded-[1.25rem] border border-[#cdebe7] bg-[#e8fbf7] p-3.5">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-[#009f98] sm:tracking-[0.35em]">Coordinacion</p>
-              <p className="mt-2 text-sm font-semibold text-stone-900">Visitas con cita</p>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">Te guiamos por el canal correcto antes de programar.</p>
-            </div>
           </div>
         </div>
 
         <div className="location-modal-frame">
-          <div className="overflow-hidden rounded-[1.45rem] border border-[#ead8cf] bg-[#fffaf7] p-2 shadow-[0_12px_32px_rgba(42,33,28,0.06)]">
-            <div className="overflow-hidden rounded-[1.1rem]">
+          <div className="overflow-hidden rounded-lg p-4">
+            <div className="overflow-hidden rounded-lg border border-stone-200">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.509968206114!2d-103.3385265!3d20.5672215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f4d35d2caa443%3A0x66f965bdd0d653f!2sProcesadora%20De%20Alimentos%20Cale%2C%20S.A.%20De%20C.V.!5e0!3m2!1ses-419!2smx!4v1775055084684!5m2!1ses-419!2smx"
                 width="800"
@@ -60,7 +42,7 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa de ubicacion de Procesadora De Alimentos Cale"
+                title="Mapa de ubicación de Procesadora De Alimentos Cale"
                 className="location-modal-map w-full"
               />
             </div>
@@ -68,46 +50,44 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
         </div>
       </section>
 
-      <aside className="location-modal-aside grid">
-        <div className="rounded-[1.8rem] border border-[#eedcd3] bg-[#fffaf6] p-5">
+      <aside className="location-modal-aside grid gap-4">
+        <div className="rounded-lg border border-stone-200 bg-white p-6">
           <div className="flex items-start gap-3">
-            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[1rem] bg-[#0f3daa] text-white">
+            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
               <Building2 size={20} />
             </span>
 
             <div>
-              <p className="text-[10px] uppercase tracking-[0.24em] text-[#cf6f4f] sm:tracking-[0.4em]">Punto de referencia</p>
-              <h4 className="mt-2 text-xl font-semibold tracking-[-0.04em] text-stone-900">
+              <p className="text-xs font-semibold uppercase tracking-wider text-stone-500">Datos de ubicación</p>
+              <h4 className="mt-2 text-lg font-semibold tracking-[-0.02em] text-stone-900">
                 Procesadora De Alimentos Cale, S.A. De C.V.
               </h4>
             </div>
           </div>
 
-          <div className="mt-4 rounded-[1.35rem] border border-[#efe0d7] bg-white p-4">
-            <div className="flex items-start gap-3">
-              <MapPin size={18} className="mt-1 shrink-0 text-[#ff6a86]" />
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-stone-400 sm:tracking-[0.35em]">Direccion</p>
-                <p className="mt-2 text-sm leading-relaxed text-stone-700">
-                  Antigua Carretera a Chapala 6730, Juan de La Barrera, 45618 San Pedro Tlaquepaque, Jal.
-                </p>
-              </div>
+          <div className="mt-4 flex gap-3 rounded-lg border border-stone-200 bg-stone-50 p-4">
+            <MapPin size={18} className="mt-0.5 shrink-0 text-stone-400" />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-stone-700">Dirección</p>
+              <p className="mt-2 text-base leading-relaxed text-stone-700">
+                Antigua Carretera a Chapala 6730, Juan de La Barrera, 45618 San Pedro Tlaquepaque, Jal.
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="rounded-[1.8rem] border border-[#eedcd3] bg-white p-5">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-stone-400 sm:tracking-[0.4em]">Proximo paso</p>
-          <h4 className="mt-3 text-[1.7rem] font-semibold tracking-[-0.05em] text-stone-900">Agenda tu contacto.</h4>
-          <p className="mt-2.5 text-sm leading-relaxed text-stone-600">
-            Si quieres cotizar, pedir una visita o solicitar material comercial, te abrimos el formulario correcto.
+        <div className="rounded-lg border border-stone-200 bg-white p-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-stone-500">Próximo paso</p>
+          <h4 className="mt-3 text-xl font-semibold tracking-[-0.02em] text-stone-900">Agenda tu contacto</h4>
+          <p className="mt-2 text-base leading-relaxed text-stone-600">
+            Para cotizar, solicitar una visita o pedir material comercial.
           </p>
 
-          <div className="mt-5 flex flex-col gap-3">
+          <div className="mt-5 flex flex-col gap-2">
             <button
               type="button"
               onClick={onOpenContact}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition-transform hover:-translate-y-0.5 sm:tracking-[0.24em]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Ir a contacto <ArrowRight size={16} />
             </button>
@@ -116,18 +96,10 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
               href="https://www.google.com/maps?q=Procesadora+De+Alimentos+Cale,+S.A.+De+C.V."
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#cde1ff] bg-[#edf5ff] px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#0f3daa] transition-colors hover:bg-[#e1efff] sm:tracking-[0.2em]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-blue-600 transition-all hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Abrir mapa <ArrowUpRight size={16} />
             </a>
-
-            <button
-              type="button"
-              onClick={onClose}
-              className="inline-flex w-full items-center justify-center rounded-full border border-[#e7d7ce] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-stone-700 transition-colors hover:border-[#ffb79d] sm:tracking-[0.24em]"
-            >
-              Cerrar
-            </button>
           </div>
         </div>
       </aside>

@@ -19,7 +19,7 @@ export const initialContactFormState: ContactFormState = {
 };
 
 export const CONTACT_FORM_INPUT_CLASSNAME =
-  'w-full rounded-[1.15rem] border border-[#ebd8ce] bg-white px-4 py-3.5 text-sm text-stone-900 outline-none transition-colors placeholder:text-stone-400 focus:border-[#ff7a86]';
+  'w-full rounded-[0.75rem] border border-stone-200 bg-white px-4 py-3 text-sm text-stone-900 outline-none transition-all placeholder:text-stone-400 focus:border-stone-400 focus:ring-2 focus:ring-blue-100 focus:ring-opacity-50';
 
 export const CONTACT_FORM_FIELD_GROUPS: ContactFormFieldGroups = {
   identity: [

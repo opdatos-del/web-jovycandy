@@ -27,14 +27,14 @@ export const ContactForm = ({ topic, formState, onFieldChange, onSubmit }: Conta
         onFieldChange={onFieldChange}
       />
 
-      <div className="contact-form-footer flex flex-col rounded-[1.4rem] border border-[#efe0d7] bg-[#fffaf7]">
-        <p className="max-w-xl text-xs leading-relaxed text-stone-500">
-          Completa tus datos y dirigimos la solicitud al equipo correcto.
+      <div className="contact-form-footer flex flex-col gap-4 rounded-lg border border-stone-100 bg-stone-50 p-5">
+        <p className="text-base leading-relaxed text-stone-600">
+          Al enviar, nos comprometeremos a direccionar tu solicitud al equipo correcto.
         </p>
 
         <button
           type="submit"
-          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0f3daa] px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition-transform hover:-translate-y-0.5 sm:w-auto sm:tracking-[0.24em]"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           {topic.submitLabel} <ArrowRight size={16} />
         </button>
