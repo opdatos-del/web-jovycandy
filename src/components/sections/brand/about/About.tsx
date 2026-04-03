@@ -15,8 +15,8 @@ export const About = () => {
     >
       <AboutBackground />
 
-      <div className="page-shell-wide grid gap-10 xl:grid-cols-[minmax(18rem,0.78fr)_minmax(0,1.22fr)] xl:items-start xl:gap-14">
-        <div ref={contentRef} className="relative z-10 max-w-2xl xl:sticky xl:top-28">
+      <div className="page-shell-wide grid gap-6 sm:gap-8 lg:gap-10 xl:grid-cols-[minmax(18rem,0.78fr)_minmax(0,1.22fr)] xl:items-start xl:gap-12 xl:gap-14">
+        <div ref={contentRef} className="relative z-10 max-w-2xl xl:sticky xl:top-20">
           <AboutHeader content={ABOUT_CONTENT} />
           <AboutMetrics metrics={ABOUT_METRICS} />
         </div>
