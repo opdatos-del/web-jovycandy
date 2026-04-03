@@ -16,13 +16,13 @@ export const socialLinks: AppSocialLink[] = [
 ];
 
 export const navActionClassName =
-  'inline-flex items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 px-4 py-2.5 text-[10px] font-medium uppercase tracking-[0.22em] text-stone-800 shadow-[0_10px_24px_rgba(68,54,40,0.1)] backdrop-blur-md transition-colors hover:bg-stone-900 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.28em]';
+  'inline-flex items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 px-4 py-2.5 text-[10px] font-medium uppercase tracking-[0.22em] text-stone-800 shadow-[0_4px_12px_rgba(68,54,40,0.08)] backdrop-blur-sm transition-colors hover:bg-stone-900 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.28em]';
 
 export const navSocialClassName =
-  'flex h-10 w-10 items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 text-stone-800 shadow-[0_10px_24px_rgba(68,54,40,0.1)] backdrop-blur-md transition-colors hover:bg-stone-900 hover:text-white';
+  'flex h-10 w-10 items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 text-stone-800 shadow-[0_4px_12px_rgba(68,54,40,0.08)] backdrop-blur-sm transition-colors hover:bg-stone-900 hover:text-white';
 
 export const navMenuButtonClassName =
-  'inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 text-stone-800 shadow-[0_10px_24px_rgba(68,54,40,0.1)] backdrop-blur-md transition-colors hover:bg-stone-900 hover:text-white lg:hidden';
+  'inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 text-stone-800 shadow-[0_4px_12px_rgba(68,54,40,0.08)] backdrop-blur-sm transition-colors hover:bg-stone-900 hover:text-white lg:hidden';
 
 export const mobileMenuPanelClassName =
-  'mt-3 overflow-hidden rounded-[1.5rem] border border-white/35 bg-white/12 p-3 shadow-[0_24px_64px_rgba(68,54,40,0.12)] backdrop-blur-xl lg:hidden';
+  'mt-3 overflow-hidden rounded-[1.5rem] border border-white/35 bg-white/12 p-3 shadow-[0_8px_32px_rgba(68,54,40,0.08)] backdrop-blur-md lg:hidden';

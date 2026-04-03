@@ -45,8 +45,8 @@ export const AppNavbarMobileMenu = ({
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -12 }}
-        transition={{ duration: 0.2, ease: 'easeOut' }}
-        className={mobileMenuPanelClassName}
+        transition={{ duration: 0.18, ease: 'easeOut' }}
+        className={`${mobileMenuPanelClassName} will-change-transform`}
       >
         <div className="flex flex-col gap-3">
           <button type="button" onClick={onContactClick} className={`${navActionClassName} w-full`}>

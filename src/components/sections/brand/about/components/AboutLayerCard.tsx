@@ -8,7 +8,7 @@ export const AboutLayerCard = ({ item }: AboutLayerCardProps) => {
   return (
     <article
       data-about-layer-card
-      className="hover-lift group relative min-h-[13rem] overflow-hidden rounded-lg border border-stone-200/90 bg-white p-3 shadow-[0_24px_60px_-50px_rgba(28,25,23,0.22)] transition-all duration-500 sm:min-h-[14rem] sm:p-4 sm:rounded-[1.3rem] md:min-h-[15rem] lg:min-h-[15.5rem] lg:p-6 lg:rounded-[1.5rem]"
+      className="hover-lift group relative min-h-[16rem] overflow-hidden rounded-lg border border-stone-200/90 bg-white p-4 shadow-[0_24px_60px_-50px_rgba(28,25,23,0.22)] transition-all duration-500 sm:min-h-[17rem] sm:p-5 sm:rounded-[1.3rem] md:min-h-[18rem] lg:min-h-[19rem] lg:p-6 lg:rounded-[1.5rem]"
     >
     <div className="pointer-events-none absolute inset-x-0 top-0 h-32 sm:h-36">
       <div

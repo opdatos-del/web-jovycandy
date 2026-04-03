@@ -61,10 +61,11 @@ export const ModalShell = ({
     <AnimatePresence>
       {open ? (
         <motion.div
-          className="modal-shell-overlay fixed inset-0 z-[120] flex justify-center bg-stone-950/45 backdrop-blur-md"
+          className="modal-shell-overlay fixed inset-0 z-[120] flex justify-center bg-stone-950/45 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) {
               onClose();
@@ -75,11 +76,11 @@ export const ModalShell = ({
             role="dialog"
             aria-modal="true"
             aria-label={title}
-            className={`modal-shell-surface relative flex max-h-[min(94svh,58rem)] w-full flex-col overflow-hidden border border-stone-200 bg-white shadow-[0_40px_140px_rgba(28,25,23,0.15)] ${SIZE_CLASSNAME[size]}`}
-            initial={{ opacity: 0, y: 24, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 18, scale: 0.98 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className={`modal-shell-surface relative flex max-h-[min(94svh,58rem)] w-full flex-col overflow-hidden border border-stone-200 bg-white shadow-[0_20px_80px_rgba(28,25,23,0.12)] will-change-transform ${SIZE_CLASSNAME[size]}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.16, ease: 'easeOut' }}
           >
 
             <div className="modal-shell-header relative flex items-start justify-between border-b border-stone-100 px-6 py-5">

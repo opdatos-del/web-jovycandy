@@ -1,14 +1,21 @@
 export const HeroEventsTransition = () => (
-  <section aria-hidden="true" className="relative h-16 bg-[#00AFAA] md:h-20 lg:h-24">
+  <section aria-hidden="true" className="relative bg-[#00AFAA]">
     <svg
-      viewBox="0 0 1440 160"
+      viewBox="0 0 1440 200"
       preserveAspectRatio="none"
-      className="absolute inset-0 h-full w-full"
+      className="block h-20 w-full md:h-28 lg:h-32"
       role="presentation"
     >
+      <defs>
+        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#fff5d4" stopOpacity="0.3" />
+          <stop offset="40%" stopColor="#fff5d4" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#fff5d4" stopOpacity="1" />
+        </linearGradient>
+      </defs>
       <path
-        fill="#fff5d4"
-        d="M0 132C110 102 216 95 319 100C422 105 517 129 629 136C741 143 853 133 962 118C1071 103 1177 83 1286 81C1346 80 1397 85 1440 92V160H0Z"
+        fill="url(#waveGradient)"
+        d="M0,80 Q180,0 360,80 T720,80 T1080,80 T1440,80 L1440,200 L0,200 Z"
       />
     </svg>
   </section>
