@@ -46,7 +46,7 @@ export const Certifications: React.FC = () => {
           viewport={{ once: true }}
           className="certifications-copy flex flex-col"
         >
-          <h2 className="certifications-eyebrow mb-6 text-xs font-mono uppercase text-white/75">
+          <h2 className="certifications-eyebrow mb-6 text-sm font-mono uppercase text-white/75 sm:text-base">
             Nuestros Certificados
           </h2>
           <h3 className="certifications-title font-bold leading-tight tracking-tight text-white">

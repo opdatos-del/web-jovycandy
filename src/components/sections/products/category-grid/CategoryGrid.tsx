@@ -36,7 +36,7 @@ export const CategoryGrid = () => {
     <section className="section-space relative z-10 flex min-h-screen flex-col bg-white text-stone-900">
       <div className="page-shell-wide flex w-full flex-grow flex-col">
         <ScrollReveal delay={0.04}>
-          <h2 className="category-grid-title font-mono text-xs uppercase text-stone-400 opacity-90">
+          <h2 className="category-grid-title font-mono text-xs uppercase text-stone-400 opacity-90 sm:text-sm">
             {CATEGORY_GRID_SECTION_TITLE}
           </h2>
         </ScrollReveal>

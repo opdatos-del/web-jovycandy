@@ -34,7 +34,7 @@
   }
 
   .app-footer-copy {
-    font-size: 0.6875rem;
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
     letter-spacing: 0.22em;
   }
 }
@@ -73,7 +73,7 @@
   }
 
   .app-footer-copy {
-    font-size: 0.75rem;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
     letter-spacing: 0.32em;
   }
 }

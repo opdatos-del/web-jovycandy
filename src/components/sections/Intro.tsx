@@ -39,13 +39,13 @@ export const Intro: React.FC = () => {
   return (
     <section ref={containerRef} className="section-space flex min-h-[42vh] w-full flex-col items-center justify-center bg-[#e8fbf7]">
       <div ref={textRef} className="page-shell max-w-4xl text-center">
-        <h2 className="mb-6 text-xs font-mono uppercase tracking-[0.24em] text-stone-400 sm:mb-8 sm:tracking-[0.5em]">
+        <h2 className="mb-6 text-xs font-mono uppercase tracking-[0.24em] text-stone-400 sm:mb-8 sm:text-sm sm:tracking-[0.5em]">
           01 - La Fabrica
         </h2>
-        <p className="text-2xl font-light leading-tight tracking-tight text-stone-900 sm:text-3xl md:text-4xl lg:text-5xl">
+        <p className="text-2xl font-light leading-snug tracking-tight text-stone-900 sm:text-3xl md:text-4xl lg:text-5xl">
           En el corazon de nuestra manufactura, la <span className="text-stone-600">precision industrial</span> se encuentra con la <span className="text-stone-600">vision artistica</span>. Cada gramo es pesado, cada textura es esculpida.
         </p>
-        <div className="mt-10 grid grid-cols-1 gap-4 text-[10px] uppercase tracking-[0.18em] text-stone-400 sm:mt-12 sm:grid-cols-2 sm:tracking-widest lg:grid-cols-4 lg:gap-8">
+        <div className="mt-10 grid grid-cols-1 gap-4 text-xs uppercase tracking-[0.18em] text-stone-400 sm:mt-12 sm:grid-cols-2 sm:text-sm sm:tracking-widest lg:grid-cols-4 lg:gap-8">
           <div>[ TEMP: 24C ]</div>
           <div>[ HUMIDITY: 42% ]</div>
           <div>[ PRESSURE: 1.2 BAR ]</div>

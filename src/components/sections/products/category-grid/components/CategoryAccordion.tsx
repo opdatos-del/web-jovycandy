@@ -62,7 +62,7 @@ export const CategoryAccordion = ({
                   return (
                     <div key={branch.key} className="flex flex-col space-y-1">
                       {hasSubcategories && (
-                        <p className="px-4 pt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-stone-400 sm:tracking-[0.35em]">
+                        <p className="px-4 pt-2 font-mono text-xs uppercase tracking-[0.2em] text-stone-400 sm:text-sm sm:tracking-[0.35em]">
                           {CATEGORY_GRID_GENERAL_LABEL}
                         </p>
                       )}
