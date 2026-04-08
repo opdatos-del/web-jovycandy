@@ -9,5 +9,7 @@ export const HeroHeading = ({ headlineRef }: HeroHeadingProps) => (
     style={{ fontSize: 'clamp(2.55rem, 14vw, 7.4rem)' }}
   >
 
+
+  
   </h1>
 );
