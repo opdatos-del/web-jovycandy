@@ -12,11 +12,11 @@ const FRAMES = Array.from({ length: TOTAL_FRAMES }, (_, index) => {
 
 const getSectionHeight = () => {
   if (window.innerWidth < 640) {
-    return '220vh';
+    return '160vh';
   }
 
   if (window.innerWidth < 1024) {
-    return '250vh';
+    return '220vh';
   }
 
   return '300vh';
@@ -217,7 +217,7 @@ export function ScrollLogo() {
         <motion.div
           ref={stageRef}
           style={{ opacity, scale }}
-          className="relative aspect-video w-full max-w-[min(92vw,72rem)] px-4 sm:px-6 lg:px-8"
+          className="relative aspect-video w-full max-w-[min(96vw,82rem)] px-3 sm:px-6 lg:px-8"
         >
           <canvas
             ref={canvasRef}
