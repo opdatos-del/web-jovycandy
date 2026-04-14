@@ -1,7 +1,7 @@
 import type { AboutContent, AboutLayer, AboutMetric } from '../types/about.types';
 
 export const ABOUT_CONTENT: AboutContent = {
-  eyebrow: '02 - Maison',
+  eyebrow: '',
   titleLines: ['Nuestra', 'esencia'],
   description:
     'La sección condensa lo que sostiene a la marca: una misión clara, una visión ambiciosa, valores operativos y una filosofía que entiende al dulce como experiencia de diseño.',
