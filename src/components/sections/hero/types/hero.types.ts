@@ -3,6 +3,8 @@ import type { CSSProperties, MutableRefObject, RefObject } from 'react';
 export type HeroResponsiveValue = {
   mobile: string;
   desktop: string;
+  xl?: string;
+  '2xl'?: string;
 };
 
 export type HeroPromo = {
@@ -28,8 +30,12 @@ export type HeroBackgroundRow = {
 export type HeroPromoStyle = CSSProperties & {
   '--promo-top-mobile': string;
   '--promo-top-desktop': string;
+  '--promo-top-xl'?: string;
+  '--promo-top-2xl'?: string;
   '--promo-width-mobile': string;
   '--promo-width-desktop': string;
+  '--promo-width-xl'?: string;
+  '--promo-width-2xl'?: string;
   '--promo-offset-mobile': string;
   '--promo-offset-desktop': string;
   '--promo-rays-anchor-top-mobile': string;

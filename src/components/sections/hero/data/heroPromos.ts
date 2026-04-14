@@ -13,10 +13,14 @@ export const HERO_PROMOS: HeroPromo[] = [
     imageTop: {
       mobile: '49%',
       desktop: '48.5%',
+      xl: '48.5%',
+      '2xl': '48.5%',
     },
     imageWidth: {
       mobile: 'min(96vw, 23rem)',
       desktop: 'min(50vw, 35.5rem)',
+      xl: 'min(55vw, 42rem)',
+      '2xl': 'min(60vw, 48rem)',
     },
     imageOffset: {
       mobile: '1.15rem',
@@ -39,10 +43,14 @@ export const HERO_PROMOS: HeroPromo[] = [
     imageTop: {
       mobile: '46%',
       desktop: '45%',
+      xl: '45%',
+      '2xl': '45%',
     },
     imageWidth: {
       mobile: 'min(96vw, 23rem)',
       desktop: 'min(50vw, 35.5rem)',
+      xl: 'min(55vw, 42rem)',
+      '2xl': 'min(60vw, 48rem)',
     },
     imageOffset: {
       mobile: '-0.05rem',

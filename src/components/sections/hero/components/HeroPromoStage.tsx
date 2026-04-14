@@ -9,7 +9,7 @@ type HeroPromoStageProps = {
 };
 
 const promoStageItemClassName =
-  'pointer-events-none absolute left-1/2 top-[var(--promo-top-mobile)] w-[var(--promo-width-mobile)] -translate-x-1/2 -translate-y-1/2 md:top-[var(--promo-top-desktop)] md:w-[var(--promo-width-desktop)]';
+  'pointer-events-none absolute left-1/2 top-[var(--promo-top-mobile)] w-[var(--promo-width-mobile)] -translate-x-1/2 -translate-y-1/2 md:top-[var(--promo-top-desktop)] md:w-[var(--promo-width-desktop)] xl:top-[var(--promo-top-xl)] xl:w-[var(--promo-width-xl)] 2xl:top-[var(--promo-top-2xl)] 2xl:w-[var(--promo-width-2xl)]';
 
 const raysStyle = {
   backgroundImage:

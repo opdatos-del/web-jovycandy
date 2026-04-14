@@ -24,7 +24,7 @@
 
   .hero-promo-stage {
     margin-top: -1rem;
-    height: clamp(17.75rem, 44vh, 25rem);
+    height: clamp(17.75rem, 44vh, 26rem);
   }
 
   .hero-backdrop-copy {
@@ -140,15 +140,61 @@
 
   .hero-promo-stage {
     margin-top: -5rem;
-    height: clamp(28rem, 60vh, 40rem);
+    height: clamp(28rem, 60vh, 42rem);
   }
 
   .hero-promo-rays {
     width: 130%;
     height: 130%;
   }
+}
+
+@media (min-width: 1280px) {
+  .hero-layout {
+    padding-inline: 4rem;
+  }
+
+  .hero-content {
+    padding-bottom: 11rem;
+  }
+
+  .hero-heading {
+    top: -7rem;
+    margin-top: 5rem;
+  }
+
+  .hero-promo-stage {
+    margin-top: -6rem;
+    height: clamp(32rem, 65vh, 48rem);
+  }
 
   .hero-promo-details {
+    width: min(90vw, 40rem);
     bottom: 4rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-layout {
+    padding-inline: 5rem;
+  }
+
+  .hero-content {
+    padding-bottom: 13rem;
+  }
+
+  .hero-heading {
+    top: -8rem;
+    margin-top: 6rem;
+  }
+
+  .hero-promo-stage {
+    margin-top: -7rem;
+    height: clamp(36rem, 70vh, 54rem);
+  }
+
+  .hero-promo-details {
+    width: min(85vw, 45rem);
+    bottom: 5rem;
   }
 }
