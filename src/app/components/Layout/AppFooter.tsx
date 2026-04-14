@@ -18,7 +18,7 @@ export const AppFooter = () => (
 
       {/* Navigation Menu */}
       <ScrollReveal>
-        <nav className="app-footer-nav mb-8 flex flex-wrap justify-center gap-6 sm:gap-8">
+        <nav className="app-footer-nav mb-8 flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-10">
           <a href="#inicio" className="app-footer-nav-link hover:text-white/75 transition-colors">
             Inicio
           </a>
@@ -60,7 +60,7 @@ export const AppFooter = () => (
             <p className="text-sm font-semibold uppercase tracking-widest">Política Ambiental</p>
           </div>
           <div className="app-footer-info-item">
-            <p className="text-right text-sm font-semibold uppercase tracking-widest sm:text-left">
+            <p className="text-sm font-semibold uppercase tracking-widest sm:text-right">
               &copy; 2026 Jovy
             </p>
           </div>
