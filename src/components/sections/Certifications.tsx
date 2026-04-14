@@ -12,23 +12,23 @@ const certificationItems: CertificationItem[] = [
   {
     src: '/certifications/sgs.png',
     alt: 'SGS',
-    cardClassName: 'col-span-2 sm:col-span-1',
+    cardClassName: 'col-span-1',
     imageClassName:
-      'w-[72%] max-w-[9.5rem] object-contain sm:w-[68%] sm:max-w-[10rem] lg:w-[72%] lg:max-w-[12.5rem] xl:max-w-[13.5rem]',
+      'w-[65%] max-w-[7.5rem] object-contain sm:w-[68%] sm:max-w-[10rem] lg:w-[72%] lg:max-w-[12.5rem] xl:max-w-[14.5rem] 2xl:max-w-[16rem]',
   },
   {
     src: '/certifications/Kosher_icon.png',
     alt: 'Kosher',
-    cardClassName: 'col-span-2 sm:col-span-1',
+    cardClassName: 'col-span-1',
     imageClassName:
-      'w-[70%] max-w-[9rem] object-contain sm:w-[66%] sm:max-w-[9.5rem] lg:w-[70%] lg:max-w-[11.5rem] xl:max-w-[12.5rem]',
+      'w-[63%] max-w-[7rem] object-contain sm:w-[66%] sm:max-w-[9.5rem] lg:w-[70%] lg:max-w-[11.5rem] xl:max-w-[13.5rem] 2xl:max-w-[15rem]',
   },
   {
     src: '/certifications/halal.png',
     alt: 'Halal',
-    cardClassName: 'col-span-2 col-start-2 sm:col-span-1 sm:col-start-auto',
+    cardClassName: 'col-span-1',
     imageClassName:
-      'w-[72%] max-w-[8.75rem] object-contain sm:w-[68%] sm:max-w-[9.5rem] lg:w-[72%] lg:max-w-[12rem] xl:max-w-[13rem]',
+      'w-[65%] max-w-[7.5rem] object-contain sm:w-[68%] sm:max-w-[9.5rem] lg:w-[72%] lg:max-w-[12rem] xl:max-w-[14rem] 2xl:max-w-[15.5rem]',
   },
 ];
 
