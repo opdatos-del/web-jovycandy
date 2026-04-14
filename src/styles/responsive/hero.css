@@ -6,15 +6,15 @@
   }
 
   .hero-shell {
-    min-height: calc(100vh - var(--site-nav-height) - 0.75rem);
-    min-height: calc(100svh - var(--site-nav-height) - 0.75rem);
+    min-height: calc(90vh - var(--site-nav-height) - 0.75rem);
+    min-height: calc(90svh - var(--site-nav-height) - 0.75rem);
     padding-inline: 0.25rem;
     padding-top: 0.5rem;
     padding-bottom: 0.75rem;
   }
 
   .hero-content {
-    padding-bottom: 5rem;
+    padding-bottom: 3.5rem;
   }
 
   .hero-heading {
@@ -24,7 +24,7 @@
 
   .hero-promo-stage {
     margin-top: -1rem;
-    height: clamp(17.75rem, 44vh, 26rem);
+    height: clamp(15.5rem, 38vh, 22rem);
   }
 
   .hero-backdrop-copy {
