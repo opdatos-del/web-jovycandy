@@ -7,6 +7,7 @@ export type AboutLayer = {
   body: string;
   detail: string;
   tone: string;
+  iconType: 'target' | 'rocket' | 'heart' | 'sparkles';
 };
 
 export type AboutMetric = {

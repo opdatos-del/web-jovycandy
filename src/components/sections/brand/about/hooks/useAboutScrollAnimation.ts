@@ -6,7 +6,7 @@ import type { AboutAnimationRefs } from '../types/about.types';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ABOUT_SCROLL_START = 'top 72%';
+const ABOUT_SCROLL_START = 'top 85%';
 const ABOUT_CONTENT_ENTRY_X = -120;
 const ABOUT_CONTENT_ENTRY_Y = 22;
 const ABOUT_CARD_ENTRY_Y = 34;

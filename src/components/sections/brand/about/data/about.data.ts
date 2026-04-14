@@ -1,4 +1,4 @@
-import type { AboutContent, AboutLayer, AboutMetric } from '../types/about.types';
+import type { AboutContent, AboutLayer } from '../types/about.types';
 
 export const ABOUT_CONTENT: AboutContent = {
   eyebrow: '',
@@ -16,6 +16,7 @@ export const ABOUT_LAYERS: AboutLayer[] = [
       'Transformamos el consumo en una experiencia de diseño y sofisticación, donde cada pieza debe sentirse tan pensada como deseable.',
     detail: 'experiencia y sofisticación',
     tone: 'rgba(41, 37, 36, 0.08)',
+    iconType: 'target',
   },
   {
     id: 'vision',
@@ -25,6 +26,7 @@ export const ABOUT_LAYERS: AboutLayer[] = [
       'Queremos ser un referente contemporáneo donde innovación, sabor y lenguaje visual convivan como una misma firma de marca.',
     detail: 'referencia global',
     tone: 'rgba(120, 113, 108, 0.11)',
+    iconType: 'rocket',
   },
   {
     id: 'values',
@@ -34,6 +36,7 @@ export const ABOUT_LAYERS: AboutLayer[] = [
       'Trabajamos con calidad sin concesiones, coherencia estética y una atención obsesiva por la experiencia del usuario en cada punto de contacto.',
     detail: 'coherencia y excelencia',
     tone: 'rgba(168, 162, 158, 0.14)',
+    iconType: 'heart',
   },
   {
     id: 'philosophy',
@@ -43,12 +46,6 @@ export const ABOUT_LAYERS: AboutLayer[] = [
       'Entendemos la confitería como una disciplina donde materia, forma y emoción trabajan juntas para producir recuerdo, no solo consumo.',
     detail: 'arte comestible',
     tone: 'rgba(214, 211, 209, 0.18)',
+    iconType: 'sparkles',
   },
-];
-
-export const ABOUT_METRICS: AboutMetric[] = [
-  { label: 'Misión', value: 'elevar el dulce' },
-  { label: 'Visión', value: 'atelier global' },
-  { label: 'Valores', value: 'detalle y rigor' },
-  { label: 'Filosofía', value: 'diseño sensorial' },
 ];

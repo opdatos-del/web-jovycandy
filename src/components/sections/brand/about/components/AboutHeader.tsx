@@ -15,13 +15,13 @@ export const AboutHeader = ({ content }: AboutHeaderProps) => (
       </div>
     )}
 
-    <h2 className="mt-4 max-w-[10ch] text-3xl font-light uppercase leading-[0.95] tracking-[-0.06em] text-stone-900 sm:mt-6 sm:max-w-[8ch] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+    <h2 className="mt-4 text-2xl font-light uppercase leading-[0.95] tracking-[-0.06em] text-stone-900 sm:mt-5 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
       {content.titleLines[0]}
       <br />
       {content.titleLines[1]}
     </h2>
 
-    <p className="mt-4 max-w-[34rem] text-sm font-light leading-relaxed text-stone-600 sm:mt-5 sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+    <p className="mt-4 max-w-[32rem] text-xs font-light leading-relaxed text-stone-600 sm:mt-5 sm:text-sm md:text-base lg:text-base xl:text-lg">
       {content.description}
     </p>
   </>
