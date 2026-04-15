@@ -1,10 +1,12 @@
 import type { MouseEvent } from 'react';
 
-export type CatalogCategoryId = 'gummies' | 'hard' | 'chili';
+export type CatalogCategoryId = 'polvos' | 'jellies' | 'dulces' | 'paletas' | 'pinatero' | 'gomitas';
 
 export type CatalogProductId = string;
 
 export type CatalogCertification = 'SGS' | 'OU Kosher' | 'Halal';
+
+export type ProductType = 'Dulce' | 'Picante';
 
 export type CatalogSpec = {
   label: string;
@@ -32,6 +34,8 @@ export type CatalogProduct = {
   certifications: CatalogCertification[];
   specs: CatalogSpec[];
   collapsibleInfo: CatalogInfoItem[];
+  gramaje?: string;
+  type: ProductType;
 };
 
 export type CatalogCategory = {
