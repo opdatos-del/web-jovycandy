@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { FaPepperHot } from 'react-icons/fa6';
+import { LuCandy } from 'react-icons/lu';
 
 interface CategoryCardProps {
   id: string;
@@ -8,7 +10,7 @@ interface CategoryCardProps {
   accentColor: string;
   productCount: number;
   isActive?: boolean;
-  onClick: () => void;
+  onClick: (filterType?: string) => void;
 }
 
 export const CategoryCard: React.FC<CategoryCardProps> = ({
@@ -22,7 +24,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   return (
     <motion.button
       whileTap={{ scale: 0.99 }}
-      onClick={onClick}
+      onClick={() => onClick()}
       className={`group relative h-48 w-full overflow-hidden transition-all sm:h-64 lg:h-72 ${
         isActive ? 'ring-2 ring-white/65' : ''
       }`}
@@ -43,18 +45,35 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
         <h3 className="text-center text-2xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
           {title}
         </h3>
-        <p className="text-sm font-semibold text-white/85 sm:text-base">
-          {productCount} {productCount === 1 ? 'producto' : 'productos'}
-        </p>
 
-        {/* Hover Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileHover={{ opacity: 1, y: 0 }}
-          className="mt-2 rounded-full border border-white/25 bg-black/15 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/95 backdrop-blur-sm sm:mt-4 sm:px-4 sm:py-2 sm:text-xs"
-        >
-          Ver Productos
-        </motion.div>
+        {/* Filter Icons */}
+        <div className="flex gap-4 sm:gap-6">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClick('Picante');
+            }}
+            className="flex items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
+            title="Filtrar por Picante"
+          >
+            <FaPepperHot className="text-lg text-white sm:text-xl" />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClick('Dulce');
+            }}
+            className="flex items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
+            title="Filtrar por Dulce"
+          >
+            <LuCandy className="text-lg text-white sm:text-xl" />
+          </motion.button>
+        </div>
       </div>
     </motion.button>
   );

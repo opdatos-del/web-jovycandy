@@ -14,7 +14,6 @@ interface ProductCarouselCenteredProps {
 
 interface FilterState {
   gramaje: string | null;
-  type: ProductType | null;
 }
 
 export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = ({
@@ -36,7 +35,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
   });
   const animationRef = useRef<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const [filters, setFilters] = useState<FilterState>({ gramaje: null, type: null });
+  const [filters, setFilters] = useState<FilterState>({ gramaje: null });
 
   // Obtener opciones únicas para los filtros
   const gramajes = Array.from(new Set(products.map(p => p.gramaje).filter(Boolean))) as string[];
@@ -45,7 +44,6 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
   // Filtrar productos basado en los filtros seleccionados
   const filteredProducts = products.filter(product => {
     if (filters.gramaje && product.gramaje !== filters.gramaje) return false;
-    if (filters.type && product.type !== filters.type) return false;
     return true;
   });
 
@@ -216,30 +214,6 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                         }`}
                       >
                         {gramaje}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Type Filter */}
-              {types.length > 0 && (
-                <div className="flex flex-col gap-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-white/80">
-                    Tipo
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {types.map(type => (
-                      <button
-                        key={type}
-                        onClick={() => toggleFilter('type', type)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
-                          filters.type === type
-                            ? 'bg-white text-black'
-                            : 'bg-white/15 text-white/90 hover:bg-white/25'
-                        }`}
-                      >
-                        {type}
                       </button>
                     ))}
                   </div>

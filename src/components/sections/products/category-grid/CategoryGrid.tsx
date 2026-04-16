@@ -16,6 +16,7 @@ interface PanelState {
   logoAlt: string;
   currentLogoIndex: number;
   availableLogos: Array<{ src: string; alt: string }>;
+  filterType?: string;
 }
 
 export const CategoryGrid = () => {
@@ -29,23 +30,31 @@ export const CategoryGrid = () => {
     logoAlt: '',
     currentLogoIndex: 0,
     availableLogos: [],
+    filterType: undefined,
   });
 
-  const handleCategoryClick = (categoryId: CatalogCategoryId) => {
+  const handleCategoryClick = (categoryId: CatalogCategoryId, filterType?: string) => {
     const category = catalogData[categoryId];
     // Por ahora usamos un logo simple, puedes expandir esto con múltiples logos por categoría
     const defaultLogo = { src: `/products/logos/gummies/logo.png`, alt: `${category.title} logo` };
+
+    // Filtrar productos por tipo si se proporciona
+    let products = category.products;
+    if (filterType) {
+      products = category.products.filter((product) => product.type === filterType);
+    }
 
     setPanelState((prev) => ({
       isOpen: prev.categoryId !== categoryId || !prev.isOpen,
       categoryId,
       categoryTitle: category.title,
-      products: category.products,
+      products,
       accentColor: category.accent || DEFAULT_ACCENT_COLOR,
       logoSrc: defaultLogo.src,
       logoAlt: defaultLogo.alt,
       currentLogoIndex: 0,
       availableLogos: [defaultLogo], // Expandir aquí con múltiples logos si es necesario
+      filterType,
     }));
   };
 
@@ -72,6 +81,7 @@ export const CategoryGrid = () => {
     setPanelState((prev) => ({
       ...prev,
       isOpen: false,
+      filterType: undefined,
     }));
   };
 
@@ -112,7 +122,7 @@ export const CategoryGrid = () => {
                   accentColor={category.accent}
                   productCount={category.productCount}
                   isActive={panelState.isOpen && panelState.categoryId === category.id}
-                  onClick={() => handleCategoryClick(category.id as CatalogCategoryId)}
+                  onClick={(filterType) => handleCategoryClick(category.id as CatalogCategoryId, filterType)}
                 />
               ))}
             </div>
@@ -140,7 +150,7 @@ export const CategoryGrid = () => {
                   accentColor={category.accent}
                   productCount={category.productCount}
                   isActive={panelState.isOpen && panelState.categoryId === category.id}
-                  onClick={() => handleCategoryClick(category.id as CatalogCategoryId)}
+                  onClick={(filterType) => handleCategoryClick(category.id as CatalogCategoryId, filterType)}
                 />
               ))}
             </div>
