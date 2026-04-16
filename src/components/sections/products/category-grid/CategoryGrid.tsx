@@ -35,14 +35,35 @@ export const CategoryGrid = () => {
 
   const handleCategoryClick = (categoryId: CatalogCategoryId, filterType?: string) => {
     const category = catalogData[categoryId];
-    // Por ahora usamos un logo simple, puedes expandir esto con múltiples logos por categoría
-    const defaultLogo = { src: `/products/logos/gummies/logo.png`, alt: `${category.title} logo` };
+    
+    // Map category IDs to folder names for the WEBP PRODUCTOS structure
+    const categoryFolderMap: Record<CatalogCategoryId, string> = {
+      polvos: 'POWDERS',
+      jellies: 'JELLIES',
+      dulces: 'HARD CANDY',
+      paletas: 'LOLLIPOPS',
+      pinatero: 'PIÑATERO',
+      gomitas: 'GUMMIES',
+    };
 
-    // Filtrar productos por tipo si se proporciona
+    // Get products filtered by type if provided
     let products = category.products;
+    const selectedType = filterType || category.products[0]?.type;
+    
     if (filterType) {
       products = category.products.filter((product) => product.type === filterType);
     }
+
+    // Generate logo path based on category and type
+    const typeFolder = selectedType === 'Picante' ? 'SPICY' : 'SWEET';
+    const categoryFolder = categoryFolderMap[categoryId];
+    const logoPath = `/WEBP PRODUCTOS/${typeFolder}/${categoryFolder}/LOGOS`;
+    
+    // Use a generic logo name that likely exists or fallback
+    const defaultLogo = { 
+      src: `${logoPath}/category-logo.webp`, 
+      alt: `${category.title} logo` 
+    };
 
     setPanelState((prev) => ({
       isOpen: prev.categoryId !== categoryId || !prev.isOpen,
@@ -53,7 +74,7 @@ export const CategoryGrid = () => {
       logoSrc: defaultLogo.src,
       logoAlt: defaultLogo.alt,
       currentLogoIndex: 0,
-      availableLogos: [defaultLogo], // Expandir aquí con múltiples logos si es necesario
+      availableLogos: [defaultLogo],
       filterType,
     }));
   };

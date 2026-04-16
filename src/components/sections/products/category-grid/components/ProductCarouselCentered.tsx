@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from 'lucide-react';
-import type { CatalogProduct, ProductType } from '../types/catalog.types';
+import type { CatalogProduct } from '../types/catalog.types';
 
 interface ProductCarouselCenteredProps {
   logoSrc: string;
@@ -39,7 +39,6 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
 
   // Obtener opciones únicas para los filtros
   const gramajes = Array.from(new Set(products.map(p => p.gramaje).filter(Boolean))) as string[];
-  const types = Array.from(new Set(products.map(p => p.type))) as ProductType[];
 
   // Filtrar productos basado en los filtros seleccionados
   const filteredProducts = products.filter(product => {
@@ -132,10 +131,10 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
     document.addEventListener('mouseup', handleMouseUp);
   };
 
-  const toggleFilter = (filterType: 'gramaje' | 'type', value: string | ProductType) => {
+  const toggleFilter = (value: string) => {
     setFilters(prev => ({
       ...prev,
-      [filterType]: prev[filterType] === value ? null : value,
+      gramaje: prev.gramaje === value ? null : value,
     }));
   };
 
@@ -206,7 +205,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                     {gramajes.map(gramaje => (
                       <button
                         key={gramaje}
-                        onClick={() => toggleFilter('gramaje', gramaje)}
+                        onClick={() => toggleFilter(gramaje)}
                         className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                           filters.gramaje === gramaje
                             ? 'bg-white text-black'
