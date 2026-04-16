@@ -15,7 +15,7 @@ export const UpcomingEventsTrack = ({ trackRef }: UpcomingEventsTrackProps) => (
   >
     <UpcomingEventsIntroCard />
 
-    {upcomingEvents.map((event) => (
+    {upcomingEvents.slice(0, 5).map((event) => (
       <UpcomingEventCard key={event.id} event={event} />
     ))}
 

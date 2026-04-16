@@ -22,10 +22,10 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   onClick,
 }) => {
   return (
-    <motion.button
+    <motion.div
       whileTap={{ scale: 0.99 }}
       onClick={() => onClick()}
-      className={`group relative h-48 w-full overflow-hidden transition-all sm:h-64 lg:h-72 ${
+      className={`group relative h-48 w-full overflow-hidden transition-all sm:h-64 lg:h-72 cursor-pointer ${
         isActive ? 'ring-2 ring-white/65' : ''
       }`}
       style={{ backgroundColor: accentColor }}
@@ -75,6 +75,6 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
           </motion.button>
         </div>
       </div>
-    </motion.button>
+    </motion.div>
   );
 };

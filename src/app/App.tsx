@@ -2,7 +2,6 @@ import { ContactModal } from '../components/ui/contact-modal';
 import { LocationModal } from '../components/ui/LocationModal';
 
 import {
-  AppFinalCta,
   AppFooter,
   AppNavbar,
   AppPostCtaSections,
@@ -31,7 +30,6 @@ export default function App() {
         toggleMobileMenu={toggleMobileMenu}
       />
       <AppSections />
-      <AppFinalCta onContactClick={openContactModal} />
       <AppPostCtaSections />
       <AppFooter />
 

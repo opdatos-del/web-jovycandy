@@ -38,14 +38,4 @@ export const ABOUT_LAYERS: AboutLayer[] = [
     tone: 'rgba(168, 162, 158, 0.14)',
     iconType: 'heart',
   },
-  {
-    id: 'philosophy',
-    kicker: 'Filosofía',
-    title: 'El sabor también puede ser diseño.',
-    body:
-      'Entendemos la confitería como una disciplina donde materia, forma y emoción trabajan juntas para producir recuerdo, no solo consumo.',
-    detail: 'arte comestible',
-    tone: 'rgba(214, 211, 209, 0.18)',
-    iconType: 'sparkles',
-  },
 ];
