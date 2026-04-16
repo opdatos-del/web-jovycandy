@@ -88,7 +88,7 @@ export const CategoryGrid = () => {
   const bottomCategories = categories.slice(3, 6);
 
   return (
-    <section className="relative z-10 flex flex-col bg-[#efefef] pb-0 pt-5 text-stone-900 sm:pt-7 lg:pt-9">
+    <section className="relative z-10 flex flex-col bg-[#ffffff] pb-0 pt-5 text-stone-900 sm:pt-7 lg:pt-9">
       <div className="flex w-full flex-grow flex-col">
         <div className="page-shell-wide">
           <ScrollReveal delay={0.04}>

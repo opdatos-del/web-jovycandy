@@ -14,26 +14,26 @@ const certificationItems: CertificationItem[] = [
     alt: 'SGS',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[65%] max-w-[7.5rem] object-contain sm:w-[68%] sm:max-w-[10rem] lg:w-[72%] lg:max-w-[12.5rem] xl:max-w-[14.5rem] 2xl:max-w-[16rem]',
+      'w-[85%] max-w-[7.5rem] object-contain sm:w-[88%] sm:max-w-[10rem] lg:w-[90%] lg:max-w-[12.5rem] xl:max-w-[14.5rem] 2xl:max-w-[16rem]',
   },
   {
     src: '/certifications/Kosher_icon.png',
     alt: 'Kosher',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[63%] max-w-[7rem] object-contain sm:w-[66%] sm:max-w-[9.5rem] lg:w-[70%] lg:max-w-[11.5rem] xl:max-w-[13.5rem] 2xl:max-w-[15rem]',
+      'w-[85%] max-w-[7rem] object-contain sm:w-[88%] sm:max-w-[9.5rem] lg:w-[90%] lg:max-w-[11.5rem] xl:max-w-[13.5rem] 2xl:max-w-[15rem]',
   },
   {
     src: '/certifications/halal.png',
     alt: 'Halal',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[65%] max-w-[7.5rem] object-contain sm:w-[68%] sm:max-w-[9.5rem] lg:w-[72%] lg:max-w-[12rem] xl:max-w-[14rem] 2xl:max-w-[15.5rem]',
+      'w-[85%] max-w-[7.5rem] object-contain sm:w-[88%] sm:max-w-[9.5rem] lg:w-[90%] lg:max-w-[12rem] xl:max-w-[14rem] 2xl:max-w-[15.5rem]',
   },
 ];
 
 const certificationCardClassName =
-  'certification-card group relative flex aspect-square items-center justify-center overflow-hidden border border-[#ffd8cd] bg-[#fffaf6] shadow-sm transition-colors duration-500 hover:border-[#ffc3b3] hover:shadow-md';
+  'certification-card group relative flex aspect-square items-center justify-center overflow-hidden rounded-full border border-[#ffd8cd] bg-[#fffaf6] shadow-sm transition-colors duration-500 hover:border-[#ffc3b3] hover:shadow-md';
 
 export const Certifications: React.FC = () => {
   return (
@@ -49,15 +49,11 @@ export const Certifications: React.FC = () => {
           <h2 className="certifications-eyebrow mb-6 text-sm font-mono uppercase text-white/75 sm:text-base">
             Nuestros Certificados
           </h2>
-          <h3 className="certifications-title font-bold leading-tight tracking-tight text-white">
-            Calidad <br />
-            <span className="font-serif italic text-white/75">Garantizada</span>
+          <h3 className="certifications-title mb-6 font-bold leading-tight tracking-tight text-white">
+            Calidad Garantizada
           </h3>
-          <p className="certifications-body max-w-xl font-medium leading-relaxed text-white/88">
-            Cumplimos con los mas altos estandares de calidad que satisfacen a miles de personas en los
-            mercados nacionales e internacionales. Contamos con normas de aseguramiento de calidad,
-            protocolos y procedimientos que incluyen cuidadosas inspecciones en todas las fases de nuestra
-            operacion, para asegurar que solo los productos de la mas alta calidad lleguen a ti.
+          <p className="certifications-body max-w-2xl font-medium leading-relaxed text-justify text-white/88">
+            Cumplimos con los más altos estándares de calidad que satisfacen a miles de personas en los mercados nacionales e internacionales. Contamos con normas de aseguramiento de calidad, protocolos y procedimientos que incluyen cuidadosas inspecciones en todas las fases de nuestra operación, para asegurar que solo los productos de la más alta calidad lleguen a ti.
           </p>
         </motion.div>
 

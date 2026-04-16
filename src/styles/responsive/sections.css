@@ -34,8 +34,8 @@
   }
 
   .certification-card {
-    padding: 0.5rem;
-    border-radius: 1rem;
+    padding: 0;
+    border-radius: 50%;
   }
 }
 
@@ -64,8 +64,8 @@
   }
 
   .certification-card {
-    padding: 0.75rem;
-    border-radius: 1.35rem;
+    padding: 0;
+    border-radius: 50%;
   }
 }
 
@@ -89,8 +89,8 @@
   }
 
   .certification-card {
-    padding: 0.875rem;
-    border-radius: 1.5rem;
+    padding: 0;
+    border-radius: 50%;
   }
 }
 
@@ -127,8 +127,8 @@
   }
 
   .certification-card {
-    padding: 1.1rem;
-    border-radius: 1.6rem;
+    padding: 0;
+    border-radius: 50%;
   }
 }
 
@@ -157,8 +157,8 @@
   }
 
   .certification-card {
-    padding: 1.2rem;
-    border-radius: 1.75rem;
+    padding: 0;
+    border-radius: 50%;
   }
 }
 
@@ -191,7 +191,7 @@
   }
 
   .certification-card {
-    padding: 1.35rem;
-    border-radius: 1.9rem;
+    padding: 0;
+    border-radius: 50%;
   }
 }
