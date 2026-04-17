@@ -15,24 +15,23 @@ const productImageMap: Record<string, Record<string, string>> = {
     'Bears Classic': '/WEBP PRODUCTOS/SWEET/GUMMIES/BEARS/JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp',
   },
   polvos: {
-    'Powder Tamarind': '/WEBP PRODUCTOS/SPICY/POWDERS/Acirrico.webp',
-    'Powder Chamoy': '/WEBP PRODUCTOS/SPICY/POWDERS/Limonazo.webp',
+    'Acirrico': '/WEBP PRODUCTOS/SPICY/POWDERS/Acirrico.webp',
+    'Limonazo': '/WEBP PRODUCTOS/SPICY/POWDERS/Limonazo.webp',
   },
   jellies: {
-    'Jelly Strawberry': '/WEBP PRODUCTOS/SWEET/JELLIES/CHERRY SLICES/JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp',
-    'Jelly Orange': '/WEBP PRODUCTOS/SWEET/JELLIES/ORANGE SLICES/JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp',
+    'CHERRY SLICES 5LB': '/WEBP PRODUCTOS/SWEET/JELLIES/CHERRY SLICES/JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp',
+    'ORANGE SLICES': '/WEBP PRODUCTOS/SWEET/JELLIES/ORANGE SLICES/JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp',
   },
   dulces: {
     'Lollipop Cherry': '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
     'Lollipop Lemon': '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
   },
   paletas: {
-    'Paleta Watermelon': '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/MANGO REVOLCADO/JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp',
-    'Paleta Mango': '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/MANGO REVOLCADO/JOVY-LOLLIPOP-Mango-Revolcado-6-oz-300x300.webp',
+    'Mango revolcado': '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/MANGO REVOLCADO/JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp',
   },
   pinatero: {
-    'Piñatero Mix': '/WEBP PRODUCTOS/SPICY/PIÑATERO/HAPPY MIX/JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp',
-    'Piñatero Dulce Picante': '/WEBP PRODUCTOS/SPICY/PIÑATERO/HAPPY MIX/JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp',
+    'Happy Mix': '/WEBP PRODUCTOS/SPICY/PIÑATERO/HAPPY MIX/JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp',
+    'Revolcados Mix': '/WEBP PRODUCTOS/SPICY/PIÑATERO/HAPPY MIX/JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp',
   },
 };
 
@@ -77,22 +76,22 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
     'Bears-300x300.webp': ['Bears Classic'],
   },
   polvos: {
-    'Acirrico-300x300.webp': ['Powder Tamarind', 'Powder Chamoy'],
+    'Acirrico-300x300.webp': ['Acirrico', 'Limonazo'],
   },
   jellies: {
-    'Cherry_Slices-300x300.webp': ['Jelly Strawberry'],
-    'Orange_slices-300x300.webp': ['Jelly Orange'],
+    'Cherry_Slices-300x300.webp': ['CHERRY SLICES 5LB'],
+    'Orange_slices-300x300.webp': ['ORANGE SLICES'],
   },
   dulces: {
     'Jovy_Fruit-300x300.webp': ['Lollipop Cherry', 'Lollipop Lemon'],
   },
   paletas: {
-    'Mango_Revolcado-300x300.webp': ['Paleta Watermelon', 'Paleta Mango'],
+    'Mango_Revolcado-300x300.webp': ['Mango revolcado'],
   },
   pinatero: {
-    'happy-mix-300x300.webp': ['Piñatero Mix'],
-    'Revolcados-mix-300x300.webp': ['Piñatero Dulce Picante'],
-    'Tropimix-300x300.webp': ['Piñatero Mix'],
+    'happy-mix-300x300.webp': ['Happy Mix'],
+    'Revolcados-mix-300x300.webp': ['Revolcados Mix'],
+    'Tropimix-300x300.webp': ['Happy Mix'],
   },
 };
 
@@ -135,12 +134,12 @@ export const catalogData: CatalogData = {
     products: [
       {
         id: 'p1',
-        name: 'Powder Tamarind',
+        name: 'Acirrico',
         subtitle: 'Tamarind Powder\nSour & Sweet',
         description: 'Polvo saborizante intenso con tamarindo y un toque de picante.',
-        image: getProductImagePath('Picante', 'polvos', 'Powder Tamarind'),
-        sampleImage: getProductImagePath('Picante', 'polvos', 'Powder Tamarind'),
-        secondaryImage: getProductImagePath('Picante', 'polvos', 'Powder Tamarind'),
+        image: getProductImagePath('Picante', 'polvos', 'Acirrico'),
+        sampleImage: getProductImagePath('Picante', 'polvos', 'Acirrico'),
+        secondaryImage: getProductImagePath('Picante', 'polvos', 'Acirrico'),
         certifications: ['SGS', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.05 oz (1.5g)' },
@@ -164,12 +163,12 @@ export const catalogData: CatalogData = {
       },
       {
         id: 'p2',
-        name: 'Powder Chamoy',
+        name: 'Limonazo',
         subtitle: 'Chamoy Powder\nSweet & Tangy',
         description: 'Polvo con aroma y sabor a chamoy, perfecto para cubrir frutas.',
-        image: getProductImagePath('Dulce', 'polvos', 'Powder Chamoy'),
-        sampleImage: getProductImagePath('Dulce', 'polvos', 'Powder Chamoy'),
-        secondaryImage: getProductImagePath('Dulce', 'polvos', 'Powder Chamoy'),
+        image: getProductImagePath('Dulce', 'polvos', 'Limonazo'),
+        sampleImage: getProductImagePath('Dulce', 'polvos', 'Limonazo'),
+        secondaryImage: getProductImagePath('Dulce', 'polvos', 'Limonazo'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.05 oz (1.5g)' },
@@ -200,12 +199,12 @@ export const catalogData: CatalogData = {
     products: [
       {
         id: 'j1',
-        name: 'Jelly Strawberry',
+        name: 'CHERRY SLICES 5LB',
         subtitle: 'Strawberry Jelly\nSmooth & Sweet',
         description: 'Gelatina de fresa con textura suave y sabor intenso.',
-        image: getProductImagePath('Dulce', 'jellies', 'Jelly Strawberry'),
-        sampleImage: getProductImagePath('Dulce', 'jellies', 'Jelly Strawberry'),
-        secondaryImage: getProductImagePath('Dulce', 'jellies', 'Jelly Strawberry'),
+        image: getProductImagePath('Dulce', 'jellies', 'CHERRY SLICES 5LB'),
+        sampleImage: getProductImagePath('Dulce', 'jellies', 'CHERRY SLICES 5LB'),
+        secondaryImage: getProductImagePath('Dulce', 'jellies', 'CHERRY SLICES 5LB'),
         certifications: ['SGS', 'OU Kosher', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -229,12 +228,12 @@ export const catalogData: CatalogData = {
       },
       {
         id: 'j2',
-        name: 'Jelly Orange',
-        subtitle: 'Orange Jelly\nCitrus Flavor',
-        description: 'Gelatina de naranja con sabor cítrico refrescante.',
-        image: getProductImagePath('Dulce', 'jellies', 'Jelly Orange'),
-        sampleImage: getProductImagePath('Dulce', 'jellies', 'Jelly Orange'),
-        secondaryImage: getProductImagePath('Dulce', 'jellies', 'Jelly Orange'),
+        name: 'ORANGE SLICES',
+        subtitle: 'Orange Jelly\nCitrus & Sweet',
+        description: 'Gelatina de naranja con sabor cítrico intenso.',
+        image: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
+        sampleImage: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
+        secondaryImage: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
         certifications: ['SGS', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -330,12 +329,12 @@ export const catalogData: CatalogData = {
     products: [
       {
         id: 'pa1',
-        name: 'Paleta Watermelon',
+        name: 'Mango revolcado',
         subtitle: 'Watermelon Popsicle\nFresh & Sweet',
         description: 'Paleta refrescante con sabor a sandía natural.',
-        image: getProductImagePath('Dulce', 'paletas', 'Paleta Watermelon'),
-        sampleImage: getProductImagePath('Dulce', 'paletas', 'Paleta Watermelon'),
-        secondaryImage: getProductImagePath('Dulce', 'paletas', 'Paleta Watermelon'),
+        image: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
+        sampleImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
+        secondaryImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
         certifications: ['SGS', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 1 oz (28g)' },
@@ -359,12 +358,12 @@ export const catalogData: CatalogData = {
       },
       {
         id: 'pa2',
-        name: 'Paleta Mango',
+        name: 'Mango revolcado',
         subtitle: 'Mango Popsicle\nTropical Flavor',
         description: 'Paleta de mango con toque tropical y sabor auténtico.',
-        image: getProductImagePath('Dulce', 'paletas', 'Paleta Mango'),
-        sampleImage: getProductImagePath('Dulce', 'paletas', 'Paleta Mango'),
-        secondaryImage: getProductImagePath('Dulce', 'paletas', 'Paleta Mango'),
+        image: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
+        sampleImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
+        secondaryImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
         certifications: ['SGS', 'OU Kosher'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 1 oz (28g)' },
@@ -395,12 +394,12 @@ export const catalogData: CatalogData = {
     products: [
       {
         id: 'pi1',
-        name: 'Piñatero Mix',
+        name: 'Happy Mix',
         subtitle: 'Assorted Mix\nMulti Flavor',
         description: 'Surtido de dulces muy variados con sabores tradicionales.',
-        image: getProductImagePath('Dulce', 'pinatero', 'Piñatero Mix'),
-        sampleImage: getProductImagePath('Dulce', 'pinatero', 'Piñatero Mix'),
-        secondaryImage: getProductImagePath('Dulce', 'pinatero', 'Piñatero Mix'),
+        image: getProductImagePath('Dulce', 'pinatero', 'Happy Mix'),
+        sampleImage: getProductImagePath('Dulce', 'pinatero', 'Happy Mix'),
+        secondaryImage: getProductImagePath('Dulce', 'pinatero', 'Happy Mix'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -424,12 +423,12 @@ export const catalogData: CatalogData = {
       },
       {
         id: 'pi2',
-        name: 'Piñatero Dulce Picante',
+        name: 'Revolcados Mix',
         subtitle: 'Sweet & Spicy Mix\nBalanced Heat',
         description: 'Mix especial de dulces y picantes para piñateros tradicionales.',
-        image: getProductImagePath('Picante', 'pinatero', 'Piñatero Dulce Picante'),
-        sampleImage: getProductImagePath('Picante', 'pinatero', 'Piñatero Dulce Picante'),
-        secondaryImage: getProductImagePath('Picante', 'pinatero', 'Piñatero Dulce Picante'),
+        image: getProductImagePath('Picante', 'pinatero', 'Revolcados Mix'),
+        sampleImage: getProductImagePath('Picante', 'pinatero', 'Revolcados Mix'),
+        secondaryImage: getProductImagePath('Picante', 'pinatero', 'Revolcados Mix'),
         certifications: ['SGS', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
