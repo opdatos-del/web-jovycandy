@@ -101,7 +101,7 @@
 
   .certifications-layout {
     grid-template-columns: minmax(18rem, 0.78fr) minmax(0, 1.22fr);
-    align-items: flex-start;
+    align-items: center;
     gap: 3.5rem;
   }
 
