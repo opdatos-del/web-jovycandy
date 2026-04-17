@@ -54,25 +54,25 @@ export const TaglineSection = () => {
       }}
     >
       {/* Overlay for text readability */}
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/25" />
       <div ref={contentRef} className="relative z-10 mx-auto w-full max-w-3xl px-4">
         <div className="mb-8 flex items-center gap-4">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300 to-transparent" />
-          <div className="h-2 w-2 rounded-full bg-stone-400" />
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300 to-transparent" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+          <div className="h-2 w-2 rounded-full bg-white/60" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         </div>
 
-        <p className="text-center text-xl font-bold leading-relaxed text-stone-800 sm:text-2xl md:text-3xl">
+        <p className="text-center text-xl font-light leading-relaxed text-white sm:text-2xl md:text-3xl">
           En la Casa de Jovy
-          <span className="mt-2 block font-light text-stone-900">
+          <span className="mt-2 block font-semibold text-white">
             Elaboramos dulces que acompañan tus momentos
           </span>
         </p>
 
         <div className="mt-8 flex items-center gap-4">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300 to-transparent" />
-          <div className="h-2 w-2 rounded-full bg-stone-400" />
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-stone-300 to-transparent" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+          <div className="h-2 w-2 rounded-full bg-white/60" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         </div>
       </div>
     </section>
