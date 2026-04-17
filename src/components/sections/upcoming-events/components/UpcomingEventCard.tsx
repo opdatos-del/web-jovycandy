@@ -3,22 +3,30 @@ import type { UpcomingEvent } from '../types/upcoming-events.types';
 
 type UpcomingEventCardProps = {
   event: UpcomingEvent;
+  collageClassName?: string;
+  onOpen?: (event: UpcomingEvent) => void;
 };
 
-export const UpcomingEventCard = ({ event }: UpcomingEventCardProps) => (
+export const UpcomingEventCard = ({ event, collageClassName = '', onOpen }: UpcomingEventCardProps) => (
   <ScrollReveal
-    className="aspect-[4/5] w-[min(88vw,19rem)] shrink-0 snap-start md:w-[min(54vw,22rem)] lg:aspect-[5/8] lg:w-[min(25vw,24rem)]"
+    className={collageClassName}
     distance={30}
   >
-    <article className="group relative h-full w-full overflow-hidden rounded-[2rem] border border-white/70 bg-white p-2 shadow-[0_28px_90px_rgba(42,33,28,0.14)] lg:rounded-[2.4rem]">
-      <div className="relative h-full w-full overflow-hidden rounded-[1.6rem] bg-[#f8eee8] lg:rounded-[1.9rem]">
+    <button
+      type="button"
+      onClick={() => onOpen?.(event)}
+      className="group relative h-full w-full overflow-hidden rounded-xl border border-white/30 bg-white/80 p-1 text-left shadow-[0_14px_42px_rgba(42,33,28,0.2)] sm:rounded-2xl"
+      aria-label={`Ver imagen completa de ${event.alt}`}
+    >
+      <div className="relative h-full w-full overflow-hidden rounded-lg bg-[#f8eee8] sm:rounded-xl">
         <img
           src={event.image}
           alt={event.alt}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
           draggable={false}
         />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-transparent opacity-70" />
       </div>
-    </article>
+    </button>
   </ScrollReveal>
 );
