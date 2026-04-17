@@ -32,7 +32,7 @@ export const AppSections = () => (
     <div id="nuestra-esencia">
       <About />
     </div>
-    <SectionColorTransition fromColor="#fff0ec" toColor="#fff3c7" heightClassName="h-12 md:h-14 lg:h-16" />
+
   </>
 );
 

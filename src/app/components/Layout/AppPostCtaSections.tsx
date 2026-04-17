@@ -3,8 +3,8 @@ import { SectionColorTransition } from '../../../components/sections/SectionColo
 
 export const AppPostCtaSections = () => (
   <>
-    <SectionColorTransition fromColor="#fff3c7" toColor="#edf5ff" heightClassName="h-12 md:h-14 lg:h-16" />
+    <SectionColorTransition fromColor="#fff0ec" toColor="#edf5ff" heightClassName="h-20 md:h-28 lg:h-32" />
     <ScrollLogo />
-    <SectionColorTransition fromColor="#edf5ff" toColor="#00afaa" heightClassName="h-10 md:h-12 lg:h-14" />
+    <SectionColorTransition fromColor="#edf5ff" toColor="#00afaa" heightClassName="h-20 md:h-28 lg:h-32" />
   </>
 );

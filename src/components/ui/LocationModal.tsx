@@ -35,14 +35,14 @@ export const LocationModal = ({ open, onClose, onOpenContact }: LocationModalPro
           <div className="overflow-hidden rounded-lg p-4">
             <div className="overflow-hidden rounded-lg border border-stone-200">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.509968206114!2d-103.3385265!3d20.5672215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f4d35d2caa443%3A0x66f965bdd0d653f!2sProcesadora%20De%20Alimentos%20Cale%2C%20S.A.%20De%20C.V.!5e0!3m2!1ses-419!2smx!4v1775055084684!5m2!1ses-419!2smx"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d571.6109278153666!2d-103.33300968346919!3d20.568203718212708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f4d35d2caa443%3A0x6649964dd802ca39!2sDulces%20Jovy!5e1!3m2!1ses-419!2smx!4v1776429037235!5m2!1ses-419!2smx"
                 width="800"
                 height="600"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa de ubicación de Procesadora De Alimentos Cale"
+                title="Mapa de ubicación de Dulces Jovy"
                 className="location-modal-map w-full"
               />
             </div>

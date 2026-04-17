@@ -38,6 +38,11 @@ const certificationCardClassName =
 export const Certifications: React.FC = () => {
   return (
     <section className="certifications-section relative z-20 overflow-hidden bg-[linear-gradient(180deg,#ff6a86_0%,#ff7f69_100%)]">
+      <div className="flex justify-center px-4 pt-8 sm:pt-10 lg:pt-12">
+        <h2 className="font-mono text-xs uppercase text-white/75 opacity-90 sm:text-sm">
+          Certificaciones
+        </h2>
+      </div>
       <div className="certifications-layout page-shell-wide grid items-center">
         <motion.div
           initial={{ opacity: 0, x: -60, y: 12 }}

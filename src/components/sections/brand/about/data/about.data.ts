@@ -38,4 +38,14 @@ export const ABOUT_LAYERS: AboutLayer[] = [
     tone: 'rgba(168, 162, 158, 0.14)',
     iconType: 'heart',
   },
+  {
+    id: 'philosophy',
+    kicker: 'Filosofía',
+    title: 'El sabor también puede ser diseño.',
+    body:
+      'Creemos que cada dulce es una oportunidad para expresar una visión estética única. El sabor no es separable del contexto visual, emocional y sensorial que lo envuelve.',
+    detail: 'diseño y experiencia',
+    tone: 'rgba(100, 116, 139, 0.12)',
+    iconType: 'sparkles',
+  },
 ];

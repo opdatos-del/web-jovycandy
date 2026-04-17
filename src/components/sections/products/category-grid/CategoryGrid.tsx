@@ -4,6 +4,7 @@ import { CategoryCard } from './components/CategoryCard';
 import { ProductCarouselCentered } from './components/ProductCarouselCentered';
 import { ScrollReveal } from '../../../ui/ScrollReveal';
 import { catalogData } from './data/catalogData';
+import { categoryLogosMap, categoryLogoProductsMap } from './data/catalogData';
 import type { CatalogCategoryId, CatalogProduct } from './types/catalog.types';
 
 interface PanelState {
@@ -11,6 +12,7 @@ interface PanelState {
   categoryId: CatalogCategoryId | null;
   categoryTitle: string;
   products: CatalogProduct[];
+  originalProducts: CatalogProduct[]; // Products before logo filtering
   accentColor: string;
   logoSrc: string;
   logoAlt: string;
@@ -25,6 +27,7 @@ export const CategoryGrid = () => {
     categoryId: null,
     categoryTitle: '',
     products: [],
+    originalProducts: [],
     accentColor: DEFAULT_ACCENT_COLOR,
     logoSrc: '',
     logoAlt: '',
@@ -36,51 +39,46 @@ export const CategoryGrid = () => {
   const handleCategoryClick = (categoryId: CatalogCategoryId, filterType?: string) => {
     const category = catalogData[categoryId];
     
-    // Map category IDs to folder names for the WEBP PRODUCTOS structure
-    const categoryFolderMap: Record<CatalogCategoryId, string> = {
-      polvos: 'POWDERS',
-      jellies: 'JELLIES',
-      dulces: 'HARD CANDY',
-      paletas: 'LOLLIPOPS',
-      pinatero: 'PIÑATERO',
-      gomitas: 'GUMMIES',
-    };
-
     // Get products filtered by type if provided
     let products = category.products;
-    const selectedType = filterType || category.products[0]?.type;
     
     if (filterType) {
       products = category.products.filter((product) => product.type === filterType);
     }
 
-    // Generate logo path based on category and type
-    const typeFolder = selectedType === 'Picante' ? 'SPICY' : 'SWEET';
-    const categoryFolder = categoryFolderMap[categoryId];
-    const logoPath = `/WEBP PRODUCTOS/${typeFolder}/${categoryFolder}/LOGOS`;
+    // Get available logos for this category
+    const availableLogos = categoryLogosMap[categoryId] || [
+      { src: '/logo.png', alt: category.title }
+    ];
+
+    // Get products for the first logo
+    const firstLogo = availableLogos[0];
+    const logoFilename = firstLogo.src.split('/').pop() || '';
+    const categoryLogoProducts = categoryLogoProductsMap[categoryId];
+    const productsForFirstLogo = categoryLogoProducts?.[logoFilename] || [];
     
-    // Use a generic logo name that likely exists or fallback
-    const defaultLogo = { 
-      src: `${logoPath}/category-logo.webp`, 
-      alt: `${category.title} logo` 
-    };
+    // Filter products to show only those belonging to first logo
+    const filteredProductsByLogo = products.filter(product =>
+      productsForFirstLogo.includes(product.name)
+    );
 
     setPanelState((prev) => ({
       isOpen: prev.categoryId !== categoryId || !prev.isOpen,
       categoryId,
       categoryTitle: category.title,
-      products,
+      products: filteredProductsByLogo.length > 0 ? filteredProductsByLogo : products,
+      originalProducts: products, // Store unfiltered products for logo switching
       accentColor: category.accent || DEFAULT_ACCENT_COLOR,
-      logoSrc: defaultLogo.src,
-      logoAlt: defaultLogo.alt,
+      logoSrc: availableLogos[0].src,
+      logoAlt: availableLogos[0].alt,
       currentLogoIndex: 0,
-      availableLogos: [defaultLogo],
+      availableLogos,
       filterType,
     }));
   };
 
   const handleLogoNavigation = (direction: 'prev' | 'next') => {
-    if (!panelState.availableLogos.length) return;
+    if (!panelState.availableLogos.length || !panelState.categoryId) return;
 
     const newIndex =
       direction === 'next'
@@ -90,11 +88,24 @@ export const CategoryGrid = () => {
 
     const newLogo = panelState.availableLogos[newIndex];
 
+    // Extract logo filename from src path
+    const logoFilename = newLogo.src.split('/').pop() || '';
+    
+    // Get products that belong to this logo
+    const categoryLogoProducts = categoryLogoProductsMap[panelState.categoryId];
+    const productsForThisLogo = categoryLogoProducts?.[logoFilename] || [];
+    
+    // Filter products from originalProducts to show only those belonging to this logo
+    const filteredProducts = panelState.originalProducts.filter(product =>
+      productsForThisLogo.includes(product.name)
+    );
+
     setPanelState((prev) => ({
       ...prev,
       logoSrc: newLogo.src,
       logoAlt: newLogo.alt,
       currentLogoIndex: newIndex,
+      products: filteredProducts.length > 0 ? filteredProducts : panelState.originalProducts,
     }));
   };
 
@@ -121,7 +132,7 @@ export const CategoryGrid = () => {
   return (
     <section className="relative z-10 flex flex-col bg-[#ffffff] pb-0 pt-5 text-stone-900 sm:pt-7 lg:pt-9">
       <div className="flex w-full flex-grow flex-col">
-        <div className="page-shell-wide">
+        <div className="flex justify-center">
           <ScrollReveal delay={0.04}>
             <h2 className="category-grid-title mb-4 font-mono text-xs uppercase text-stone-400 opacity-90 sm:mb-6 sm:text-sm">
               {CATEGORY_GRID_SECTION_TITLE}

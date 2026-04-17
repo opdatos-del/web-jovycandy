@@ -28,14 +28,14 @@ export const AppFooter = () => (
             <a href="#inicio" className="app-footer-nav-link text-sm sm:text-base lg:text-lg hover:text-white/75 transition-colors font-medium">
               Inicio
             </a>
-            <a href="#nuestra-esencia" className="app-footer-nav-link text-sm sm:text-base lg:text-lg hover:text-white/75 transition-colors font-medium">
+            <a href="#quienes-somos" className="app-footer-nav-link text-sm sm:text-base lg:text-lg hover:text-white/75 transition-colors font-medium">
               Quiénes Somos
             </a>
             <a href="#tienda" className="app-footer-nav-link text-sm sm:text-base lg:text-lg hover:text-white/75 transition-colors font-medium">
               Tienda
             </a>
-            <a href="#tienda" className="app-footer-nav-link text-sm sm:text-base lg:text-lg hover:text-white/75 transition-colors font-medium">
-              Líneas
+            <a href="#eventos" className="app-footer-nav-link text-sm sm:text-base lg:text-lg hover:text-white/75 transition-colors font-medium">
+              Eventos
             </a>
             <a href="#certificaciones" className="app-footer-nav-link text-sm sm:text-base lg:text-lg hover:text-white/75 transition-colors font-medium">
               Certificaciones

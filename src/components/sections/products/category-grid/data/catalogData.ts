@@ -37,6 +37,66 @@ const productImageMap: Record<string, Record<string, string>> = {
 };
 
 /**
+ * Mapping of category logos available for navigation
+ * Each category has available logos that can be cycled through
+ */
+export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
+  gomitas: [
+    { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Rings-300x300.webp', alt: 'Gomitas Rings' },
+    { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Worms-300x300.webp', alt: 'Gomitas Worms' },
+    { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Bears-300x300.webp', alt: 'Gomitas Bears' },
+  ],
+  polvos: [
+    { src: '/WEBP PRODUCTOS/SPICY/POWDERS/LOGOS/Acirrico-300x300.webp', alt: 'Polvos Acirrico' },
+  ],
+  jellies: [
+    { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Cherry_Slices-300x300.webp', alt: 'Jellies Cherry' },
+    { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Orange_slices-300x300.webp', alt: 'Jellies Orange' },
+  ],
+  dulces: [
+    { src: '/WEBP PRODUCTOS/SWEET/HARD CANDY/LOGOS/Jovy_Fruit-300x300.webp', alt: 'Dulces Fruit' },
+  ],
+  paletas: [
+    { src: '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/LOGOS/Mango_Revolcado-300x300.webp', alt: 'Paletas Mango' },
+  ],
+  pinatero: [
+    { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/happy-mix-300x300.webp', alt: 'Piñatero Happy Mix' },
+    { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/Revolcados-mix-300x300.webp', alt: 'Piñatero Revolcados' },
+    { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/Tropimix-300x300.webp', alt: 'Piñatero Tropimix' },
+  ],
+};
+
+/**
+ * Mapping of logos to their corresponding products
+ * Links each logo filename to the product names that belong to it
+ */
+export const categoryLogoProductsMap: Record<string, Record<string, string[]>> = {
+  gomitas: {
+    'Rings-300x300.webp': ['Rings Watermelon', 'Rings Neon', 'Gummies Peach', 'Gummies Cherry'],
+    'Worms-300x300.webp': ['Worms Original'],
+    'Bears-300x300.webp': ['Bears Classic'],
+  },
+  polvos: {
+    'Acirrico-300x300.webp': ['Powder Tamarind', 'Powder Chamoy'],
+  },
+  jellies: {
+    'Cherry_Slices-300x300.webp': ['Jelly Strawberry'],
+    'Orange_slices-300x300.webp': ['Jelly Orange'],
+  },
+  dulces: {
+    'Jovy_Fruit-300x300.webp': ['Lollipop Cherry', 'Lollipop Lemon'],
+  },
+  paletas: {
+    'Mango_Revolcado-300x300.webp': ['Paleta Watermelon', 'Paleta Mango'],
+  },
+  pinatero: {
+    'happy-mix-300x300.webp': ['Piñatero Mix'],
+    'Revolcados-mix-300x300.webp': ['Piñatero Dulce Picante'],
+    'Tropimix-300x300.webp': ['Piñatero Mix'],
+  },
+};
+
+/**
  * Helper function to get product image path from the mapping
  * Falls back to a default path if product not found
  */
