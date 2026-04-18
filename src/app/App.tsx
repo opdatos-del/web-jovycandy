@@ -30,7 +30,6 @@ export default function App() {
         toggleMobileMenu={toggleMobileMenu}
       />
       <AppSections />
-      <AppPostCtaSections />
       <AppFooter />
 
       <ContactModal open={activeModal === 'contact'} onClose={closeActiveModal} />

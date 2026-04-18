@@ -43,7 +43,7 @@ export const Intro: React.FC = () => {
         if (!rowContent) return;
         
         // Get the width of the original content
-        const contentWidth = rowContent.offsetWidth / 2; // Divided by 2 because content is duplicated
+        const contentWidth = (rowContent as HTMLElement).offsetWidth / 2; // Divided by 2 because content is duplicated
         const direction = index % 2 === 0 ? -1 : 1;
         
         gsap.to(

@@ -39,8 +39,8 @@ export function ScrollLogo() {
     offset: ['start start', 'end end'],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.08, 1], [0, 1, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.94, 1, 1.04]);
+  const opacity = useTransform(scrollYProgress, [0, 0.08, 1], [1, 1, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1.04]);
   const hintOpacity = useTransform(scrollYProgress, [0.05, 0.15, 0.8, 0.9], [0, 1, 1, 0]);
 
   const drawFrame = (frameIndex: number) => {
@@ -105,6 +105,15 @@ export function ScrollLogo() {
       return;
     }
 
+    // Si la sección ya está en viewport al cargar, cargar frames inmediatamente
+    const rect = section.getBoundingClientRect();
+    const isVisibleOnLoad = rect.bottom > 0 && rect.top < window.innerHeight * 2;
+
+    if (isVisibleOnLoad) {
+      setShouldLoadFrames(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (!entries[0]?.isIntersecting) {
@@ -146,6 +155,7 @@ export function ScrollLogo() {
 
     let isCancelled = false;
     const loadedImages: HTMLImageElement[] = [];
+    let loadedCount = 0;
 
     imagesRef.current = new Array(TOTAL_FRAMES).fill(null);
 
@@ -160,8 +170,16 @@ export function ScrollLogo() {
         }
 
         imagesRef.current[index] = image;
+        loadedCount++;
 
-        if (index === 0 || index === currentFrameRef.current) {
+        // Dibuja el primer frame (frame_02.webp es index 1) cuando carga
+        if (index === 1) {
+          currentFrameRef.current = 1;
+          requestDraw(1);
+        }
+
+        // Si se carga el frame actual, redibujar
+        if (index === currentFrameRef.current && index !== 1) {
           requestDraw(currentFrameRef.current);
         }
       };
@@ -204,7 +222,9 @@ export function ScrollLogo() {
   }, []);
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    const nextFrame = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.round(latest * (TOTAL_FRAMES - 1))));
+    // Calcula el frame basado en el scroll progress
+    // Si scrollYProgress es 0, muestra frame 1 (frame_02.webp, que es el primer frame visible)
+    const nextFrame = Math.max(1, Math.min(TOTAL_FRAMES - 1, Math.round(latest * (TOTAL_FRAMES - 1))));
 
     if (nextFrame !== currentFrameRef.current) {
       requestDraw(nextFrame);
