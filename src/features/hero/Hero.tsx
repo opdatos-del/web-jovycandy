@@ -27,7 +27,7 @@ export const Hero = () => {
               />
             </div>
 
-            <HeroPromoDetails detailRef={refs.detailRef} promo={activePromo} />
+            {/* <HeroPromoDetails detailRef={refs.detailRef} promo={activePromo} /> */}
           </div>
         </div>
       </div>
