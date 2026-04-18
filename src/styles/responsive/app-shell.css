@@ -1,16 +1,17 @@
 @layer components {
   .app-navbar-shell {
-    padding-block: 0.75rem;
+    padding-top: calc(0.75rem + (var(--safe-area-top) * 0.18));
+    padding-bottom: 0.75rem;
   }
 
   .app-navbar-inner {
-    gap: 0.75rem;
+    gap: clamp(0.65rem, 2vw, 1.15rem);
     padding-inline: 0.25rem;
     padding-block: 0.25rem;
   }
 
   .app-navbar-logo {
-    height: 3rem;
+    height: clamp(2.75rem, 7vw, 3.25rem);
   }
 
   .app-final-cta {
@@ -30,7 +31,8 @@
   }
 
   .app-footer {
-    padding-block: 3rem;
+    padding-top: clamp(2.75rem, 8vw, 4rem);
+    padding-bottom: calc(clamp(2.75rem, 8vw, 4rem) + (var(--safe-area-bottom) * 0.22));
   }
 
   .app-footer-logo-section {
@@ -78,7 +80,8 @@
 
 @media (min-width: 640px) {
   .app-navbar-shell {
-    padding-block: 1rem;
+    padding-top: calc(1rem + (var(--safe-area-top) * 0.16));
+    padding-bottom: 1rem;
   }
 
   .app-navbar-inner {
@@ -86,7 +89,7 @@
   }
 
   .app-navbar-logo {
-    height: 3.25rem;
+    height: clamp(3rem, 5.2vw, 3.5rem);
   }
 
   .app-final-cta {
@@ -106,7 +109,8 @@
   }
 
   .app-footer {
-    padding-block: 4rem;
+    padding-top: clamp(3.5rem, 7vw, 5rem);
+    padding-bottom: calc(clamp(3.5rem, 7vw, 5rem) + (var(--safe-area-bottom) * 0.2));
   }
 
   .app-footer-logo-section {
@@ -144,8 +148,13 @@
 }
 
 @media (min-width: 768px) {
+  .app-navbar-shell {
+    padding-top: calc(1.15rem + (var(--safe-area-top) * 0.12));
+    padding-bottom: 1.15rem;
+  }
+
   .app-navbar-logo {
-    height: 3.5rem;
+    height: clamp(3.15rem, 4.4vw, 3.75rem);
   }
 
   .app-final-cta-title {
@@ -153,13 +162,25 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .app-navbar-shell {
-    padding-block: 1.5rem;
+@media (min-width: 900px) and (max-width: 1199px) {
+  .app-navbar-inner {
+    gap: 1rem;
+    padding-inline: 0.5rem;
   }
 
   .app-navbar-logo {
-    height: 4.25rem;
+    height: 3.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-navbar-shell {
+    padding-top: calc(1.35rem + (var(--safe-area-top) * 0.08));
+    padding-bottom: 1.35rem;
+  }
+
+  .app-navbar-logo {
+    height: clamp(3.5rem, 3.8vw, 4.25rem);
   }
 
   .app-final-cta {
@@ -168,5 +189,60 @@
 
   .app-final-cta-title {
     font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .app-navbar-logo {
+    height: clamp(3.9rem, 3.2vw, 4.8rem);
+  }
+
+  .app-footer-copy {
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+  }
+}
+
+@media (min-width: 1920px) {
+  .app-navbar-shell {
+    padding-top: calc(1.55rem + (var(--safe-area-top) * 0.08));
+    padding-bottom: 1.55rem;
+  }
+
+  .app-navbar-logo {
+    height: clamp(4.25rem, 3vw, 5.25rem);
+  }
+
+  .app-footer-nav {
+    font-size: 1.05rem;
+  }
+
+  .app-footer-info-item {
+    font-size: 1rem;
+  }
+
+  .app-footer-copy {
+    font-size: 0.95rem;
+    letter-spacing: 0.32em;
+  }
+}
+
+@media (min-width: 2560px) {
+  .app-navbar-shell {
+    padding-top: calc(1.85rem + (var(--safe-area-top) * 0.08));
+    padding-bottom: 1.85rem;
+  }
+
+  .app-navbar-logo {
+    height: clamp(4.8rem, 2.7vw, 6rem);
+  }
+
+  .app-footer-nav {
+    font-size: 1.15rem;
+  }
+
+  .app-footer-copy {
+    font-size: 1rem;
+    letter-spacing: 0.34em;
   }
 }

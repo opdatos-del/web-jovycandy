@@ -18,9 +18,9 @@ export const HERO_PROMOS: HeroPromo[] = [
     },
     imageWidth: {
       mobile: 'min(96vw, 23rem)',
-      desktop: 'min(50vw, 35.5rem)',
-      xl: 'min(55vw, 42rem)',
-      '2xl': 'min(60vw, 48rem)',
+      desktop: 'min(calc(54vw * var(--display-scale)), calc(40rem * var(--display-scale)))',
+      xl: 'min(calc(58vw * var(--display-scale)), calc(48rem * var(--display-scale)))',
+      '2xl': 'min(calc(62vw * var(--display-scale)), calc(56rem * var(--display-scale)))',
     },
     imageOffset: {
       mobile: '1.15rem',
@@ -48,9 +48,9 @@ export const HERO_PROMOS: HeroPromo[] = [
     },
     imageWidth: {
       mobile: 'min(96vw, 23rem)',
-      desktop: 'min(50vw, 35.5rem)',
-      xl: 'min(55vw, 42rem)',
-      '2xl': 'min(60vw, 48rem)',
+      desktop: 'min(calc(54vw * var(--display-scale)), calc(40rem * var(--display-scale)))',
+      xl: 'min(calc(58vw * var(--display-scale)), calc(48rem * var(--display-scale)))',
+      '2xl': 'min(calc(62vw * var(--display-scale)), calc(56rem * var(--display-scale)))',
     },
     imageOffset: {
       mobile: '-0.05rem',

@@ -6,8 +6,7 @@
   }
 
   .hero-shell {
-    min-height: calc(90vh - var(--site-nav-height) - 0.75rem);
-    min-height: calc(90svh - var(--site-nav-height) - 0.75rem);
+    min-height: calc((var(--viewport-h) * 0.9) - var(--site-nav-height) - 0.75rem);
     padding-inline: 0.25rem;
     padding-top: 0.5rem;
     padding-bottom: 0.75rem;
@@ -54,8 +53,7 @@
   }
 
   .hero-shell {
-    min-height: calc(100vh - var(--site-nav-height) - 1.25rem);
-    min-height: calc(100svh - var(--site-nav-height) - 1.25rem);
+    min-height: calc(var(--viewport-h) - var(--site-nav-height) - 1.25rem);
     padding-inline: 1rem;
     padding-top: 1rem;
     padding-bottom: 1.25rem;
@@ -196,5 +194,83 @@
   .hero-promo-details {
     width: min(85vw, 45rem);
     bottom: 5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-layout {
+    padding-inline: clamp(5rem, 5.2vw, 7rem);
+    padding-top: calc(var(--site-nav-height) + 1rem);
+    padding-bottom: 1.75rem;
+  }
+
+  .hero-shell {
+    min-height: calc(var(--viewport-h) - var(--site-nav-height) - 1.75rem);
+    padding-inline: clamp(2rem, 3vw, 3.25rem);
+    padding-top: 1.25rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .hero-content {
+    padding-bottom: clamp(14rem, 14vh, 17rem);
+  }
+
+  .hero-heading {
+    top: -9.5rem;
+    margin-top: 6.5rem;
+  }
+
+  .hero-promo-stage {
+    margin-top: -8rem;
+    height: clamp(38rem, 72vh, 62rem);
+  }
+
+  .hero-promo-rays {
+    width: 136%;
+    height: 136%;
+  }
+
+  .hero-promo-details {
+    width: min(82vw, 52rem);
+    bottom: 5.5rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .hero-layout {
+    padding-inline: clamp(6rem, 5vw, 9rem);
+    padding-top: calc(var(--site-nav-height) + 1.2rem);
+    padding-bottom: 2rem;
+  }
+
+  .hero-shell {
+    min-height: calc(var(--viewport-h) - var(--site-nav-height) - 2rem);
+    padding-inline: clamp(2.75rem, 3vw, 4rem);
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-content {
+    padding-bottom: clamp(15.5rem, 13vh, 19rem);
+  }
+
+  .hero-heading {
+    top: -11rem;
+    margin-top: 7rem;
+  }
+
+  .hero-promo-stage {
+    margin-top: -9rem;
+    height: clamp(42rem, 70vh, 72rem);
+  }
+
+  .hero-promo-rays {
+    width: 142%;
+    height: 142%;
+  }
+
+  .hero-promo-details {
+    width: min(78vw, 58rem);
+    bottom: 6rem;
   }
 }

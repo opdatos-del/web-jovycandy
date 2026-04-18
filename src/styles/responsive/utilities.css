@@ -1,11 +1,11 @@
 @layer utilities {
   .page-shell {
-    width: min(calc(100% - (var(--section-gutter) * 2)), var(--section-max-width));
+    width: min(calc(100% - (var(--section-gutter) * 2)), calc(var(--section-max-width) * var(--content-scale)));
     margin-inline: auto;
   }
 
   .page-shell-wide {
-    width: min(calc(100% - (var(--section-gutter) * 2)), var(--section-max-width-wide));
+    width: min(calc(100% - (var(--section-gutter) * 2)), calc(var(--section-max-width-wide) * var(--content-scale)));
     margin-inline: auto;
   }
 
@@ -15,6 +15,14 @@
 
   .section-space {
     padding-block: var(--section-space);
+  }
+
+  .min-h-viewport {
+    min-height: var(--viewport-h);
+  }
+
+  .max-h-viewport {
+    max-height: var(--viewport-h);
   }
 
   .mobile-scroll {

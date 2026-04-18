@@ -36,9 +36,29 @@
     isolation: isolate;
   }
 
+  #inicio,
+  #eventos,
+  #certificaciones,
+  #tienda,
+  #nuestra-esencia {
+    scroll-margin-top: calc(var(--site-nav-height) + clamp(0.75rem, 2vw, 1.5rem));
+  }
+
   /* Hide scrollbar but keep functionality */
   ::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  .mobile-scroll {
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

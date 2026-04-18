@@ -1,7 +1,10 @@
 @layer components {
   .modal-shell-overlay {
     align-items: flex-end;
-    padding: 0.75rem;
+    padding-top: calc(0.75rem + var(--safe-area-top));
+    padding-right: 0.75rem;
+    padding-bottom: calc(0.75rem + var(--safe-area-bottom));
+    padding-left: 0.75rem;
   }
 
   .modal-shell-surface {
@@ -129,7 +132,10 @@
 @media (min-width: 640px) {
   .modal-shell-overlay {
     align-items: center;
-    padding: 1rem;
+    padding-top: calc(1rem + (var(--safe-area-top) * 0.5));
+    padding-right: 1rem;
+    padding-bottom: calc(1rem + (var(--safe-area-bottom) * 0.35));
+    padding-left: 1rem;
   }
 
   .modal-shell-surface {
@@ -307,5 +313,81 @@
 
   .contact-topic-list-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1536px) {
+  .modal-shell-header {
+    padding-inline: clamp(2rem, 2.2vw, 2.75rem);
+    padding-block: clamp(1.25rem, 1.7vw, 1.8rem);
+  }
+
+  .modal-shell-title {
+    font-size: clamp(2.25rem, 2vw, 2.9rem);
+  }
+
+  .modal-shell-content {
+    padding-inline: clamp(2rem, 2.2vw, 2.9rem);
+    padding-block: clamp(1.75rem, 1.8vw, 2.5rem);
+  }
+
+  .location-modal-map {
+    height: min(26rem, 42vh);
+  }
+}
+
+@media (min-width: 1920px) {
+  .modal-shell-overlay {
+    padding-top: calc(1.4rem + (var(--safe-area-top) * 0.35));
+    padding-right: 1.5rem;
+    padding-bottom: calc(1.4rem + (var(--safe-area-bottom) * 0.3));
+    padding-left: 1.5rem;
+  }
+
+  .modal-shell-title {
+    font-size: clamp(2.4rem, 1.8vw, 3.2rem);
+  }
+
+  .modal-shell-close {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .location-modal-grid {
+    grid-template-columns: minmax(0, 1.6fr) 19.5rem;
+  }
+
+  .location-modal-map {
+    height: min(28rem, 45vh);
+  }
+
+  .contact-modal-layout {
+    grid-template-columns: 21rem minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 2560px) {
+  .modal-shell-overlay {
+    padding-top: calc(1.75rem + (var(--safe-area-top) * 0.35));
+    padding-right: 2rem;
+    padding-bottom: calc(1.75rem + (var(--safe-area-bottom) * 0.3));
+    padding-left: 2rem;
+  }
+
+  .modal-shell-title {
+    font-size: clamp(2.75rem, 1.45vw, 3.6rem);
+  }
+
+  .modal-shell-subtitle {
+    letter-spacing: 0.48em;
+  }
+
+  .modal-shell-close {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .location-modal-map {
+    height: min(31rem, 44vh);
   }
 }

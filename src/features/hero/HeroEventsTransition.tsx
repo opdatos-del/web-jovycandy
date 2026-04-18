@@ -3,7 +3,7 @@ export const HeroEventsTransition = () => (
     <svg
       viewBox="0 0 1440 200"
       preserveAspectRatio="none"
-      className="block h-20 w-full md:h-28 lg:h-32"
+      className="block h-[clamp(4.5rem,8vw,11rem)] w-full"
       role="presentation"
     >
       <defs>

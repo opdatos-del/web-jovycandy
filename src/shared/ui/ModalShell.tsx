@@ -14,9 +14,9 @@ type ModalShellProps = {
 };
 
 const SIZE_CLASSNAME: Record<NonNullable<ModalShellProps['size']>, string> = {
-  md: 'max-w-3xl',
-  lg: 'max-w-5xl',
-  xl: 'max-w-[82rem]',
+  md: 'max-w-[min(var(--modal-max-width-md),96vw)]',
+  lg: 'max-w-[min(var(--modal-max-width-lg),96vw)]',
+  xl: 'max-w-[min(var(--modal-max-width-xl),96vw)]',
 };
 
 export const ModalShell = ({
@@ -76,7 +76,7 @@ export const ModalShell = ({
             role="dialog"
             aria-modal="true"
             aria-label={title}
-            className={`modal-shell-surface relative flex max-h-[min(94svh,58rem)] w-full flex-col overflow-hidden border border-stone-200 bg-white shadow-[0_20px_80px_rgba(28,25,23,0.12)] will-change-transform ${SIZE_CLASSNAME[size]}`}
+            className={`modal-shell-surface relative flex max-h-[min(calc(var(--viewport-h)*0.94),58rem)] w-full flex-col overflow-hidden border border-stone-200 bg-white shadow-[0_20px_80px_rgba(28,25,23,0.12)] will-change-transform ${SIZE_CLASSNAME[size]}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}

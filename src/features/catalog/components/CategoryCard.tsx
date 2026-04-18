@@ -27,7 +27,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
     <motion.div
       whileTap={{ scale: 0.99 }}
       onClick={() => onClick()}
-      className={`group relative h-48 w-full overflow-hidden transition-all sm:h-64 lg:h-72 cursor-pointer ${
+      className={`group relative h-[clamp(10.25rem,29vw,12.5rem)] w-full cursor-pointer overflow-hidden transition-all sm:h-[clamp(12.5rem,24vw,16rem)] lg:h-[clamp(14rem,18vw,19rem)] 2xl:h-[clamp(16rem,15vw,22rem)] ${
         isActive ? 'ring-2 ring-white/65' : ''
       }`}
       style={{ backgroundColor: accentColor }}
@@ -57,7 +57,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
               e.stopPropagation();
               onClick('Picante');
             }}
-            className="flex items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
+            className="flex min-h-[var(--touch-target-min)] min-w-[var(--touch-target-min)] items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
             title="Filtrar por Picante"
           >
             <FaPepperHot className="text-lg text-white sm:text-xl" />
@@ -70,7 +70,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
               e.stopPropagation();
               onClick('Dulce');
             }}
-            className="flex items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
+            className="flex min-h-[var(--touch-target-min)] min-w-[var(--touch-target-min)] items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
             title="Filtrar por Dulce"
           >
             <LuCandy className="text-lg text-white sm:text-xl" />

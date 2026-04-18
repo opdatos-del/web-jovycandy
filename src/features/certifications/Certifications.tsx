@@ -5,6 +5,7 @@ type CertificationItem = {
   src: string;
   alt: string;
   imageClassName: string;
+  imageMaxWidth: string;
   cardClassName?: string;
 };
 
@@ -14,21 +15,24 @@ const certificationItems: CertificationItem[] = [
     alt: 'SGS',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] max-w-[7.5rem] object-contain sm:w-[88%] sm:max-w-[10rem] lg:w-[90%] lg:max-w-[12.5rem] xl:max-w-[14.5rem] 2xl:max-w-[16rem]',
+      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
+    imageMaxWidth: 'clamp(7.5rem, calc(11rem * var(--content-scale)), calc(16.5rem * var(--display-scale)))',
   },
   {
     src: '/certifications/Kosher_icon.png',
     alt: 'Kosher',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] max-w-[7rem] object-contain sm:w-[88%] sm:max-w-[9.5rem] lg:w-[90%] lg:max-w-[11.5rem] xl:max-w-[13.5rem] 2xl:max-w-[15rem]',
+      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
+    imageMaxWidth: 'clamp(7rem, calc(10.25rem * var(--content-scale)), calc(15.5rem * var(--display-scale)))',
   },
   {
     src: '/certifications/halal.png',
     alt: 'Halal',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] max-w-[7.5rem] object-contain sm:w-[88%] sm:max-w-[9.5rem] lg:w-[90%] lg:max-w-[12rem] xl:max-w-[14rem] 2xl:max-w-[15.5rem]',
+      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
+    imageMaxWidth: 'clamp(7.5rem, calc(10.75rem * var(--content-scale)), calc(16rem * var(--display-scale)))',
   },
 ];
 
@@ -39,7 +43,7 @@ export const Certifications: React.FC = () => {
   return (
     <section className="certifications-section relative z-20 overflow-hidden bg-[linear-gradient(180deg,#ff6a86_0%,#ff7f69_100%)]">
       <div className="flex justify-center px-4 pt-8 sm:pt-10 lg:pt-12">
-        <h2 className="font-mono text-xs uppercase text-white/75 opacity-90 sm:text-sm">
+        <h2 className="font-mono text-[clamp(0.72rem,0.5vw+0.62rem,1.08rem)] uppercase tracking-[0.35em] text-white/80 opacity-90">
           Certificaciones
         </h2>
       </div>
@@ -57,7 +61,7 @@ export const Certifications: React.FC = () => {
           <h3 className="certifications-title mb-6 font-bold leading-tight tracking-tight text-white">
             Calidad Garantizada
           </h3>
-          <p className="certifications-body max-w-2xl font-medium leading-relaxed text-justify text-white/88">
+          <p className="certifications-body max-w-[min(92vw,calc(54rem*var(--content-scale)))] font-medium leading-relaxed text-justify text-white/88">
             Cumplimos con los más altos estándares de calidad que satisfacen a miles de personas en los mercados nacionales e internacionales. Contamos con normas de aseguramiento de calidad, protocolos y procedimientos que incluyen cuidadosas inspecciones en todas las fases de nuestra operación, para asegurar que solo los productos de la más alta calidad lleguen a ti.
           </p>
         </motion.div>
@@ -83,6 +87,7 @@ export const Certifications: React.FC = () => {
                 src={item.src}
                 alt={item.alt}
                 className={`relative z-10 ${item.imageClassName}`}
+                style={{ maxWidth: item.imageMaxWidth }}
               />
             </motion.div>
           ))}

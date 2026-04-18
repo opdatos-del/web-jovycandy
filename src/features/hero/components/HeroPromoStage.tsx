@@ -21,7 +21,7 @@ const raysStyle = {
 } as const;
 
 export const HeroPromoStage = ({ activePromo, promos, raysRef, setImageRef }: HeroPromoStageProps) => (
-  <div className="hero-promo-stage relative z-10 mx-auto w-full max-w-5xl">
+  <div className="hero-promo-stage relative z-10 mx-auto w-full max-w-[min(96vw,calc(var(--hero-max-width)*var(--display-scale)))]">
     <div className={`${promoStageItemClassName} z-0`} style={getHeroPromoStyle(activePromo)} aria-hidden="true">
       <div className="relative aspect-square w-full translate-y-[var(--promo-offset-mobile)] md:translate-y-[var(--promo-offset-desktop)]">
         <div

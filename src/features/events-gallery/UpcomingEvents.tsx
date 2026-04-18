@@ -48,7 +48,7 @@ export const UpcomingEvents = () => {
   }, [activeEvent]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#fff5d4] py-6 sm:py-8 lg:h-screen lg:py-0">
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#fff5d4] py-6 sm:py-8 lg:min-h-[var(--viewport-h)] lg:py-0">
       <div className="flex justify-center px-4 pb-4 sm:pb-6">
         <h2 className="font-mono text-xs uppercase text-stone-400 opacity-90 sm:text-sm">
           Galería y Eventos
@@ -56,7 +56,7 @@ export const UpcomingEvents = () => {
       </div>
       <div
         ref={viewportRef}
-        className="mobile-scroll relative h-full overflow-x-auto snap-x snap-mandatory lg:h-[calc(100vh-2rem)] lg:overflow-hidden lg:snap-none"
+        className="mobile-scroll relative h-full overflow-x-auto snap-x snap-mandatory lg:h-[calc(var(--viewport-h)-2rem)] lg:overflow-hidden lg:snap-none"
       >
         <UpcomingEventsTrack trackRef={trackRef} onImageOpen={setActiveEvent} />
       </div>
@@ -70,11 +70,11 @@ export const UpcomingEvents = () => {
             aria-label={activeEvent.alt}
             onClick={closeModal}
           >
-            <div className="relative flex h-full w-full max-w-6xl items-center justify-center">
+            <div className="relative flex h-full w-full max-w-[min(96vw,var(--modal-max-width-xl))] items-center justify-center">
               <img
                 src={activeEvent.image}
                 alt={activeEvent.alt}
-                className="max-h-[88vh] w-auto max-w-full rounded-xl object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:rounded-2xl"
+                className="max-h-[min(90dvh,88svh)] w-auto max-w-full rounded-xl object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:max-h-[min(92dvh,90svh)] sm:rounded-2xl"
                 draggable={false}
               />
             </div>

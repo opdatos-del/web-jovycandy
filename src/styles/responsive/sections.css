@@ -1,4 +1,8 @@
 @layer components {
+  .tagline-section-bg {
+    background-attachment: scroll;
+  }
+
   .certifications-section {
     padding-block: 2.5rem;
   }
@@ -163,6 +167,11 @@
 }
 
 @media (min-width: 1536px) {
+  .tagline-section-bg {
+    padding-top: clamp(10rem, 11vw, 14rem);
+    padding-bottom: clamp(10rem, 11vw, 14rem);
+  }
+
   .certifications-section {
     padding-block: 7rem;
   }
@@ -193,5 +202,91 @@
   .certification-card {
     padding: 0;
     border-radius: 50%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .tagline-section-bg {
+    padding-top: clamp(11rem, 10vw, 15rem);
+    padding-bottom: clamp(11rem, 10vw, 15rem);
+  }
+
+  .certifications-section {
+    padding-block: 8rem;
+  }
+
+  .certifications-layout {
+    grid-template-columns: minmax(29rem, 0.84fr) minmax(0, 1.16fr);
+    gap: clamp(4.75rem, 4vw, 6.5rem);
+  }
+
+  .certifications-copy {
+    max-width: 42rem;
+  }
+
+  .certifications-eyebrow {
+    font-size: 0.88rem;
+    letter-spacing: 0.56em;
+  }
+
+  .certifications-title {
+    margin-bottom: 2.4rem;
+    font-size: clamp(4rem, 3.1vw, 4.9rem);
+  }
+
+  .certifications-body {
+    font-size: 1.24rem;
+    line-height: 1.5;
+  }
+
+  .certifications-grid {
+    max-width: 70rem;
+    gap: 2.3rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .tagline-section-bg {
+    padding-top: clamp(12.5rem, 9.5vw, 17rem);
+    padding-bottom: clamp(12.5rem, 9.5vw, 17rem);
+  }
+
+  .certifications-section {
+    padding-block: 9.25rem;
+  }
+
+  .certifications-layout {
+    grid-template-columns: minmax(34rem, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(5.5rem, 3.8vw, 7.5rem);
+  }
+
+  .certifications-copy {
+    max-width: 48rem;
+  }
+
+  .certifications-eyebrow {
+    font-size: 0.95rem;
+    letter-spacing: 0.6em;
+  }
+
+  .certifications-title {
+    margin-bottom: 2.75rem;
+    font-size: clamp(4.6rem, 2.8vw, 5.8rem);
+  }
+
+  .certifications-body {
+    font-size: 1.36rem;
+    line-height: 1.55;
+  }
+
+  .certifications-grid {
+    max-width: 82rem;
+    gap: 2.75rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tagline-section-bg {
+    background-attachment: fixed;
   }
 }

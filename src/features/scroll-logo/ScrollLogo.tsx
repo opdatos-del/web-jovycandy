@@ -11,15 +11,39 @@ const FRAMES = Array.from({ length: TOTAL_FRAMES }, (_, index) => {
 });
 
 const getSectionHeight = () => {
-  if (window.innerWidth < 640) {
-    return '160vh';
+  if (window.innerWidth < 390) {
+    return '155svh';
+  }
+
+  if (window.innerWidth < 430) {
+    return '165svh';
+  }
+
+  if (window.innerWidth < 768) {
+    return '180svh';
   }
 
   if (window.innerWidth < 1024) {
-    return '220vh';
+    return '215svh';
   }
 
-  return '300vh';
+  if (window.innerWidth < 1280) {
+    return '245svh';
+  }
+
+  if (window.innerWidth < 1536) {
+    return '275svh';
+  }
+
+  if (window.innerWidth < 1920) {
+    return '315svh';
+  }
+
+  if (window.innerWidth < 2560) {
+    return '350svh';
+  }
+
+  return '390svh';
 };
 
 export function ScrollLogo() {
@@ -233,11 +257,11 @@ export function ScrollLogo() {
 
   return (
     <section ref={containerRef} className="relative bg-[#edf5ff]" style={{ height: sectionHeight }}>
-      <div className="sticky top-0 flex min-h-screen min-h-[100svh] w-full items-center justify-center overflow-hidden">
+      <div className="sticky top-0 flex min-h-viewport w-full items-center justify-center overflow-hidden">
         <motion.div
           ref={stageRef}
           style={{ opacity, scale }}
-          className="relative aspect-video w-full max-w-[min(96vw,82rem)] px-3 sm:px-6 lg:px-8"
+          className="relative aspect-video w-full max-w-[min(97vw,calc(var(--section-max-width-wide)*var(--display-scale)))] px-3 sm:px-6 lg:px-8"
         >
           <canvas
             ref={canvasRef}

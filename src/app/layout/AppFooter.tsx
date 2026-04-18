@@ -7,7 +7,7 @@ type AppFooterProps = {
 };
 
 export const AppFooter = ({ onContactClick }: AppFooterProps) => (
-  <footer className="app-footer bg-gradient-to-b from-[#00afaa] to-[#008b7f] py-12 text-white sm:py-16 lg:py-20">
+  <footer className="app-footer bg-gradient-to-b from-[#00afaa] to-[#008b7f] text-white">
     <div className="pb-6 sm:pb-8 lg:pb-10">
       <div className="page-shell">
         <ScrollReveal>
