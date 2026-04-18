@@ -1,10 +1,11 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig, loadEnv} from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 
-export default defineConfig(({mode}) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
+
   return {
     plugins: [react(), tailwindcss()],
     define: {
@@ -16,19 +17,19 @@ export default defineConfig(({mode}) => {
           manualChunks(id) {
             const normalizedId = id.split(path.sep).join('/');
 
-            if (normalizedId.includes('/src/components/sections/products/category-grid/')) {
+            if (normalizedId.includes('/src/features/catalog/')) {
               return 'category-grid';
             }
 
             if (
-              normalizedId.includes('/src/components/ui/contact-modal/') ||
-              normalizedId.includes('/src/components/ui/LocationModal.tsx') ||
-              normalizedId.includes('/src/components/ui/ModalShell.tsx')
+              normalizedId.includes('/src/features/contact/') ||
+              normalizedId.includes('/src/features/location/LocationModal.tsx') ||
+              normalizedId.includes('/src/shared/ui/ModalShell.tsx')
             ) {
               return 'modals';
             }
 
-            if (normalizedId.includes('/src/components/sections/ScrollLogo.tsx')) {
+            if (normalizedId.includes('/src/features/scroll-logo/ScrollLogo.tsx')) {
               return 'scroll-logo';
             }
 
@@ -49,12 +50,12 @@ export default defineConfig(({mode}) => {
     },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(__dirname, './src'),
       },
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+      // Do not modify: file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
     },
   };

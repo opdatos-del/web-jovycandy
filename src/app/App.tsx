@@ -1,15 +1,12 @@
-import { ContactModal } from '../components/ui/contact-modal';
-import { LocationModal } from '../components/ui/LocationModal';
+import { ContactModal } from '@/features/contact';
+import { LocationModal } from '@/features/location/LocationModal';
 
-import {
-  AppFooter,
-  AppNavbar,
-  AppPostCtaSections,
-  AppScrollProgress,
-  AppSections,
-} from './components';
+import { AppFooter } from './layout/AppFooter';
+import { AppScrollProgress } from './layout/AppScrollProgress';
+import { AppSections } from './layout/AppSections';
 import { useAppModals } from './hooks/useAppModals';
 import { useMobileMenu } from './hooks/useMobileMenu';
+import { AppNavbar } from './navigation/AppNavbar';
 
 export default function App() {
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useMobileMenu();
@@ -30,7 +27,7 @@ export default function App() {
         toggleMobileMenu={toggleMobileMenu}
       />
       <AppSections />
-      <AppFooter />
+      <AppFooter onContactClick={openContactModal} />
 
       <ContactModal open={activeModal === 'contact'} onClose={closeActiveModal} />
       <LocationModal

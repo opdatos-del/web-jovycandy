@@ -19,8 +19,8 @@
   /* Small text - prevent too-small typography */
   small,
   .text-xs,
-  .text-[11px],
-  .text-[10px] {
+  .text-\[11px\],
+  .text-\[10px\] {
     line-height: 1.5;
     letter-spacing: 0.02em;
   }
