@@ -80,18 +80,26 @@ export const buildCatalogPanelState = (
   const category = catalogData[categoryId];
   const originalProducts = getCategoryProducts(categoryId, filterType);
   const availableLogos = getCategoryLogos(categoryId, category.title, originalProducts);
-  const firstLogo = availableLogos[0];
+  const isSameCategory = currentState.categoryId === categoryId;
+  const isSameFilter = currentState.filterType === filterType;
+  const shouldClosePanel = isSameCategory && currentState.isOpen && isSameFilter;
+  const retainedLogo =
+    isSameCategory && currentState.logoSrc
+      ? availableLogos.find((logo) => logo.src === currentState.logoSrc)
+      : undefined;
+  const selectedLogo = retainedLogo ?? availableLogos[0];
+  const selectedLogoIndex = availableLogos.findIndex((logo) => logo.src === selectedLogo.src);
 
   return {
-    isOpen: currentState.categoryId !== categoryId || !currentState.isOpen,
+    isOpen: !shouldClosePanel,
     categoryId,
     categoryTitle: category.title,
-    products: getProductsByLogo(categoryId, originalProducts, firstLogo.src),
+    products: getProductsByLogo(categoryId, originalProducts, selectedLogo.src),
     originalProducts,
     accentColor: category.accent || DEFAULT_ACCENT_COLOR,
-    logoSrc: firstLogo.src,
-    logoAlt: firstLogo.alt,
-    currentLogoIndex: 0,
+    logoSrc: selectedLogo.src,
+    logoAlt: selectedLogo.alt,
+    currentLogoIndex: selectedLogoIndex >= 0 ? selectedLogoIndex : 0,
     availableLogos,
     filterType,
   };
