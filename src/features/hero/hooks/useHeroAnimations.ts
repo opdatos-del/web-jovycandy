@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { HERO_IMAGE_FLOAT_Y } from '../constants/hero.constants';
-import { createHeroEntranceContext, createHeroTransitionTimeline } from '../utils/heroAnimations';
+import { createHeroEntranceContext, createHeroTransitionTimeline, createBackdropParallax } from '../utils/heroAnimations';
 import type { HeroPromo, HeroSceneRefs, SetHeroImageRef } from '../types/hero.types';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const useHeroAnimations = (promos: HeroPromo[], activeIndex: number) => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -102,6 +105,16 @@ export const useHeroAnimations = (promos: HeroPromo[], activeIndex: number) => {
       transitionTimeline?.kill();
     };
   }, [activeIndex, promos, refs]);
+
+  useEffect(() => {
+    if (!refs.sectionRef.current) return;
+
+    const cleanupParallax = createBackdropParallax(refs.sectionRef.current);
+
+    return () => {
+      cleanupParallax();
+    };
+  }, [refs]);
 
   const setImageRef = useCallback<SetHeroImageRef>(
     (index) => (element) => {

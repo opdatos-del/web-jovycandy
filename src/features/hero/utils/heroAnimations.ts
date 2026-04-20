@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import {
   HERO_IMAGE_BLUR,
@@ -12,11 +13,47 @@ import {
 } from '../constants/hero.constants';
 import type { HeroPromo, HeroSceneRefs } from '../types/hero.types';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const getMountedImageElements = (refs: HeroSceneRefs['imageRefs']) =>
   refs.current.filter(Boolean) as HTMLImageElement[];
 
 const getIntroElements = (refs: HeroSceneRefs) =>
   [refs.headlineRef.current, refs.detailRef.current].filter(Boolean);
+
+export const createBackdropParallax = (sectionElement: HTMLElement) => {
+  const backdropRows = sectionElement.querySelectorAll<HTMLParagraphElement>('.hero-backdrop-row');
+
+  backdropRows.forEach((row) => {
+    gsap.killTweensOf(row);
+  });
+
+  const rowAnimations = Array.from(backdropRows).map((row, index) => {
+    const direction = index % 2 === 0 ? -1 : 1;
+    const xDistance = 10 + index * 0.5;
+
+    gsap.set(row, { willChange: 'transform' });
+
+    return gsap.to(row, {
+      xPercent: direction * xDistance,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: sectionElement,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0.52,
+        invalidateOnRefresh: true,
+      },
+    });
+  });
+
+  return () => {
+    rowAnimations.forEach((animation) => {
+      animation.scrollTrigger?.kill();
+      animation.kill();
+    });
+  };
+};
 
 export const applyHeroAccentState = (
   refs: Pick<HeroSceneRefs, 'haloRef' | 'glowRef'>,
@@ -109,16 +146,6 @@ export const createHeroEntranceContext = (refs: HeroSceneRefs, firstPromo: HeroP
         },
         0.32
       );
-
-    if (refs.backgroundRef.current) {
-      gsap.to(refs.backgroundRef.current, {
-        xPercent: -2.5,
-        duration: 13,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      });
-    }
 
     if (refs.raysRef.current) {
       gsap.to(refs.raysRef.current, {
