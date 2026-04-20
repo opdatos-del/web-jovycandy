@@ -77,20 +77,20 @@ export const ProductTechnicalSheetDrawer = ({
             role="dialog"
             aria-modal="true"
             aria-label={`Ficha tecnica de ${product.name}`}
-            className="flex h-full w-full max-w-[min(42rem,100vw)] flex-col overflow-hidden border-l border-white/12 bg-[#f7f3ee] text-stone-900 shadow-[-24px_0_80px_rgba(28,25,23,0.28)]"
+            className="flex h-full w-full max-w-[min(42rem,100vw)] flex-col overflow-hidden border-l border-white/12 bg-[#f7f3ee] text-stone-900 shadow-[-24px_0_80px_rgba(28,25,23,0.28)] overscroll-contain"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
           >
             <div
-              className="relative overflow-hidden px-5 py-5 text-white sm:px-6"
+              className="relative overflow-hidden px-4 py-4 text-white sm:px-6 sm:py-5"
               style={{ backgroundColor: accentColor }}
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_38%)]" />
-              <div className="relative flex items-start gap-4">
-                <div className="flex min-w-0 flex-1 items-start gap-4">
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white/12 p-2 backdrop-blur">
+              <div className="relative flex items-start gap-3 sm:gap-4">
+                <div className="flex min-w-0 flex-1 items-start gap-3 sm:gap-4">
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/12 p-2 backdrop-blur sm:h-20 sm:w-20">
                     <img
                       src={product.carouselImage ?? product.image}
                       alt={product.name}
@@ -102,11 +102,11 @@ export const ProductTechnicalSheetDrawer = ({
                     <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/72">
                       Ficha tecnica
                     </p>
-                    <h2 className="mt-2 text-2xl font-black uppercase leading-tight tracking-[-0.02em]">
+                    <h2 className="mt-2 text-xl font-black uppercase leading-tight tracking-[-0.02em] sm:text-2xl">
                       {product.name}
                     </h2>
                     {product.gramaje ? (
-                      <p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-white/76">
+                      <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/76 sm:text-sm sm:tracking-[0.22em]">
                         {product.gramaje}
                       </p>
                     ) : null}
@@ -116,7 +116,7 @@ export const ProductTechnicalSheetDrawer = ({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/20 bg-black/15 text-white transition-colors hover:bg-black/25"
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/20 bg-black/15 text-white transition-colors hover:bg-black/25 sm:h-11 sm:w-11"
                   aria-label="Cerrar ficha tecnica"
                 >
                   <X size={18} />
@@ -125,8 +125,8 @@ export const ProductTechnicalSheetDrawer = ({
             </div>
 
             <div className="flex flex-1 flex-col overflow-y-auto">
-              <div className="grid gap-4 border-b border-stone-200 bg-white px-5 py-5 sm:px-6">
-                <p className="text-sm leading-6 text-stone-600">{product.description}</p>
+              <div className="grid gap-4 border-b border-stone-200 bg-white px-4 py-4 sm:px-6 sm:py-5">
+                <p className="text-sm leading-6 text-stone-600 sm:text-[0.95rem]">{product.description}</p>
 
                 <div className="flex flex-wrap gap-2">
                   {product.certifications.map((certification) => (
@@ -144,7 +144,7 @@ export const ProductTechnicalSheetDrawer = ({
                     const localizedSpec = getCatalogSpecEs(spec);
 
                     return (
-                      <div key={spec.label} className="rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3">
+                      <div key={spec.label} className="rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 sm:px-4">
                         <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
                           {localizedSpec.label}
                         </p>
@@ -157,8 +157,8 @@ export const ProductTechnicalSheetDrawer = ({
                 </div>
               </div>
 
-              <div className="flex-1 px-5 py-5 sm:px-6">
-                <div className="mb-4 flex items-center justify-between gap-3">
+              <div className="flex-1 px-4 py-4 sm:px-6 sm:py-5">
+                <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div className="min-w-0">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">
                       Documento
@@ -173,7 +173,7 @@ export const ProductTechnicalSheetDrawer = ({
                       href={technicalSheet.src}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex shrink-0 items-center gap-2 rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-100"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-100 sm:w-auto sm:shrink-0 sm:justify-start"
                     >
                       <ExternalLink size={16} />
                       Abrir
@@ -187,7 +187,7 @@ export const ProductTechnicalSheetDrawer = ({
                       <iframe
                         title={technicalSheet.title ?? `Ficha tecnica de ${product.name}`}
                         src={technicalSheet.src}
-                        className="h-[70vh] w-full bg-white"
+                        className="h-[58dvh] min-h-[24rem] w-full bg-white sm:h-[70vh]"
                       />
                     </div>
                   ) : (
@@ -200,7 +200,7 @@ export const ProductTechnicalSheetDrawer = ({
                     </div>
                   )
                 ) : (
-                  <div className="flex min-h-[16rem] flex-col items-center justify-center rounded-[2rem] border border-dashed border-stone-300 bg-white px-6 py-8 text-center shadow-[0_24px_60px_rgba(28,25,23,0.05)]">
+                  <div className="flex min-h-[14rem] flex-col items-center justify-center rounded-[2rem] border border-dashed border-stone-300 bg-white px-5 py-7 text-center shadow-[0_24px_60px_rgba(28,25,23,0.05)] sm:min-h-[16rem] sm:px-6 sm:py-8">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-stone-100 text-stone-500">
                       <FileText size={22} />
                     </div>
