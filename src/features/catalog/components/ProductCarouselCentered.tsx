@@ -172,14 +172,16 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
           </h3>
         </div>
 
-        <div className="catalog-carousel-layout grid grid-cols-1">
-          <div className="catalog-carousel-logo-column flex flex-col items-center justify-center">
+        <div className="catalog-carousel-layout grid grid-cols-1 md:grid-cols-[auto_1fr] gap-0 md:gap-6">
+          {/* Mobile Logo Section - Horizontal Layout */}
+          <div className="md:hidden flex items-center justify-center gap-3 mb-4">
             <button
               onClick={() => onLogoChange?.('prev')}
-              className="catalog-carousel-logo-button rounded-full border border-white/30 bg-black/20 p-2 text-white/90 backdrop-blur transition-all hover:bg-black/35 hover:text-white"
+              className="catalog-carousel-logo-button group relative flex items-center justify-center rounded-full bg-gradient-to-br from-white/20 to-white/5 p-2.5 backdrop-blur-sm transition-all duration-300 hover:from-white/35 hover:to-white/15 hover:shadow-lg"
               aria-label="Logo anterior"
             >
-              <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5" />
+              <ChevronLeft className="h-5 w-5 text-white transition-all duration-300 group-hover:scale-125" />
+              <div className="absolute inset-0 rounded-full border border-white/0 group-hover:border-white/40 transition-all duration-300" />
             </button>
 
             {logoSrc ? (
@@ -193,10 +195,41 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
 
             <button
               onClick={() => onLogoChange?.('next')}
-              className="catalog-carousel-logo-button rounded-full border border-white/30 bg-black/20 p-2 text-white/90 backdrop-blur transition-all hover:bg-black/35 hover:text-white"
+              className="catalog-carousel-logo-button group relative flex items-center justify-center rounded-full bg-gradient-to-br from-white/20 to-white/5 p-2.5 backdrop-blur-sm transition-all duration-300 hover:from-white/35 hover:to-white/15 hover:shadow-lg"
               aria-label="Logo siguiente"
             >
-              <ChevronDown className="h-4 w-4 sm:h-5 sm:w-5" />
+              <ChevronRight className="h-5 w-5 text-white transition-all duration-300 group-hover:scale-125" />
+              <div className="absolute inset-0 rounded-full border border-white/0 group-hover:border-white/40 transition-all duration-300" />
+            </button>
+          </div>
+
+          {/* Desktop Logo Section - Vertical Layout */}
+          <div className="hidden md:flex md:flex-col items-center justify-center gap-4">
+            <button
+              onClick={() => onLogoChange?.('prev')}
+              className="catalog-carousel-logo-button group relative flex items-center justify-center rounded-full bg-gradient-to-br from-white/20 to-white/5 p-3 backdrop-blur-sm transition-all duration-300 hover:from-white/35 hover:to-white/15 hover:shadow-lg sm:p-3.5"
+              aria-label="Logo anterior"
+            >
+              <ChevronUp className="h-5 w-5 text-white transition-all duration-300 group-hover:scale-125 sm:h-6 sm:w-6" />
+              <div className="absolute inset-0 rounded-full border border-white/0 group-hover:border-white/40 transition-all duration-300" />
+            </button>
+
+            {logoSrc ? (
+              <img
+                src={logoSrc}
+                alt={logoAlt}
+                className="catalog-carousel-logo h-auto max-w-full object-contain"
+                draggable={false}
+              />
+            ) : null}
+
+            <button
+              onClick={() => onLogoChange?.('next')}
+              className="catalog-carousel-logo-button group relative flex items-center justify-center rounded-full bg-gradient-to-br from-white/20 to-white/5 p-3 backdrop-blur-sm transition-all duration-300 hover:from-white/35 hover:to-white/15 hover:shadow-lg sm:p-3.5"
+              aria-label="Logo siguiente"
+            >
+              <ChevronDown className="h-5 w-5 text-white transition-all duration-300 group-hover:scale-125 sm:h-6 sm:w-6" />
+              <div className="absolute inset-0 rounded-full border border-white/0 group-hover:border-white/40 transition-all duration-300" />
             </button>
           </div>
 
@@ -229,10 +262,11 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
             <div className="relative">
               <button
                 onClick={() => scrollByAmount(-1)}
-                className="catalog-carousel-nav-button absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/30 bg-black/20 p-2 text-white/90 backdrop-blur transition-all hover:bg-black/35 hover:text-white"
+                className="catalog-carousel-nav-button group absolute left-0 top-1/2 z-10 -translate-y-1/2 flex items-center justify-center rounded-full bg-gradient-to-r from-white/20 to-white/5 p-3 backdrop-blur-sm transition-all duration-300 hover:from-white/35 hover:to-white/15 hover:shadow-xl hover:left-1 sm:p-4"
                 aria-label="Producto anterior"
               >
-                <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+                <ChevronLeft className="h-6 w-6 text-white transition-all duration-300 group-hover:scale-125 sm:h-7 sm:w-7" />
+                <div className="absolute inset-0 rounded-full border border-white/0 group-hover:border-white/40 transition-all duration-300" />
               </button>
 
               <div
@@ -283,10 +317,11 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
 
               <button
                 onClick={() => scrollByAmount(1)}
-                className="catalog-carousel-nav-button absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/30 bg-black/20 p-2 text-white/90 backdrop-blur transition-all hover:bg-black/35 hover:text-white"
+                className="catalog-carousel-nav-button group absolute right-0 top-1/2 z-10 -translate-y-1/2 flex items-center justify-center rounded-full bg-gradient-to-l from-white/20 to-white/5 p-3 backdrop-blur-sm transition-all duration-300 hover:from-white/35 hover:to-white/15 hover:shadow-xl hover:right-1 sm:p-4"
                 aria-label="Proximo producto"
               >
-                <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+                <ChevronRight className="h-6 w-6 text-white transition-all duration-300 group-hover:scale-125 sm:h-7 sm:w-7" />
+                <div className="absolute inset-0 rounded-full border border-white/0 group-hover:border-white/40 transition-all duration-300" />
               </button>
             </div>
           </div>
