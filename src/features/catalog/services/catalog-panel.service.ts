@@ -12,6 +12,16 @@ import type {
 const FALLBACK_LOGO_SRC = '/logo.png';
 
 const getLogoFilename = (logoSrc: string) => logoSrc.split('/').pop() ?? '';
+const getProductMatcher = (product: CatalogProduct) => product.productFamily ?? product.name;
+const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) => {
+  const categoryLogoProducts = categoryLogoProductsMap[categoryId];
+
+  if (!categoryLogoProducts) {
+    return [];
+  }
+
+  return categoryLogoProducts[logoSrc] || categoryLogoProducts[getLogoFilename(logoSrc)] || [];
+};
 
 export const getCatalogCategories = (): CatalogCategoryCard[] =>
   Object.entries(catalogData).map(([id, category]) => ({
@@ -37,18 +47,27 @@ export const getCategoryProducts = (
 
 export const getCategoryLogos = (
   categoryId: CatalogCategoryId,
-  categoryTitle: string
-): CatalogLogoOption[] =>
-  categoryLogosMap[categoryId] || [{ src: FALLBACK_LOGO_SRC, alt: categoryTitle }];
+  categoryTitle: string,
+  products: CatalogProduct[]
+): CatalogLogoOption[] => {
+  const categoryLogos = categoryLogosMap[categoryId] || [{ src: FALLBACK_LOGO_SRC, alt: categoryTitle }];
+  const availableMatchers = new Set(products.map(getProductMatcher));
+  const filteredLogos = categoryLogos.filter((logo) => {
+    const logoMatchers = getLogoProductMatchers(categoryId, logo.src);
+
+    return logoMatchers.length === 0 || logoMatchers.some((matcher) => availableMatchers.has(matcher));
+  });
+
+  return filteredLogos.length > 0 ? filteredLogos : categoryLogos;
+};
 
 export const getProductsByLogo = (
   categoryId: CatalogCategoryId,
   products: CatalogProduct[],
   logoSrc: string
 ): CatalogProduct[] => {
-  const categoryLogoProducts = categoryLogoProductsMap[categoryId];
-  const productNames = categoryLogoProducts?.[getLogoFilename(logoSrc)] || [];
-  const filteredProducts = products.filter((product) => productNames.includes(product.name));
+  const productMatchers = getLogoProductMatchers(categoryId, logoSrc);
+  const filteredProducts = products.filter((product) => productMatchers.includes(getProductMatcher(product)));
 
   return filteredProducts.length > 0 ? filteredProducts : products;
 };
@@ -60,7 +79,7 @@ export const buildCatalogPanelState = (
 ): CatalogPanelState => {
   const category = catalogData[categoryId];
   const originalProducts = getCategoryProducts(categoryId, filterType);
-  const availableLogos = getCategoryLogos(categoryId, category.title);
+  const availableLogos = getCategoryLogos(categoryId, category.title, originalProducts);
   const firstLogo = availableLogos[0];
 
   return {

@@ -63,7 +63,7 @@ export const TaglineSection = () => {
         <p className="tagline-copy-text text-center font-light text-white">
           En la Casa de Jovy
           <span className="tagline-copy-emphasis block font-semibold text-white">
-            Elaboramos dulces que acompanan tus momentos
+            Elaboramos dulces que acompañan tus momentos
           </span>
         </p>
 

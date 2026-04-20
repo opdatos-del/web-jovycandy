@@ -33,12 +33,14 @@ export type CatalogProduct = {
   subtitle: string;
   description: string;
   image: string;
+  carouselImage?: string;
   sampleImage?: string;
   secondaryImage: string;
   certifications: CatalogCertification[];
   specs: CatalogSpec[];
   collapsibleInfo: CatalogInfoItem[];
   gramaje?: string;
+  productFamily?: string;
   type: ProductType;
 };
 

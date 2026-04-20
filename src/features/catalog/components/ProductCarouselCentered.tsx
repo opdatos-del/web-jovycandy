@@ -54,6 +54,12 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
     }
   }, [filteredProducts]);
 
+  useEffect(() => {
+    if (filters.gramaje && !gramajes.includes(filters.gramaje)) {
+      setFilters({ gramaje: null });
+    }
+  }, [filters.gramaje, gramajes]);
+
   const applyMomentum = () => {
     if (!scrollerRef.current) {
       return;
@@ -244,7 +250,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                         className="catalog-carousel-item flex shrink-0 flex-col items-center text-center"
                       >
                         <img
-                          src={product.image}
+                          src={product.carouselImage ?? product.image}
                           alt={product.name}
                           className="catalog-carousel-image w-full object-contain"
                           draggable={false}
@@ -252,6 +258,11 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                         <h4 className="catalog-carousel-name mt-2 font-extrabold uppercase leading-tight">
                           {product.name}
                         </h4>
+                        {product.gramaje ? (
+                          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-white/72">
+                            {product.gramaje}
+                          </p>
+                        ) : null}
                         <p className="catalog-carousel-spec mt-1 whitespace-pre-line font-semibold leading-tight text-white/92">
                           {product.specs.slice(2, 3)[0]?.value ?? product.subtitle}
                         </p>

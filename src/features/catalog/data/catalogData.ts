@@ -1,80 +1,64 @@
 import type { CatalogData } from '../types/catalog.types';
+import {
+  gomitasAltDefLogoProductsMap,
+  gomitasAltDefLogos,
+  gomitasAltDefProducts,
+  pinateroAltDefLogoProductsMap,
+  pinateroAltDefLogos,
+  pinateroAltDefProducts,
+} from './altDefCatalogData';
 
-/**
- * Mapping of products to their WebP image files
- * Explicitly map each product to the correct image in WEBP PRODUCTOS structure
- * Note: Maps to actual files that exist in the public folder
- */
 const productImageMap: Record<string, Record<string, string>> = {
   gomitas: {
-    'Rings Watermelon': '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp',
-    'Rings Neon': '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp',
-    'Gummies Peach': '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp',
-    'Gummies Cherry': '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Cherry-5-lb-1-300x300.webp',
-    'Worms Original': '/WEBP PRODUCTOS/SWEET/GUMMIES/WORMS/JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp',
-    'Bears Classic': '/WEBP PRODUCTOS/SWEET/GUMMIES/BEARS/JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp',
+    'Rings Watermelon':
+      '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp',
+    'Rings Neon':
+      '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp',
+    'Gummies Peach':
+      '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp',
+    'Gummies Cherry':
+      '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Cherry-5-lb-1-300x300.webp',
+    'Worms Original':
+      '/WEBP PRODUCTOS/SWEET/GUMMIES/WORMS/JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp',
+    'Bears Classic':
+      '/WEBP PRODUCTOS/SWEET/GUMMIES/BEARS/JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp',
   },
   polvos: {
-    'Acirrico': '/WEBP PRODUCTOS/SPICY/POWDERS/Acirrico.webp',
-    'Limonazo': '/WEBP PRODUCTOS/SPICY/POWDERS/Limonazo.webp',
+    Acirrico: '/WEBP PRODUCTOS/SPICY/POWDERS/Acirrico.webp',
+    Limonazo: '/WEBP PRODUCTOS/SPICY/POWDERS/Limonazo.webp',
   },
   jellies: {
-    'CHERRY SLICES 5LB': '/WEBP PRODUCTOS/SWEET/JELLIES/CHERRY SLICES/JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp',
-    'ORANGE SLICES': '/WEBP PRODUCTOS/SWEET/JELLIES/ORANGE SLICES/JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp',
+    'CHERRY SLICES 5LB':
+      '/WEBP PRODUCTOS/SWEET/JELLIES/CHERRY SLICES/JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp',
+    'ORANGE SLICES':
+      '/WEBP PRODUCTOS/SWEET/JELLIES/ORANGE SLICES/JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp',
   },
   dulces: {
-    'Lollipop Cherry': '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
-    'Lollipop Lemon': '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
+    'Lollipop Cherry':
+      '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
+    'Lollipop Lemon':
+      '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
   },
   paletas: {
-    'Mango revolcado': '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/MANGO REVOLCADO/JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp',
-  },
-  pinatero: {
-    'Happy Mix': '/WEBP PRODUCTOS/SPICY/PIÑATERO/HAPPY MIX/JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp',
-    'Revolcados Mix': '/WEBP PRODUCTOS/SPICY/PIÑATERO/HAPPY MIX/JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp',
+    'Mango revolcado':
+      '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/MANGO REVOLCADO/JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp',
   },
 };
 
-/**
- * Mapping of category logos available for navigation
- * Each category has available logos that can be cycled through
- */
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
-  gomitas: [
-    { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Rings-300x300.webp', alt: 'Gomitas Rings' },
-    { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Worms-300x300.webp', alt: 'Gomitas Worms' },
-    { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Bears-300x300.webp', alt: 'Gomitas Bears' },
-  ],
-  polvos: [
-    { src: '/WEBP PRODUCTOS/SPICY/POWDERS/LOGOS/Acirrico-300x300.webp', alt: 'Polvos Acirrico' },
-  ],
+  gomitas: gomitasAltDefLogos,
+  polvos: [{ src: '/WEBP PRODUCTOS/SPICY/POWDERS/LOGOS/Acirrico-300x300.webp', alt: 'Polvos Acirrico' }],
   jellies: [
     { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Cherry_Slices-300x300.webp', alt: 'Jellies Cherry' },
     { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Orange_slices-300x300.webp', alt: 'Jellies Orange' },
   ],
-  dulces: [
-    { src: '/WEBP PRODUCTOS/SWEET/HARD CANDY/LOGOS/Jovy_Fruit-300x300.webp', alt: 'Dulces Fruit' },
-  ],
-  paletas: [
-    { src: '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/LOGOS/Mango_Revolcado-300x300.webp', alt: 'Paletas Mango' },
-  ],
-  pinatero: [
-    { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/happy-mix-300x300.webp', alt: 'Piñatero Happy Mix' },
-    { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/Revolcados-mix-300x300.webp', alt: 'Piñatero Revolcados' },
-    { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/Tropimix-300x300.webp', alt: 'Piñatero Tropimix' },
-  ],
+  dulces: [{ src: '/WEBP PRODUCTOS/SWEET/HARD CANDY/LOGOS/Jovy_Fruit-300x300.webp', alt: 'Dulces Fruit' }],
+  paletas: [{ src: '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/LOGOS/Mango_Revolcado-300x300.webp', alt: 'Paletas Mango' }],
+  pinatero: pinateroAltDefLogos,
 };
 
-/**
- * Mapping of logos to their corresponding products
- * Links each logo filename to the product names that belong to it
- */
 export const categoryLogoProductsMap: Record<string, Record<string, string[]>> = {
-  gomitas: {
-    'Rings-300x300.webp': ['Rings Watermelon', 'Rings Neon', 'Gummies Peach', 'Gummies Cherry'],
-    'Worms-300x300.webp': ['Worms Original'],
-    'Bears-300x300.webp': ['Bears Classic'],
-  },
+  gomitas: gomitasAltDefLogoProductsMap,
   polvos: {
     'Acirrico-300x300.webp': ['Acirrico', 'Limonazo'],
   },
@@ -88,41 +72,31 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
   paletas: {
     'Mango_Revolcado-300x300.webp': ['Mango revolcado'],
   },
-  pinatero: {
-    'happy-mix-300x300.webp': ['Happy Mix'],
-    'Revolcados-mix-300x300.webp': ['Revolcados Mix'],
-    'Tropimix-300x300.webp': ['Happy Mix'],
-  },
+  pinatero: pinateroAltDefLogoProductsMap,
 };
 
-/**
- * Helper function to get product image path from the mapping
- * Falls back to a default path if product not found
- */
 function getProductImagePath(
   type: 'Picante' | 'Dulce',
   categoryId: string,
   productName: string
 ): string {
-  // Try to get from explicit mapping first
   const categoryImages = productImageMap[categoryId];
+
   if (categoryImages && categoryImages[productName]) {
     return categoryImages[productName];
   }
-  
-  // Fallback path construction if not in map
+
   const typeFolder = type === 'Picante' ? 'SPICY' : 'SWEET';
   const categoryFolderMap: Record<string, string> = {
     polvos: 'POWDERS',
     jellies: 'JELLIES',
     dulces: 'HARD CANDY',
     paletas: 'LOLLIPOPS',
-    pinatero: 'PIÑATERO',
     gomitas: 'GUMMIES',
   };
   const categoryFolder = categoryFolderMap[categoryId] || categoryId.toUpperCase();
   const productSubfolder = productName.split(' ')[0].toUpperCase();
-  
+
   return `/WEBP PRODUCTOS/${typeFolder}/${categoryFolder}/${productSubfolder}/placeholder.webp`;
 }
 
@@ -151,14 +125,14 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azúcar, tamarindo deshidratado, sal yodada, ácido cítrico y chile.',
+            content: 'Azucar, tamarindo deshidratado, sal yodada, acido citrico y chile.',
           },
           {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 5g. Calorías: 20. Azúcares: 4g.',
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 5g. Calorias: 20. Azucares: 4g.',
           },
         ],
-        gramaje: '0.06kg',
+        gramaje: '56 g',
         type: 'Picante',
       },
       {
@@ -180,14 +154,14 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azúcar, extracto de chamoy, sal, ácido cítrico y colorantes.',
+            content: 'Azucar, extracto de chamoy, sal, acido citrico y colorantes.',
           },
           {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 5g. Calorías: 18. Azúcares: 4g.',
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 5g. Calorias: 18. Azucares: 4g.',
           },
         ],
-        gramaje: '0.06kg',
+        gramaje: '56 g',
         type: 'Dulce',
       },
     ],
@@ -216,21 +190,21 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, pectina, ácido cítrico y saborizante de fresa.',
+            content: 'Azucar, jarabe de maiz, pectina, acido citrico y saborizante de fresa.',
           },
           {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 110. Azúcares: 20g.',
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
           },
         ],
-        gramaje: '0.17kg',
+        gramaje: '170 g',
         type: 'Dulce',
       },
       {
         id: 'j2',
         name: 'ORANGE SLICES',
         subtitle: 'Orange Jelly\nCitrus & Sweet',
-        description: 'Gelatina de naranja con sabor cítrico intenso.',
+        description: 'Gelatina de naranja con sabor citrico intenso.',
         image: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
         sampleImage: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
         secondaryImage: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
@@ -245,14 +219,14 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, pectina, ácido cítrico y aceite esencial de naranja.',
+            content: 'Azucar, jarabe de maiz, pectina, acido citrico y aceite esencial de naranja.',
           },
           {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 108. Azúcares: 19g.',
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
           },
         ],
-        gramaje: '0.17kg',
+        gramaje: '170 g',
         type: 'Dulce',
       },
     ],
@@ -281,21 +255,21 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, ácido málico y saborizante de cereza.',
+            content: 'Azucar, jarabe de maiz, acido malico y saborizante de cereza.',
           },
           {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 15g. Calorías: 60. Azúcares: 12g.',
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
           },
         ],
-        gramaje: '0.17kg',
+        gramaje: '170 g',
         type: 'Dulce',
       },
       {
         id: 'd2',
         name: 'Lollipop Lemon',
         subtitle: 'Lemon Lollipop\nSour & Sweet',
-        description: 'Caramelo de limón con un toque ácido agradable.',
+        description: 'Caramelo de limon con un toque acido agradable.',
         image: getProductImagePath('Dulce', 'dulces', 'Lollipop Lemon'),
         sampleImage: getProductImagePath('Dulce', 'dulces', 'Lollipop Lemon'),
         secondaryImage: getProductImagePath('Dulce', 'dulces', 'Lollipop Lemon'),
@@ -310,14 +284,14 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, ácido cítrico y aceite esencial de limón.',
+            content: 'Azucar, jarabe de maiz, acido citrico y aceite esencial de limon.',
           },
           {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 15g. Calorías: 60. Azúcares: 12g.',
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
           },
         ],
-        gramaje: '0.17kg',
+        gramaje: '170 g',
         type: 'Dulce',
       },
     ],
@@ -331,7 +305,7 @@ export const catalogData: CatalogData = {
         id: 'pa1',
         name: 'Mango revolcado',
         subtitle: 'Watermelon Popsicle\nFresh & Sweet',
-        description: 'Paleta refrescante con sabor a sandía natural.',
+        description: 'Paleta refrescante con sabor a sandia natural.',
         image: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
         sampleImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
         secondaryImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
@@ -346,21 +320,21 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, pectina, ácido cítrico y saborizante de sandía.',
+            content: 'Azucar, jarabe de maiz, pectina, acido citrico y saborizante de sandia.',
           },
           {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 110. Azúcares: 20g.',
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
           },
         ],
-        gramaje: '0.17kg',
+        gramaje: '170 g',
         type: 'Dulce',
       },
       {
         id: 'pa2',
         name: 'Mango revolcado',
         subtitle: 'Mango Popsicle\nTropical Flavor',
-        description: 'Paleta de mango con toque tropical y sabor auténtico.',
+        description: 'Paleta de mango con toque tropical y sabor autentico.',
         image: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
         sampleImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
         secondaryImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
@@ -375,261 +349,28 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, pectina, ácido cítrico y concentrado de mango.',
+            content: 'Azucar, jarabe de maiz, pectina, acido citrico y concentrado de mango.',
           },
           {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 112. Azúcares: 21g.',
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 112. Azucares: 21g.',
           },
         ],
-        gramaje: '0.17kg',
+        gramaje: '170 g',
         type: 'Dulce',
       },
     ],
   },
   pinatero: {
     id: 'pinatero',
-    title: 'Piñatero',
+    title: 'Pinatero',
     accent: '#FD3B1F',
-    products: [
-      {
-        id: 'pi1',
-        name: 'Happy Mix',
-        subtitle: 'Assorted Mix\nMulti Flavor',
-        description: 'Surtido de dulces muy variados con sabores tradicionales.',
-        image: getProductImagePath('Dulce', 'pinatero', 'Happy Mix'),
-        sampleImage: getProductImagePath('Dulce', 'pinatero', 'Happy Mix'),
-        secondaryImage: getProductImagePath('Dulce', 'pinatero', 'Happy Mix'),
-        certifications: ['SGS'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
-        collapsibleInfo: [
-          {
-            title: 'Ingredientes',
-            content: 'Mezcla de caramelos con azúcar, jarabe de maíz y saborizantes variados.',
-          },
-          {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 115. Azúcares: 21g.',
-          },
-        ],
-        gramaje: '0.17kg',
-        type: 'Dulce',
-      },
-      {
-        id: 'pi2',
-        name: 'Revolcados Mix',
-        subtitle: 'Sweet & Spicy Mix\nBalanced Heat',
-        description: 'Mix especial de dulces y picantes para piñateros tradicionales.',
-        image: getProductImagePath('Picante', 'pinatero', 'Revolcados Mix'),
-        sampleImage: getProductImagePath('Picante', 'pinatero', 'Revolcados Mix'),
-        secondaryImage: getProductImagePath('Picante', 'pinatero', 'Revolcados Mix'),
-        certifications: ['SGS', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
-        collapsibleInfo: [
-          {
-            title: 'Ingredientes',
-            content: 'Mezcla de caramelos dulces y picantes con saborizantes naturales.',
-          },
-          {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 110. Azúcares: 20g.',
-          },
-        ],
-        gramaje: '0.17kg',
-        type: 'Picante',
-      },
-    ],
+    products: pinateroAltDefProducts,
   },
   gomitas: {
     id: 'gomitas',
     title: 'Gomitas',
     accent: '#D4AF37',
-    products: [
-      {
-        id: 'g1',
-        name: 'Rings Watermelon',
-        subtitle: 'Gummy candy\nFlavor: Watermelon',
-        description: 'Deliciosas gomitas en forma de aro con un intenso y refrescante sabor a sandía.',
-        image: getProductImagePath('Dulce', 'gomitas', 'Rings Watermelon'),
-        sampleImage: getProductImagePath('Dulce', 'gomitas', 'Rings Watermelon'),
-        secondaryImage: getProductImagePath('Dulce', 'gomitas', 'Rings Watermelon'),
-        certifications: ['SGS', 'OU Kosher', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-          { label: 'Pieces per bag', value: '21 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
-        collapsibleInfo: [
-          {
-            title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, grenetina, ácido cítrico, saborizantes y colorantes.',
-          },
-          {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 110. Azúcares: 20g.',
-          },
-        ],
-        gramaje: '0.17kg',
-        type: 'Dulce',
-      },
-      {
-        id: 'g2',
-        name: 'Rings Neon',
-        subtitle: 'Gummy candy\nNeón Colors',
-        description: 'Aros de gomita en tonos neón con perfil dulce y textura suave.',
-        image: getProductImagePath('Dulce', 'gomitas', 'Rings Neon'),
-        sampleImage: getProductImagePath('Dulce', 'gomitas', 'Rings Neon'),
-        secondaryImage: getProductImagePath('Dulce', 'gomitas', 'Rings Neon'),
-        certifications: ['SGS', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-          { label: 'Pieces per bag', value: '21 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
-        collapsibleInfo: [
-          {
-            title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, pectina, concentrado de fruta y ácido cítrico.',
-          },
-          {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 105. Azúcares: 18g.',
-          },
-        ],
-        gramaje: '0.17kg',
-        type: 'Dulce',
-      },
-      {
-        id: 'g3',
-        name: 'Gummies Peach',
-        subtitle: 'Gummy candy\nFlavor: Peach',
-        description: 'Aros de gomita con un dulce y jugoso sabor a durazno.',
-        image: getProductImagePath('Dulce', 'gomitas', 'Gummies Peach'),
-        sampleImage: getProductImagePath('Dulce', 'gomitas', 'Gummies Peach'),
-        secondaryImage: getProductImagePath('Dulce', 'gomitas', 'Gummies Peach'),
-        certifications: ['SGS', 'OU Kosher'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-          { label: 'Pieces per bag', value: '21 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
-        collapsibleInfo: [
-          {
-            title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, grenetina, ácido cítrico y saborizante de durazno.',
-          },
-          {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 110. Azúcares: 20g.',
-          },
-        ],
-        gramaje: '0.17kg',
-        type: 'Dulce',
-      },
-      {
-        id: 'g4',
-        name: 'Gummies Cherry',
-        subtitle: 'Gummy candy\nFlavor: Cherry',
-        description: 'Aros de gomita espolvoreados con un intenso sabor a cereza.',
-        image: getProductImagePath('Dulce', 'gomitas', 'Gummies Cherry'),
-        sampleImage: getProductImagePath('Dulce', 'gomitas', 'Gummies Cherry'),
-        secondaryImage: getProductImagePath('Dulce', 'gomitas', 'Gummies Cherry'),
-        certifications: ['SGS'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-          { label: 'Pieces per bag', value: '21 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
-        collapsibleInfo: [
-          {
-            title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, grenetina, ácido cítrico y saborizante de cereza.',
-          },
-          {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 110. Azúcares: 21g.',
-          },
-        ],
-        gramaje: '0.17kg',
-        type: 'Dulce',
-      },
-      {
-        id: 'g5',
-        name: 'Worms Original',
-        subtitle: 'Gummy candy\nFruit Mix',
-        description: 'Gomitas tipo worm con una mezcla clásica de sabores frutales.',
-        image: getProductImagePath('Dulce', 'gomitas', 'Worms Original'),
-        secondaryImage: getProductImagePath('Dulce', 'gomitas', 'Worms Original'),
-        certifications: ['SGS', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-          { label: 'Pieces per bag', value: '21 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
-        collapsibleInfo: [
-          {
-            title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, grenetina, ácido cítrico y saborizantes.',
-          },
-          {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 108. Azúcares: 19g.',
-          },
-        ],
-        gramaje: '0.17kg',
-        type: 'Dulce',
-      },
-      {
-        id: 'g6',
-        name: 'Bears Classic',
-        subtitle: 'Gummy candy\nAssorted Fruit',
-        description: 'Ositos de gomita con perfil dulce tradicional y colores surtidos.',
-        image: getProductImagePath('Dulce', 'gomitas', 'Bears Classic'),
-        secondaryImage: getProductImagePath('Dulce', 'gomitas', 'Bears Classic'),
-        certifications: ['SGS', 'OU Kosher', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
-          { label: 'Pieces per bag', value: '24 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
-        collapsibleInfo: [
-          {
-            title: 'Ingredientes',
-            content: 'Azúcar, jarabe de maíz, grenetina, ácido cítrico y saborizantes naturales.',
-          },
-          {
-            title: 'Información Nutrimental',
-            content: 'Tamaño de la porción: 30g. Calorías: 106. Azúcares: 18g.',
-          },
-        ],
-        gramaje: '0.17kg',
-        type: 'Dulce',
-      },
-    ],
+    products: gomitasAltDefProducts,
   },
 };
-
