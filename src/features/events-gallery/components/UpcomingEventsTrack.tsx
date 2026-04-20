@@ -26,10 +26,10 @@ const COLLAGE_LAYOUT = [
 export const UpcomingEventsTrack = ({ trackRef, onImageOpen }: UpcomingEventsTrackProps) => (
   <div
     ref={trackRef}
-    className="relative z-20 flex min-w-max items-center px-3 py-2 will-change-transform sm:px-5 sm:py-3 lg:h-full lg:px-8 lg:py-4"
+    className="events-track relative z-20 flex min-w-max items-center will-change-transform"
   >
-    <div className="w-[min(1080px,172vw)] shrink-0 sm:w-[min(1300px,165vw)] lg:w-[min(1720px,132vw)] 2xl:w-[min(1980px,128vw)]" style={{ maxWidth: 'calc(1980px * var(--display-scale))' }}>
-      <div className="grid auto-rows-[64px] grid-cols-6 gap-2 sm:auto-rows-[74px] sm:gap-2.5 lg:grid-cols-12 lg:auto-rows-[82px] lg:gap-3">
+    <div className="events-collage shrink-0">
+      <div className="events-grid grid">
         {upcomingEvents.slice(0, 11).map((event, index) => (
           <UpcomingEventCard
             key={event.id}
@@ -41,6 +41,6 @@ export const UpcomingEventsTrack = ({ trackRef, onImageOpen }: UpcomingEventsTra
       </div>
     </div>
 
-    <div className="h-px w-8 shrink-0 sm:w-10 lg:w-[10vw] lg:max-w-[9rem]" aria-hidden="true" />
+    <div className="events-trailing-space h-px shrink-0" aria-hidden="true" />
   </div>
 );

@@ -14,19 +14,19 @@ export const CategoryGrid = () => {
   const bottomCategories = categories.slice(3, 6);
 
   return (
-    <section className="relative z-10 flex flex-col bg-[#ffffff] pb-0 pt-5 text-stone-900 sm:pt-7 lg:pt-9">
+    <section className="category-grid-section relative z-10 flex flex-col bg-[#ffffff] pb-0 text-stone-900">
       <div className="flex w-full flex-grow flex-col">
-        <div className="flex justify-center">
+        <div className="category-grid-heading flex justify-center">
           <ScrollReveal delay={0.04}>
-            <h2 className="category-grid-title mb-4 font-mono text-xs uppercase text-stone-400 opacity-90 sm:mb-6 sm:text-sm">
+            <h2 className="category-grid-title font-mono text-xs uppercase text-stone-400 opacity-90 sm:text-sm">
               {CATEGORY_GRID_SECTION_TITLE}
             </h2>
           </ScrollReveal>
         </div>
 
         <ScrollReveal delay={0.08}>
-          <div className="overflow-hidden bg-stone-200/90">
-            <div className="grid grid-cols-3 gap-px bg-stone-200">
+          <div className="category-grid-shell bg-stone-200/90">
+            <div className="category-grid-row grid gap-px bg-stone-200">
               {topCategories.map((category) => (
                 <CategoryCard
                   key={category.id}
@@ -52,7 +52,7 @@ export const CategoryGrid = () => {
               />
             )}
 
-            <div className="grid grid-cols-3 gap-px bg-stone-200">
+            <div className="category-grid-row grid gap-px bg-stone-200">
               {bottomCategories.map((category) => (
                 <CategoryCard
                   key={category.id}

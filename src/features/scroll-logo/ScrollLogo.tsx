@@ -12,38 +12,38 @@ const FRAMES = Array.from({ length: TOTAL_FRAMES }, (_, index) => {
 
 const getSectionHeight = () => {
   if (window.innerWidth < 390) {
-    return '155svh';
+    return '148svh';
   }
 
   if (window.innerWidth < 430) {
-    return '165svh';
+    return '156svh';
   }
 
   if (window.innerWidth < 768) {
-    return '180svh';
+    return '170svh';
   }
 
   if (window.innerWidth < 1024) {
-    return '215svh';
+    return '198svh';
   }
 
   if (window.innerWidth < 1280) {
-    return '245svh';
+    return '228svh';
   }
 
   if (window.innerWidth < 1536) {
-    return '275svh';
+    return '252svh';
   }
 
   if (window.innerWidth < 1920) {
-    return '315svh';
+    return '286svh';
   }
 
   if (window.innerWidth < 2560) {
-    return '350svh';
+    return '312svh';
   }
 
-  return '390svh';
+  return '338svh';
 };
 
 export function ScrollLogo() {
@@ -55,7 +55,7 @@ export function ScrollLogo() {
   const rafRef = useRef<number | null>(null);
   const [shouldLoadFrames, setShouldLoadFrames] = useState(false);
   const [sectionHeight, setSectionHeight] = useState(() =>
-    typeof window === 'undefined' ? '300vh' : getSectionHeight()
+    typeof window === 'undefined' ? '286svh' : getSectionHeight()
   );
 
   const { scrollYProgress } = useScroll({
@@ -129,7 +129,6 @@ export function ScrollLogo() {
       return;
     }
 
-    // Si la sección ya está en viewport al cargar, cargar frames inmediatamente
     const rect = section.getBoundingClientRect();
     const isVisibleOnLoad = rect.bottom > 0 && rect.top < window.innerHeight * 2;
 
@@ -179,7 +178,6 @@ export function ScrollLogo() {
 
     let isCancelled = false;
     const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
 
     imagesRef.current = new Array(TOTAL_FRAMES).fill(null);
 
@@ -194,15 +192,12 @@ export function ScrollLogo() {
         }
 
         imagesRef.current[index] = image;
-        loadedCount++;
 
-        // Dibuja el primer frame (frame_02.webp es index 1) cuando carga
         if (index === 1) {
           currentFrameRef.current = 1;
           requestDraw(1);
         }
 
-        // Si se carga el frame actual, redibujar
         if (index === currentFrameRef.current && index !== 1) {
           requestDraw(currentFrameRef.current);
         }
@@ -246,8 +241,6 @@ export function ScrollLogo() {
   }, []);
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    // Calcula el frame basado en el scroll progress
-    // Si scrollYProgress es 0, muestra frame 1 (frame_02.webp, que es el primer frame visible)
     const nextFrame = Math.max(1, Math.min(TOTAL_FRAMES - 1, Math.round(latest * (TOTAL_FRAMES - 1))));
 
     if (nextFrame !== currentFrameRef.current) {
@@ -257,11 +250,11 @@ export function ScrollLogo() {
 
   return (
     <section ref={containerRef} className="relative bg-[#edf5ff]" style={{ height: sectionHeight }}>
-      <div className="sticky top-0 flex min-h-viewport w-full items-center justify-center overflow-hidden">
+      <div className="scroll-logo-stage-shell sticky top-0 flex w-full items-center justify-center overflow-hidden">
         <motion.div
           ref={stageRef}
           style={{ opacity, scale }}
-          className="relative aspect-video w-full max-w-[min(97vw,calc(var(--section-max-width-wide)*var(--display-scale)))] px-3 sm:px-6 lg:px-8"
+          className="scroll-logo-canvas-shell relative aspect-video"
         >
           <canvas
             ref={canvasRef}
@@ -272,7 +265,7 @@ export function ScrollLogo() {
 
         <motion.div
           style={{ opacity: hintOpacity }}
-          className="absolute bottom-8 px-4 text-center font-mono text-[10px] uppercase tracking-[0.28em] text-[#1f4ea8]/65 sm:bottom-12 sm:text-xs md:bottom-20"
+          className="scroll-logo-hint absolute px-4 text-center font-mono uppercase text-[#1f4ea8]/65"
         >
           Scroll para descubrir
         </motion.div>

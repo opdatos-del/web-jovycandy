@@ -52,19 +52,18 @@ export const TaglineSection = () => {
         backgroundPosition: 'center',
       }}
     >
-      {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-black/25" />
-      <div ref={contentRef} className="relative z-10 mx-auto w-full max-w-[min(90vw,calc(52rem*var(--content-scale)))] px-4">
+      <div ref={contentRef} className="tagline-copy relative z-10 mx-auto w-full px-4">
         <div className="mb-8 flex items-center gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
           <div className="h-2 w-2 rounded-full bg-white/60" />
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         </div>
 
-        <p className="text-center text-xl font-light leading-relaxed text-white sm:text-2xl md:text-3xl">
+        <p className="tagline-copy-text text-center font-light text-white">
           En la Casa de Jovy
-          <span className="mt-2 block font-semibold text-white">
-            Elaboramos dulces que acompañan tus momentos
+          <span className="tagline-copy-emphasis block font-semibold text-white">
+            Elaboramos dulces que acompanan tus momentos
           </span>
         </p>
 

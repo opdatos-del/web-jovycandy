@@ -16,7 +16,7 @@ export const Hero = () => {
             ref={refs.shellRef}
             className="hero-shell relative flex flex-col items-center justify-between"
           >
-            <div className="hero-content relative flex w-full flex-1 flex-col items-center justify-center">
+            <div className="hero-content relative flex w-full flex-1 flex-col items-center justify-start md:justify-center">
               <HeroPromoStage
                 activePromo={activePromo}
                 promos={promos}

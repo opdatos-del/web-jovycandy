@@ -20,7 +20,7 @@ export const AppSections = () => (
       <UpcomingEvents />
     </div>
     <SectionColorTransition fromColor="#fff5d4" toColor="#ff6a86" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
-    <div id="certificaciones">
+    <div id="certificaciones" className="-mt-px">
       <Certifications />
     </div>
     <SectionColorTransition fromColor="#ff7f69" toColor="#ffffff" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />

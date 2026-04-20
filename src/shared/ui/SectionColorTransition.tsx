@@ -11,11 +11,12 @@ export const SectionColorTransition = ({
   heightClassName = 'h-16 md:h-20 lg:h-24',
   invert = false,
 }: SectionColorTransitionProps) => (
-  <section aria-hidden="true" className={`relative ${heightClassName}`} style={{ backgroundColor: fromColor }}>
+  <section aria-hidden="true" className={`relative overflow-hidden ${heightClassName}`} style={{ backgroundColor: fromColor }}>
     <svg
       viewBox="0 0 1440 160"
       preserveAspectRatio="none"
-      className={`absolute inset-0 h-full w-full ${invert ? 'rotate-180' : ''}`}
+      className={`absolute -inset-x-px h-[calc(100%+2px)] w-[calc(100%+2px)] ${invert ? '-top-px rotate-180' : '-bottom-px'}`}
+      shapeRendering="geometricPrecision"
       role="presentation"
     >
       <path

@@ -29,10 +29,10 @@ export const footerPolicyLinks: AppLinkItem[] = [
 ];
 
 export const navActionClassName =
-  'inline-flex min-h-[var(--touch-target-min)] items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 px-4 py-2.5 text-[10px] font-medium uppercase tracking-[0.22em] text-stone-800 shadow-[0_4px_12px_rgba(68,54,40,0.08)] backdrop-blur-sm transition-colors hover:bg-stone-900 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.28em]';
+  'inline-flex min-h-[var(--touch-target-min)] items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 px-4 py-2.5 text-[10px] font-medium uppercase tracking-[0.22em] text-stone-800 shadow-[0_4px_12px_rgba(68,54,40,0.08)] backdrop-blur-sm transition-colors hover:bg-stone-900 hover:text-white sm:px-5 sm:text-[11px] sm:tracking-[0.28em] xl:px-6 xl:text-xs 2xl:min-h-[3rem] 2xl:px-7 2xl:text-[13px]';
 
 export const navSocialClassName =
-  'flex min-h-[var(--touch-target-min)] min-w-[var(--touch-target-min)] items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 text-stone-800 shadow-[0_4px_12px_rgba(68,54,40,0.08)] backdrop-blur-sm transition-colors hover:bg-stone-900 hover:text-white';
+  'flex min-h-[var(--touch-target-min)] min-w-[var(--touch-target-min)] items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 text-stone-800 shadow-[0_4px_12px_rgba(68,54,40,0.08)] backdrop-blur-sm transition-colors hover:bg-stone-900 hover:text-white xl:min-h-[3rem] xl:min-w-[3rem] 2xl:min-h-[3.25rem] 2xl:min-w-[3.25rem]';
 
 export const navMenuButtonClassName =
   'inline-flex min-h-[var(--touch-target-min)] min-w-[var(--touch-target-min)] items-center justify-center rounded-full border border-white/75 bg-[#fff8ec]/88 text-stone-800 shadow-[0_4px_12px_rgba(68,54,40,0.08)] backdrop-blur-sm transition-colors hover:bg-stone-900 hover:text-white lg:hidden';

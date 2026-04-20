@@ -48,23 +48,23 @@ export const UpcomingEvents = () => {
   }, [activeEvent]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-[#fff5d4] py-6 sm:py-8 lg:min-h-[var(--viewport-h)] lg:py-0">
-      <div className="flex justify-center px-4 pb-4 sm:pb-6">
+    <section ref={sectionRef} className="events-section relative overflow-hidden bg-[#fff5d4]">
+      <div className="events-section-header flex justify-center">
         <h2 className="font-mono text-xs uppercase text-stone-400 opacity-90 sm:text-sm">
-          Galería y Eventos
+          Galeria y Eventos
         </h2>
       </div>
       <div
         ref={viewportRef}
-        className="mobile-scroll relative h-full overflow-x-auto snap-x snap-mandatory lg:h-[calc(var(--viewport-h)-2rem)] lg:overflow-hidden lg:snap-none"
+        className="events-viewport mobile-scroll relative overflow-x-auto snap-x snap-mandatory lg:overflow-hidden lg:snap-none"
       >
         <UpcomingEventsTrack trackRef={trackRef} onImageOpen={setActiveEvent} />
       </div>
 
-      {activeEvent && (
+      {activeEvent &&
         createPortal(
           <div
-            className="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 p-4 sm:p-6"
+            className="events-modal fixed inset-0 z-[120] flex items-center justify-center bg-black/80"
             role="dialog"
             aria-modal="true"
             aria-label={activeEvent.alt}
@@ -74,14 +74,13 @@ export const UpcomingEvents = () => {
               <img
                 src={activeEvent.image}
                 alt={activeEvent.alt}
-                className="max-h-[min(90dvh,88svh)] w-auto max-w-full rounded-xl object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:max-h-[min(92dvh,90svh)] sm:rounded-2xl"
+                className="events-modal-image w-auto max-w-full rounded-xl object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:rounded-2xl"
                 draggable={false}
               />
             </div>
           </div>,
-          document.body,
-        )
-      )}
+          document.body
+        )}
     </section>
   );
 };

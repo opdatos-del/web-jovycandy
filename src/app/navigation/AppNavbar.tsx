@@ -16,7 +16,7 @@ export const AppNavbar = ({
 }: AppNavbarProps) => (
   <nav className="fixed inset-x-0 top-0 z-40">
     <div className="app-navbar-shell page-shell-wide">
-      <div className="app-navbar-inner flex items-center justify-between text-stone-900 py-1">
+      <div className="app-navbar-inner flex items-center justify-between text-stone-900">
         <img
           src="/logo.png"
           alt="Jovy"

@@ -8,14 +8,14 @@ type AppFooterProps = {
 
 export const AppFooter = ({ onContactClick }: AppFooterProps) => (
   <footer className="app-footer bg-gradient-to-b from-[#00afaa] to-[#008b7f] text-white">
-    <div className="pb-6 sm:pb-8 lg:pb-10">
+    <div className="pb-6 sm:pb-8 lg:pb-10 xl:pb-12 2xl:pb-14">
       <div className="page-shell">
         <ScrollReveal>
           <div className="app-footer-logo-section flex justify-center">
             <img
               src="/logo.png"
               alt="Jovy"
-              className="h-16 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] sm:h-20 lg:h-24"
+              className="h-[clamp(4rem,12vw,5rem)] w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] sm:h-[clamp(4.75rem,8vw,5.5rem)] lg:h-[clamp(5.4rem,6vw,6.25rem)] 2xl:h-[7rem]"
               draggable={false}
             />
           </div>
@@ -23,7 +23,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => (
       </div>
     </div>
 
-    <div className="flex flex-col gap-4 pb-8 sm:gap-6 sm:pb-10 lg:gap-8 lg:pb-12">
+    <div className="flex flex-col gap-4 pb-8 sm:gap-6 sm:pb-10 lg:gap-8 lg:pb-12 xl:pb-14">
       <div className="page-shell">
         <ScrollReveal>
           <nav className="app-footer-nav flex flex-wrap justify-center gap-3 sm:gap-6 md:gap-8 lg:gap-10">
@@ -49,8 +49,8 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => (
         <ScrollReveal>
           <div className="app-footer-social mt-4 flex justify-center sm:mt-5 lg:mt-6">
             <AppSocialLinks
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-base text-white transition-all hover:bg-white/30 sm:h-12 sm:w-12 sm:text-lg lg:h-14 lg:w-14"
-              containerClassName="flex items-center gap-3 sm:gap-4 lg:gap-6"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-base text-white transition-all hover:bg-white/30 sm:h-12 sm:w-12 sm:text-lg lg:h-14 lg:w-14 2xl:h-16 2xl:w-16"
+              containerClassName="flex items-center gap-3 sm:gap-4 lg:gap-6 2xl:gap-7"
             />
           </div>
         </ScrollReveal>
@@ -61,26 +61,26 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => (
       <div className="page-shell">
         <ScrollReveal>
           <div className="app-footer-feed">
-            <h3 className="mb-4 text-center text-xs font-semibold uppercase tracking-widest sm:mb-6 sm:text-sm lg:mb-8 lg:text-base">
+            <h3 className="mb-4 text-center text-xs font-semibold uppercase tracking-widest sm:mb-6 sm:text-sm lg:mb-8 lg:text-base 2xl:text-lg">
               Siguenos en Redes
             </h3>
 
-            <div className="mx-auto grid max-w-xl grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-              <div className="group flex aspect-video cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white/40 sm:aspect-square">
+            <div className="mx-auto grid max-w-xl grid-cols-2 gap-3 sm:gap-4 lg:max-w-2xl lg:gap-6 2xl:max-w-3xl 2xl:gap-8">
+              <div className="group flex aspect-video cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white/40 sm:aspect-square 2xl:rounded-2xl">
                 <div className="px-3 text-center">
-                  <p className="text-xs font-semibold text-white transition-colors group-hover:text-white/80 sm:text-sm lg:text-base">
+                  <p className="text-xs font-semibold text-white transition-colors group-hover:text-white/80 sm:text-sm lg:text-base 2xl:text-lg">
                     Instagram
                   </p>
-                  <p className="mt-1 hidden text-xs text-white/60 sm:block">Ultimas publicaciones</p>
+                  <p className="mt-1 hidden text-xs text-white/60 sm:block 2xl:text-sm">Ultimas publicaciones</p>
                 </div>
               </div>
 
-              <div className="group flex aspect-video cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white/40 sm:aspect-square">
+              <div className="group flex aspect-video cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-white/40 sm:aspect-square 2xl:rounded-2xl">
                 <div className="px-3 text-center">
-                  <p className="text-xs font-semibold text-white transition-colors group-hover:text-white/80 sm:text-sm lg:text-base">
+                  <p className="text-xs font-semibold text-white transition-colors group-hover:text-white/80 sm:text-sm lg:text-base 2xl:text-lg">
                     Facebook
                   </p>
-                  <p className="mt-1 hidden text-xs text-white/60 sm:block">Ultimas actualizaciones</p>
+                  <p className="mt-1 hidden text-xs text-white/60 sm:block 2xl:text-sm">Ultimas actualizaciones</p>
                 </div>
               </div>
             </div>
@@ -106,7 +106,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => (
             </div>
 
             <div className="pt-3 text-center sm:pt-4">
-              <p className="text-xs uppercase tracking-wide text-white/70">
+              <p className="text-xs uppercase tracking-wide text-white/70 2xl:text-sm">
                 &copy; 2026 Jovy. Todos los derechos reservados.
               </p>
             </div>

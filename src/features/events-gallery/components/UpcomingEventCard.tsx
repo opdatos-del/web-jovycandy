@@ -15,10 +15,10 @@ export const UpcomingEventCard = ({ event, collageClassName = '', onOpen }: Upco
     <button
       type="button"
       onClick={() => onOpen?.(event)}
-      className="group relative h-full w-full overflow-hidden rounded-xl border border-white/30 bg-white/80 p-1 text-left shadow-[0_14px_42px_rgba(42,33,28,0.2)] sm:rounded-2xl"
+      className="events-card group relative h-full w-full overflow-hidden border border-white/30 bg-white/80 p-1 text-left shadow-[0_14px_42px_rgba(42,33,28,0.2)]"
       aria-label={`Ver imagen completa de ${event.alt}`}
     >
-      <div className="relative h-full w-full overflow-hidden rounded-lg bg-[#f8eee8] sm:rounded-xl">
+      <div className="events-card-inner relative h-full w-full overflow-hidden bg-[#f8eee8]">
         <img
           src={event.image}
           alt={event.alt}
