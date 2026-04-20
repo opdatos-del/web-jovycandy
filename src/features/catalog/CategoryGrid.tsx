@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import { ScrollReveal } from '@/shared/ui/ScrollReveal';
 
@@ -7,14 +7,27 @@ import { CATEGORY_GRID_SECTION_TITLE } from './constants/catalog.constants';
 import { CategoryCard } from './components/CategoryCard';
 import { ProductCarouselCentered } from './components/ProductCarouselCentered';
 import { ProductTechnicalSheetDrawer } from './components/ProductTechnicalSheetDrawer';
-import type { CatalogProduct } from './types/catalog.types';
+import type { CatalogCategoryId, CatalogFilterType, CatalogProduct } from './types/catalog.types';
 
 export const CategoryGrid = () => {
   const { categories, panelState, handleCategoryClick, handleLogoNavigation } = useCatalogFacade();
   const [selectedProduct, setSelectedProduct] = useState<CatalogProduct | null>(null);
+  const pendingAnchorRef = useRef<{ categoryId: string; top: number } | null>(null);
 
   const topCategories = categories.slice(0, 3);
   const bottomCategories = categories.slice(3, 6);
+
+  const renderCarousel = () => (
+    <ProductCarouselCentered
+      logoSrc={panelState.logoSrc}
+      logoAlt={panelState.logoAlt}
+      categoryTitle={panelState.categoryTitle}
+      products={panelState.products}
+      accentColor={panelState.accentColor}
+      onLogoChange={handleLogoNavigation}
+      onProductSelect={setSelectedProduct}
+    />
+  );
 
   useEffect(() => {
     if (!selectedProduct) {
@@ -33,6 +46,51 @@ export const CategoryGrid = () => {
     }
   }, [panelState.isOpen, panelState.originalProducts, selectedProduct]);
 
+  useLayoutEffect(() => {
+    if (!pendingAnchorRef.current) {
+      return;
+    }
+
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      pendingAnchorRef.current = null;
+      return;
+    }
+
+    const { categoryId, top: previousTop } = pendingAnchorRef.current;
+    const anchor = document.querySelector<HTMLElement>(`[data-category-id="${categoryId}"]`);
+
+    if (!anchor) {
+      pendingAnchorRef.current = null;
+      return;
+    }
+
+    const nextTop = anchor.getBoundingClientRect().top;
+    const delta = nextTop - previousTop;
+
+    if (Math.abs(delta) > 1) {
+      window.scrollBy({ top: delta, left: 0, behavior: 'auto' });
+    }
+
+    pendingAnchorRef.current = null;
+  }, [panelState.categoryId, panelState.filterType, panelState.isOpen]);
+
+  const handleCategoryCardClick = (
+    categoryId: CatalogCategoryId,
+    filterType?: CatalogFilterType,
+    anchorElement?: HTMLElement | null
+  ) => {
+    if (!window.matchMedia('(min-width: 768px)').matches && anchorElement) {
+      pendingAnchorRef.current = {
+        categoryId,
+        top: anchorElement.getBoundingClientRect().top,
+      };
+    } else {
+      pendingAnchorRef.current = null;
+    }
+
+    handleCategoryClick(categoryId, filterType);
+  };
+
   return (
     <section className="category-grid-section relative z-10 flex flex-col bg-[#ffffff] pb-0 text-stone-900">
       <div className="flex w-full flex-grow flex-col">
@@ -46,46 +104,62 @@ export const CategoryGrid = () => {
 
         <ScrollReveal delay={0.08}>
           <div className="category-grid-shell bg-stone-200/90">
-            <div className="category-grid-row grid gap-px bg-stone-200">
-              {topCategories.map((category) => (
-                <CategoryCard
-                  key={category.id}
-                  id={category.id}
-                  title={category.title}
-                  image={category.image}
-                  accentColor={category.accent}
-                  productCount={category.productCount}
-                  isActive={panelState.isOpen && panelState.categoryId === category.id}
-                  onClick={(filterType) => handleCategoryClick(category.id, filterType)}
-                />
+            <div className="category-grid-row grid gap-px bg-stone-200 md:hidden">
+              {categories.map((category) => (
+                <React.Fragment key={category.id}>
+                  <CategoryCard
+                    id={category.id}
+                    title={category.title}
+                    image={category.image}
+                    accentColor={category.accent}
+                    productCount={category.productCount}
+                    isActive={panelState.isOpen && panelState.categoryId === category.id}
+                    onClick={(filterType, anchorElement) =>
+                      handleCategoryCardClick(category.id, filterType, anchorElement)
+                    }
+                  />
+
+                  {panelState.isOpen && panelState.categoryId === category.id && renderCarousel()}
+                </React.Fragment>
               ))}
             </div>
 
-            {panelState.isOpen && (
-              <ProductCarouselCentered
-                logoSrc={panelState.logoSrc}
-                logoAlt={panelState.logoAlt}
-                categoryTitle={panelState.categoryTitle}
-                products={panelState.products}
-                accentColor={panelState.accentColor}
-                onLogoChange={handleLogoNavigation}
-                onProductSelect={setSelectedProduct}
-              />
-            )}
+            <div className="hidden md:block">
+              <div className="category-grid-row grid gap-px bg-stone-200">
+                {topCategories.map((category) => (
+                  <CategoryCard
+                    key={category.id}
+                    id={category.id}
+                    title={category.title}
+                    image={category.image}
+                    accentColor={category.accent}
+                    productCount={category.productCount}
+                    isActive={panelState.isOpen && panelState.categoryId === category.id}
+                    onClick={(filterType, anchorElement) =>
+                      handleCategoryCardClick(category.id, filterType, anchorElement)
+                    }
+                  />
+                ))}
+              </div>
 
-            <div className="category-grid-row grid gap-px bg-stone-200">
-              {bottomCategories.map((category) => (
-                <CategoryCard
-                  key={category.id}
-                  id={category.id}
-                  title={category.title}
-                  image={category.image}
-                  accentColor={category.accent}
-                  productCount={category.productCount}
-                  isActive={panelState.isOpen && panelState.categoryId === category.id}
-                  onClick={(filterType) => handleCategoryClick(category.id, filterType)}
-                />
-              ))}
+              {panelState.isOpen && renderCarousel()}
+
+              <div className="category-grid-row grid gap-px bg-stone-200">
+                {bottomCategories.map((category) => (
+                  <CategoryCard
+                    key={category.id}
+                    id={category.id}
+                    title={category.title}
+                    image={category.image}
+                    accentColor={category.accent}
+                    productCount={category.productCount}
+                    isActive={panelState.isOpen && panelState.categoryId === category.id}
+                    onClick={(filterType, anchorElement) =>
+                      handleCategoryCardClick(category.id, filterType, anchorElement)
+                    }
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </ScrollReveal>

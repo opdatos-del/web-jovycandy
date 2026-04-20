@@ -523,7 +523,7 @@ const revolcadosMixTemplate: ProductTemplate = {
   name: 'Revolcados Mix',
   productFamily: 'Revolcados Mix',
   subtitle: 'Sweet & Spicy Mix\nBalanced Heat',
-  description: 'Mix especial de dulces y picantes para pinateros tradicionales.',
+  description: 'Mix especial de dulces y picantes para piñateros tradicionales.',
   image: '/WEBP PRODUCTOS/SPICY/PIÑATERO/REVOLCADOS MIX/JOVY-PINATEROS-Revolcados-Mix-5-lb-300x300.webp',
   certifications: ['SGS', 'Halal'],
   specs: [
@@ -551,7 +551,7 @@ const premiumMixTemplate: ProductTemplate = {
   name: 'Premium Mix',
   productFamily: 'Premium Mix',
   subtitle: 'Assorted Mix\nPremium Selection',
-  description: 'Presentacion premium de pinatero para surtido de alto gramaje.',
+  description: 'Presentacion premium de piñatero para surtido de alto gramaje.',
   image: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Premium-5-kg-MX.png'),
   certifications: ['SGS'],
   specs: [
@@ -844,12 +844,12 @@ export const pinateroAltDefProducts: CatalogProduct[] = [
 ];
 
 export const pinateroAltDefLogos: CatalogLogoOption[] = [
-  { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/happy-mix-300x300.webp', alt: 'Pinatero Happy Mix' },
+  { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/happy-mix-300x300.webp', alt: 'Piñatero Happy Mix' },
   {
     src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/Revolcados-mix-300x300.webp',
-    alt: 'Pinatero Revolcados',
+    alt: 'Piñatero Revolcados',
   },
-  { src: brandLogo, alt: 'Pinatero Premium' },
+  { src: brandLogo, alt: 'Piñatero Premium' },
 ];
 
 export const pinateroAltDefLogoProductsMap: Record<string, string[]> = {

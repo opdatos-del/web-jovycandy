@@ -12,10 +12,11 @@ interface CategoryCardProps {
   accentColor: string;
   productCount: number;
   isActive?: boolean;
-  onClick: (filterType?: CatalogFilterType) => void;
+  onClick: (filterType?: CatalogFilterType, anchorElement?: HTMLElement | null) => void;
 }
 
 export const CategoryCard: React.FC<CategoryCardProps> = ({
+  id,
   title,
   image,
   accentColor,
@@ -26,7 +27,8 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   return (
     <motion.div
       whileTap={{ scale: 0.99 }}
-      onClick={() => onClick()}
+      onClick={(event) => onClick(undefined, event.currentTarget)}
+      data-category-id={id}
       className={`category-card group relative w-full cursor-pointer overflow-hidden transition-all ${
         isActive ? 'ring-2 ring-white/65' : ''
       }`}
@@ -51,7 +53,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
             whileTap={{ scale: 0.95 }}
             onClick={(e) => {
               e.stopPropagation();
-              onClick('Picante');
+              onClick('Picante', e.currentTarget.closest<HTMLElement>('[data-category-id]'));
             }}
             className="category-card-action flex items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
             title="Filtrar por Picante"
@@ -64,7 +66,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
             whileTap={{ scale: 0.95 }}
             onClick={(e) => {
               e.stopPropagation();
-              onClick('Dulce');
+              onClick('Dulce', e.currentTarget.closest<HTMLElement>('[data-category-id]'));
             }}
             className="category-card-action flex items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
             title="Filtrar por Dulce"

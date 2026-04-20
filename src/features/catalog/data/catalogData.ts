@@ -363,7 +363,7 @@ export const catalogData: CatalogData = {
   },
   pinatero: {
     id: 'pinatero',
-    title: 'Pinatero',
+    title: 'Piñatero',
     accent: '#FD3B1F',
     products: pinateroAltDefProducts,
   },
