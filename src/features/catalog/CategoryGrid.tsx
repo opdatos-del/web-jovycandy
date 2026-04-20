@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ScrollReveal } from '@/shared/ui/ScrollReveal';
 
@@ -6,12 +6,32 @@ import { useCatalogFacade } from './facades/useCatalogFacade';
 import { CATEGORY_GRID_SECTION_TITLE } from './constants/catalog.constants';
 import { CategoryCard } from './components/CategoryCard';
 import { ProductCarouselCentered } from './components/ProductCarouselCentered';
+import { ProductTechnicalSheetDrawer } from './components/ProductTechnicalSheetDrawer';
+import type { CatalogProduct } from './types/catalog.types';
 
 export const CategoryGrid = () => {
   const { categories, panelState, handleCategoryClick, handleLogoNavigation } = useCatalogFacade();
+  const [selectedProduct, setSelectedProduct] = useState<CatalogProduct | null>(null);
 
   const topCategories = categories.slice(0, 3);
   const bottomCategories = categories.slice(3, 6);
+
+  useEffect(() => {
+    if (!selectedProduct) {
+      return;
+    }
+
+    if (!panelState.isOpen) {
+      setSelectedProduct(null);
+      return;
+    }
+
+    const productStillExists = panelState.originalProducts.some((product) => product.id === selectedProduct.id);
+
+    if (!productStillExists) {
+      setSelectedProduct(null);
+    }
+  }, [panelState.isOpen, panelState.originalProducts, selectedProduct]);
 
   return (
     <section className="category-grid-section relative z-10 flex flex-col bg-[#ffffff] pb-0 text-stone-900">
@@ -49,6 +69,7 @@ export const CategoryGrid = () => {
                 products={panelState.products}
                 accentColor={panelState.accentColor}
                 onLogoChange={handleLogoNavigation}
+                onProductSelect={setSelectedProduct}
               />
             )}
 
@@ -69,6 +90,12 @@ export const CategoryGrid = () => {
           </div>
         </ScrollReveal>
       </div>
+
+      <ProductTechnicalSheetDrawer
+        product={selectedProduct}
+        accentColor={panelState.accentColor || '#111111'}
+        onClose={() => setSelectedProduct(null)}
+      />
     </section>
   );
 };

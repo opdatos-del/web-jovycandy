@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from 'lucide-react';
 
 import type { CatalogProduct } from '../types/catalog.types';
+import { getCatalogSpecValueEs } from '../utils/specFormatters';
 
 interface ProductCarouselCenteredProps {
   logoSrc: string;
@@ -11,6 +12,7 @@ interface ProductCarouselCenteredProps {
   products: CatalogProduct[];
   accentColor: string;
   onLogoChange?: (direction: 'prev' | 'next') => void;
+  onProductSelect?: (product: CatalogProduct) => void;
 }
 
 interface FilterState {
@@ -24,6 +26,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
   products,
   accentColor,
   onLogoChange,
+  onProductSelect,
 }) => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const dragStateRef = useRef({
@@ -242,12 +245,14 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                 <AnimatePresence>
                   {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
-                      <motion.article
+                      <motion.button
                         key={product.id}
+                        type="button"
+                        onClick={() => onProductSelect?.(product)}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="catalog-carousel-item flex shrink-0 flex-col items-center text-center"
+                        className="catalog-carousel-item flex shrink-0 flex-col items-center text-center transition-transform hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                       >
                         <img
                           src={product.carouselImage ?? product.image}
@@ -264,9 +269,9 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                           </p>
                         ) : null}
                         <p className="catalog-carousel-spec mt-1 whitespace-pre-line font-semibold leading-tight text-white/92">
-                          {product.specs.slice(2, 3)[0]?.value ?? product.subtitle}
+                          {product.specs[2] ? getCatalogSpecValueEs(product.specs[2].value) : product.subtitle}
                         </p>
-                      </motion.article>
+                      </motion.button>
                     ))
                   ) : (
                     <div className="flex w-full items-center justify-center py-8">
