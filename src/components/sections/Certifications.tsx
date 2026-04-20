@@ -14,7 +14,7 @@ export const Certifications: React.FC = () => {
           className="flex flex-col"
         >
           <h2 className="text-stone-500 text-xs uppercase tracking-[0.5em] mb-6 font-mono">
-            Nuestros Certificados
+            Nuestros Certificados.
           </h2>
           <h3 className="text-stone-900 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 leading-tight">
             Calidad <br />
