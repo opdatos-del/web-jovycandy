@@ -1,5 +1,4 @@
 import { HeroBackdrop } from './components/HeroBackdrop';
-import { HeroHeading } from './components/HeroHeading';
 import { HeroPromoDetails } from './components/HeroPromoDetails';
 import { HeroPromoStage } from './components/HeroPromoStage';
 import { useHero } from './hooks/useHero';
@@ -17,8 +16,7 @@ export const Hero = () => {
             ref={refs.shellRef}
             className="hero-shell relative flex flex-col items-center justify-between"
           >
-            <div className="hero-content relative flex w-full flex-1 flex-col items-center justify-start">
-              {/* <HeroHeading headlineRef={refs.headlineRef} title={activePromo.label} /> */}
+            <div className="hero-content relative flex w-full flex-1 flex-col items-center justify-center">
               <HeroPromoStage
                 activePromo={activePromo}
                 promos={promos}
@@ -27,7 +25,7 @@ export const Hero = () => {
               />
             </div>
 
-            {/* <HeroPromoDetails detailRef={refs.detailRef} promo={activePromo} /> */}
+            <HeroPromoDetails detailRef={refs.detailRef} promo={activePromo} />
           </div>
         </div>
       </div>
