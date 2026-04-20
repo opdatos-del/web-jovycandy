@@ -7,7 +7,7 @@ type HeroPromoDetailsProps = Pick<HeroSceneRefs, 'detailRef'> & {
 export const HeroPromoDetails = ({ detailRef, promo }: HeroPromoDetailsProps) => (
   <div
     ref={detailRef}
-    className="hero-promo-details absolute left-1/2 z-20 flex -translate-x-1/2 flex-col items-center text-center"
+    className="hero-promo-details relative z-20 flex w-full flex-col items-center text-center md:absolute md:left-1/2 md:-translate-x-1/2"
   >
     <div className="hero-promo-chip rounded-full border border-white/45 bg-white/20 font-bold uppercase text-white backdrop-blur-xl">
       {promo.label}

@@ -14,9 +14,9 @@ export const Hero = () => {
         <div ref={refs.stageRef} className="w-full max-w-[min(96vw,var(--hero-max-width))]">
           <div
             ref={refs.shellRef}
-            className="hero-shell relative flex flex-col items-center justify-between"
+            className="hero-shell relative flex flex-col items-center justify-center md:justify-between"
           >
-            <div className="hero-content relative flex w-full flex-1 flex-col items-center justify-start md:justify-center">
+            <div className="hero-content relative flex w-full flex-none flex-col items-center justify-center md:flex-1">
               <HeroPromoStage
                 activePromo={activePromo}
                 promos={promos}

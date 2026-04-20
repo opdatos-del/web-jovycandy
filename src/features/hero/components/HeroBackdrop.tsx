@@ -5,7 +5,7 @@ type HeroBackdropProps = Pick<HeroSceneRefs, 'backgroundRef'>;
 
 export const HeroBackdrop = ({ backgroundRef }: HeroBackdropProps) => (
   <>
-    <div ref={backgroundRef} className="hero-backdrop-copy absolute inset-0 flex flex-col justify-center overflow-hidden">
+    <div ref={backgroundRef} className="hero-backdrop-copy absolute inset-0 flex flex-col justify-between overflow-hidden">
       {HERO_BACKGROUND_ROWS.map((row) => (
         <p
           key={row.id}
