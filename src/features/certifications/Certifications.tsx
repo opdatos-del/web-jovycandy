@@ -56,7 +56,7 @@ export const Certifications: React.FC = () => {
           className="certifications-copy flex flex-col"
         >
           <h2 className="certifications-eyebrow mb-6 text-sm font-mono uppercase text-white/75 sm:text-base">
-            Nuestros Certificados.
+            Nuestros Certificados
           </h2>
           <h3 className="certifications-title mb-6 font-bold leading-tight tracking-tight text-white">
             Calidad Garantizada
