@@ -29,7 +29,9 @@ export const getCatalogCategories = (): CatalogCategoryCard[] =>
     title: category.title,
     accent: category.accent || DEFAULT_ACCENT_COLOR,
     productCount: category.products.length,
-    image: category.products[0]?.sampleImage || category.products[0]?.image || '',
+    image: id === 'polvos' 
+      ? '/fondos-productos/FONDOS PRODUCTOS/POLVOS FONDOS-800X800.webp'
+      : category.products[0]?.sampleImage || category.products[0]?.image || '',
   }));
 
 export const getCategoryProducts = (

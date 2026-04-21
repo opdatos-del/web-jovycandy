@@ -9,7 +9,7 @@ export type ProductTechnicalSheet = {
 const TECHNICAL_SHEETS_ROOT = '/imagenes-alt-def';
 
 const buildTechnicalSheetPath = (...segments: string[]) =>
-  `${TECHNICAL_SHEETS_ROOT}/${segments.map((segment) => encodeURIComponent(segment)).join('/')}`;
+  `${TECHNICAL_SHEETS_ROOT}/${segments.join('/')}`;
 
 const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
   'g-rings-watermelon-100g': {
@@ -96,7 +96,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '50 g',
-      'FICHA PEGBAG BEARS 12 SABORES 50g 24 Bolsas.jpg'
+      'FICHA PEGBAG BEARS 12 SABORES 50g 24 Bolsas.webp'
     ),
     type: 'image',
   },

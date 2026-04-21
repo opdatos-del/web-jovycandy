@@ -370,7 +370,7 @@ export const catalogData: CatalogData = {
   gomitas: {
     id: 'gomitas',
     title: 'Gomitas',
-    accent: '#D4AF37',
+    accent: '#00AFAA',
     products: gomitasAltDefProducts,
   },
 };

@@ -3,7 +3,7 @@ import type { CatalogLogoOption, CatalogProduct, CatalogSpec } from '../types/ca
 const ALT_DEF_ROOT = '/imagenes-alt-def';
 
 const buildAltDefAssetPath = (...segments: string[]) =>
-  `${ALT_DEF_ROOT}/${segments.map((segment) => encodeURIComponent(segment)).join('/')}`;
+  `${ALT_DEF_ROOT}/${segments.join('/')}`;
 
 const updateBagWeight = (specs: CatalogSpec[], bagWeight: string) =>
   specs.map((spec) =>
@@ -40,7 +40,7 @@ const createVariant = (template: ProductTemplate, variant: VariantConfig): Catal
   };
 };
 
-const brandLogo = buildAltDefAssetPath('BRAND JOVY.png');
+const brandLogo = buildAltDefAssetPath('BRAND JOVY.webp');
 
 const ringsWatermelonTemplate: ProductTemplate = {
   id: 'rings-watermelon-template',
@@ -300,7 +300,7 @@ const frutastikaTemplate: ProductTemplate = {
   productFamily: 'Frutastika',
   subtitle: 'Gummy candy\nFruit Mix',
   description: 'Mezcla surtida de gomitas con enfoque frutal para presentaciones individuales.',
-  image: buildAltDefAssetPath('100g', 'Mockup Frutastika MX 100g.png'),
+  image: buildAltDefAssetPath('100g', 'Mockup Frutastika MX 100g.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
@@ -328,7 +328,7 @@ const blueSharksTemplate: ProductTemplate = {
   productFamily: 'Blue Sharks',
   subtitle: 'Gummy candy\nOcean Mix',
   description: 'Gomitas tipo tiburon con acabado brillante y perfil frutal.',
-  image: buildAltDefAssetPath('100g', 'Mockup Blue Sharks Mx 100g.png'),
+  image: buildAltDefAssetPath('100g', 'Mockup Blue Sharks Mx 100g.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
@@ -356,7 +356,7 @@ const sharksMixTemplate: ProductTemplate = {
   productFamily: 'Sharks Mix',
   subtitle: 'Gummy candy\nAssorted Sharks',
   description: 'Surtido de tiburones de gomita en una presentacion de alto gramaje.',
-  image: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Sharks Mix -1kg-MX.png'),
+  image: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Sharks Mix -1kg-MX.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
@@ -384,7 +384,7 @@ const chamoyBearsTemplate: ProductTemplate = {
   productFamily: 'Chamoy Bears',
   subtitle: 'Gummy candy\nChamoy Coated',
   description: 'Ositos enchilados con recubrimiento de chamoy y perfil agridulce.',
-  image: buildAltDefAssetPath('100g', 'Mockup Chamoy Bears MX 100g.png'),
+  image: buildAltDefAssetPath('100g', 'Mockup Chamoy Bears MX 100g.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
@@ -412,7 +412,7 @@ const chamoyWormsTemplate: ProductTemplate = {
   productFamily: 'Chamoy Worms',
   subtitle: 'Gummy candy\nChamoy Coated',
   description: 'Worms enchilados con capa de chamoy para un perfil mas intenso.',
-  image: buildAltDefAssetPath('100g', 'Mockup Chamoy Worms MX 100g.png'),
+  image: buildAltDefAssetPath('100g', 'Mockup Chamoy Worms MX 100g.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -440,7 +440,7 @@ const chamoyRingsWatermelonTemplate: ProductTemplate = {
   productFamily: 'Chamoy Rings Watermelon',
   subtitle: 'Gummy candy\nChamoy Watermelon',
   description: 'Aros de sandia cubiertos con chamoy para un perfil dulce y picante.',
-  image: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Sandia MX 1 kg_Mayo 24.png'),
+  image: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Sandia MX 1 kg_Mayo 24.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -468,7 +468,7 @@ const chamoyRingsPeachTemplate: ProductTemplate = {
   productFamily: 'Chamoy Rings Peach',
   subtitle: 'Gummy candy\nChamoy Peach',
   description: 'Aros de durazno cubiertos con chamoy para un perfil dulce y picante.',
-  image: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Durazno MX 1 kg_Mayo 24.png'),
+  image: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Durazno MX 1 kg_Mayo 24.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -552,7 +552,7 @@ const premiumMixTemplate: ProductTemplate = {
   productFamily: 'Premium Mix',
   subtitle: 'Assorted Mix\nPremium Selection',
   description: 'Presentacion premium de piñatero para surtido de alto gramaje.',
-  image: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Premium-5-kg-MX.png'),
+  image: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Premium-5-kg-MX.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -578,198 +578,198 @@ export const gomitasAltDefProducts: CatalogProduct[] = [
   createVariant(ringsWatermelonTemplate, {
     id: 'g-rings-watermelon-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Rings Sandia MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Rings Sandia MX 100g.webp'),
   }),
   createVariant(ringsWatermelonTemplate, {
     id: 'g-rings-watermelon-141g',
     gramaje: '141 g',
-    carouselImage: buildAltDefAssetPath('141g', 'Jovy-Gomitas-Grenetina-Rings-Sandia-MX-141g.png'),
+    carouselImage: buildAltDefAssetPath('141g', 'Jovy-Gomitas-Grenetina-Rings-Sandia-MX-141g.webp'),
   }),
   createVariant(ringsWatermelonTemplate, {
     id: 'g-rings-watermelon-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Rings-Sandia-1-kg-MX-1kg-20.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Rings-Sandia-1-kg-MX-1kg-20.webp'),
   }),
   createVariant(ringsPeachTemplate, {
     id: 'g-rings-peach-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Rings Durazno MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Rings Durazno MX 100g.webp'),
   }),
   createVariant(ringsPeachTemplate, {
     id: 'g-rings-peach-141g',
     gramaje: '141 g',
-    carouselImage: buildAltDefAssetPath('141g', 'Jovy-Gomitas-Grenetina-Rings-Durazno-MX-141g.png'),
+    carouselImage: buildAltDefAssetPath('141g', 'Jovy-Gomitas-Grenetina-Rings-Durazno-MX-141g.webp'),
   }),
   createVariant(ringsPeachTemplate, {
     id: 'g-rings-peach-1kg',
     gramaje: '1 kg',
     carouselImage: buildAltDefAssetPath(
       '1kg',
-      'Jovy-Gomitas-Grenetina-Rings-Durazno-1-kg-MX-1kg-20.png'
+      'Jovy-Gomitas-Grenetina-Rings-Durazno-1-kg-MX-1kg-20.webp'
     ),
   }),
   createVariant(ringsNeonTemplate, {
     id: 'g-rings-neon-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Rings Sour Neon-1kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Rings Sour Neon-1kg-MX.webp'),
   }),
   createVariant(ringsGreenAppleTemplate, {
     id: 'g-rings-green-apple-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Rings-Manzana-1kg-20.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Rings-Manzana-1kg-20.webp'),
   }),
   createVariant(wormsOriginalTemplate, {
     id: 'g-worms-original-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Worms MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Worms MX 100g.webp'),
   }),
   createVariant(wormsOriginalTemplate, {
     id: 'g-worms-original-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Worms-1kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Worms-1kg-MX.webp'),
   }),
   createVariant(wormsNeonTemplate, {
     id: 'g-worms-neon-50g',
     gramaje: '50 g',
-    carouselImage: buildAltDefAssetPath('50g', 'Mockup Worms Neon MX 50g.png'),
+    carouselImage: buildAltDefAssetPath('50g', 'Mockup Worms Neon MX 50g.webp'),
   }),
   createVariant(wormsNeonTemplate, {
     id: 'g-worms-neon-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Worms Neon MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Worms Neon MX 100g.webp'),
   }),
   createVariant(wormsNeonTemplate, {
     id: 'g-worms-neon-141g',
     gramaje: '141 g',
-    carouselImage: buildAltDefAssetPath('141g', 'Jovy-Gomitas-Grenetina-Worms-Neon-MX-141g.png'),
+    carouselImage: buildAltDefAssetPath('141g', 'Jovy-Gomitas-Grenetina-Worms-Neon-MX-141g.webp'),
   }),
   createVariant(wormsNeonTemplate, {
     id: 'g-worms-neon-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Worms-Neon-1kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Worms-Neon-1kg-MX.webp'),
   }),
   createVariant(bearsClassicTemplate, {
     id: 'g-bears-classic-50g',
     gramaje: '50 g',
-    carouselImage: buildAltDefAssetPath('50g', 'Mockup Bears 12 Sabores MX 50g.png'),
+    carouselImage: buildAltDefAssetPath('50g', 'Mockup Bears 12 Sabores MX 50g.webp'),
   }),
   createVariant(bearsClassicTemplate, {
     id: 'g-bears-classic-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Bears 12 Sabores MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Bears 12 Sabores MX 100g.webp'),
   }),
   createVariant(bearsClassicTemplate, {
     id: 'g-bears-classic-141g',
     gramaje: '141 g',
-    carouselImage: buildAltDefAssetPath('141g', 'Mockup Bears 12 SABORES 141g.png'),
+    carouselImage: buildAltDefAssetPath('141g', 'Mockup Bears 12 SABORES 141g.webp'),
   }),
   createVariant(bearsClassicTemplate, {
     id: 'g-bears-classic-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Mkup Bears 12 Sabores 1kg MX.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Mkup Bears 12 Sabores 1kg MX.webp'),
   }),
   createVariant(bearsNeonTemplate, {
     id: 'g-bears-neon-50g',
     gramaje: '50 g',
-    carouselImage: buildAltDefAssetPath('50g', 'Mockup Bears Neon MX 50g.png'),
+    carouselImage: buildAltDefAssetPath('50g', 'Mockup Bears Neon MX 50g.webp'),
   }),
   createVariant(bearsNeonTemplate, {
     id: 'g-bears-neon-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Bears Neon MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Bears Neon MX 100g.webp'),
   }),
   createVariant(bearsNeonTemplate, {
     id: 'g-bears-neon-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Bears-Neon-1-kg-MX-1kg-20.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Bears-Neon-1-kg-MX-1kg-20.webp'),
   }),
   createVariant(watermelonSlicesTemplate, {
     id: 'g-watermelon-slices-50g',
     gramaje: '50 g',
-    carouselImage: buildAltDefAssetPath('50g', 'Mockup Watermelon Slices MX 50g.png'),
+    carouselImage: buildAltDefAssetPath('50g', 'Mockup Watermelon Slices MX 50g.webp'),
   }),
   createVariant(watermelonSlicesTemplate, {
     id: 'g-watermelon-slices-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Watermelon Slices MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Watermelon Slices MX 100g.webp'),
   }),
   createVariant(watermelonSlicesTemplate, {
     id: 'g-watermelon-slices-141g',
     gramaje: '141 g',
     carouselImage: buildAltDefAssetPath(
       '141g',
-      'Jovy-Gomitas-Grenetina-Watermelon-Slices-MX-141g.png'
+      'Jovy-Gomitas-Grenetina-Watermelon-Slices-MX-141g.webp'
     ),
   }),
   createVariant(watermelonSlicesTemplate, {
     id: 'g-watermelon-slices-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Watermelon-Slices-1-kg-Pouch Bag.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Watermelon-Slices-1-kg-Pouch Bag.webp'),
   }),
   createVariant(frutastikaTemplate, {
     id: 'g-frutastika-50g',
     gramaje: '50 g',
-    carouselImage: buildAltDefAssetPath('50g', 'Mockup Frutastika MX 50g.png'),
+    carouselImage: buildAltDefAssetPath('50g', 'Mockup Frutastika MX 50g.webp'),
   }),
   createVariant(frutastikaTemplate, {
     id: 'g-frutastika-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Frutastika MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Frutastika MX 100g.webp'),
   }),
   createVariant(frutastikaTemplate, {
     id: 'g-frutastika-141g',
     gramaje: '141 g',
-    carouselImage: buildAltDefAssetPath('141g', 'Jovy-Gomitas-Grenetina-Frutastika-MX-141g.png'),
+    carouselImage: buildAltDefAssetPath('141g', 'Jovy-Gomitas-Grenetina-Frutastika-MX-141g.webp'),
   }),
   createVariant(frutastikaTemplate, {
     id: 'g-frutastika-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Frutastika-Gummies-1kg.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Frutastika-Gummies-1kg.webp'),
   }),
   createVariant(blueSharksTemplate, {
     id: 'g-blue-sharks-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Blue Sharks Mx 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Blue Sharks Mx 100g.webp'),
   }),
   createVariant(blueSharksTemplate, {
     id: 'g-blue-sharks-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Blue Sharks -Sabores-1kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Blue Sharks -Sabores-1kg-MX.webp'),
   }),
   createVariant(sharksMixTemplate, {
     id: 'g-sharks-mix-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Sharks Mix -1kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Sharks Mix -1kg-MX.webp'),
   }),
   createVariant(chamoyBearsTemplate, {
     id: 'g-chamoy-bears-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Chamoy Bears MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Chamoy Bears MX 100g.webp'),
   }),
   createVariant(chamoyBearsTemplate, {
     id: 'g-chamoy-bears-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Mckup Chamoy Bears MX 1 kg_Mayo 24.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Mckup Chamoy Bears MX 1 kg_Mayo 24.webp'),
   }),
   createVariant(chamoyWormsTemplate, {
     id: 'g-chamoy-worms-100g',
     gramaje: '100 g',
-    carouselImage: buildAltDefAssetPath('100g', 'Mockup Chamoy Worms MX 100g.png'),
+    carouselImage: buildAltDefAssetPath('100g', 'Mockup Chamoy Worms MX 100g.webp'),
   }),
   createVariant(chamoyWormsTemplate, {
     id: 'g-chamoy-worms-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Mckup Chamoy worms MX 1 kg_Mayo 24.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Mckup Chamoy worms MX 1 kg_Mayo 24.webp'),
   }),
   createVariant(chamoyRingsWatermelonTemplate, {
     id: 'g-chamoy-rings-watermelon-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Sandia MX 1 kg_Mayo 24.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Sandia MX 1 kg_Mayo 24.webp'),
   }),
   createVariant(chamoyRingsPeachTemplate, {
     id: 'g-chamoy-rings-peach-1kg',
     gramaje: '1 kg',
-    carouselImage: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Durazno MX 1 kg_Mayo 24.png'),
+    carouselImage: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Durazno MX 1 kg_Mayo 24.webp'),
   }),
 ];
 
@@ -819,27 +819,27 @@ export const pinateroAltDefProducts: CatalogProduct[] = [
   createVariant(happyMixTemplate, {
     id: 'pi-happy-mix-2-26kg',
     gramaje: '2.26 kg',
-    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Happy Mix-2.26-kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Happy Mix-2.26-kg-MX.webp'),
   }),
   createVariant(happyMixTemplate, {
     id: 'pi-happy-mix-5kg',
     gramaje: '5 kg',
-    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Happy Mix-5-kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Happy Mix-5-kg-MX.webp'),
   }),
   createVariant(revolcadosMixTemplate, {
     id: 'pi-revolcados-mix-2-26kg',
     gramaje: '2.26 kg',
-    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Revolcados Mix-2.26-kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Revolcados Mix-2.26-kg-MX.webp'),
   }),
   createVariant(revolcadosMixTemplate, {
     id: 'pi-revolcados-mix-5kg',
     gramaje: '5 kg',
-    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Revolcados Mix-5-kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Revolcados Mix-5-kg-MX.webp'),
   }),
   createVariant(premiumMixTemplate, {
     id: 'pi-premium-mix-5kg',
     gramaje: '5 kg',
-    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Premium-5-kg-MX.png'),
+    carouselImage: buildAltDefAssetPath('Piñateros', 'Jovy-Piñateros-Premium-5-kg-MX.webp'),
   }),
 ];
 
