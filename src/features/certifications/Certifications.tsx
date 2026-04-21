@@ -11,7 +11,7 @@ type CertificationItem = {
 
 const certificationItems: CertificationItem[] = [
   {
-    src: '/certifications/sgs.png',
+    src: '/certifications/sgs.webp',
     alt: 'SGS',
     cardClassName: 'col-span-1',
     imageClassName:
@@ -19,7 +19,7 @@ const certificationItems: CertificationItem[] = [
     imageMaxWidth: 'clamp(7.5rem, calc(11rem * var(--content-scale)), calc(16.5rem * var(--display-scale)))',
   },
   {
-    src: '/certifications/Kosher_icon.png',
+    src: '/certifications/Kosher_icon.webp',
     alt: 'Kosher',
     cardClassName: 'col-span-1',
     imageClassName:
@@ -27,7 +27,7 @@ const certificationItems: CertificationItem[] = [
     imageMaxWidth: 'clamp(7rem, calc(10.25rem * var(--content-scale)), calc(15.5rem * var(--display-scale)))',
   },
   {
-    src: '/certifications/halal.png',
+    src: '/certifications/halal.webp',
     alt: 'Halal',
     cardClassName: 'col-span-1',
     imageClassName:
