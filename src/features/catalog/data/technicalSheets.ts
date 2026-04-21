@@ -16,7 +16,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG RINGS SAND 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG RINGS SAND 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -24,7 +24,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG RINGS SAND 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG RINGS SAND 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -32,7 +32,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG RINGS DUZ 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG RINGS DUZ 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -40,7 +40,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG RINGS DUZ 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG RINGS DUZ 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -48,7 +48,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG RING MANZ 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG RING MANZ 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -56,7 +56,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG WORMS 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG WORMS 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -64,7 +64,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG WORMS  1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG WORMS  1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -72,7 +72,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '50 g',
-      'FICHA PEGBAG WORMS NEON 50g 24 Bolsas.jpg'
+      'FICHA PEGBAG WORMS NEON 50g 24 Bolsas.webp'
     ),
     type: 'image',
   },
@@ -80,7 +80,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG WORMS NEON 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG WORMS NEON 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -88,7 +88,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG WORMS NEON 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG WORMS NEON 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -104,7 +104,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG BEARS 12 SAB 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG BEARS 12 SAB 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -112,7 +112,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG BEARS 12 SAB 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG BEARS 12 SAB 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -120,7 +120,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '50 g',
-      'FICHA PEGBAG BEARS NEON 50g 12 Bolsas.jpg'
+      'FICHA PEGBAG BEARS NEON 50g 12 Bolsas.webp'
     ),
     type: 'image',
   },
@@ -128,7 +128,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG BEARS NEON 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG BEARS NEON 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -136,7 +136,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG BEARS NEON 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG BEARS NEON 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -144,7 +144,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG WATERMELON SLC 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG WATERMELON SLC 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -152,7 +152,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG WATERMELON SLC 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG WATERMELON SLC 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -160,7 +160,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '50 g',
-      'FICHA PEGBAG FRUTASTIKA GUMMIES SA 50g 24 Bolsas.jpg'
+      'FICHA PEGBAG FRUTASTIKA GUMMIES SA 50g 24 Bolsas.webp'
     ),
     type: 'image',
   },
@@ -168,7 +168,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG FRUTASTIKA GUMMIS 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG FRUTASTIKA GUMMIS 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -176,7 +176,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG FRUTASTIKA GUMMIES 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG FRUTASTIKA GUMMIES 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -184,7 +184,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG BLUE SHARKS 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG BLUE SHARKS 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -192,7 +192,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG BLUE SHARKS 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG BLUE SHARKS 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -200,7 +200,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA PEGBAG SHARKS MIX 1KG 10 BOLSAS.jpeg'
+      'FICHA PEGBAG SHARKS MIX 1KG 10 BOLSAS.webp'
     ),
     type: 'image',
   },
@@ -208,7 +208,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG BEARS CHY 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG BEARS CHY 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -216,7 +216,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA GOMITAS JOVY CHAMOY BEARS MX DOY PACK 1 kg_Abril 26.jpg'
+      'FICHA GOMITAS JOVY CHAMOY BEARS MX DOY PACK 1 kg_Abril 26.webp'
     ),
     type: 'image',
   },
@@ -224,7 +224,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '100g',
-      'FICHA PEGBAG WORMS CHY 100g 12 bolsas.jpeg'
+      'FICHA PEGBAG WORMS CHY 100g 12 bolsas.webp'
     ),
     type: 'image',
   },
@@ -232,7 +232,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA GOMITAS JOVY CHAMOY WORMS MX DOY PACK 1 kg_Abril 26.jpg'
+      'FICHA GOMITAS JOVY CHAMOY WORMS MX DOY PACK 1 kg_Abril 26.webp'
     ),
     type: 'image',
   },
@@ -240,7 +240,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA GOMITAS JOVY CHAMOY RINGS SANDIA MX DOY PACK 1 kg_Abril 26.jpg'
+      'FICHA GOMITAS JOVY CHAMOY RINGS SANDIA MX DOY PACK 1 kg_Abril 26.webp'
     ),
     type: 'image',
   },
@@ -248,7 +248,7 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     src: buildTechnicalSheetPath(
       'Fichas t\u00e9cnicas',
       '1KG',
-      'FICHA GOMITAS JOVY CHAMOY RINGS DURAZNO MX DOY PACK 1 kg_Abril 26.jpg'
+      'FICHA GOMITAS JOVY CHAMOY RINGS DURAZNO MX DOY PACK 1 kg_Abril 26.webp'
     ),
     type: 'image',
   },
