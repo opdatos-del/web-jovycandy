@@ -1,0 +1,60 @@
+@layer base {
+  /* Global body improvements */
+  body {
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  /* Headings - ensure good hierarchy and readability */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+  }
+
+  /* Small text - prevent too-small typography */
+  small,
+  .text-xs,
+  .text-\[11px\],
+  .text-\[10px\] {
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  /* Monospace - often used for specs/metadata */
+  .font-mono {
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  /* Utility classes for better typography control */
+  .text-readable {
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+  }
+
+  .text-readable-compact {
+    line-height: 1.55;
+    letter-spacing: 0.015em;
+  }
+
+  .text-heading-tight {
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  /* Hover lift effect for cards */
+  .hover-lift {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 40px 80px -30px rgba(28, 25, 23, 0.35);
+  }
+}

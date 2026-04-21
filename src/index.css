@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@import "./styles/typography.css";
+@import "./styles/responsive/index.css";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Roboto Condensed", "Open Sans", "Roboto", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
   --color-stone-300: #b9afa7;
   --color-stone-400: #8f847b;
@@ -11,19 +13,52 @@
 }
 
 @layer base {
+  :root {
+    --page-ivory: #fff5d4;
+    --page-cream: #fff1bf;
+    --page-aqua: #e8fbf7;
+    --page-blush: #fff0ec;
+    --page-blue: #edf5ff;
+    --page-line: #ffd88f;
+  }
+
   html {
     scroll-behavior: smooth;
-    background: #FFFFFF;
+    background: var(--page-ivory);
   }
 
   body {
     @apply antialiased text-stone-900 overflow-x-hidden;
-    background: #FFFFFF;
+    background: var(--page-ivory);
+  }
+
+  #root {
+    isolation: isolate;
+  }
+
+  #inicio,
+  #eventos,
+  #certificaciones,
+  #tienda,
+  #nuestra-esencia {
+    scroll-margin-top: calc(var(--site-nav-height) + clamp(0.75rem, 2vw, 1.5rem));
   }
 
   /* Hide scrollbar but keep functionality */
   ::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  .mobile-scroll {
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
