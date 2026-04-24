@@ -57,6 +57,7 @@ export type CatalogCategoryCard = {
   accent: string;
   productCount: number;
   image: string;
+  hoverImage?: string;
 };
 
 export type CatalogPanelState = {

@@ -111,6 +111,7 @@ export const CategoryGrid = () => {
                     id={category.id}
                     title={category.title}
                     image={category.image}
+                    hoverImage={category.hoverImage}
                     accentColor={category.accent}
                     productCount={category.productCount}
                     isActive={panelState.isOpen && panelState.categoryId === category.id}
@@ -132,6 +133,7 @@ export const CategoryGrid = () => {
                     id={category.id}
                     title={category.title}
                     image={category.image}
+                    hoverImage={category.hoverImage}
                     accentColor={category.accent}
                     productCount={category.productCount}
                     isActive={panelState.isOpen && panelState.categoryId === category.id}
@@ -151,6 +153,7 @@ export const CategoryGrid = () => {
                     id={category.id}
                     title={category.title}
                     image={category.image}
+                    hoverImage={category.hoverImage}
                     accentColor={category.accent}
                     productCount={category.productCount}
                     isActive={panelState.isOpen && panelState.categoryId === category.id}

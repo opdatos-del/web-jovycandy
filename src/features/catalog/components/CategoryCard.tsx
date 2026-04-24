@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { FaPepperHot } from 'react-icons/fa6';
 import { LuCandy } from 'react-icons/lu';
 
+import { ImageHoverTransition } from './ImageHoverTransition';
 import type { CatalogFilterType } from '../types/catalog.types';
 
 interface CategoryCardProps {
   id: string;
   title: string;
   image: string;
+  hoverImage?: string;
   accentColor: string;
   productCount: number;
   isActive?: boolean;
@@ -19,11 +21,14 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   id,
   title,
   image,
+  hoverImage,
   accentColor,
   productCount,
   isActive = false,
   onClick,
 }) => {
+  const [isCardHovered, setIsCardHovered] = useState(false);
+
   return (
     <motion.div
       whileTap={{ scale: 0.99 }}
@@ -33,16 +38,40 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
         isActive ? 'ring-2 ring-white/65' : ''
       }`}
       style={{ backgroundColor: accentColor }}
+      onMouseEnter={() => setIsCardHovered(true)}
+      onMouseLeave={() => setIsCardHovered(false)}
     >
-      <img
-        src={image}
-        alt={title}
-        className="absolute inset-0 h-full w-full object-cover opacity-20 transition-opacity duration-300 group-hover:opacity-30"
+      {/* Background image with hover transition */}
+      <div className="absolute inset-0 z-0">
+        {hoverImage ? (
+          <ImageHoverTransition
+            primaryImage={image}
+            hoverImage={hoverImage}
+            alt={title}
+            className="h-full w-full"
+            isHovered={isCardHovered}
+          />
+        ) : (
+          <img
+            src={image}
+            alt={title}
+            className="h-full w-full object-cover"
+          />
+        )}
+      </div>
+
+      {/* Color overlay - maintains category color over images */}
+      <div 
+        className="absolute inset-0 z-10 pointer-events-none"
+        style={{ 
+          backgroundColor: accentColor,
+          opacity: 0.65
+        }} 
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
+      <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/45 to-transparent pointer-events-none" />
 
-      <div className="category-card-content relative flex h-full flex-col items-center justify-center">
+      <div className="category-card-content relative z-30 flex h-full flex-col items-center justify-center">
         <h3 className="category-card-title text-center font-extrabold tracking-tight text-white">
           {title}
         </h3>

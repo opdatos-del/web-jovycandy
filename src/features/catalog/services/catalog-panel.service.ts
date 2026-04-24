@@ -11,6 +11,33 @@ import type {
 
 const FALLBACK_LOGO_SRC = '/logo.png';
 
+const CATEGORY_FONDOS_MAP: Record<CatalogCategoryId, { primary: string; hover: string }> = {
+  polvos: {
+    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_POLVOS 1.webp',
+    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_POLVOS 2.webp',
+  },
+  jellies: {
+    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_JELLIES 1.webp',
+    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_JELLIES 2.webp',
+  },
+  dulces: {
+    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_DULCES 1.webp',
+    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_DULCES 2.webp',
+  },
+  paletas: {
+    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PALETAS 1.webp',
+    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PALETAS 2.webp',
+  },
+  pinatero: {
+    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_ PIÑATERO 1.webp',
+    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PIÑATERO 2.webp',
+  },
+  gomitas: {
+    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_GOMAS 1.webp',
+    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_GOMAS 2.webp',
+  },
+};
+
 const getLogoFilename = (logoSrc: string) => logoSrc.split('/').pop() ?? '';
 const getProductMatcher = (product: CatalogProduct) => product.productFamily ?? product.name;
 const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) => {
@@ -24,15 +51,19 @@ const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) 
 };
 
 export const getCatalogCategories = (): CatalogCategoryCard[] =>
-  Object.entries(catalogData).map(([id, category]) => ({
-    id: id as CatalogCategoryId,
-    title: category.title,
-    accent: category.accent || DEFAULT_ACCENT_COLOR,
-    productCount: category.products.length,
-    image: id === 'polvos' 
-      ? '/fondos-productos/FONDOS PRODUCTOS/POLVOS FONDOS-800X800.webp'
-      : category.products[0]?.sampleImage || category.products[0]?.image || '',
-  }));
+  Object.entries(catalogData).map(([id, category]) => {
+    const categoryId = id as CatalogCategoryId;
+    const fondos = CATEGORY_FONDOS_MAP[categoryId];
+    
+    return {
+      id: categoryId,
+      title: category.title,
+      accent: category.accent || DEFAULT_ACCENT_COLOR,
+      productCount: category.products.length,
+      image: fondos?.primary || category.products[0]?.sampleImage || category.products[0]?.image || '',
+      hoverImage: fondos?.hover,
+    };
+  });
 
 export const getCategoryProducts = (
   categoryId: CatalogCategoryId,

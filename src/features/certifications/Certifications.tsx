@@ -15,29 +15,29 @@ const certificationItems: CertificationItem[] = [
     alt: 'SGS',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
-    imageMaxWidth: 'clamp(7.5rem, calc(11rem * var(--content-scale)), calc(16.5rem * var(--display-scale)))',
+      'w-[95%] object-contain sm:w-[96%] lg:w-[98%]',
+    imageMaxWidth: 'clamp(10rem, calc(14rem * var(--content-scale)), calc(20rem * var(--display-scale)))',
   },
   {
     src: '/certifications/Kosher_icon.webp',
     alt: 'Kosher',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
-    imageMaxWidth: 'clamp(7rem, calc(10.25rem * var(--content-scale)), calc(15.5rem * var(--display-scale)))',
+      'w-[95%] object-contain sm:w-[96%] lg:w-[98%]',
+    imageMaxWidth: 'clamp(9.5rem, calc(13rem * var(--content-scale)), calc(19rem * var(--display-scale)))',
   },
   {
     src: '/certifications/halal.webp',
     alt: 'Halal',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
-    imageMaxWidth: 'clamp(7.5rem, calc(10.75rem * var(--content-scale)), calc(16rem * var(--display-scale)))',
+      'w-[95%] object-contain sm:w-[96%] lg:w-[98%]',
+    imageMaxWidth: 'clamp(10rem, calc(13.5rem * var(--content-scale)), calc(19.5rem * var(--display-scale)))',
   },
 ];
 
 const certificationCardClassName =
-  'certification-card group relative flex aspect-square items-center justify-center overflow-hidden rounded-full border border-[#ffd8cd] bg-[#fffaf6] shadow-sm transition-colors duration-500 hover:border-[#ffc3b3] hover:shadow-md';
+  'certification-card group relative flex aspect-square items-center justify-center overflow-hidden rounded-full';
 
 export const Certifications: React.FC = () => {
   return (
@@ -82,7 +82,6 @@ export const Certifications: React.FC = () => {
               viewport={{ once: true }}
               className={`${certificationCardClassName} ${item.cardClassName ?? ''}`}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#fff0e7] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <img
                 src={item.src}
                 alt={item.alt}
