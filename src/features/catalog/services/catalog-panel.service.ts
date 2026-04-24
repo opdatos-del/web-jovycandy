@@ -11,6 +11,15 @@ import type {
 
 const FALLBACK_LOGO_SRC = '/logo.png';
 
+const CATEGORY_CARD_IMAGE_MAP: Record<CatalogCategoryId, string> = {
+  polvos: '/ISOTIPOS/ISOTIPOS-01.webp',
+  jellies: '/ISOTIPOS/ISOTIPOS-03.webp',
+  dulces: '/ISOTIPOS/ISOTIPOS-02.webp',
+  paletas: '/ISOTIPOS/ISOTIPOS-04.webp',
+  pinatero: '/ISOTIPOS/ISOTIPOS-05.webp',
+  gomitas: '/ISOTIPOS/ISOTIPOS-06.webp',
+};
+
 const CATEGORY_FONDOS_MAP: Record<CatalogCategoryId, { primary: string; hover: string }> = {
   polvos: {
     primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_POLVOS 1.webp',
@@ -54,13 +63,14 @@ export const getCatalogCategories = (): CatalogCategoryCard[] =>
   Object.entries(catalogData).map(([id, category]) => {
     const categoryId = id as CatalogCategoryId;
     const fondos = CATEGORY_FONDOS_MAP[categoryId];
+    const categoryImage = CATEGORY_CARD_IMAGE_MAP[categoryId];
     
     return {
       id: categoryId,
       title: category.title,
       accent: category.accent || DEFAULT_ACCENT_COLOR,
       productCount: category.products.length,
-      image: fondos?.primary || category.products[0]?.sampleImage || category.products[0]?.image || '',
+      image: categoryImage || fondos?.primary || category.products[0]?.sampleImage || category.products[0]?.image || '',
       hoverImage: fondos?.hover,
     };
   });

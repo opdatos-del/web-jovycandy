@@ -28,7 +28,7 @@ export const ImageHoverTransition: React.FC<ImageHoverTransitionProps> = ({
       <motion.img
         src={primaryImage}
         alt={alt}
-        className="relative z-10 h-full w-full object-cover"
+        className="relative z-10 h-full w-full scale-[0.84] object-contain"
         initial={{ opacity: 1 }}
         animate={{ opacity: isHovered ? 0 : 1 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
