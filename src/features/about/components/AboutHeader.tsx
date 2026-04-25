@@ -31,18 +31,6 @@ const textVariants: Variants = {
   },
 };
 
-const imageVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      ease: EASE_OUT,
-    },
-  },
-};
-
 export const AboutHeader = ({ content }: AboutHeaderProps) => (
   <motion.div
     initial="hidden"
@@ -57,7 +45,7 @@ export const AboutHeader = ({ content }: AboutHeaderProps) => (
     } satisfies Variants}
   >
     {content.eyebrow && (
-      <motion.div className="flex items-center gap-3 sm:gap-4 mb-4" variants={textVariants}>
+      <motion.div className="mb-4 flex items-center gap-3 sm:gap-4" variants={textVariants}>
         <span className="h-px w-8 bg-stone-300 sm:w-10 lg:w-12" />
         <p className="text-xs font-mono uppercase tracking-[0.28em] text-stone-400 sm:text-sm sm:tracking-[0.5em]">
           {content.eyebrow}
@@ -66,7 +54,7 @@ export const AboutHeader = ({ content }: AboutHeaderProps) => (
     )}
 
     <motion.h2
-      className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-stone-900 mb-4 sm:mb-5 lg:mb-6"
+      className="mb-4 text-4xl font-black leading-[0.95] tracking-tight text-stone-900 sm:mb-5 sm:text-5xl lg:mb-6 lg:text-[3.65rem]"
       variants={headingVariants}
     >
       {content.titleLines[0]}
@@ -79,21 +67,10 @@ export const AboutHeader = ({ content }: AboutHeaderProps) => (
     </motion.h2>
 
     <motion.p
-      className="text-sm sm:text-base text-stone-600 leading-relaxed max-w-sm"
+      className="max-w-[19rem] text-sm leading-relaxed text-stone-700 sm:text-[0.95rem]"
       variants={textVariants}
     >
       {content.description}
     </motion.p>
-
-    <motion.div
-      className="mt-8 sm:mt-10 lg:mt-12 rounded-lg overflow-hidden shadow-lg"
-      variants={imageVariants}
-    >
-      <img
-        src="/casa-cale.jpg"
-        alt="Casa Cale - Nuestra Esencia"
-        className="w-full h-auto object-cover"
-      />
-    </motion.div>
   </motion.div>
 );
