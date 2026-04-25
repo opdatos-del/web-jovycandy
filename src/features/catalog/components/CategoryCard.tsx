@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { FaPepperHot } from 'react-icons/fa6';
-import { LuCandy } from 'react-icons/lu';
 
 import { ImageHoverTransition } from './ImageHoverTransition';
-import type { CatalogFilterType } from '../types/catalog.types';
 
 interface CategoryCardProps {
   id: string;
@@ -14,7 +11,9 @@ interface CategoryCardProps {
   accentColor: string;
   productCount: number;
   isActive?: boolean;
-  onClick: (filterType?: CatalogFilterType, anchorElement?: HTMLElement | null) => void;
+  disabled?: boolean;
+  badge?: string;
+  onClick: (anchorElement?: HTMLElement | null) => void;
 }
 
 export const CategoryCard: React.FC<CategoryCardProps> = ({
@@ -25,16 +24,26 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   accentColor,
   productCount,
   isActive = false,
+  disabled = false,
+  badge,
   onClick,
 }) => {
   const [isCardHovered, setIsCardHovered] = useState(false);
 
   return (
     <motion.div
-      whileTap={{ scale: 0.99 }}
-      onClick={(event) => onClick(undefined, event.currentTarget)}
+      whileTap={disabled ? undefined : { scale: 0.99 }}
+      onClick={(event) => {
+        if (disabled) {
+          return;
+        }
+
+        onClick(event.currentTarget);
+      }}
       data-category-id={id}
-      className={`category-card group relative w-full cursor-pointer overflow-hidden transition-all ${
+      className={`category-card group relative w-full overflow-hidden transition-all ${
+        disabled ? 'cursor-default opacity-80' : 'cursor-pointer'
+      } ${
         isActive ? 'ring-2 ring-white/65' : ''
       }`}
       style={{ backgroundColor: accentColor }}
@@ -76,33 +85,11 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
           {title}
         </h3>
 
-        <div className="category-card-actions flex">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={(e) => {
-              e.stopPropagation();
-              onClick('Picante', e.currentTarget.closest<HTMLElement>('[data-category-id]'));
-            }}
-            className="category-card-action flex items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
-            title="Filtrar por Picante"
-          >
-            <FaPepperHot className="text-lg text-white sm:text-xl" />
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={(e) => {
-              e.stopPropagation();
-              onClick('Dulce', e.currentTarget.closest<HTMLElement>('[data-category-id]'));
-            }}
-            className="category-card-action flex items-center justify-center rounded-full border border-white/25 bg-black/15 p-2.5 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-black/25 sm:p-3"
-            title="Filtrar por Dulce"
-          >
-            <LuCandy className="text-lg text-white sm:text-xl" />
-          </motion.button>
-        </div>
+        {badge ? (
+          <span className="mt-3 rounded-full border border-white/25 bg-black/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white/90 backdrop-blur-sm">
+            {badge}
+          </span>
+        ) : null}
       </div>
     </motion.div>
   );

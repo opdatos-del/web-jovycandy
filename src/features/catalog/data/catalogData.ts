@@ -69,6 +69,19 @@ export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }
     { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Revolcaditas-300x300.webp', alt: 'Dulces Revolcaditas' },
     { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Tamaros-300x300.webp', alt: 'Dulces Tamaros' },
     { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Vallenito-300x300.webp', alt: 'Dulces Vallenito' },
+    { src: '/WEBP PRODUCTOS/SPICY/JELLIES/LOGOS/enchilokas-300x300.webp', alt: 'Chamoy Enchilokas' },
+    {
+      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Rings-Revolcado-300x300.webp',
+      alt: 'Chamoy Rings',
+    },
+    {
+      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Worms-Revolcado-1-300x300.webp',
+      alt: 'Chamoy Worms',
+    },
+    {
+      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Bears_Revolcado-1-300x300.webp',
+      alt: 'Chamoy Bears',
+    },
   ],
   paletas: [{ src: '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/LOGOS/Mango_Revolcado-300x300.webp', alt: 'Paletas Mango' }],
   pinatero: pinateroAltDefLogos,
@@ -90,6 +103,10 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
     'Revolcaditas-300x300.webp': ['Revolcaditas'],
     'Tamaros-300x300.webp': ['Tamaros'],
     'Vallenito-300x300.webp': ['Vallenito'],
+    'enchilokas-300x300.webp': ['Enchilokas'],
+    'Rings-Revolcado-300x300.webp': ['Chamoy Rings Watermelon', 'Chamoy Rings Peach'],
+    'Worms-Revolcado-1-300x300.webp': ['Chamoy Worms'],
+    'Bears_Revolcado-1-300x300.webp': ['Chamoy Bears'],
   },
   paletas: {
     'Mango_Revolcado-300x300.webp': ['Mango revolcado'],

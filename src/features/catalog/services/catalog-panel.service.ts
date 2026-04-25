@@ -3,13 +3,22 @@ import { catalogData, categoryLogoProductsMap, categoryLogosMap } from '../data/
 import type {
   CatalogCategoryCard,
   CatalogCategoryId,
-  CatalogFilterType,
   CatalogLogoOption,
   CatalogPanelState,
   CatalogProduct,
 } from '../types/catalog.types';
 
 const FALLBACK_LOGO_SRC = '/logo.png';
+const COMING_SOON_BADGE = 'Proximamente...';
+const UPCOMING_CATEGORY_IDS = new Set<CatalogCategoryId>(['polvos', 'paletas']);
+const CATEGORY_TITLE_MAP: Record<CatalogCategoryId, string> = {
+  polvos: 'Sazonador',
+  jellies: 'Gomitas Almidón',
+  dulces: 'Chamoy',
+  paletas: 'Dulces y Paletas',
+  pinatero: 'Piñatero',
+  gomitas: 'Gomitas Grenetina',
+};
 
 const CATEGORY_CARD_IMAGE_MAP: Record<CatalogCategoryId, string> = {
   polvos: '/ISOTIPOS/ISOTIPOS-N-01.webp',
@@ -49,6 +58,27 @@ const CATEGORY_FONDOS_MAP: Record<CatalogCategoryId, { primary: string; hover: s
 
 const getLogoFilename = (logoSrc: string) => logoSrc.split('/').pop() ?? '';
 const getProductMatcher = (product: CatalogProduct) => product.productFamily ?? product.name;
+const isSpicyProduct = (product: CatalogProduct) => product.type === 'Picante';
+const isUpcomingCategory = (categoryId: CatalogCategoryId) => UPCOMING_CATEGORY_IDS.has(categoryId);
+const getCategoryDisplayTitle = (categoryId: CatalogCategoryId) => CATEGORY_TITLE_MAP[categoryId] ?? catalogData[categoryId].title;
+
+const getCategoryProducts = (categoryId: CatalogCategoryId): CatalogProduct[] => {
+  switch (categoryId) {
+    case 'dulces':
+      return [
+        ...catalogData.dulces.products.filter(isSpicyProduct),
+        ...catalogData.jellies.products.filter(isSpicyProduct),
+        ...catalogData.gomitas.products.filter(isSpicyProduct),
+      ];
+    case 'jellies':
+      return catalogData.jellies.products.filter((product) => !isSpicyProduct(product));
+    case 'gomitas':
+      return catalogData.gomitas.products.filter((product) => !isSpicyProduct(product));
+    default:
+      return catalogData[categoryId].products;
+  }
+};
+
 const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) => {
   const categoryLogoProducts = categoryLogoProductsMap[categoryId];
 
@@ -67,26 +97,15 @@ export const getCatalogCategories = (): CatalogCategoryCard[] =>
     
     return {
       id: categoryId,
-      title: category.title,
+      title: getCategoryDisplayTitle(categoryId),
       accent: category.accent || DEFAULT_ACCENT_COLOR,
-      productCount: category.products.length,
+      productCount: getCategoryProducts(categoryId).length,
       image: categoryImage || fondos?.primary || category.products[0]?.sampleImage || category.products[0]?.image || '',
       hoverImage: fondos?.hover,
+      disabled: isUpcomingCategory(categoryId),
+      badge: isUpcomingCategory(categoryId) ? COMING_SOON_BADGE : undefined,
     };
   });
-
-export const getCategoryProducts = (
-  categoryId: CatalogCategoryId,
-  filterType?: CatalogFilterType
-): CatalogProduct[] => {
-  const category = catalogData[categoryId];
-
-  if (!filterType) {
-    return category.products;
-  }
-
-  return category.products.filter((product) => product.type === filterType);
-};
 
 export const getCategoryLogos = (
   categoryId: CatalogCategoryId,
@@ -117,15 +136,18 @@ export const getProductsByLogo = (
 
 export const buildCatalogPanelState = (
   currentState: CatalogPanelState,
-  categoryId: CatalogCategoryId,
-  filterType?: CatalogFilterType
+  categoryId: CatalogCategoryId
 ): CatalogPanelState => {
+  if (isUpcomingCategory(categoryId)) {
+    return currentState;
+  }
+
   const category = catalogData[categoryId];
-  const originalProducts = getCategoryProducts(categoryId, filterType);
-  const availableLogos = getCategoryLogos(categoryId, category.title, originalProducts);
+  const categoryTitle = getCategoryDisplayTitle(categoryId);
+  const originalProducts = getCategoryProducts(categoryId);
+  const availableLogos = getCategoryLogos(categoryId, categoryTitle, originalProducts);
   const isSameCategory = currentState.categoryId === categoryId;
-  const isSameFilter = currentState.filterType === filterType;
-  const shouldClosePanel = isSameCategory && currentState.isOpen && isSameFilter;
+  const shouldClosePanel = isSameCategory && currentState.isOpen;
   const retainedLogo =
     isSameCategory && currentState.logoSrc
       ? availableLogos.find((logo) => logo.src === currentState.logoSrc)
@@ -136,7 +158,7 @@ export const buildCatalogPanelState = (
   return {
     isOpen: !shouldClosePanel,
     categoryId,
-    categoryTitle: category.title,
+    categoryTitle,
     products: getProductsByLogo(categoryId, originalProducts, selectedLogo.src),
     originalProducts,
     accentColor: category.accent || DEFAULT_ACCENT_COLOR,
@@ -144,7 +166,6 @@ export const buildCatalogPanelState = (
     logoAlt: selectedLogo.alt,
     currentLogoIndex: selectedLogoIndex >= 0 ? selectedLogoIndex : 0,
     availableLogos,
-    filterType,
   };
 };
 
