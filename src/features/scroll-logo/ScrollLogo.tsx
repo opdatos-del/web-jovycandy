@@ -265,9 +265,11 @@ export function ScrollLogo() {
 
         <motion.div
           style={{ opacity: hintOpacity }}
-          className="scroll-logo-hint absolute px-4 text-center font-mono uppercase text-[#1f4ea8]/65"
+          className="scroll-logo-hint absolute"
         >
-          Scroll para descubrir
+          <span className="scroll-logo-hint-badge">
+            tu mejor opción
+          </span>
         </motion.div>
       </div>
     </section>
