@@ -32,6 +32,18 @@ const productImageMap: Record<string, Record<string, string>> = {
       '/WEBP PRODUCTOS/SWEET/JELLIES/CHERRY SLICES/JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp',
     'ORANGE SLICES':
       '/WEBP PRODUCTOS/SWEET/JELLIES/ORANGE SLICES/JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp',
+    'ENCHILOKAS WATERMELON 150G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp',
+    'ENCHILOKAS WATERMELON 482G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp',
+    'ENCHILOKAS PINEAPPLE 150G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp',
+    'ENCHILOKAS PINEAPPLE 482G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp',
+    'ENCHILOKAS MANGO 150G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp',
+    'ENCHILOKAS MANGO 482G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp',
   },
   dulces: {
     'Lollipop Cherry':
@@ -49,6 +61,7 @@ export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }
   jellies: [
     { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Cherry_Slices-300x300.webp', alt: 'Jellies Cherry' },
     { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Orange_slices-300x300.webp', alt: 'Jellies Orange' },
+    { src: '/WEBP PRODUCTOS/SPICY/JELLIES/LOGOS/enchilokas-300x300.webp', alt: 'Jellies Enchilokas' },
   ],
   dulces: [
     { src: '/WEBP PRODUCTOS/SWEET/HARD CANDY/LOGOS/Jovy_Fruit-300x300.webp', alt: 'Dulces Fruit' },
@@ -69,6 +82,7 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
   jellies: {
     'Cherry_Slices-300x300.webp': ['CHERRY SLICES 5LB'],
     'Orange_slices-300x300.webp': ['ORANGE SLICES'],
+    'enchilokas-300x300.webp': ['Enchilokas'],
   },
   dulces: {
     'Jovy_Fruit-300x300.webp': ['Lollipop Cherry'],
@@ -236,6 +250,126 @@ export const catalogData: CatalogData = {
         ],
         gramaje: '170 g',
         type: 'Dulce',
+      },
+      {
+        id: 'j3',
+        name: 'ENCHILOKAS WATERMELON 150G',
+        subtitle: 'Watermelon Jelly\nSpicy & Fruity',
+        description: 'Jelly enchilado sabor sandia con cubierta picante.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor sandia.',
+          },
+        ],
+        gramaje: '150 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j4',
+        name: 'ENCHILOKAS WATERMELON 482G',
+        subtitle: 'Watermelon Jelly\nSpicy & Fruity',
+        description: 'Jelly enchilado sabor sandia en presentacion grande.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor sandia.',
+          },
+        ],
+        gramaje: '482 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j5',
+        name: 'ENCHILOKAS PINEAPPLE 150G',
+        subtitle: 'Pineapple Jelly\nSpicy & Tangy',
+        description: 'Jelly enchilado sabor pina con perfil acidito y picante.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor pina.',
+          },
+        ],
+        gramaje: '150 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j6',
+        name: 'ENCHILOKAS PINEAPPLE 482G',
+        subtitle: 'Pineapple Jelly\nSpicy & Tangy',
+        description: 'Jelly enchilado sabor pina en presentacion grande.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor pina.',
+          },
+        ],
+        gramaje: '482 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j7',
+        name: 'ENCHILOKAS MANGO 150G',
+        subtitle: 'Mango Jelly\nSpicy & Tropical',
+        description: 'Jelly enchilado sabor mango con acabado picante.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor mango.',
+          },
+        ],
+        gramaje: '150 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j8',
+        name: 'ENCHILOKAS MANGO 482G',
+        subtitle: 'Mango Jelly\nSpicy & Tropical',
+        description: 'Jelly enchilado sabor mango en presentacion grande.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor mango.',
+          },
+        ],
+        gramaje: '482 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
       },
     ],
   },

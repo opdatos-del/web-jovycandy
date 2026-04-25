@@ -13,10 +13,10 @@ const FALLBACK_LOGO_SRC = '/logo.png';
 
 const CATEGORY_CARD_IMAGE_MAP: Record<CatalogCategoryId, string> = {
   polvos: '/ISOTIPOS/ISOTIPOS-N-01.webp',
-  jellies: '/ISOTIPOS/ISOTIPOS-N-03.webp',
+  jellies: '/ISOTIPOS/ISOTIPOS-N-05.webp',
   dulces: '/ISOTIPOS/ISOTIPOS-N-02.webp',
   paletas: '/ISOTIPOS/ISOTIPOS-N-04.webp',
-  pinatero: '/ISOTIPOS/ISOTIPOS-N-05.webp',
+  pinatero: '/ISOTIPOS/ISOTIPOS-N-03.webp',
   gomitas: '/ISOTIPOS/ISOTIPOS-N-06.webp',
 };
 
