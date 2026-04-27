@@ -18,12 +18,12 @@ export const CategoryGrid = () => {
     .slice(0, 6)
     .sort((leftCategory, rightCategory) => {
       const mobileOrder: Record<CatalogCategoryId, number> = {
-        polvos: 0,
-        paletas: 1,
-        dulces: 2,
-        jellies: 3,
+        sazonador: 0,
+        chamoy: 1,
+        gomitas_almidon: 2,
+        dulces_paletas: 3,
         pinatero: 4,
-        gomitas: 5,
+        gomitas_grenetina: 5,
       };
 
       return mobileOrder[leftCategory.id] - mobileOrder[rightCategory.id];

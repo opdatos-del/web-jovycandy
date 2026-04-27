@@ -10,48 +10,49 @@ import type {
 
 const FALLBACK_LOGO_SRC = '/logo.png';
 const COMING_SOON_BADGE = 'Proximamente...';
-const UPCOMING_CATEGORY_IDS = new Set<CatalogCategoryId>(['polvos', 'paletas']);
+const UPCOMING_CATEGORY_IDS = new Set<CatalogCategoryId>(['sazonador', 'dulces_paletas']);
+
 const CATEGORY_TITLE_MAP: Record<CatalogCategoryId, string> = {
-  polvos: 'Sazonador',
-  jellies: 'Gomitas Almidón',
-  dulces: 'Chamoy',
-  paletas: 'Dulces y Paletas',
+  sazonador: 'Sazonador',
+  chamoy: 'Chamoy',
+  gomitas_almidon: 'Gomitas Almidón',
+  dulces_paletas: 'Dulces y Paletas',
   pinatero: 'Piñatero',
-  gomitas: 'Gomitas Grenetina',
+  gomitas_grenetina: 'Gomitas Grenetina',
 };
 
 const CATEGORY_DISPLAY_ORDER: CatalogCategoryId[] = [
-  'polvos',
-  'dulces',
-  'jellies',
-  'paletas',
+  'sazonador',
+  'chamoy',
+  'gomitas_almidon',
+  'dulces_paletas',
   'pinatero',
-  'gomitas',
+  'gomitas_grenetina',
 ];
 
 const CATEGORY_CARD_IMAGE_MAP: Record<CatalogCategoryId, string> = {
-  polvos: '/ISOTIPOS/ISOTIPOS-N-01.webp',
-  jellies: '/ISOTIPOS/ISOTIPOS-N-05.webp',
-  dulces: '/ISOTIPOS/ISOTIPOS-N-02.webp',
-  paletas: '/ISOTIPOS/ISOTIPOS-N-04.webp',
+  sazonador: '/ISOTIPOS/ISOTIPOS-N-01.webp',
+  chamoy: '/ISOTIPOS/ISOTIPO-CHAMOY.webp',
+  gomitas_almidon: '/ISOTIPOS/ISOTIPOS-N-05.webp',
+  dulces_paletas: '/ISOTIPOS/ISOTIPOS-N-04.webp',
   pinatero: '/ISOTIPOS/ISOTIPOS-N-03.webp',
-  gomitas: '/ISOTIPOS/ISOTIPOS-N-06.webp',
+  gomitas_grenetina: '/ISOTIPOS/ISOTIPOS-N-06.webp',
 };
 
 const CATEGORY_FONDOS_MAP: Record<CatalogCategoryId, { primary: string; hover: string }> = {
-  polvos: {
+  sazonador: {
     primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_POLVOS 1.webp',
     hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_POLVOS 2.webp',
   },
-  jellies: {
-    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_JELLIES 1.webp',
-    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_JELLIES 2.webp',
-  },
-  dulces: {
+  chamoy: {
     primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_DULCES 1.webp',
     hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_DULCES 2.webp',
   },
-  paletas: {
+  gomitas_almidon: {
+    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_JELLIES 1.webp',
+    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_JELLIES 2.webp',
+  },
+  dulces_paletas: {
     primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PALETAS 1.webp',
     hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PALETAS 2.webp',
   },
@@ -59,7 +60,7 @@ const CATEGORY_FONDOS_MAP: Record<CatalogCategoryId, { primary: string; hover: s
     primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_ PIÑATERO 1.webp',
     hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PIÑATERO 2.webp',
   },
-  gomitas: {
+  gomitas_grenetina: {
     primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_GOMAS 1.webp',
     hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_GOMAS 2.webp',
   },
@@ -69,20 +70,22 @@ const getLogoFilename = (logoSrc: string) => logoSrc.split('/').pop() ?? '';
 const getProductMatcher = (product: CatalogProduct) => product.productFamily ?? product.name;
 const isSpicyProduct = (product: CatalogProduct) => product.type === 'Picante';
 const isUpcomingCategory = (categoryId: CatalogCategoryId) => UPCOMING_CATEGORY_IDS.has(categoryId);
-const getCategoryDisplayTitle = (categoryId: CatalogCategoryId) => CATEGORY_TITLE_MAP[categoryId] ?? catalogData[categoryId].title;
+
+const getCategoryDisplayTitle = (categoryId: CatalogCategoryId) =>
+  CATEGORY_TITLE_MAP[categoryId] ?? catalogData[categoryId].title;
 
 const getCategoryProducts = (categoryId: CatalogCategoryId): CatalogProduct[] => {
   switch (categoryId) {
-    case 'dulces':
+    case 'chamoy':
       return [
-        ...catalogData.dulces.products.filter(isSpicyProduct),
-        ...catalogData.jellies.products.filter(isSpicyProduct),
-        ...catalogData.gomitas.products.filter(isSpicyProduct),
+        ...catalogData.chamoy.products.filter(isSpicyProduct),
+        ...catalogData.gomitas_almidon.products.filter(isSpicyProduct),
+        ...catalogData.gomitas_grenetina.products.filter(isSpicyProduct),
       ];
-    case 'jellies':
-      return catalogData.jellies.products.filter((product) => !isSpicyProduct(product));
-    case 'gomitas':
-      return catalogData.gomitas.products.filter((product) => !isSpicyProduct(product));
+    case 'gomitas_almidon':
+      return catalogData.gomitas_almidon.products.filter((product) => !isSpicyProduct(product));
+    case 'gomitas_grenetina':
+      return catalogData.gomitas_grenetina.products.filter((product) => !isSpicyProduct(product));
     default:
       return catalogData[categoryId].products;
   }
@@ -103,7 +106,7 @@ export const getCatalogCategories = (): CatalogCategoryCard[] =>
     const category = catalogData[categoryId];
     const fondos = CATEGORY_FONDOS_MAP[categoryId];
     const categoryImage = CATEGORY_CARD_IMAGE_MAP[categoryId];
-    
+
     return {
       id: categoryId,
       title: getCategoryDisplayTitle(categoryId),

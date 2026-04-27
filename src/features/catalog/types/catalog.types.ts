@@ -1,6 +1,12 @@
 import type { MouseEvent } from 'react';
 
-export type CatalogCategoryId = 'polvos' | 'jellies' | 'dulces' | 'paletas' | 'pinatero' | 'gomitas';
+export type CatalogCategoryId =
+  | 'sazonador'
+  | 'chamoy'
+  | 'gomitas_almidon'
+  | 'dulces_paletas'
+  | 'pinatero'
+  | 'gomitas_grenetina';
 
 export type CatalogProductId = string;
 

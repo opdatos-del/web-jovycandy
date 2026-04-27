@@ -1,15 +1,15 @@
 import type { CatalogData } from '../types/catalog.types';
 import {
-  gomitasAltDefLogoProductsMap,
-  gomitasAltDefLogos,
-  gomitasAltDefProducts,
+  gomitasGrenetinaAltDefLogoProductsMap,
+  gomitasGrenetinaAltDefLogos,
+  gomitasGrenetinaAltDefProducts,
   pinateroAltDefLogoProductsMap,
   pinateroAltDefLogos,
   pinateroAltDefProducts,
 } from './altDefCatalogData';
 
 const productImageMap: Record<string, Record<string, string>> = {
-  gomitas: {
+  gomitas_grenetina: {
     'Rings Watermelon':
       '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp',
     'Rings Neon':
@@ -23,11 +23,11 @@ const productImageMap: Record<string, Record<string, string>> = {
     'Bears Classic':
       '/WEBP PRODUCTOS/SWEET/GUMMIES/BEARS/JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp',
   },
-  polvos: {
+  sazonador: {
     Acirrico: '/WEBP PRODUCTOS/SPICY/POWDERS/Acirrico.webp',
     Limonazo: '/WEBP PRODUCTOS/SPICY/POWDERS/Limonazo.webp',
   },
-  jellies: {
+  gomitas_almidon: {
     'CHERRY SLICES 5LB':
       '/WEBP PRODUCTOS/SWEET/JELLIES/CHERRY SLICES/JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp',
     'ORANGE SLICES':
@@ -45,25 +45,25 @@ const productImageMap: Record<string, Record<string, string>> = {
     'ENCHILOKAS MANGO 482G':
       '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp',
   },
-  dulces: {
+  chamoy: {
     'Lollipop Cherry':
       '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
   },
-  paletas: {
+  dulces_paletas: {
     'Mango revolcado':
       '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/MANGO REVOLCADO/JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp',
   },
 };
 
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
-  gomitas: gomitasAltDefLogos,
-  polvos: [{ src: '/WEBP PRODUCTOS/SPICY/POWDERS/LOGOS/Acirrico-300x300.webp', alt: 'Polvos Acirrico' }],
-  jellies: [
+  gomitas_grenetina: gomitasGrenetinaAltDefLogos,
+  sazonador: [{ src: '/WEBP PRODUCTOS/SPICY/POWDERS/LOGOS/Acirrico-300x300.webp', alt: 'Polvos Acirrico' }],
+  gomitas_almidon: [
     { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Cherry_Slices-300x300.webp', alt: 'Jellies Cherry' },
     { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Orange_slices-300x300.webp', alt: 'Jellies Orange' },
     { src: '/WEBP PRODUCTOS/SPICY/JELLIES/LOGOS/enchilokas-300x300.webp', alt: 'Jellies Enchilokas' },
   ],
-  dulces: [
+  chamoy: [
     { src: '/WEBP PRODUCTOS/SWEET/HARD CANDY/LOGOS/Jovy_Fruit-300x300.webp', alt: 'Dulces Fruit' },
     { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/chillirokas-300x300.webp', alt: 'Dulces Chilirokas' },
     { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Revolcaditas-300x300.webp', alt: 'Dulces Revolcaditas' },
@@ -83,21 +83,21 @@ export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }
       alt: 'Chamoy Bears',
     },
   ],
-  paletas: [{ src: '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/LOGOS/Mango_Revolcado-300x300.webp', alt: 'Paletas Mango' }],
+  dulces_paletas: [{ src: '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/LOGOS/Mango_Revolcado-300x300.webp', alt: 'Paletas Mango' }],
   pinatero: pinateroAltDefLogos,
 };
 
 export const categoryLogoProductsMap: Record<string, Record<string, string[]>> = {
-  gomitas: gomitasAltDefLogoProductsMap,
-  polvos: {
+  gomitas_grenetina: gomitasGrenetinaAltDefLogoProductsMap,
+  sazonador: {
     'Acirrico-300x300.webp': ['Acirrico', 'Limonazo'],
   },
-  jellies: {
+  gomitas_almidon: {
     'Cherry_Slices-300x300.webp': ['CHERRY SLICES 5LB'],
     'Orange_slices-300x300.webp': ['ORANGE SLICES'],
     'enchilokas-300x300.webp': ['Enchilokas'],
   },
-  dulces: {
+  chamoy: {
     'Jovy_Fruit-300x300.webp': ['Lollipop Cherry'],
     'chillirokas-300x300.webp': ['Chilirokas'],
     'Revolcaditas-300x300.webp': ['Revolcaditas'],
@@ -108,7 +108,7 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
     'Worms-Revolcado-1-300x300.webp': ['Chamoy Worms'],
     'Bears_Revolcado-1-300x300.webp': ['Chamoy Bears'],
   },
-  paletas: {
+  dulces_paletas: {
     'Mango_Revolcado-300x300.webp': ['Mango revolcado'],
   },
   pinatero: pinateroAltDefLogoProductsMap,
@@ -127,11 +127,11 @@ function getProductImagePath(
 
   const typeFolder = type === 'Picante' ? 'SPICY' : 'SWEET';
   const categoryFolderMap: Record<string, string> = {
-    polvos: 'POWDERS',
-    jellies: 'JELLIES',
-    dulces: 'HARD CANDY',
-    paletas: 'LOLLIPOPS',
-    gomitas: 'GUMMIES',
+    sazonador: 'POWDERS',
+    gomitas_almidon: 'JELLIES',
+    chamoy: 'HARD CANDY',
+    dulces_paletas: 'LOLLIPOPS',
+    gomitas_grenetina: 'GUMMIES',
   };
   const categoryFolder = categoryFolderMap[categoryId] || categoryId.toUpperCase();
   const productSubfolder = productName.split(' ')[0].toUpperCase();
@@ -140,9 +140,9 @@ function getProductImagePath(
 }
 
 export const catalogData: CatalogData = {
-  polvos: {
-    id: 'polvos',
-    title: 'Polvos',
+  sazonador: {
+    id: 'sazonador',
+    title: 'Sazonador',
     accent: '#FF6B9D',
     products: [
       {
@@ -150,9 +150,9 @@ export const catalogData: CatalogData = {
         name: 'Acirrico',
         subtitle: 'Tamarind Powder\nSour & Sweet',
         description: 'Polvo saborizante intenso con tamarindo y un toque de picante.',
-        image: getProductImagePath('Picante', 'polvos', 'Acirrico'),
-        sampleImage: getProductImagePath('Picante', 'polvos', 'Acirrico'),
-        secondaryImage: getProductImagePath('Picante', 'polvos', 'Acirrico'),
+        image: getProductImagePath('Picante', 'sazonador', 'Acirrico'),
+        sampleImage: getProductImagePath('Picante', 'sazonador', 'Acirrico'),
+        secondaryImage: getProductImagePath('Picante', 'sazonador', 'Acirrico'),
         certifications: ['SGS', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.05 oz (1.5g)' },
@@ -179,9 +179,9 @@ export const catalogData: CatalogData = {
         name: 'Limonazo',
         subtitle: 'Chamoy Powder\nSweet & Tangy',
         description: 'Polvo con aroma y sabor a chamoy, perfecto para cubrir frutas.',
-        image: getProductImagePath('Dulce', 'polvos', 'Limonazo'),
-        sampleImage: getProductImagePath('Dulce', 'polvos', 'Limonazo'),
-        secondaryImage: getProductImagePath('Dulce', 'polvos', 'Limonazo'),
+        image: getProductImagePath('Dulce', 'sazonador', 'Limonazo'),
+        sampleImage: getProductImagePath('Dulce', 'sazonador', 'Limonazo'),
+        secondaryImage: getProductImagePath('Dulce', 'sazonador', 'Limonazo'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.05 oz (1.5g)' },
@@ -205,9 +205,9 @@ export const catalogData: CatalogData = {
       },
     ],
   },
-  jellies: {
-    id: 'jellies',
-    title: 'Jellies',
+  gomitas_almidon: {
+    id: 'gomitas_almidon',
+    title: 'Gomitas Almidón',
     accent: '#FF4757',
     products: [
       {
@@ -215,9 +215,9 @@ export const catalogData: CatalogData = {
         name: 'CHERRY SLICES 5LB',
         subtitle: 'Strawberry Jelly\nSmooth & Sweet',
         description: 'Gelatina de fresa con textura suave y sabor intenso.',
-        image: getProductImagePath('Dulce', 'jellies', 'CHERRY SLICES 5LB'),
-        sampleImage: getProductImagePath('Dulce', 'jellies', 'CHERRY SLICES 5LB'),
-        secondaryImage: getProductImagePath('Dulce', 'jellies', 'CHERRY SLICES 5LB'),
+        image: getProductImagePath('Dulce', 'gomitas_almidon', 'CHERRY SLICES 5LB'),
+        sampleImage: getProductImagePath('Dulce', 'gomitas_almidon', 'CHERRY SLICES 5LB'),
+        secondaryImage: getProductImagePath('Dulce', 'gomitas_almidon', 'CHERRY SLICES 5LB'),
         certifications: ['SGS', 'OU Kosher', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -244,9 +244,9 @@ export const catalogData: CatalogData = {
         name: 'ORANGE SLICES',
         subtitle: 'Orange Jelly\nCitrus & Sweet',
         description: 'Gelatina de naranja con sabor citrico intenso.',
-        image: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
-        sampleImage: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
-        secondaryImage: getProductImagePath('Dulce', 'jellies', 'ORANGE SLICES'),
+        image: getProductImagePath('Dulce', 'gomitas_almidon', 'ORANGE SLICES'),
+        sampleImage: getProductImagePath('Dulce', 'gomitas_almidon', 'ORANGE SLICES'),
+        secondaryImage: getProductImagePath('Dulce', 'gomitas_almidon', 'ORANGE SLICES'),
         certifications: ['SGS', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -273,9 +273,9 @@ export const catalogData: CatalogData = {
         name: 'ENCHILOKAS WATERMELON 150G',
         subtitle: 'Watermelon Jelly\nSpicy & Fruity',
         description: 'Jelly enchilado sabor sandia con cubierta picante.',
-        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
-        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
-        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
+        image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
+        sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
+        secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -293,9 +293,9 @@ export const catalogData: CatalogData = {
         name: 'ENCHILOKAS WATERMELON 482G',
         subtitle: 'Watermelon Jelly\nSpicy & Fruity',
         description: 'Jelly enchilado sabor sandia en presentacion grande.',
-        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
-        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
-        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
+        image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
+        sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
+        secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [
@@ -313,9 +313,9 @@ export const catalogData: CatalogData = {
         name: 'ENCHILOKAS PINEAPPLE 150G',
         subtitle: 'Pineapple Jelly\nSpicy & Tangy',
         description: 'Jelly enchilado sabor pina con perfil acidito y picante.',
-        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
-        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
-        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
+        image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
+        sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
+        secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -333,9 +333,9 @@ export const catalogData: CatalogData = {
         name: 'ENCHILOKAS PINEAPPLE 482G',
         subtitle: 'Pineapple Jelly\nSpicy & Tangy',
         description: 'Jelly enchilado sabor pina en presentacion grande.',
-        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
-        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
-        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
+        image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
+        sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
+        secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [
@@ -353,9 +353,9 @@ export const catalogData: CatalogData = {
         name: 'ENCHILOKAS MANGO 150G',
         subtitle: 'Mango Jelly\nSpicy & Tropical',
         description: 'Jelly enchilado sabor mango con acabado picante.',
-        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
-        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
-        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
+        image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
+        sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
+        secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -373,9 +373,9 @@ export const catalogData: CatalogData = {
         name: 'ENCHILOKAS MANGO 482G',
         subtitle: 'Mango Jelly\nSpicy & Tropical',
         description: 'Jelly enchilado sabor mango en presentacion grande.',
-        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
-        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
-        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
+        image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
+        sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
+        secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [
@@ -390,9 +390,9 @@ export const catalogData: CatalogData = {
       },
     ],
   },
-  dulces: {
-    id: 'dulces',
-    title: 'Dulces',
+  chamoy: {
+    id: 'chamoy',
+    title: 'Chamoy',
     accent: '#C8102E',
     products: [
       {
@@ -400,9 +400,9 @@ export const catalogData: CatalogData = {
         name: 'Lollipop Cherry',
         subtitle: 'Cherry Lollipop\nClassic Hard Candy',
         description: 'Caramelos macizos con sabor intenso a cereza.',
-        image: getProductImagePath('Dulce', 'dulces', 'Lollipop Cherry'),
-        sampleImage: getProductImagePath('Dulce', 'dulces', 'Lollipop Cherry'),
-        secondaryImage: getProductImagePath('Dulce', 'dulces', 'Lollipop Cherry'),
+        image: getProductImagePath('Dulce', 'chamoy', 'Lollipop Cherry'),
+        sampleImage: getProductImagePath('Dulce', 'chamoy', 'Lollipop Cherry'),
+        secondaryImage: getProductImagePath('Dulce', 'chamoy', 'Lollipop Cherry'),
         certifications: ['SGS', 'OU Kosher'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -1109,9 +1109,9 @@ export const catalogData: CatalogData = {
       },
     ],
   },
-  paletas: {
-    id: 'paletas',
-    title: 'Paletas',
+  dulces_paletas: {
+    id: 'dulces_paletas',
+    title: 'Dulces y Paletas',
     accent: '#FFB500',
     products: [
       {
@@ -1119,9 +1119,9 @@ export const catalogData: CatalogData = {
         name: 'Mango revolcado',
         subtitle: 'Watermelon Popsicle\nFresh & Sweet',
         description: 'Paleta refrescante con sabor a sandia natural.',
-        image: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
-        sampleImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
-        secondaryImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
+        image: getProductImagePath('Dulce', 'dulces_paletas', 'Mango revolcado'),
+        sampleImage: getProductImagePath('Dulce', 'dulces_paletas', 'Mango revolcado'),
+        secondaryImage: getProductImagePath('Dulce', 'dulces_paletas', 'Mango revolcado'),
         certifications: ['SGS', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 1 oz (28g)' },
@@ -1148,9 +1148,9 @@ export const catalogData: CatalogData = {
         name: 'Mango revolcado',
         subtitle: 'Mango Popsicle\nTropical Flavor',
         description: 'Paleta de mango con toque tropical y sabor autentico.',
-        image: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
-        sampleImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
-        secondaryImage: getProductImagePath('Dulce', 'paletas', 'Mango revolcado'),
+        image: getProductImagePath('Dulce', 'dulces_paletas', 'Mango revolcado'),
+        sampleImage: getProductImagePath('Dulce', 'dulces_paletas', 'Mango revolcado'),
+        secondaryImage: getProductImagePath('Dulce', 'dulces_paletas', 'Mango revolcado'),
         certifications: ['SGS', 'OU Kosher'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 1 oz (28g)' },
@@ -1180,10 +1180,10 @@ export const catalogData: CatalogData = {
     accent: '#FD3B1F',
     products: pinateroAltDefProducts,
   },
-  gomitas: {
-    id: 'gomitas',
-    title: 'Gomitas',
+  gomitas_grenetina: {
+    id: 'gomitas_grenetina',
+    title: 'Gomitas Grenetina',
     accent: '#00AFAA',
-    products: gomitasAltDefProducts,
+    products: gomitasGrenetinaAltDefProducts,
   },
 };

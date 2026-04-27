@@ -574,7 +574,7 @@ const premiumMixTemplate: ProductTemplate = {
   type: 'Dulce',
 };
 
-export const gomitasAltDefProducts: CatalogProduct[] = [
+export const gomitasGrenetinaAltDefProducts: CatalogProduct[] = [
   createVariant(ringsWatermelonTemplate, {
     id: 'g-rings-watermelon-100g',
     gramaje: '100 g',
@@ -773,7 +773,7 @@ export const gomitasAltDefProducts: CatalogProduct[] = [
   }),
 ];
 
-export const gomitasAltDefLogos: CatalogLogoOption[] = [
+export const gomitasGrenetinaAltDefLogos: CatalogLogoOption[] = [
   { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Rings-300x300.webp', alt: 'Gomitas Rings' },
   { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Worms-300x300.webp', alt: 'Gomitas Worms' },
   { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Bears-300x300.webp', alt: 'Gomitas Bears' },
@@ -796,7 +796,7 @@ export const gomitasAltDefLogos: CatalogLogoOption[] = [
   },
 ];
 
-export const gomitasAltDefLogoProductsMap: Record<string, string[]> = {
+export const gomitasGrenetinaAltDefLogoProductsMap: Record<string, string[]> = {
   '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Rings-300x300.webp': [
     'Rings Watermelon',
     'Rings Neon',
