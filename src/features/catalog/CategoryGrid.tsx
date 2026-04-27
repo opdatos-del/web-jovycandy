@@ -14,6 +14,21 @@ export const CategoryGrid = () => {
   const [selectedProduct, setSelectedProduct] = useState<CatalogProduct | null>(null);
   const pendingAnchorRef = useRef<{ categoryId: string; top: number } | null>(null);
 
+  const mobileCategories = categories
+    .slice(0, 6)
+    .sort((leftCategory, rightCategory) => {
+      const mobileOrder: Record<CatalogCategoryId, number> = {
+        polvos: 0,
+        paletas: 1,
+        dulces: 2,
+        jellies: 3,
+        pinatero: 4,
+        gomitas: 5,
+      };
+
+      return mobileOrder[leftCategory.id] - mobileOrder[rightCategory.id];
+    });
+
   const topCategories = categories.slice(0, 3);
   const bottomCategories = categories.slice(3, 6);
 
@@ -101,7 +116,7 @@ export const CategoryGrid = () => {
         <ScrollReveal delay={0.08}>
           <div className="category-grid-shell bg-stone-200/90">
             <div className="category-grid-row grid gap-px bg-stone-200 md:hidden">
-              {categories.map((category) => (
+              {mobileCategories.map((category) => (
                 <React.Fragment key={category.id}>
                   <CategoryCard
                     id={category.id}
