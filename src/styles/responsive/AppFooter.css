@@ -95,6 +95,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  overflow: hidden;
 }
 
 .instagram-feed-inner,
@@ -102,6 +103,7 @@
   width: 100%;
   max-width: 500px;
   border-radius: 16px;
+  overflow: hidden;
 }
 
 .instagram-feed-inner {
@@ -288,6 +290,7 @@
   .instagram-feed-wrap {
     max-width: 100%;
     min-height: auto;
+    overflow: hidden;
   }
 
   .facebook-feed-wrap {
@@ -296,8 +299,9 @@
 
   .facebook-feed-inner {
     width: 100%;
-    max-width: 340px;
+    max-width: 100%;
     margin: 0 auto;
+    overflow: hidden;
   }
 
   .instagram-profile-bar {
@@ -333,9 +337,10 @@
 
   .instagram-feed-wrap,
   .facebook-feed-wrap {
-    padding: 0.85rem;
+    padding: 0.75rem;
     border-radius: 1rem;
     min-height: auto;
+    max-width: 100%;
   }
 
   .facebook-card {
@@ -344,8 +349,17 @@
 
   .facebook-feed-inner {
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
     margin: 0 auto;
+  }
+
+  .facebook-feed-wrap .fb-page,
+  .facebook-feed-wrap .fb-page > span,
+  .facebook-feed-wrap .fb-page iframe {
+    max-width: 100% !important;
+    width: 100% !important;
+    transform: none !important;
+    transform-origin: top center !important;
   }
 
   .instagram-feed-inner,
