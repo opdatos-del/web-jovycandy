@@ -7,7 +7,7 @@ import { Facebook, Instagram, Music2 } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryImages = [
-  '/casa-cale.jpg',
+  '/eventos/1.webp',
   '/eventos/4.webp',
   '/eventos/8.webp',
   '/eventos/11.webp',

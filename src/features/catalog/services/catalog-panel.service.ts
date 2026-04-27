@@ -20,6 +20,15 @@ const CATEGORY_TITLE_MAP: Record<CatalogCategoryId, string> = {
   gomitas: 'Gomitas Grenetina',
 };
 
+const CATEGORY_DISPLAY_ORDER: CatalogCategoryId[] = [
+  'polvos',
+  'dulces',
+  'jellies',
+  'paletas',
+  'pinatero',
+  'gomitas',
+];
+
 const CATEGORY_CARD_IMAGE_MAP: Record<CatalogCategoryId, string> = {
   polvos: '/ISOTIPOS/ISOTIPOS-N-01.webp',
   jellies: '/ISOTIPOS/ISOTIPOS-N-05.webp',
@@ -90,8 +99,8 @@ const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) 
 };
 
 export const getCatalogCategories = (): CatalogCategoryCard[] =>
-  Object.entries(catalogData).map(([id, category]) => {
-    const categoryId = id as CatalogCategoryId;
+  CATEGORY_DISPLAY_ORDER.map((categoryId) => {
+    const category = catalogData[categoryId];
     const fondos = CATEGORY_FONDOS_MAP[categoryId];
     const categoryImage = CATEGORY_CARD_IMAGE_MAP[categoryId];
     

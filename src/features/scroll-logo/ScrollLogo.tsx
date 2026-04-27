@@ -268,7 +268,7 @@ export function ScrollLogo() {
           className="scroll-logo-hint absolute"
         >
           <span className="scroll-logo-hint-badge">
-            tu mejor opción
+            tu mejor selección
           </span>
         </motion.div>
       </div>
