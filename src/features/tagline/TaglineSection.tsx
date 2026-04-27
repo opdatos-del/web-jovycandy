@@ -167,11 +167,7 @@ export const TaglineSection = () => {
                       })
                     }
                     aria-label={`Ver imagen completa Casa Jovy galeria ${index + 1}`}
-                    className={`overflow-hidden bg-[#e9d3c4] ${
-                      index === 0
-                        ? 'col-span-2 aspect-[2.25/1]'
-                        : 'aspect-[1.18/1]'
-                    }`}
+                    className="aspect-square overflow-hidden bg-[#e9d3c4]"
                   >
                     <img
                       src={src}
