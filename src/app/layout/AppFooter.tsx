@@ -226,7 +226,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                                                     className="fb-page"
                                                     data-href="https://www.facebook.com/jovymx"
                                                     data-tabs="timeline"
-                                                    data-width="340"
+                                                    data-width="500"
                                                     data-height="520"
                                                     data-small-header="false"
                                                     data-adapt-container-width="true"
