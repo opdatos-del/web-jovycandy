@@ -48,7 +48,7 @@ export type HeroSceneRefs = {
   shellRef: RefObject<HTMLDivElement | null>;
   backgroundRef: RefObject<HTMLDivElement | null>;
   headlineRef: RefObject<HTMLHeadingElement | null>;
-  detailRef: RefObject<HTMLDivElement | null>;
+  detailRef: RefObject<HTMLAnchorElement | null>;
   haloRef: RefObject<HTMLDivElement | null>;
   glowRef: RefObject<HTMLDivElement | null>;
   raysRef: RefObject<HTMLDivElement | null>;

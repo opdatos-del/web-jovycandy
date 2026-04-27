@@ -230,7 +230,7 @@ export const TaglineSection = () => {
               <img
                 src={activeImage.src}
                 alt={activeImage.alt}
-                className="events-modal-image w-auto max-w-full rounded-xl object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:rounded-2xl"
+                className="events-modal-image w-auto max-w-full rounded-xl bg-white object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:rounded-2xl"
                 draggable={false}
               />
             </div>

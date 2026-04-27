@@ -25,7 +25,7 @@ export const UpcomingEventCard = ({ event, collageClassName = '', onOpen }: Upco
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
           draggable={false}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-transparent opacity-70" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-transparent opacity-30" />
       </div>
     </button>
   </ScrollReveal>

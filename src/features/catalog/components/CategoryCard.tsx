@@ -74,11 +74,11 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
         className="absolute inset-0 z-10 pointer-events-none"
         style={{ 
           backgroundColor: accentColor,
-          opacity: 0.65
+          opacity: 0.42
         }} 
       />
 
-      <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/45 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/22 to-transparent pointer-events-none" />
 
       <div className="category-card-content relative z-30 flex h-full flex-col items-center justify-center">
         <h3 className="category-card-title text-center font-extrabold tracking-tight text-white">
