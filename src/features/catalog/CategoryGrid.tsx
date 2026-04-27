@@ -117,24 +117,27 @@ export const CategoryGrid = () => {
           <div className="category-grid-shell bg-stone-200/90">
             <div className="category-grid-row grid gap-px bg-stone-200 md:hidden">
               {mobileCategories.map((category) => (
-                <React.Fragment key={category.id}>
-                  <CategoryCard
-                    id={category.id}
-                    title={category.title}
-                    image={category.image}
-                     hoverImage={category.hoverImage}
-                     accentColor={category.accent}
-                     productCount={category.productCount}
-                     isActive={panelState.isOpen && panelState.categoryId === category.id}
-                     disabled={category.disabled}
-                     badge={category.badge}
-                     onClick={(anchorElement) => handleCategoryCardClick(category.id, anchorElement)}
-                   />
-
-                  {panelState.isOpen && panelState.categoryId === category.id && renderCarousel()}
-                </React.Fragment>
+                <CategoryCard
+                  key={category.id}
+                  id={category.id}
+                  title={category.title}
+                  image={category.image}
+                  hoverImage={category.hoverImage}
+                  accentColor={category.accent}
+                  productCount={category.productCount}
+                  isActive={panelState.isOpen && panelState.categoryId === category.id}
+                  disabled={category.disabled}
+                  badge={category.badge}
+                  onClick={(anchorElement) => handleCategoryCardClick(category.id, anchorElement)}
+                />
               ))}
             </div>
+
+            {panelState.isOpen && (
+              <div className="md:hidden">
+                {renderCarousel()}
+              </div>
+            )}
 
             <div className="hidden md:block">
               <div className="category-grid-row grid gap-px bg-stone-200">
