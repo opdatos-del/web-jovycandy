@@ -8,8 +8,6 @@ export type CatalogCertification = 'SGS' | 'OU Kosher' | 'Halal';
 
 export type ProductType = 'Dulce' | 'Picante';
 
-export type CatalogFilterType = ProductType | undefined;
-
 export type CatalogSpec = {
   label: string;
   value: string;
@@ -57,6 +55,9 @@ export type CatalogCategoryCard = {
   accent: string;
   productCount: number;
   image: string;
+  hoverImage?: string;
+  disabled?: boolean;
+  badge?: string;
 };
 
 export type CatalogPanelState = {
@@ -70,7 +71,6 @@ export type CatalogPanelState = {
   logoAlt: string;
   currentLogoIndex: number;
   availableLogos: CatalogLogoOption[];
-  filterType?: CatalogFilterType;
 };
 
 export type CatalogData = Record<CatalogCategoryId, CatalogCategory>;

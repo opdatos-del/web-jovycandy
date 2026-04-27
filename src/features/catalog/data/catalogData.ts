@@ -32,11 +32,21 @@ const productImageMap: Record<string, Record<string, string>> = {
       '/WEBP PRODUCTOS/SWEET/JELLIES/CHERRY SLICES/JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp',
     'ORANGE SLICES':
       '/WEBP PRODUCTOS/SWEET/JELLIES/ORANGE SLICES/JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp',
+    'ENCHILOKAS WATERMELON 150G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp',
+    'ENCHILOKAS WATERMELON 482G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp',
+    'ENCHILOKAS PINEAPPLE 150G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp',
+    'ENCHILOKAS PINEAPPLE 482G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp',
+    'ENCHILOKAS MANGO 150G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp',
+    'ENCHILOKAS MANGO 482G':
+      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp',
   },
   dulces: {
     'Lollipop Cherry':
-      '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
-    'Lollipop Lemon':
       '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
   },
   paletas: {
@@ -51,8 +61,28 @@ export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }
   jellies: [
     { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Cherry_Slices-300x300.webp', alt: 'Jellies Cherry' },
     { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Orange_slices-300x300.webp', alt: 'Jellies Orange' },
+    { src: '/WEBP PRODUCTOS/SPICY/JELLIES/LOGOS/enchilokas-300x300.webp', alt: 'Jellies Enchilokas' },
   ],
-  dulces: [{ src: '/WEBP PRODUCTOS/SWEET/HARD CANDY/LOGOS/Jovy_Fruit-300x300.webp', alt: 'Dulces Fruit' }],
+  dulces: [
+    { src: '/WEBP PRODUCTOS/SWEET/HARD CANDY/LOGOS/Jovy_Fruit-300x300.webp', alt: 'Dulces Fruit' },
+    { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/chillirokas-300x300.webp', alt: 'Dulces Chilirokas' },
+    { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Revolcaditas-300x300.webp', alt: 'Dulces Revolcaditas' },
+    { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Tamaros-300x300.webp', alt: 'Dulces Tamaros' },
+    { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Vallenito-300x300.webp', alt: 'Dulces Vallenito' },
+    { src: '/WEBP PRODUCTOS/SPICY/JELLIES/LOGOS/enchilokas-300x300.webp', alt: 'Chamoy Enchilokas' },
+    {
+      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Rings-Revolcado-300x300.webp',
+      alt: 'Chamoy Rings',
+    },
+    {
+      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Worms-Revolcado-1-300x300.webp',
+      alt: 'Chamoy Worms',
+    },
+    {
+      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Bears_Revolcado-1-300x300.webp',
+      alt: 'Chamoy Bears',
+    },
+  ],
   paletas: [{ src: '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/LOGOS/Mango_Revolcado-300x300.webp', alt: 'Paletas Mango' }],
   pinatero: pinateroAltDefLogos,
 };
@@ -65,9 +95,18 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
   jellies: {
     'Cherry_Slices-300x300.webp': ['CHERRY SLICES 5LB'],
     'Orange_slices-300x300.webp': ['ORANGE SLICES'],
+    'enchilokas-300x300.webp': ['Enchilokas'],
   },
   dulces: {
-    'Jovy_Fruit-300x300.webp': ['Lollipop Cherry', 'Lollipop Lemon'],
+    'Jovy_Fruit-300x300.webp': ['Lollipop Cherry'],
+    'chillirokas-300x300.webp': ['Chilirokas'],
+    'Revolcaditas-300x300.webp': ['Revolcaditas'],
+    'Tamaros-300x300.webp': ['Tamaros'],
+    'Vallenito-300x300.webp': ['Vallenito'],
+    'enchilokas-300x300.webp': ['Enchilokas'],
+    'Rings-Revolcado-300x300.webp': ['Chamoy Rings Watermelon', 'Chamoy Rings Peach'],
+    'Worms-Revolcado-1-300x300.webp': ['Chamoy Worms'],
+    'Bears_Revolcado-1-300x300.webp': ['Chamoy Bears'],
   },
   paletas: {
     'Mango_Revolcado-300x300.webp': ['Mango revolcado'],
@@ -229,6 +268,126 @@ export const catalogData: CatalogData = {
         gramaje: '170 g',
         type: 'Dulce',
       },
+      {
+        id: 'j3',
+        name: 'ENCHILOKAS WATERMELON 150G',
+        subtitle: 'Watermelon Jelly\nSpicy & Fruity',
+        description: 'Jelly enchilado sabor sandia con cubierta picante.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 150G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor sandia.',
+          },
+        ],
+        gramaje: '150 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j4',
+        name: 'ENCHILOKAS WATERMELON 482G',
+        subtitle: 'Watermelon Jelly\nSpicy & Fruity',
+        description: 'Jelly enchilado sabor sandia en presentacion grande.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS WATERMELON 482G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor sandia.',
+          },
+        ],
+        gramaje: '482 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j5',
+        name: 'ENCHILOKAS PINEAPPLE 150G',
+        subtitle: 'Pineapple Jelly\nSpicy & Tangy',
+        description: 'Jelly enchilado sabor pina con perfil acidito y picante.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 150G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor pina.',
+          },
+        ],
+        gramaje: '150 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j6',
+        name: 'ENCHILOKAS PINEAPPLE 482G',
+        subtitle: 'Pineapple Jelly\nSpicy & Tangy',
+        description: 'Jelly enchilado sabor pina en presentacion grande.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS PINEAPPLE 482G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor pina.',
+          },
+        ],
+        gramaje: '482 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j7',
+        name: 'ENCHILOKAS MANGO 150G',
+        subtitle: 'Mango Jelly\nSpicy & Tropical',
+        description: 'Jelly enchilado sabor mango con acabado picante.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 150G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor mango.',
+          },
+        ],
+        gramaje: '150 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
+      {
+        id: 'j8',
+        name: 'ENCHILOKAS MANGO 482G',
+        subtitle: 'Mango Jelly\nSpicy & Tropical',
+        description: 'Jelly enchilado sabor mango en presentacion grande.',
+        image: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
+        sampleImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
+        secondaryImage: getProductImagePath('Picante', 'jellies', 'ENCHILOKAS MANGO 482G'),
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor mango.',
+          },
+        ],
+        gramaje: '482 g',
+        productFamily: 'Enchilokas',
+        type: 'Picante',
+      },
     ],
   },
   dulces: {
@@ -267,13 +426,80 @@ export const catalogData: CatalogData = {
       },
       {
         id: 'd2',
-        name: 'Lollipop Lemon',
-        subtitle: 'Lemon Lollipop\nSour & Sweet',
-        description: 'Caramelo de limon con un toque acido agradable.',
-        image: getProductImagePath('Dulce', 'dulces', 'Lollipop Lemon'),
-        sampleImage: getProductImagePath('Dulce', 'dulces', 'Lollipop Lemon'),
-        secondaryImage: getProductImagePath('Dulce', 'dulces', 'Lollipop Lemon'),
-        certifications: ['SGS', 'OU Kosher', 'Halal'],
+        name: 'Chilirokas Assorted 1 lb 3 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Assorted Hard Candy\n1 lb 3 oz',
+        description: 'Presentacion surtida de Chilirokas en bolsa de 1 lb 3 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '80 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 1 lb 3 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 18 lb' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sal y chile en polvo.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '1 lb 3 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd3',
+        name: 'Chilirokas Assorted 5.29 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Assorted Hard Candy\n5.29 oz',
+        description: 'Presentacion surtida de Chilirokas en bolsa de 5.29 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '35 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 5.29 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 7 lb 15 oz' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sal y chile en polvo.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '5.29 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd4',
+        name: 'Chilirokas Assorted 6 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Assorted Hard Candy\n6 oz',
+        description: 'Presentacion surtida de Chilirokas en bolsa de 6 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp',
+        certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
           { label: 'Pieces per bag', value: '40 aprox' },
@@ -284,7 +510,7 @@ export const catalogData: CatalogData = {
         collapsibleInfo: [
           {
             title: 'Ingredientes',
-            content: 'Azucar, jarabe de maiz, acido citrico y aceite esencial de limon.',
+            content: 'Azucar, jarabe de maiz, acido citrico, sal, chile y saborizantes artificiales.',
           },
           {
             title: 'Informacion Nutrimental',
@@ -292,7 +518,594 @@ export const catalogData: CatalogData = {
           },
         ],
         gramaje: '170 g',
-        type: 'Dulce',
+        type: 'Picante',
+      },
+      {
+        id: 'd5',
+        name: 'Chilirokas Mango 1 lb 3 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Mango Hard Candy\n1 lb 3 oz',
+        description: 'Chilirokas sabor mango en presentacion de 1 lb 3 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '80 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 1 lb 3 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 18 lb' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor mango, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '1 lb 3 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd6',
+        name: 'Chilirokas Mango 6 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Mango Hard Candy\n6 oz',
+        description: 'Chilirokas sabor mango en presentacion de 6 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sal, chile y saborizantes artificiales.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd7',
+        name: 'Chilirokas Tamarind 1 lb 3 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Tamarind Hard Candy\n1 lb 3 oz',
+        description: 'Chilirokas sabor tamarindo en presentacion de 1 lb 3 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '80 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 1 lb 3 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 18 lb' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, tamarindo, acido citrico, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '1 lb 3 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd8',
+        name: 'Chilirokas Tamarind 6 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Tamarind Hard Candy\n6 oz',
+        description: 'Chilirokas sabor tamarindo en presentacion de 6 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, tamarindo, acido citrico, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd9',
+        name: 'Chilirokas Watermelon 1 lb 3 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Watermelon Hard Candy\n1 lb 3 oz',
+        description: 'Chilirokas sabor sandia en presentacion de 1 lb 3 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '80 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 1 lb 3 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 18 lb' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor sandia, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '1 lb 3 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd10',
+        name: 'Chilirokas Watermelon 6 oz',
+        productFamily: 'Chilirokas',
+        subtitle: 'Watermelon Hard Candy\n6 oz',
+        description: 'Chilirokas sabor sandia en presentacion de 6 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor sandia, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd11',
+        name: 'Revolcaditas Assorted 6 oz',
+        productFamily: 'Revolcaditas',
+        subtitle: 'Assorted Hard Candy\n6 oz',
+        description: 'Revolcaditas surtidas en presentacion de 6 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sal, chile y saborizantes artificiales.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd12',
+        name: 'Revolcaditas Mango 1 lb 5 16 oz',
+        productFamily: 'Revolcaditas',
+        subtitle: 'Mango Hard Candy\n1 lb 5 16 oz',
+        description: 'Revolcaditas sabor mango en presentacion de 1 lb 5 16 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '96 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 1 lb 5 16 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 21 lb' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor mango, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '1 lb 5 16 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd13',
+        name: 'Revolcaditas Mango 6 oz',
+        productFamily: 'Revolcaditas',
+        subtitle: 'Mango Hard Candy\n6 oz',
+        description: 'Revolcaditas sabor mango en presentacion de 6 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor mango, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd14',
+        name: 'Revolcaditas Watermelon 1 lb 5 16 oz',
+        productFamily: 'Revolcaditas',
+        subtitle: 'Watermelon Hard Candy\n1 lb 5 16 oz',
+        description: 'Revolcaditas sabor sandia en presentacion de 1 lb 5 16 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '96 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 1 lb 5 16 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 21 lb' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor sandia, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '1 lb 5 16 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd15',
+        name: 'Revolcaditas Watermelon 6 oz',
+        productFamily: 'Revolcaditas',
+        subtitle: 'Watermelon Hard Candy\n6 oz',
+        description: 'Revolcaditas sabor sandia en presentacion de 6 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor sandia, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd16',
+        name: 'Tamaros 1 lb 7 oz',
+        productFamily: 'Tamaros',
+        subtitle: 'Tamarind Hard Candy\n1 lb 7 oz',
+        description: 'Tamaros en presentacion de 1 lb 7 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '100 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 1 lb 7 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 22 lb 8 oz' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, tamarindo, acido citrico, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '1 lb 7 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd17',
+        name: 'Tamaros 4.9 oz',
+        productFamily: 'Tamaros',
+        subtitle: 'Tamarind Hard Candy\n4.9 oz',
+        description: 'Tamaros en presentacion de 4.9 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '32 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 4.9 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 7 lb 6 oz' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, tamarindo, acido citrico, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '4.9 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd18',
+        name: 'Tamaros 6 oz',
+        productFamily: 'Tamaros',
+        subtitle: 'Tamarind Hard Candy\n6 oz',
+        description: 'Tamaros en presentacion de 6 oz.',
+        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, tamarindo, acido citrico, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd19',
+        name: 'Vallenito Assorted 1 lb 7 oz',
+        productFamily: 'Vallenito',
+        subtitle: 'Assorted Hard Candy\n1 lb 7 oz',
+        description: 'Vallenito surtido en presentacion de 1 lb 7 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '100 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 1 lb 7 oz' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 22 lb 8 oz' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sal, chile y saborizantes artificiales.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '1 lb 7 oz',
+        type: 'Picante',
+      },
+      {
+        id: 'd20',
+        name: 'Vallenito Assorted 6 oz',
+        productFamily: 'Vallenito',
+        subtitle: 'Assorted Hard Candy\n6 oz',
+        description: 'Vallenito surtido en presentacion de 6 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sal, chile y saborizantes artificiales.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd21',
+        name: 'Vallenito Mango 6 oz',
+        productFamily: 'Vallenito',
+        subtitle: 'Mango Hard Candy\n6 oz',
+        description: 'Vallenito sabor mango en presentacion de 6 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor mango, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd22',
+        name: 'Vallenito Watermelon 6 oz',
+        productFamily: 'Vallenito',
+        subtitle: 'Watermelon Hard Candy\n6 oz',
+        description: 'Vallenito sabor sandia en presentacion de 6 oz.',
+        image:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp',
+        sampleImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp',
+        secondaryImage:
+          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp',
+        certifications: ['SGS'],
+        specs: [
+          { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
+          { label: 'Pieces per bag', value: '40 aprox' },
+          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
+          { label: 'Bags per Box', value: '24' },
+          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
+        ],
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, acido citrico, sabor sandia, sal y chile.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.',
+          },
+        ],
+        gramaje: '170 g',
+        type: 'Picante',
       },
     ],
   },

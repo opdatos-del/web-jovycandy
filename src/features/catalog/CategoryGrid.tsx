@@ -7,7 +7,7 @@ import { CATEGORY_GRID_SECTION_TITLE } from './constants/catalog.constants';
 import { CategoryCard } from './components/CategoryCard';
 import { ProductCarouselCentered } from './components/ProductCarouselCentered';
 import { ProductTechnicalSheetDrawer } from './components/ProductTechnicalSheetDrawer';
-import type { CatalogCategoryId, CatalogFilterType, CatalogProduct } from './types/catalog.types';
+import type { CatalogCategoryId, CatalogProduct } from './types/catalog.types';
 
 export const CategoryGrid = () => {
   const { categories, panelState, handleCategoryClick, handleLogoNavigation } = useCatalogFacade();
@@ -72,13 +72,9 @@ export const CategoryGrid = () => {
     }
 
     pendingAnchorRef.current = null;
-  }, [panelState.categoryId, panelState.filterType, panelState.isOpen]);
+  }, [panelState.categoryId, panelState.isOpen]);
 
-  const handleCategoryCardClick = (
-    categoryId: CatalogCategoryId,
-    filterType?: CatalogFilterType,
-    anchorElement?: HTMLElement | null
-  ) => {
+  const handleCategoryCardClick = (categoryId: CatalogCategoryId, anchorElement?: HTMLElement | null) => {
     if (!window.matchMedia('(min-width: 768px)').matches && anchorElement) {
       pendingAnchorRef.current = {
         categoryId,
@@ -88,7 +84,7 @@ export const CategoryGrid = () => {
       pendingAnchorRef.current = null;
     }
 
-    handleCategoryClick(categoryId, filterType);
+    handleCategoryClick(categoryId);
   };
 
   return (
@@ -111,13 +107,14 @@ export const CategoryGrid = () => {
                     id={category.id}
                     title={category.title}
                     image={category.image}
-                    accentColor={category.accent}
-                    productCount={category.productCount}
-                    isActive={panelState.isOpen && panelState.categoryId === category.id}
-                    onClick={(filterType, anchorElement) =>
-                      handleCategoryCardClick(category.id, filterType, anchorElement)
-                    }
-                  />
+                     hoverImage={category.hoverImage}
+                     accentColor={category.accent}
+                     productCount={category.productCount}
+                     isActive={panelState.isOpen && panelState.categoryId === category.id}
+                     disabled={category.disabled}
+                     badge={category.badge}
+                     onClick={(anchorElement) => handleCategoryCardClick(category.id, anchorElement)}
+                   />
 
                   {panelState.isOpen && panelState.categoryId === category.id && renderCarousel()}
                 </React.Fragment>
@@ -132,12 +129,13 @@ export const CategoryGrid = () => {
                     id={category.id}
                     title={category.title}
                     image={category.image}
+                    hoverImage={category.hoverImage}
                     accentColor={category.accent}
                     productCount={category.productCount}
                     isActive={panelState.isOpen && panelState.categoryId === category.id}
-                    onClick={(filterType, anchorElement) =>
-                      handleCategoryCardClick(category.id, filterType, anchorElement)
-                    }
+                    disabled={category.disabled}
+                    badge={category.badge}
+                    onClick={(anchorElement) => handleCategoryCardClick(category.id, anchorElement)}
                   />
                 ))}
               </div>
@@ -151,12 +149,13 @@ export const CategoryGrid = () => {
                     id={category.id}
                     title={category.title}
                     image={category.image}
+                    hoverImage={category.hoverImage}
                     accentColor={category.accent}
                     productCount={category.productCount}
                     isActive={panelState.isOpen && panelState.categoryId === category.id}
-                    onClick={(filterType, anchorElement) =>
-                      handleCategoryCardClick(category.id, filterType, anchorElement)
-                    }
+                    disabled={category.disabled}
+                    badge={category.badge}
+                    onClick={(anchorElement) => handleCategoryCardClick(category.id, anchorElement)}
                   />
                 ))}
               </div>

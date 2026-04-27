@@ -84,7 +84,7 @@ export const AboutEssenceCards = ({ layers }: AboutEssenceCardsProps) => {
   return (
     <motion.div
       ref={containerRef}
-      className="space-y-8 lg:space-y-12"
+      className="space-y-7 lg:space-y-9"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -100,12 +100,12 @@ export const AboutEssenceCards = ({ layers }: AboutEssenceCardsProps) => {
         return (
           <motion.div
             key={item.id}
-            className="flex gap-6 lg:gap-8 items-start group"
+            data-about-layer-card
+            className="group flex items-start gap-4 sm:gap-5 lg:gap-6"
             variants={itemVariants}
           >
-            {/* Circular Icon with Parallax */}
             <motion.div
-              className={`${colors.bg} shrink-0 rounded-full p-5 sm:p-6 lg:p-7 flex items-center justify-center shadow-lg cursor-pointer`}
+              className={`${colors.bg} flex shrink-0 cursor-pointer items-center justify-center rounded-full p-3.5 shadow-[0_10px_20px_rgba(28,25,23,0.16)] sm:p-4.5`}
               variants={iconVariants}
               whileHover="hover"
               style={{
@@ -119,13 +119,12 @@ export const AboutEssenceCards = ({ layers }: AboutEssenceCardsProps) => {
                 },
               }}
             >
-              <IconComponent size={32} className="text-white sm:w-10 sm:h-10 lg:w-12 lg:h-12" strokeWidth={1.5} />
+              <IconComponent size={24} className="h-6 w-6 text-white sm:h-7 sm:w-7" strokeWidth={1.7} />
             </motion.div>
 
-            {/* Content */}
-            <div className="flex-1 pt-1">
+            <div className="flex-1 pt-0.5">
               <motion.p
-                className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-stone-500 mb-2"
+                className="mb-1 text-[0.64rem] font-semibold uppercase tracking-[0.28em] text-stone-500 sm:text-[0.68rem]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -135,7 +134,7 @@ export const AboutEssenceCards = ({ layers }: AboutEssenceCardsProps) => {
               </motion.p>
               
               <motion.h3
-                className="text-lg sm:text-xl lg:text-2xl font-semibold text-stone-900 mb-3 leading-snug group-hover:text-blue-600 transition-colors"
+                className="mb-2 text-lg font-semibold leading-snug text-stone-900 transition-colors group-hover:text-stone-700 sm:text-[1.7rem]"
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.35, duration: 0.6 }}
@@ -145,7 +144,7 @@ export const AboutEssenceCards = ({ layers }: AboutEssenceCardsProps) => {
               </motion.h3>
               
               <motion.p
-                className="text-sm sm:text-base text-stone-600 leading-relaxed"
+                className="text-sm leading-relaxed text-stone-600 sm:text-[0.92rem]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}

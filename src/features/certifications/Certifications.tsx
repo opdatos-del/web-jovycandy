@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 
 type CertificationItem = {
   src: string;
+  pdf: string;
   alt: string;
   imageClassName: string;
   imageMaxWidth: string;
@@ -12,32 +13,35 @@ type CertificationItem = {
 const certificationItems: CertificationItem[] = [
   {
     src: '/certifications/sgs.webp',
+    pdf: '/certifications/MXMEX_553119308_CertificateFSSC_Final.pdf',
     alt: 'SGS',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
-    imageMaxWidth: 'clamp(7.5rem, calc(11rem * var(--content-scale)), calc(16.5rem * var(--display-scale)))',
+      'w-[95%] object-contain sm:w-[96%] lg:w-[98%]',
+    imageMaxWidth: 'clamp(10rem, calc(14rem * var(--content-scale)), calc(20rem * var(--display-scale)))',
   },
   {
     src: '/certifications/Kosher_icon.webp',
+    pdf: '/certifications/Kosher.pdf',
     alt: 'Kosher',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
-    imageMaxWidth: 'clamp(7rem, calc(10.25rem * var(--content-scale)), calc(15.5rem * var(--display-scale)))',
+      'w-[95%] object-contain sm:w-[96%] lg:w-[98%]',
+    imageMaxWidth: 'clamp(9.5rem, calc(13rem * var(--content-scale)), calc(19rem * var(--display-scale)))',
   },
   {
     src: '/certifications/halal.webp',
+    pdf: '/certifications/IH-634.2024.C06.S1-Halal.pdf',
     alt: 'Halal',
     cardClassName: 'col-span-1',
     imageClassName:
-      'w-[85%] object-contain sm:w-[88%] lg:w-[90%]',
-    imageMaxWidth: 'clamp(7.5rem, calc(10.75rem * var(--content-scale)), calc(16rem * var(--display-scale)))',
+      'w-[95%] object-contain sm:w-[96%] lg:w-[98%]',
+    imageMaxWidth: 'clamp(10rem, calc(13.5rem * var(--content-scale)), calc(19.5rem * var(--display-scale)))',
   },
 ];
 
 const certificationCardClassName =
-  'certification-card group relative flex aspect-square items-center justify-center overflow-hidden rounded-full border border-[#ffd8cd] bg-[#fffaf6] shadow-sm transition-colors duration-500 hover:border-[#ffc3b3] hover:shadow-md';
+  'certification-card group relative flex aspect-square items-center justify-center rounded-full';
 
 export const Certifications: React.FC = () => {
   return (
@@ -73,23 +77,35 @@ export const Certifications: React.FC = () => {
           viewport={{ once: true }}
           className="certifications-grid mx-auto grid"
         >
+          <p className="col-span-full mb-4 text-center text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/85 sm:hidden">
+            Toca un certificado para abrir su PDF
+          </p>
+
           {certificationItems.map((item, index) => (
-            <motion.div
+            <motion.a
               key={item.alt}
+              href={item.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ver certificado PDF de ${item.alt}`}
+              title={`Abrir certificado de ${item.alt}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 + index * 0.15 }}
               viewport={{ once: true }}
-              className={`${certificationCardClassName} ${item.cardClassName ?? ''}`}
+              className={`${certificationCardClassName} ${item.cardClassName ?? ''} cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#ff7b6c]`}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#fff0e7] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <span className="pointer-events-none absolute -top-2 left-1/2 z-20 hidden -translate-x-1/2 -translate-y-1 rounded-full bg-white/95 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#98504f] opacity-0 shadow-[0_6px_16px_rgba(110,37,54,0.22)] transition-all duration-200 group-hover:-translate-y-0 group-hover:opacity-100 group-focus-visible:-translate-y-0 group-focus-visible:opacity-100 sm:block">
+                Clic para ver PDF
+              </span>
+
               <img
                 src={item.src}
                 alt={item.alt}
                 className={`relative z-10 ${item.imageClassName}`}
                 style={{ maxWidth: item.imageMaxWidth }}
               />
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>

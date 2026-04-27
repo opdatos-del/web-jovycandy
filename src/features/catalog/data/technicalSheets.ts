@@ -252,6 +252,30 @@ const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
     ),
     type: 'image',
   },
+  j3: {
+    src: buildTechnicalSheetPath('USA', 'Enchilokas Us Jovy.pdf'),
+    type: 'pdf',
+  },
+  j4: {
+    src: buildTechnicalSheetPath('USA', 'Enchilokas Us Jovy.pdf'),
+    type: 'pdf',
+  },
+  j5: {
+    src: buildTechnicalSheetPath('USA', 'Enchilokas Us Jovy.pdf'),
+    type: 'pdf',
+  },
+  j6: {
+    src: buildTechnicalSheetPath('USA', 'Enchilokas Us Jovy.pdf'),
+    type: 'pdf',
+  },
+  j7: {
+    src: buildTechnicalSheetPath('USA', 'Enchilokas Us Jovy.pdf'),
+    type: 'pdf',
+  },
+  j8: {
+    src: buildTechnicalSheetPath('USA', 'Enchilokas Us Jovy.pdf'),
+    type: 'pdf',
+  },
   'pi-happy-mix-2-26kg': {
     src: buildTechnicalSheetPath('USA', 'Pi\u00f1ateros Usa Jovy.pdf'),
     type: 'pdf',

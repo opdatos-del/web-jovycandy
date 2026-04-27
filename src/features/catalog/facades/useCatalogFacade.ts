@@ -5,7 +5,7 @@ import {
   getCatalogCategories,
   getNextLogoState,
 } from '../services/catalog-panel.service';
-import type { CatalogCategoryId, CatalogFilterType, CatalogPanelState } from '../types/catalog.types';
+import type { CatalogCategoryId, CatalogPanelState } from '../types/catalog.types';
 
 const INITIAL_PANEL_STATE: CatalogPanelState = {
   isOpen: false,
@@ -18,15 +18,14 @@ const INITIAL_PANEL_STATE: CatalogPanelState = {
   logoAlt: '',
   currentLogoIndex: 0,
   availableLogos: [],
-  filterType: undefined,
 };
 
 export const useCatalogFacade = () => {
   const [panelState, setPanelState] = useState<CatalogPanelState>(INITIAL_PANEL_STATE);
   const categories = useMemo(() => getCatalogCategories(), []);
 
-  const handleCategoryClick = (categoryId: CatalogCategoryId, filterType?: CatalogFilterType) => {
-    setPanelState((currentState) => buildCatalogPanelState(currentState, categoryId, filterType));
+  const handleCategoryClick = (categoryId: CatalogCategoryId) => {
+    setPanelState((currentState) => buildCatalogPanelState(currentState, categoryId));
   };
 
   const handleLogoNavigation = (direction: 'prev' | 'next') => {

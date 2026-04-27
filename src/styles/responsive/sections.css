@@ -10,8 +10,34 @@
 
   .scroll-logo-hint {
     bottom: calc(1.35rem + (var(--safe-area-bottom) * 0.5));
-    font-size: 0.66rem;
-    letter-spacing: 0.24em;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-inline: 1rem;
+  }
+
+  .scroll-logo-hint-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.15rem;
+    border: 1px solid rgba(31, 78, 168, 0.16);
+    border-radius: 999px;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(245, 249, 255, 0.92));
+    box-shadow:
+      0 18px 38px rgba(31, 78, 168, 0.12),
+      0 2px 10px rgba(255, 255, 255, 0.72) inset;
+    color: #173d86;
+    font-family: "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
   }
 
   .events-section {
@@ -135,8 +161,12 @@
 
   .scroll-logo-hint {
     bottom: calc(1.8rem + (var(--safe-area-bottom) * 0.35));
-    font-size: 0.75rem;
-    letter-spacing: 0.28em;
+  }
+
+  .scroll-logo-hint-badge {
+    padding: 0.95rem 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.24em;
   }
 
   .events-section {
@@ -226,6 +256,12 @@
 
   .scroll-logo-hint {
     bottom: 2.4rem;
+  }
+
+  .scroll-logo-hint-badge {
+    padding: 1rem 1.75rem;
+    font-size: 0.84rem;
+    letter-spacing: 0.28em;
   }
 
   .events-section {
@@ -405,7 +441,12 @@
 
   .scroll-logo-hint {
     bottom: 3rem;
-    font-size: 0.82rem;
+  }
+
+  .scroll-logo-hint-badge {
+    padding: 1.05rem 1.9rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.32em;
   }
 
   .events-collage {

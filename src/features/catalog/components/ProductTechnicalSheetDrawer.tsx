@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
-import { ExternalLink, FileText, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
-import { getProductTechnicalSheet } from '../data/technicalSheets';
 import type { CatalogProduct } from '../types/catalog.types';
 import { getCatalogSpecEs } from '../utils/specFormatters';
 
@@ -19,7 +18,6 @@ export const ProductTechnicalSheetDrawer = ({
   onClose,
 }: ProductTechnicalSheetDrawerProps) => {
   const [mounted, setMounted] = useState(false);
-  const technicalSheet = product ? getProductTechnicalSheet(product) : null;
 
   useEffect(() => {
     setMounted(true);
@@ -125,7 +123,7 @@ export const ProductTechnicalSheetDrawer = ({
             </div>
 
             <div className="flex flex-1 flex-col overflow-y-auto">
-              <div className="grid gap-4 border-b border-stone-200 bg-white px-4 py-4 sm:px-6 sm:py-5">
+              <div className="grid gap-4 bg-white px-4 py-4 sm:px-6 sm:py-5">
                 <p className="text-sm leading-6 text-stone-600 sm:text-[0.95rem]">{product.description}</p>
 
                 <div className="flex flex-wrap gap-2">
@@ -155,64 +153,6 @@ export const ProductTechnicalSheetDrawer = ({
                     );
                   })}
                 </div>
-              </div>
-
-              <div className="flex-1 px-4 py-4 sm:px-6 sm:py-5">
-                <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">
-                      Documento
-                    </p>
-                    <h3 className="mt-2 text-lg font-bold text-stone-900">
-                      {technicalSheet ? 'Vista previa de ficha tecnica' : 'Ficha tecnica no disponible'}
-                    </h3>
-                  </div>
-
-                  {technicalSheet ? (
-                    <a
-                      href={technicalSheet.src}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-100 sm:w-auto sm:shrink-0 sm:justify-start"
-                    >
-                      <ExternalLink size={16} />
-                      Abrir
-                    </a>
-                  ) : null}
-                </div>
-
-                {technicalSheet ? (
-                  technicalSheet.type === 'pdf' ? (
-                    <div className="overflow-hidden rounded-[2rem] border border-stone-200 bg-white shadow-[0_24px_60px_rgba(28,25,23,0.08)]">
-                      <iframe
-                        title={technicalSheet.title ?? `Ficha tecnica de ${product.name}`}
-                        src={technicalSheet.src}
-                        className="h-[58dvh] min-h-[24rem] w-full bg-white sm:h-[70vh]"
-                      />
-                    </div>
-                  ) : (
-                    <div className="overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-3 shadow-[0_24px_60px_rgba(28,25,23,0.08)]">
-                      <img
-                        src={technicalSheet.src}
-                        alt={technicalSheet.title ?? `Ficha tecnica de ${product.name}`}
-                        className="h-auto w-full rounded-[1.4rem] object-contain"
-                      />
-                    </div>
-                  )
-                ) : (
-                  <div className="flex min-h-[14rem] flex-col items-center justify-center rounded-[2rem] border border-dashed border-stone-300 bg-white px-5 py-7 text-center shadow-[0_24px_60px_rgba(28,25,23,0.05)] sm:min-h-[16rem] sm:px-6 sm:py-8">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-stone-100 text-stone-500">
-                      <FileText size={22} />
-                    </div>
-                    <p className="mt-4 text-base font-semibold text-stone-900">
-                      La ficha tecnica de esta presentacion estara disponible muy pronto.
-                    </p>
-                    <p className="mt-2 max-w-md text-sm leading-6 text-stone-600">
-                      Mientras tanto, puedes explorar las demas presentaciones del producto o
-                      contactarnos para recibir mas informacion.
-                    </p>
-                  </div>
-                )}
               </div>
             </div>
           </motion.aside>
