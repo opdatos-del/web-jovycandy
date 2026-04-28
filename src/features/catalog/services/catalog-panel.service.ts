@@ -36,7 +36,7 @@ const CATEGORY_CARD_IMAGE_MAP: Record<CatalogCategoryId, string> = {
   gomitas_almidon: '/ISOTIPOS/ISOTIPOS-N-05.webp',
   dulces_paletas: '/ISOTIPOS/ISOTIPOS-N-04.webp',
   pinatero: '/ISOTIPOS/ISOTIPOS-N-03.webp',
-  gomitas_grenetina: '/ISOTIPOS/ISOTIPOS-N-06.webp',
+  gomitas_grenetina: '/ISOTIPOS/ISOTIPO-GOMITAS-GRENETINA.webp',
 };
 
 const CATEGORY_FONDOS_MAP: Record<CatalogCategoryId, { primary: string; hover: string }> = {
