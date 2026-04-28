@@ -29,8 +29,10 @@ export const AppSections = () => (
     </div>
     <SectionColorTransition fromColor="#ffffff" toColor="#FF0004" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
     <TaglineSection />
+    <SectionColorTransition fromColor="#FF0004" toColor="#f8ebe6" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
     <div id="nuestra-esencia">
       <About />
     </div>
+    <SectionColorTransition fromColor="#f8ebe6" toColor="#00afaa" heightClassName="h-[clamp(4rem,7vw,7rem)]" />
   </>
 );

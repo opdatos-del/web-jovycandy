@@ -125,7 +125,7 @@ export const TaglineSection = () => {
               Casa Jovy
             </p>
             <h2 className="mt-4 max-w-[13ch] text-[2.3rem] font-black leading-[0.92] tracking-[-0.05em] text-white sm:text-[2.55rem] lg:text-[2.8rem]">
-              Donde la marca se vive desde adentro.
+              Donde la marca se vive desde adentro
             </h2>
             <div className="mt-6 max-w-[33rem] space-y-4 text-sm leading-7 text-white/75 sm:text-[0.94rem]">
               <p>
@@ -189,7 +189,7 @@ export const TaglineSection = () => {
               Redes Casa Jovy
             </p>
             <h3 className="mt-4 max-w-[14ch] text-[2rem] font-black leading-[0.94] tracking-[-0.05em] text-white sm:text-[2.2rem] lg:text-[2.35rem]">
-              Una comunidad distinta a Jovy.
+              Una comunidad distinta a Jovy
             </h3>
 
             <div className="mt-7 space-y-0 border-t border-white/40">
