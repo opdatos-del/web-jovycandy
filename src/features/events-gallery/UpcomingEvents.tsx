@@ -48,7 +48,7 @@ export const UpcomingEvents = () => {
   }, [activeEvent]);
 
   return (
-    <section ref={sectionRef} className="events-section relative overflow-hidden bg-[#fff5d4]">
+    <section ref={sectionRef} className="events-section relative -mt-px overflow-hidden bg-[#fff5d4]">
       <div className="events-section-header flex justify-center">
         <h2 className="font-mono text-xs uppercase text-stone-400 opacity-90 sm:text-sm">
           Galeria y Eventos
