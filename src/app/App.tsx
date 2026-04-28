@@ -7,6 +7,7 @@ import { AppSections } from './layout/AppSections';
 import { useAppModals } from './hooks/useAppModals';
 import { useMobileMenu } from './hooks/useMobileMenu';
 import { AppNavbar } from './navigation/AppNavbar';
+import { JovyEasterEgg } from '@/shared/ui/JovyEasterEgg';
 
 export default function App() {
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useMobileMenu();
@@ -27,6 +28,7 @@ export default function App() {
         toggleMobileMenu={toggleMobileMenu}
       />
       <AppSections />
+      <JovyEasterEgg />
       <AppFooter onContactClick={openContactModal} />
 
       <ContactModal open={activeModal === 'contact'} onClose={closeActiveModal} />
