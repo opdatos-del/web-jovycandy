@@ -93,8 +93,12 @@
     max-height: min(88dvh, 90svh);
   }
 
-  .tagline-section-bg {
-    background-attachment: scroll;
+  .tagline-section-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #FF0004, #FF2E31, #FF2E31, #FF0004);
+    pointer-events: none;
   }
 
   .tagline-copy {
@@ -648,7 +652,5 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .tagline-section-bg {
-    background-attachment: fixed;
-  }
+  /* Gradient handled by ::before pseudo-element */
 }

@@ -113,7 +113,7 @@ export const TaglineSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="tagline-section-bg relative overflow-hidden bg-[#f3e4da] py-0"
+      className="tagline-section-bg relative overflow-hidden py-0"
     >
       <div ref={contentRef} className="relative z-10 w-full">
         <div className="grid min-h-[42rem] lg:min-h-[39rem] lg:grid-cols-[0.95fr_1.1fr_0.95fr]">
@@ -121,13 +121,13 @@ export const TaglineSection = () => {
             data-casa-jovy-column
             className="flex flex-col justify-center border-b border-white/30 px-6 py-10 sm:px-8 md:px-10 lg:min-h-[39rem] lg:border-b-0 lg:border-r lg:border-white/30 lg:px-10 xl:px-12"
           >
-            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-[#9b7660]">
+            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-white/85">
               Casa Jovy
             </p>
-            <h2 className="mt-4 max-w-[13ch] text-[2.3rem] font-black leading-[0.92] tracking-[-0.05em] text-[#231813] sm:text-[2.55rem] lg:text-[2.8rem]">
+            <h2 className="mt-4 max-w-[13ch] text-[2.3rem] font-black leading-[0.92] tracking-[-0.05em] text-white sm:text-[2.55rem] lg:text-[2.8rem]">
               Donde la marca se vive desde adentro.
             </h2>
-            <div className="mt-6 max-w-[33rem] space-y-4 text-sm leading-7 text-[#694f43] sm:text-[0.94rem]">
+            <div className="mt-6 max-w-[33rem] space-y-4 text-sm leading-7 text-white/75 sm:text-[0.94rem]">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere,
                 justo vitae dictum feugiat, mauris arcu volutpat lectus, eu interdum
@@ -147,10 +147,10 @@ export const TaglineSection = () => {
           >
             <div className="flex h-full flex-col justify-center">
               <div className="mb-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-[#9b7660]">
+                <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-white/85">
                   Galeria
                 </p>
-                <h3 className="mt-3 text-[2rem] font-black leading-[0.94] tracking-[-0.05em] text-[#231813] sm:text-[2.2rem] lg:text-[2.35rem]">
+                <h3 className="mt-3 text-[2rem] font-black leading-[0.94] tracking-[-0.05em] text-white sm:text-[2.2rem] lg:text-[2.35rem]">
                   Casa Jovy en imagenes
                 </h3>
               </div>
@@ -185,10 +185,10 @@ export const TaglineSection = () => {
             data-casa-jovy-column
             className="flex flex-col justify-center px-6 py-10 sm:px-8 md:px-10 lg:min-h-[39rem] lg:px-10 xl:px-12"
           >
-            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-[#9b7660]">
+            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-white/85">
               Redes Casa Jovy
             </p>
-            <h3 className="mt-4 max-w-[14ch] text-[2rem] font-black leading-[0.94] tracking-[-0.05em] text-[#231813] sm:text-[2.2rem] lg:text-[2.35rem]">
+            <h3 className="mt-4 max-w-[14ch] text-[2rem] font-black leading-[0.94] tracking-[-0.05em] text-white sm:text-[2.2rem] lg:text-[2.35rem]">
               Una comunidad distinta a Jovy.
             </h3>
 
@@ -198,17 +198,17 @@ export const TaglineSection = () => {
                   key={label}
                   className="flex items-start gap-4 border-b border-white/40 py-4"
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/55 text-[#87553b] shadow-[0_6px_18px_rgba(101,70,49,0.08)]">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/55 text-white shadow-[0_6px_18px_rgba(101,70,49,0.08)]">
                     <Icon className="h-5 w-5" strokeWidth={2} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#9b7660]">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/85">
                       {label}
                     </p>
-                    <p className="mt-1 text-base font-black tracking-[-0.03em] text-[#231813]">
+                    <p className="mt-1 text-base font-black tracking-[-0.03em] text-white/70">
                       {handle}
                     </p>
-                    <p className="mt-1 text-sm leading-6 text-[#694f43]">{detail}</p>
+                    <p className="mt-1 text-sm leading-6 text-white/75">{detail}</p>
                   </div>
                 </div>
               ))}

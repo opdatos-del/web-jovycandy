@@ -27,7 +27,7 @@ export const AppSections = () => (
     <div id="tienda">
       <CategoryGrid />
     </div>
-    <SectionColorTransition fromColor="#ffffff" toColor="#f3e4da" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
+    <SectionColorTransition fromColor="#ffffff" toColor="#FF0004" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
     <TaglineSection />
     <div id="nuestra-esencia">
       <About />
