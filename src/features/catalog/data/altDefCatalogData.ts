@@ -1,7 +1,16 @@
 import type { CatalogLogoOption, CatalogProduct, CatalogSpec } from '../types/catalog.types';
-import { buildBrandMarkPath, buildCatalogCarouselPath, buildCatalogLogoPath, buildCatalogProductPath } from '@/shared/assets/publicAssets';
+import { buildBrandMarkPath, buildCatalogBowlPath, buildCatalogCarouselPath, buildCatalogLogoPath, buildCatalogProductPath } from '@/shared/assets/publicAssets';
 
 const buildAltDefAssetPath = (...segments: string[]) => buildCatalogCarouselPath(...segments);
+
+const chamoybearsBowlImage = buildCatalogBowlPath('chamoy/chamoy-bears-assorted.webp');
+const chamoyringspeachBowlImage = buildCatalogBowlPath('chamoy/chamoy-rings-peach-assorted.webp');
+const chamoyringswatermelonBowlImage = buildCatalogBowlPath('chamoy/chamoy-rings-watermelon-assorted.webp');
+const chamoywormsBowlImage = buildCatalogBowlPath('chamoy/chamoy-worms-assorted.webp');
+
+const happymixBearsBowlImage = buildCatalogBowlPath('pinatero/happy-mix-assorted.webp');
+const revolcadosmixBowlImage = buildCatalogBowlPath('pinatero/revolcados-mix-assorted.webp');
+
 
 const updateBagWeight = (specs: CatalogSpec[], bagWeight: string) =>
   specs.map((spec) =>
@@ -388,6 +397,7 @@ const chamoyBearsTemplate: ProductTemplate = {
   subtitle: 'Gummy candy\nChamoy Coated',
   description: 'Ositos enchilados con recubrimiento de chamoy y perfil agridulce.',
   image: buildAltDefAssetPath('100g', 'Mockup Chamoy Bears MX 100g.webp'),
+  bowlImage: chamoybearsBowlImage,
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
@@ -416,6 +426,7 @@ const chamoyWormsTemplate: ProductTemplate = {
   subtitle: 'Gummy candy\nChamoy Coated',
   description: 'Worms enchilados con capa de chamoy para un perfil mas intenso.',
   image: buildAltDefAssetPath('100g', 'Mockup Chamoy Worms MX 100g.webp'),
+  bowlImage: chamoywormsBowlImage,
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -444,6 +455,7 @@ const chamoyRingsWatermelonTemplate: ProductTemplate = {
   subtitle: 'Gummy candy\nChamoy Watermelon',
   description: 'Aros de sandia cubiertos con chamoy para un perfil dulce y picante.',
   image: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Sandia MX 1 kg_Mayo 24.webp'),
+  bowlImage: chamoyringswatermelonBowlImage,
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -472,6 +484,7 @@ const chamoyRingsPeachTemplate: ProductTemplate = {
   subtitle: 'Gummy candy\nChamoy Peach',
   description: 'Aros de durazno cubiertos con chamoy para un perfil dulce y picante.',
   image: buildAltDefAssetPath('1kg', 'Mckup Chamoy Rings Durazno MX 1 kg_Mayo 24.webp'),
+  bowlImage: chamoyringspeachBowlImage,
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -500,6 +513,7 @@ const happyMixTemplate: ProductTemplate = {
   subtitle: 'Assorted Mix\nMulti Flavor',
   description: 'Surtido de dulces variados con las nuevas presentaciones de alta definicion.',
   image: buildCatalogProductPath('spicy', 'PIÑATERO', 'HAPPY MIX', 'JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp'),
+  bowlImage: happymixBearsBowlImage,
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -528,6 +542,7 @@ const revolcadosMixTemplate: ProductTemplate = {
   subtitle: 'Sweet & Spicy Mix\nBalanced Heat',
   description: 'Mix especial de dulces y picantes para piñateros tradicionales.',
   image: buildCatalogProductPath('spicy', 'PIÑATERO', 'REVOLCADOS MIX', 'JOVY-PINATEROS-Revolcados-Mix-5-lb-300x300.webp'),
+  bowlImage: revolcadosmixBowlImage,
   certifications: ['SGS', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },

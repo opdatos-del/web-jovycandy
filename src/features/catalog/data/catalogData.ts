@@ -60,10 +60,21 @@ const productImageMap: Record<string, Record<string, string>> = {
       buildCatalogProductPath('spicy', 'LOLLIPOPS', 'MANGO REVOLCADO', 'JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp'),
   },
 };
+const chamoybearsBowlImage = buildCatalogBowlPath('chamoy-bears-assorted.webp');
+const chamoyringspeachBowlImage = buildCatalogBowlPath('chamoy-rings-peach-assorted.webp');
+const chamoyringswatermelonBowlImage = buildCatalogBowlPath('chamoy-rings-watermelon-assorted.webp');
+const chamoywormsBowlImage = buildCatalogBowlPath('chamoy-worms-assorted.webp');
+const chilirokasBowlImage = buildCatalogBowlPath('chamoy/Chilirokas-Assorted.png');
+const chilirokasmangoBowlImage = buildCatalogBowlPath('chamoy/chilirokas-mango-assorted.webp');
+const chilirokastamarindoBowlImage = buildCatalogBowlPath('chamoy/chilirokas-tamarindo-assorted.webp');
+const chilirokawatermelonBowlImage = buildCatalogBowlPath('chamoy/chilirokas-watermelon-assorted.webp');
+const enchilokasBowlImage = buildCatalogBowlPath('chamoy/enchilokas-assorted.webp');
+const revolcaditasBowlImage = buildCatalogBowlPath('chamoy/revolcaditas-assorted.webp');
+const tamarosBowlImage = buildCatalogBowlPath('chamoy/tamaros-assorted.webp');
+const vallenitomangoBowlImage = buildCatalogBowlPath('chamoy/vallenito-mango-assorted.webp');
+const vallenitoBowlImage = buildCatalogBowlPath('chamoy/vallenito-assorted.webp');
+const vallenitowatermelonBowlImage = buildCatalogBowlPath('chamoy/vallenito-watermelon-assorted.webp');
 
-const chilirokasBowlImage = buildCatalogBowlPath('Chilirokas-Assorted.png');
-const tamarosBowlImage = buildCatalogBowlPath('tamaros-assorted.webp');
-const enchilokasBowlImage = buildCatalogBowlPath('enchilokas-assorted.webp');
 
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
   gomitas_grenetina: gomitasGrenetinaAltDefLogos,
@@ -550,7 +561,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp'),
-        bowlImage: chilirokasBowlImage,
+        bowlImage: chilirokasmangoBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -583,7 +594,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp'),
-        bowlImage: chilirokasBowlImage,
+        bowlImage: chilirokasmangoBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -616,7 +627,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp'),
-        bowlImage: chilirokasBowlImage,
+        bowlImage: chilirokastamarindoBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -649,7 +660,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp'),
-        bowlImage: chilirokasBowlImage,
+        bowlImage: chilirokastamarindoBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -683,7 +694,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp'),
-        bowlImage: chilirokasBowlImage,
+        bowlImage: chilirokawatermelonBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -717,7 +728,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp'),
-        bowlImage: chilirokasBowlImage,
+        bowlImage: chilirokawatermelonBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -751,6 +762,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp'),
+        bowlImage: revolcaditasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -784,6 +796,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp'),
+        bowlImage: revolcaditasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -817,6 +830,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp'),
+        bowlImage: revolcaditasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -850,6 +864,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp'),
+        bowlImage: revolcaditasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -883,6 +898,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp'),
+        bowlImage: revolcaditasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -1015,6 +1031,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp'),
+        bowlImage: vallenitoBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -1048,6 +1065,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp'),
+        bowlImage: vallenitoBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -1081,6 +1099,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp'),
+        bowlImage: vallenitomangoBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -1114,6 +1133,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp'),
+        bowlImage: vallenitowatermelonBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
