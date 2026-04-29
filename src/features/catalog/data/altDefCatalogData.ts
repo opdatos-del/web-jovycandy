@@ -41,6 +41,7 @@ const createVariant = (template: ProductTemplate, variant: VariantConfig): Catal
 };
 
 const brandLogo = buildAltDefAssetPath('BRAND JOVY.webp');
+const gummiesAssortedLogo = '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/FRUTASTIKA-BLUES.webp';
 
 const ringsWatermelonTemplate: ProductTemplate = {
   id: 'rings-watermelon-template',
@@ -781,7 +782,7 @@ export const gomitasGrenetinaAltDefLogos: CatalogLogoOption[] = [
     src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/watermelon_slices-300x300.webp',
     alt: 'Gomitas Watermelon Slices',
   },
-  { src: brandLogo, alt: 'Gomitas surtidas' },
+  { src: gummiesAssortedLogo, alt: 'Gomitas surtidas' },
   {
     src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Rings-Revolcado-300x300.webp',
     alt: 'Gomitas Rings Revolcado',
@@ -806,7 +807,7 @@ export const gomitasGrenetinaAltDefLogoProductsMap: Record<string, string[]> = {
   '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Worms-300x300.webp': ['Worms Original', 'Worms Neon'],
   '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Bears-300x300.webp': ['Bears Classic', 'Bears Neon'],
   '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/watermelon_slices-300x300.webp': ['Watermelon Slices'],
-  [brandLogo]: ['Frutastika', 'Blue Sharks', 'Sharks Mix'],
+  [gummiesAssortedLogo]: ['Frutastika', 'Blue Sharks', 'Sharks Mix'],
   '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Rings-Revolcado-300x300.webp': [
     'Chamoy Rings Watermelon',
     'Chamoy Rings Peach',
