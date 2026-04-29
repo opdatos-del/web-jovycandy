@@ -153,6 +153,24 @@ export const ProductTechnicalSheetDrawer = ({
                     );
                   })}
                 </div>
+
+                {product.bowlImage ? (
+                  <div className="overflow-hidden rounded-3xl border border-stone-200 bg-white">
+                    <div className="border-b border-stone-200 px-4 py-3 sm:px-5">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
+                        Presentacion en bowl
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-center px-4 py-5 sm:px-6 sm:py-6">
+                      <img
+                        src={product.bowlImage}
+                        alt={`Bowl de ${product.name}`}
+                        className="max-h-[18rem] w-full object-contain"
+                        draggable={false}
+                      />
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
           </motion.aside>

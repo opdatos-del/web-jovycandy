@@ -40,6 +40,7 @@ export type CatalogProduct = {
   carouselImage?: string;
   sampleImage?: string;
   secondaryImage: string;
+  bowlImage?: string;
   certifications: CatalogCertification[];
   specs: CatalogSpec[];
   collapsibleInfo: CatalogInfoItem[];

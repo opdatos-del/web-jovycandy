@@ -23,6 +23,7 @@ type VariantConfig = {
   bagWeight?: string;
   carouselImage: string;
   image?: string;
+  bowlImage?: string;
 };
 
 const createVariant = (template: ProductTemplate, variant: VariantConfig): CatalogProduct => {
@@ -35,13 +36,15 @@ const createVariant = (template: ProductTemplate, variant: VariantConfig): Catal
     sampleImage: fallbackImage,
     secondaryImage: fallbackImage,
     carouselImage: variant.carouselImage,
+    bowlImage: variant.bowlImage ?? template.bowlImage,
     gramaje: variant.gramaje,
     specs: updateBagWeight(template.specs, variant.bagWeight ?? variant.gramaje),
   };
 };
 
 const brandLogo = buildAltDefAssetPath('BRAND JOVY.webp');
-const gummiesAssortedLogo = '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/FRUTASTIKA-BLUES.webp';
+const frutastikaBluesImage = '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/FRUTASTIKA-BLUES.webp';
+const gummiesAssortedLogo = frutastikaBluesImage;
 
 const ringsWatermelonTemplate: ProductTemplate = {
   id: 'rings-watermelon-template',
@@ -302,6 +305,7 @@ const frutastikaTemplate: ProductTemplate = {
   subtitle: 'Gummy candy\nFruit Mix',
   description: 'Mezcla surtida de gomitas con enfoque frutal para presentaciones individuales.',
   image: buildAltDefAssetPath('100g', 'Mockup Frutastika MX 100g.webp'),
+  bowlImage: frutastikaBluesImage,
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },

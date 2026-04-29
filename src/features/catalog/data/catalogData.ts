@@ -55,6 +55,8 @@ const productImageMap: Record<string, Record<string, string>> = {
   },
 };
 
+const chilirokasBowlImage = '/bowls/Chilirokas-Assorted.png';
+
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
   gomitas_grenetina: gomitasGrenetinaAltDefLogos,
   sazonador: [{ src: '/WEBP PRODUCTOS/SPICY/POWDERS/LOGOS/Acirrico-300x300.webp', alt: 'Polvos Acirrico' }],
@@ -435,6 +437,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -467,6 +470,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -499,6 +503,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -531,6 +536,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -563,6 +569,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -595,6 +602,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -627,6 +635,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -660,6 +669,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -693,6 +703,7 @@ export const catalogData: CatalogData = {
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp',
         secondaryImage:
           '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp',
+        bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
