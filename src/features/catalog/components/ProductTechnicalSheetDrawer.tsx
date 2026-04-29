@@ -18,6 +18,9 @@ export const ProductTechnicalSheetDrawer = ({
   onClose,
 }: ProductTechnicalSheetDrawerProps) => {
   const [mounted, setMounted] = useState(false);
+  const [activeBowlImage, setActiveBowlImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const closeBowlPreview = () => setActiveBowlImage(null);
 
   useEffect(() => {
     setMounted(true);
@@ -39,18 +42,29 @@ export const ProductTechnicalSheetDrawer = ({
 
   useEffect(() => {
     if (!product) {
+      setActiveBowlImage(null);
+    }
+  }, [product]);
+
+  useEffect(() => {
+    if (!product) {
       return;
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
+        if (activeBowlImage) {
+          closeBowlPreview();
+          return;
+        }
+
         onClose();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [product, onClose]);
+  }, [activeBowlImage, product, onClose]);
 
   if (!mounted) {
     return null;
@@ -161,19 +175,64 @@ export const ProductTechnicalSheetDrawer = ({
                         Presentacion en bowl
                       </p>
                     </div>
-                    <div className="flex items-center justify-center px-4 py-5 sm:px-6 sm:py-6">
-                      <img
-                        src={product.bowlImage}
-                        alt={`Bowl de ${product.name}`}
-                        className="max-h-[18rem] w-full object-contain"
-                        draggable={false}
-                      />
+                    <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 sm:px-6 sm:py-6">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveBowlImage({
+                            src: product.bowlImage!,
+                            alt: `Bowl de ${product.name}`,
+                          })
+                        }
+                        className="w-full rounded-2xl transition-transform duration-300 hover:scale-[1.01]"
+                        aria-label={`Ver bowl de ${product.name} en pantalla completa`}
+                      >
+                        <img
+                          src={product.bowlImage}
+                          alt={`Bowl de ${product.name}`}
+                          className="max-h-[18rem] w-full object-contain"
+                          draggable={false}
+                        />
+                      </button>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400">
+                        Clic para ampliar
+                      </p>
                     </div>
                   </div>
                 ) : null}
               </div>
             </div>
           </motion.aside>
+
+          <AnimatePresence>
+            {activeBowlImage ? (
+              <motion.div
+                className="fixed inset-0 z-[140] flex items-center justify-center bg-stone-950/82 p-4 backdrop-blur-sm sm:p-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.18 }}
+                onMouseDown={(event) => {
+                  if (event.target === event.currentTarget) {
+                    closeBowlPreview();
+                  }
+                }}
+                aria-label={activeBowlImage.alt}
+                role="dialog"
+              >
+                <motion.img
+                  src={activeBowlImage.src}
+                  alt={activeBowlImage.alt}
+                  className="max-h-[92vh] max-w-[92vw] object-contain"
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.18 }}
+                  draggable={false}
+                />
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </motion.div>
       ) : null}
     </AnimatePresence>,
