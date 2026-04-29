@@ -14,7 +14,6 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
     "allowJs": true,
     "jsx": "react-jsx",
     "paths": {

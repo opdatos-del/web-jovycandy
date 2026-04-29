@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { buildCertificationAssetPath } from '@/shared/assets/publicAssets';
 
 type CertificationItem = {
   src: string;
@@ -12,8 +13,8 @@ type CertificationItem = {
 
 const certificationItems: CertificationItem[] = [
   {
-    src: '/certifications/sgs.webp',
-    pdf: '/certifications/MXMEX_553119308_CertificateFSSC_Final.pdf',
+    src: buildCertificationAssetPath('sgs.webp'),
+    pdf: buildCertificationAssetPath('MXMEX_553119308_CertificateFSSC_Final.pdf'),
     alt: 'SGS',
     cardClassName: 'col-span-1',
     imageClassName:
@@ -21,8 +22,8 @@ const certificationItems: CertificationItem[] = [
     imageMaxWidth: 'clamp(10rem, calc(14rem * var(--content-scale)), calc(20rem * var(--display-scale)))',
   },
   {
-    src: '/certifications/Kosher_icon.webp',
-    pdf: '/certifications/Kosher.pdf',
+    src: buildCertificationAssetPath('Kosher_icon.webp'),
+    pdf: buildCertificationAssetPath('Kosher.pdf'),
     alt: 'Kosher',
     cardClassName: 'col-span-1',
     imageClassName:
@@ -30,8 +31,8 @@ const certificationItems: CertificationItem[] = [
     imageMaxWidth: 'clamp(9.5rem, calc(13rem * var(--content-scale)), calc(19rem * var(--display-scale)))',
   },
   {
-    src: '/certifications/halal.webp',
-    pdf: '/certifications/IH-634.2024.C06.S1-Halal.pdf',
+    src: buildCertificationAssetPath('halal.webp'),
+    pdf: buildCertificationAssetPath('IH-634.2024.C06.S1-Halal.pdf'),
     alt: 'Halal',
     cardClassName: 'col-span-1',
     imageClassName:

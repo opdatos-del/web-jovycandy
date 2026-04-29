@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'motion/react';
+import { buildMarketingFramePath } from '@/shared/assets/publicAssets';
 
 const TOTAL_FRAMES = 120;
 const FRAME_PADDING = 2;
-const FRAME_PATH = '/frames/logo';
 const FRAME_ROOT_MARGIN = '150% 0px';
 const FRAMES = Array.from({ length: TOTAL_FRAMES }, (_, index) => {
   const frameNumber = String(index + 1).padStart(FRAME_PADDING, '0');
-  return `${FRAME_PATH}/frame_${frameNumber}.webp`;
+  return buildMarketingFramePath(`frame_${frameNumber}.webp`);
 });
 
 const getSectionHeight = () => {

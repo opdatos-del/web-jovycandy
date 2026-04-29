@@ -1,9 +1,7 @@
 import type { CatalogLogoOption, CatalogProduct, CatalogSpec } from '../types/catalog.types';
+import { buildBrandMarkPath, buildCatalogCarouselPath, buildCatalogLogoPath, buildCatalogProductPath } from '@/shared/assets/publicAssets';
 
-const ALT_DEF_ROOT = '/imagenes-alt-def';
-
-const buildAltDefAssetPath = (...segments: string[]) =>
-  `${ALT_DEF_ROOT}/${segments.join('/')}`;
+const buildAltDefAssetPath = (...segments: string[]) => buildCatalogCarouselPath(...segments);
 
 const updateBagWeight = (specs: CatalogSpec[], bagWeight: string) =>
   specs.map((spec) =>
@@ -42,8 +40,8 @@ const createVariant = (template: ProductTemplate, variant: VariantConfig): Catal
   };
 };
 
-const brandLogo = buildAltDefAssetPath('BRAND JOVY.webp');
-const frutastikaBluesImage = '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/FRUTASTIKA-BLUES.webp';
+const brandLogo = buildBrandMarkPath('BRAND JOVY.png');
+const frutastikaBluesImage = buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'FRUTASTIKA-BLUES.webp');
 const gummiesAssortedLogo = frutastikaBluesImage;
 
 const ringsWatermelonTemplate: ProductTemplate = {
@@ -52,7 +50,7 @@ const ringsWatermelonTemplate: ProductTemplate = {
   productFamily: 'Rings Watermelon',
   subtitle: 'Gummy candy\nFlavor: Watermelon',
   description: 'Deliciosas gomitas en forma de aro con un intenso y refrescante sabor a sandia.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp'),
   certifications: ['SGS', 'OU Kosher', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -80,7 +78,7 @@ const ringsNeonTemplate: ProductTemplate = {
   productFamily: 'Rings Neon',
   subtitle: 'Gummy candy\nNeon Colors',
   description: 'Aros de gomita en tonos neon con perfil dulce y textura suave.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp'),
   certifications: ['SGS', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -108,7 +106,7 @@ const ringsPeachTemplate: ProductTemplate = {
   productFamily: 'Gummies Peach',
   subtitle: 'Gummy candy\nFlavor: Peach',
   description: 'Aros de gomita con un dulce y jugoso sabor a durazno.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp'),
   certifications: ['SGS', 'OU Kosher'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -136,7 +134,7 @@ const ringsGreenAppleTemplate: ProductTemplate = {
   productFamily: 'Rings Green Apple',
   subtitle: 'Gummy candy\nFlavor: Green Apple',
   description: 'Aros de gomita con perfil frutal y un toque fresco de manzana verde.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Green-Apple-5-lb-1-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Green-Apple-5-lb-1-300x300.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -164,7 +162,7 @@ const wormsOriginalTemplate: ProductTemplate = {
   productFamily: 'Worms Original',
   subtitle: 'Gummy candy\nFruit Mix',
   description: 'Gomitas tipo worm con una mezcla clasica de sabores frutales.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/WORMS/JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'WORMS', 'JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp'),
   certifications: ['SGS', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -192,7 +190,7 @@ const wormsNeonTemplate: ProductTemplate = {
   productFamily: 'Worms Neon',
   subtitle: 'Gummy candy\nNeon Fruit Mix',
   description: 'Gomitas tipo worm en combinaciones neon con perfil frutal mas intenso.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/WORMS/JOVY-SWEET-GUMMIES-Worms-Neon-5-lb-1-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'WORMS', 'JOVY-SWEET-GUMMIES-Worms-Neon-5-lb-1-300x300.webp'),
   certifications: ['SGS', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -220,7 +218,7 @@ const bearsClassicTemplate: ProductTemplate = {
   productFamily: 'Bears Classic',
   subtitle: 'Gummy candy\n12 Flavors',
   description: 'Ositos de gomita con perfil dulce tradicional y colores surtidos.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/BEARS/JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'BEARS', 'JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp'),
   certifications: ['SGS', 'OU Kosher', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
@@ -248,7 +246,7 @@ const bearsNeonTemplate: ProductTemplate = {
   productFamily: 'Bears Neon',
   subtitle: 'Gummy candy\nNeon Mix',
   description: 'Ositos de gomita en colores neon con perfil dulce y frutal.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/BEARS/JOVY-SWEET-GUMMIES-Bears-Neon-5-lb-1-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'BEARS', 'JOVY-SWEET-GUMMIES-Bears-Neon-5-lb-1-300x300.webp'),
   certifications: ['SGS', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
@@ -276,7 +274,7 @@ const watermelonSlicesTemplate: ProductTemplate = {
   productFamily: 'Watermelon Slices',
   subtitle: 'Gummy candy\nFlavor: Watermelon',
   description: 'Rebanadas de sandia con textura suave y un perfil dulce refrescante.',
-  image: '/WEBP PRODUCTOS/SWEET/GUMMIES/WATERMELON SLICES/JOVY-SWEET-GUMMIES-Watermelon-Slices-5-lb-300x300.webp',
+  image: buildCatalogProductPath('sweet', 'GUMMIES', 'WATERMELON SLICES', 'JOVY-SWEET-GUMMIES-Watermelon-Slices-5-lb-300x300.webp'),
   certifications: ['SGS', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
@@ -501,7 +499,7 @@ const happyMixTemplate: ProductTemplate = {
   productFamily: 'Happy Mix',
   subtitle: 'Assorted Mix\nMulti Flavor',
   description: 'Surtido de dulces variados con las nuevas presentaciones de alta definicion.',
-  image: '/WEBP PRODUCTOS/SPICY/PIÑATERO/HAPPY MIX/JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp',
+  image: buildCatalogProductPath('spicy', 'PIÑATERO', 'HAPPY MIX', 'JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp'),
   certifications: ['SGS'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -529,7 +527,7 @@ const revolcadosMixTemplate: ProductTemplate = {
   productFamily: 'Revolcados Mix',
   subtitle: 'Sweet & Spicy Mix\nBalanced Heat',
   description: 'Mix especial de dulces y picantes para piñateros tradicionales.',
-  image: '/WEBP PRODUCTOS/SPICY/PIÑATERO/REVOLCADOS MIX/JOVY-PINATEROS-Revolcados-Mix-5-lb-300x300.webp',
+  image: buildCatalogProductPath('spicy', 'PIÑATERO', 'REVOLCADOS MIX', 'JOVY-PINATEROS-Revolcados-Mix-5-lb-300x300.webp'),
   certifications: ['SGS', 'Halal'],
   specs: [
     { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -779,45 +777,45 @@ export const gomitasGrenetinaAltDefProducts: CatalogProduct[] = [
 ];
 
 export const gomitasGrenetinaAltDefLogos: CatalogLogoOption[] = [
-  { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Rings-300x300.webp', alt: 'Gomitas Rings' },
-  { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Worms-300x300.webp', alt: 'Gomitas Worms' },
-  { src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Bears-300x300.webp', alt: 'Gomitas Bears' },
+  { src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Rings-300x300.webp'), alt: 'Gomitas Rings' },
+  { src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Worms-300x300.webp'), alt: 'Gomitas Worms' },
+  { src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Bears-300x300.webp'), alt: 'Gomitas Bears' },
   {
-    src: '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/watermelon_slices-300x300.webp',
+    src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'watermelon_slices-300x300.webp'),
     alt: 'Gomitas Watermelon Slices',
   },
   { src: gummiesAssortedLogo, alt: 'Gomitas surtidas' },
   {
-    src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Rings-Revolcado-300x300.webp',
+    src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Rings-Revolcado-300x300.webp'),
     alt: 'Gomitas Rings Revolcado',
   },
   {
-    src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Worms-Revolcado-1-300x300.webp',
+    src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Worms-Revolcado-1-300x300.webp'),
     alt: 'Gomitas Worms Revolcado',
   },
   {
-    src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Bears_Revolcado-1-300x300.webp',
+    src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Bears_Revolcado-1-300x300.webp'),
     alt: 'Gomitas Bears Revolcado',
   },
 ];
 
 export const gomitasGrenetinaAltDefLogoProductsMap: Record<string, string[]> = {
-  '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Rings-300x300.webp': [
+  [buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Rings-300x300.webp')]: [
     'Rings Watermelon',
     'Rings Neon',
     'Gummies Peach',
     'Rings Green Apple',
   ],
-  '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Worms-300x300.webp': ['Worms Original', 'Worms Neon'],
-  '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/Bears-300x300.webp': ['Bears Classic', 'Bears Neon'],
-  '/WEBP PRODUCTOS/SWEET/GUMMIES/LOGOS/watermelon_slices-300x300.webp': ['Watermelon Slices'],
+  [buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Worms-300x300.webp')]: ['Worms Original', 'Worms Neon'],
+  [buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Bears-300x300.webp')]: ['Bears Classic', 'Bears Neon'],
+  [buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'watermelon_slices-300x300.webp')]: ['Watermelon Slices'],
   [gummiesAssortedLogo]: ['Frutastika', 'Blue Sharks', 'Sharks Mix'],
-  '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Rings-Revolcado-300x300.webp': [
+  [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Rings-Revolcado-300x300.webp')]: [
     'Chamoy Rings Watermelon',
     'Chamoy Rings Peach',
   ],
-  '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Worms-Revolcado-1-300x300.webp': ['Chamoy Worms'],
-  '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Bears_Revolcado-1-300x300.webp': ['Chamoy Bears'],
+  [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Worms-Revolcado-1-300x300.webp')]: ['Chamoy Worms'],
+  [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Bears_Revolcado-1-300x300.webp')]: ['Chamoy Bears'],
 };
 
 export const pinateroAltDefProducts: CatalogProduct[] = [
@@ -849,16 +847,18 @@ export const pinateroAltDefProducts: CatalogProduct[] = [
 ];
 
 export const pinateroAltDefLogos: CatalogLogoOption[] = [
-  { src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/happy-mix-300x300.webp', alt: 'Piñatero Happy Mix' },
+  { src: buildCatalogLogoPath('spicy', 'PIÑATERO', 'LOGOS', 'happy-mix-300x300.webp'), alt: 'Piñatero Happy Mix' },
   {
-    src: '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/Revolcados-mix-300x300.webp',
+    src: buildCatalogLogoPath('spicy', 'PIÑATERO', 'LOGOS', 'Revolcados-mix-300x300.webp'),
     alt: 'Piñatero Revolcados',
   },
   { src: brandLogo, alt: 'Piñatero Premium' },
 ];
 
 export const pinateroAltDefLogoProductsMap: Record<string, string[]> = {
-  '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/happy-mix-300x300.webp': ['Happy Mix'],
-  '/WEBP PRODUCTOS/SPICY/PIÑATERO/LOGOS/Revolcados-mix-300x300.webp': ['Revolcados Mix'],
+  [buildCatalogLogoPath('spicy', 'PIÑATERO', 'LOGOS', 'happy-mix-300x300.webp')]: ['Happy Mix'],
+  [buildCatalogLogoPath('spicy', 'PIÑATERO', 'LOGOS', 'Revolcados-mix-300x300.webp')]: ['Revolcados Mix'],
   [brandLogo]: ['Premium Mix'],
 };
+
+

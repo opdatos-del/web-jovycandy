@@ -3,14 +3,15 @@ import { createPortal } from 'react-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Facebook, Instagram, Music2 } from 'lucide-react';
+import { buildMarketingEventPath } from '@/shared/assets/publicAssets';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryImages = [
-  '/eventos/1.webp',
-  '/eventos/4.webp',
-  '/eventos/8.webp',
-  '/eventos/11.webp',
+  buildMarketingEventPath('1.webp'),
+  buildMarketingEventPath('4.webp'),
+  buildMarketingEventPath('8.webp'),
+  buildMarketingEventPath('11.webp'),
 ];
 
 const casaJovySocials = [

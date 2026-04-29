@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { BRAND_LOGO_PATH } from '@/shared/assets/publicAssets';
 
 export const JovyEasterEgg = () => {
   const bufferRef = useRef<string>('');
@@ -38,7 +39,7 @@ export const JovyEasterEgg = () => {
   const animateLogos = () => {
     const logos = Array.from(document.querySelectorAll('img')).filter((img) => {
       const el = img as HTMLImageElement;
-      return (el.alt && el.alt.toLowerCase().includes('jovy')) || el.src.includes('/logo.png');
+      return (el.alt && el.alt.toLowerCase().includes('jovy')) || el.src.includes(BRAND_LOGO_PATH);
     });
     logos.forEach((el) => el.classList.add('jovy-easter-animate'));
     setTimeout(() => logos.forEach((el) => el.classList.remove('jovy-easter-animate')), 2200);

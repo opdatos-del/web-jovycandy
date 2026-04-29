@@ -1,5 +1,6 @@
 import { AppNavbarDesktop } from './AppNavbarDesktop';
 import { AppNavbarMobileMenu, AppNavbarMobileToggle } from './AppNavbarMobile';
+import { BRAND_LOGO_PATH } from '@/shared/assets/publicAssets';
 
 type AppNavbarProps = {
   isMobileMenuOpen: boolean;
@@ -18,7 +19,7 @@ export const AppNavbar = ({
     <div className="app-navbar-shell page-shell-wide">
       <div className="app-navbar-inner flex items-center justify-between text-stone-900">
         <img
-          src="/logo.png"
+          src={BRAND_LOGO_PATH}
           alt="Jovy"
           className="app-navbar-logo w-auto object-contain drop-shadow-[0_8px_18px_rgba(68,54,40,0.12)]"
           draggable={false}

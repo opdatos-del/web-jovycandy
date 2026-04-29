@@ -1,4 +1,5 @@
 import type { CatalogProduct } from '../types/catalog.types';
+import { buildCatalogTechnicalSheetPath } from '@/shared/assets/publicAssets';
 
 export type ProductTechnicalSheet = {
   src: string;
@@ -6,10 +7,8 @@ export type ProductTechnicalSheet = {
   title?: string;
 };
 
-const TECHNICAL_SHEETS_ROOT = '/imagenes-alt-def';
-
 const buildTechnicalSheetPath = (...segments: string[]) =>
-  `${TECHNICAL_SHEETS_ROOT}/${segments.join('/')}`;
+  buildCatalogTechnicalSheetPath(...segments);
 
 const technicalSheetsByProductId: Record<string, ProductTechnicalSheet> = {
   'g-rings-watermelon-100g': {

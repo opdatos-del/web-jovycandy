@@ -1,5 +1,11 @@
 import type { CatalogData } from '../types/catalog.types';
 import {
+  BRAND_LOGO_PATH,
+  buildCatalogBowlPath,
+  buildCatalogLogoPath,
+  buildCatalogProductPath,
+} from '@/shared/assets/publicAssets';
+import {
   gomitasGrenetinaAltDefLogoProductsMap,
   gomitasGrenetinaAltDefLogos,
   gomitasGrenetinaAltDefProducts,
@@ -11,107 +17,107 @@ import {
 const productImageMap: Record<string, Record<string, string>> = {
   gomitas_grenetina: {
     'Rings Watermelon':
-      '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp',
+      buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp'),
     'Rings Neon':
-      '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp',
+      buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp'),
     'Gummies Peach':
-      '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp',
+      buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp'),
     'Gummies Cherry':
-      '/WEBP PRODUCTOS/SWEET/GUMMIES/RINGS/JOVY-SWEET-GUMMIES-Rings-Cherry-5-lb-1-300x300.webp',
+      buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Cherry-5-lb-1-300x300.webp'),
     'Worms Original':
-      '/WEBP PRODUCTOS/SWEET/GUMMIES/WORMS/JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp',
+      buildCatalogProductPath('sweet', 'GUMMIES', 'WORMS', 'JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp'),
     'Bears Classic':
-      '/WEBP PRODUCTOS/SWEET/GUMMIES/BEARS/JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp',
+      buildCatalogProductPath('sweet', 'GUMMIES', 'BEARS', 'JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp'),
   },
   sazonador: {
-    Acirrico: '/WEBP PRODUCTOS/SPICY/POWDERS/Acirrico.webp',
-    Limonazo: '/WEBP PRODUCTOS/SPICY/POWDERS/Limonazo.webp',
+    Acirrico: buildCatalogProductPath('spicy', 'POWDERS', 'Acirrico.webp'),
+    Limonazo: buildCatalogProductPath('spicy', 'POWDERS', 'Limonazo.webp'),
   },
   gomitas_almidon: {
     'CHERRY SLICES 5LB':
-      '/WEBP PRODUCTOS/SWEET/JELLIES/CHERRY SLICES/JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp',
+      buildCatalogProductPath('sweet', 'JELLIES', 'CHERRY SLICES', 'JOVY-SWEET-JELLIES-CHERRY-SLICES-5-lb-300x300.webp'),
     'ORANGE SLICES':
-      '/WEBP PRODUCTOS/SWEET/JELLIES/ORANGE SLICES/JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp',
+      buildCatalogProductPath('sweet', 'JELLIES', 'ORANGE SLICES', 'JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp'),
     'ENCHILOKAS WATERMELON 150G':
-      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp',
+      buildCatalogProductPath('spicy', 'JELLIES', 'JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp'),
     'ENCHILOKAS WATERMELON 482G':
-      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp',
+      buildCatalogProductPath('spicy', 'JELLIES', 'JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp'),
     'ENCHILOKAS PINEAPPLE 150G':
-      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp',
+      buildCatalogProductPath('spicy', 'JELLIES', 'JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp'),
     'ENCHILOKAS PINEAPPLE 482G':
-      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp',
+      buildCatalogProductPath('spicy', 'JELLIES', 'JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp'),
     'ENCHILOKAS MANGO 150G':
-      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp',
+      buildCatalogProductPath('spicy', 'JELLIES', 'JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp'),
     'ENCHILOKAS MANGO 482G':
-      '/WEBP PRODUCTOS/SPICY/JELLIES/JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp',
+      buildCatalogProductPath('spicy', 'JELLIES', 'JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp'),
   },
   chamoy: {
     'Lollipop Cherry':
-      '/WEBP PRODUCTOS/SWEET/HARD CANDY/JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp',
+      buildCatalogProductPath('sweet', 'HARD CANDY', 'JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp'),
   },
   dulces_paletas: {
     'Mango revolcado':
-      '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/MANGO REVOLCADO/JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp',
+      buildCatalogProductPath('spicy', 'LOLLIPOPS', 'MANGO REVOLCADO', 'JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp'),
   },
 };
 
-const chilirokasBowlImage = '/bowls/Chilirokas-Assorted.png';
+const chilirokasBowlImage = buildCatalogBowlPath('Chilirokas-Assorted.png');
 
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
   gomitas_grenetina: gomitasGrenetinaAltDefLogos,
-  sazonador: [{ src: '/WEBP PRODUCTOS/SPICY/POWDERS/LOGOS/Acirrico-300x300.webp', alt: 'Polvos Acirrico' }],
+  sazonador: [{ src: buildCatalogLogoPath('spicy', 'POWDERS', 'LOGOS', 'Acirrico-300x300.webp'), alt: 'Polvos Acirrico' }],
   gomitas_almidon: [
-    { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Cherry_Slices-300x300.webp', alt: 'Jellies Cherry' },
-    { src: '/WEBP PRODUCTOS/SWEET/JELLIES/LOGOS/Orange_slices-300x300.webp', alt: 'Jellies Orange' },
-    { src: '/WEBP PRODUCTOS/SPICY/JELLIES/LOGOS/enchilokas-300x300.webp', alt: 'Jellies Enchilokas' },
+    { src: buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Cherry_Slices-300x300.webp'), alt: 'Jellies Cherry' },
+    { src: buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Orange_slices-300x300.webp'), alt: 'Jellies Orange' },
+    { src: buildCatalogLogoPath('spicy', 'JELLIES', 'LOGOS', 'enchilokas-300x300.webp'), alt: 'Jellies Enchilokas' },
   ],
   chamoy: [
-    { src: '/WEBP PRODUCTOS/SWEET/HARD CANDY/LOGOS/Jovy_Fruit-300x300.webp', alt: 'Dulces Fruit' },
-    { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/chillirokas-300x300.webp', alt: 'Dulces Chilirokas' },
-    { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Revolcaditas-300x300.webp', alt: 'Dulces Revolcaditas' },
-    { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Tamaros-300x300.webp', alt: 'Dulces Tamaros' },
-    { src: '/WEBP PRODUCTOS/SPICY/HARD CANDY/LOGOS/Vallenito-300x300.webp', alt: 'Dulces Vallenito' },
-    { src: '/WEBP PRODUCTOS/SPICY/JELLIES/LOGOS/enchilokas-300x300.webp', alt: 'Chamoy Enchilokas' },
+    { src: buildCatalogLogoPath('sweet', 'HARD CANDY', 'LOGOS', 'Jovy_Fruit-300x300.webp'), alt: 'Dulces Fruit' },
+    { src: buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'chillirokas-300x300.webp'), alt: 'Dulces Chilirokas' },
+    { src: buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Revolcaditas-300x300.webp'), alt: 'Dulces Revolcaditas' },
+    { src: buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Tamaros-300x300.webp'), alt: 'Dulces Tamaros' },
+    { src: buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Vallenito-300x300.webp'), alt: 'Dulces Vallenito' },
+    { src: buildCatalogLogoPath('spicy', 'JELLIES', 'LOGOS', 'enchilokas-300x300.webp'), alt: 'Chamoy Enchilokas' },
     {
-      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Rings-Revolcado-300x300.webp',
+      src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Rings-Revolcado-300x300.webp'),
       alt: 'Chamoy Rings',
     },
     {
-      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Worms-Revolcado-1-300x300.webp',
+      src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Worms-Revolcado-1-300x300.webp'),
       alt: 'Chamoy Worms',
     },
     {
-      src: '/WEBP PRODUCTOS/SPICY/GUMMIES/LOGOS/Bears_Revolcado-1-300x300.webp',
+      src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Bears_Revolcado-1-300x300.webp'),
       alt: 'Chamoy Bears',
     },
   ],
-  dulces_paletas: [{ src: '/WEBP PRODUCTOS/SPICY/LOLLIPOPS/LOGOS/Mango_Revolcado-300x300.webp', alt: 'Paletas Mango' }],
+  dulces_paletas: [{ src: buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp'), alt: 'Paletas Mango' }],
   pinatero: pinateroAltDefLogos,
 };
 
 export const categoryLogoProductsMap: Record<string, Record<string, string[]>> = {
   gomitas_grenetina: gomitasGrenetinaAltDefLogoProductsMap,
   sazonador: {
-    'Acirrico-300x300.webp': ['Acirrico', 'Limonazo'],
+    [buildCatalogLogoPath('spicy', 'POWDERS', 'LOGOS', 'Acirrico-300x300.webp')]: ['Acirrico', 'Limonazo'],
   },
   gomitas_almidon: {
-    'Cherry_Slices-300x300.webp': ['CHERRY SLICES 5LB'],
-    'Orange_slices-300x300.webp': ['ORANGE SLICES'],
-    'enchilokas-300x300.webp': ['Enchilokas'],
+    [buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Cherry_Slices-300x300.webp')]: ['CHERRY SLICES 5LB'],
+    [buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Orange_slices-300x300.webp')]: ['ORANGE SLICES'],
+    [buildCatalogLogoPath('spicy', 'JELLIES', 'LOGOS', 'enchilokas-300x300.webp')]: ['Enchilokas'],
   },
   chamoy: {
-    'Jovy_Fruit-300x300.webp': ['Lollipop Cherry'],
-    'chillirokas-300x300.webp': ['Chilirokas'],
-    'Revolcaditas-300x300.webp': ['Revolcaditas'],
-    'Tamaros-300x300.webp': ['Tamaros'],
-    'Vallenito-300x300.webp': ['Vallenito'],
-    'enchilokas-300x300.webp': ['Enchilokas'],
-    'Rings-Revolcado-300x300.webp': ['Chamoy Rings Watermelon', 'Chamoy Rings Peach'],
-    'Worms-Revolcado-1-300x300.webp': ['Chamoy Worms'],
-    'Bears_Revolcado-1-300x300.webp': ['Chamoy Bears'],
+    [buildCatalogLogoPath('sweet', 'HARD CANDY', 'LOGOS', 'Jovy_Fruit-300x300.webp')]: ['Lollipop Cherry'],
+    [buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'chillirokas-300x300.webp')]: ['Chilirokas'],
+    [buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Revolcaditas-300x300.webp')]: ['Revolcaditas'],
+    [buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Tamaros-300x300.webp')]: ['Tamaros'],
+    [buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Vallenito-300x300.webp')]: ['Vallenito'],
+    [buildCatalogLogoPath('spicy', 'JELLIES', 'LOGOS', 'enchilokas-300x300.webp')]: ['Enchilokas'],
+    [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Rings-Revolcado-300x300.webp')]: ['Chamoy Rings Watermelon', 'Chamoy Rings Peach'],
+    [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Worms-Revolcado-1-300x300.webp')]: ['Chamoy Worms'],
+    [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Bears_Revolcado-1-300x300.webp')]: ['Chamoy Bears'],
   },
   dulces_paletas: {
-    'Mango_Revolcado-300x300.webp': ['Mango revolcado'],
+    [buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp')]: ['Mango revolcado'],
   },
   pinatero: pinateroAltDefLogoProductsMap,
 };
@@ -138,7 +144,7 @@ function getProductImagePath(
   const categoryFolder = categoryFolderMap[categoryId] || categoryId.toUpperCase();
   const productSubfolder = productName.split(' ')[0].toUpperCase();
 
-  return `/WEBP PRODUCTOS/${typeFolder}/${categoryFolder}/${productSubfolder}/placeholder.webp`;
+  return BRAND_LOGO_PATH;
 }
 
 export const catalogData: CatalogData = {
@@ -432,11 +438,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Chilirokas',
         subtitle: 'Assorted Hard Candy\n1 lb 3 oz',
         description: 'Presentacion surtida de Chilirokas en bolsa de 1 lb 3 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-1-lb-3-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -465,11 +471,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Chilirokas',
         subtitle: 'Assorted Hard Candy\n5.29 oz',
         description: 'Presentacion surtida de Chilirokas en bolsa de 5.29 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-5.29-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -498,11 +504,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Chilirokas',
         subtitle: 'Assorted Hard Candy\n6 oz',
         description: 'Presentacion surtida de Chilirokas en bolsa de 6 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Assorted-6-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -531,11 +537,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Chilirokas',
         subtitle: 'Mango Hard Candy\n1 lb 3 oz',
         description: 'Chilirokas sabor mango en presentacion de 1 lb 3 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-1-lb-3-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -564,11 +570,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Chilirokas',
         subtitle: 'Mango Hard Candy\n6 oz',
         description: 'Chilirokas sabor mango en presentacion de 6 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Mango-6-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -597,11 +603,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Chilirokas',
         subtitle: 'Tamarind Hard Candy\n1 lb 3 oz',
         description: 'Chilirokas sabor tamarindo en presentacion de 1 lb 3 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-1-lb-3-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -630,11 +636,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Chilirokas',
         subtitle: 'Tamarind Hard Candy\n6 oz',
         description: 'Chilirokas sabor tamarindo en presentacion de 6 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Tamarind-6-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -664,11 +670,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Watermelon Hard Candy\n1 lb 3 oz',
         description: 'Chilirokas sabor sandia en presentacion de 1 lb 3 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-1-lb-3-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -698,11 +704,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Watermelon Hard Candy\n6 oz',
         description: 'Chilirokas sabor sandia en presentacion de 6 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/CHILIROKAS/JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'CHILIROKAS', 'JOVY-HARD-CANDY-Chilirokas-Watermelon-6-oz-300x300.webp'),
         bowlImage: chilirokasBowlImage,
         certifications: ['SGS'],
         specs: [
@@ -732,11 +738,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Assorted Hard Candy\n6 oz',
         description: 'Revolcaditas surtidas en presentacion de 6 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Assorted-6-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -765,11 +771,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Mango Hard Candy\n1 lb 5 16 oz',
         description: 'Revolcaditas sabor mango en presentacion de 1 lb 5 16 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-1-lb-5-16-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -798,11 +804,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Mango Hard Candy\n6 oz',
         description: 'Revolcaditas sabor mango en presentacion de 6 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Mango-6-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -831,11 +837,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Watermelon Hard Candy\n1 lb 5 16 oz',
         description: 'Revolcaditas sabor sandia en presentacion de 1 lb 5 16 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-1-lb-5-16-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -864,11 +870,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Watermelon Hard Candy\n6 oz',
         description: 'Revolcaditas sabor sandia en presentacion de 6 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/REVOLCADITAS/JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'REVOLCADITAS', 'JOVY-HARD-CANDY-Revolcaditas-Watermelon-6-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -896,11 +902,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Tamaros',
         subtitle: 'Tamarind Hard Candy\n1 lb 7 oz',
         description: 'Tamaros en presentacion de 1 lb 7 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -928,11 +934,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Tamaros',
         subtitle: 'Tamarind Hard Candy\n4.9 oz',
         description: 'Tamaros en presentacion de 4.9 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -960,11 +966,11 @@ export const catalogData: CatalogData = {
         productFamily: 'Tamaros',
         subtitle: 'Tamarind Hard Candy\n6 oz',
         description: 'Tamaros en presentacion de 6 oz.',
-        image: '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp',
+        image: buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/TÁMAROS/JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -993,11 +999,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Assorted Hard Candy\n1 lb 7 oz',
         description: 'Vallenito surtido en presentacion de 1 lb 7 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-1-lb-7-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -1026,11 +1032,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Assorted Hard Candy\n6 oz',
         description: 'Vallenito surtido en presentacion de 6 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Assorted-6-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -1059,11 +1065,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Mango Hard Candy\n6 oz',
         description: 'Vallenito sabor mango en presentacion de 6 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Mango-6-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -1092,11 +1098,11 @@ export const catalogData: CatalogData = {
         subtitle: 'Watermelon Hard Candy\n6 oz',
         description: 'Vallenito sabor sandia en presentacion de 6 oz.',
         image:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp'),
         sampleImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp'),
         secondaryImage:
-          '/WEBP PRODUCTOS/SPICY/HARD CANDY/VALLENITO/JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp',
+          buildCatalogProductPath('spicy', 'HARD CANDY', 'VALLENITO', 'JOVY-HARD-CANDY-Vallenito-Watermelon-6-oz-300x300.webp'),
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },

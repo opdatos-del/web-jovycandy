@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { footerPolicyLinks, footerSectionLinks } from '../config/navigation';
 import { AppSocialLinks } from '../navigation/AppSocialLinks';
+import { BRAND_LOGO_PATH, INSTAGRAM_POST_PATHS } from '@/shared/assets/publicAssets';
 import { ScrollReveal } from '@/shared/ui/ScrollReveal';
 import "../../styles/responsive/AppFooter.css";
 
@@ -57,7 +58,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                     <ScrollReveal>
                         <div className="app-footer-logo-section flex justify-center">
                             <img
-                                src="/logo.png"
+                                src={BRAND_LOGO_PATH}
                                 alt="Jovy"
                                 className="h-[clamp(4rem,12vw,5rem)] w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)] sm:h-[clamp(4.75rem,8vw,5.5rem)] lg:h-[clamp(5.4rem,6vw,6.25rem)] 2xl:h-[7rem]"
                                 draggable={false}
@@ -119,7 +120,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                                                 <div className="instagram-profile-bar">
                                                     <div className="instagram-profile-left">
                                                         <div className="instagram-profile-photo">
-                                                            <img src="/logo.png" alt="Instagram Jovy" />
+                                                            <img src={BRAND_LOGO_PATH} alt="Instagram Jovy" />
                                                         </div>
 
                                                         <div className="instagram-profile-info">
@@ -145,7 +146,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                                                         rel="noopener noreferrer"
                                                         className="instagram-post"
                                                     >
-                                                        <img src="/instagram/post1.jpg" alt="Publicación 1" />
+                                                        <img src={INSTAGRAM_POST_PATHS[0]} alt="Publicación 1" />
                                                     </a>
 
                                                     <a
@@ -154,7 +155,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                                                         rel="noopener noreferrer"
                                                         className="instagram-post"
                                                     >
-                                                        <img src="/instagram/post2.jpg" alt="Publicación 2" />
+                                                        <img src={INSTAGRAM_POST_PATHS[1]} alt="Publicación 2" />
                                                     </a>
 
                                                     <a
@@ -163,7 +164,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                                                         rel="noopener noreferrer"
                                                         className="instagram-post"
                                                     >
-                                                        <img src="/instagram/post3.jpg" alt="Publicación 3" />
+                                                        <img src={INSTAGRAM_POST_PATHS[2]} alt="Publicación 3" />
                                                     </a>
 
                                                     <a
@@ -172,7 +173,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                                                         rel="noopener noreferrer"
                                                         className="instagram-post"
                                                     >
-                                                        <img src="/instagram/post4.jpg" alt="Publicación 4" />
+                                                        <img src={INSTAGRAM_POST_PATHS[3]} alt="Publicación 4" />
                                                     </a>
 
                                                     <a
@@ -181,7 +182,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                                                         rel="noopener noreferrer"
                                                         className="instagram-post"
                                                     >
-                                                        <img src="/instagram/post5.jpg" alt="Publicación 5" />
+                                                        <img src={INSTAGRAM_POST_PATHS[4]} alt="Publicación 5" />
                                                     </a>
 
                                                     <a
@@ -190,7 +191,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
                                                         rel="noopener noreferrer"
                                                         className="instagram-post"
                                                     >
-                                                        <img src="/instagram/post6.jpg" alt="Publicación 6" />
+                                                        <img src={INSTAGRAM_POST_PATHS[5]} alt="Publicación 6" />
                                                     </a>
                                                 </div>
 

@@ -1,5 +1,10 @@
 import { DEFAULT_ACCENT_COLOR } from '../constants/catalog.constants';
 import { catalogData, categoryLogoProductsMap, categoryLogosMap } from '../data/catalogData';
+import {
+  BRAND_LOGO_PATH,
+  CATEGORY_BACKGROUND_PATHS,
+  CATEGORY_CARD_IMAGE_PATHS,
+} from '@/shared/assets/publicAssets';
 import type {
   CatalogCategoryCard,
   CatalogCategoryId,
@@ -8,7 +13,7 @@ import type {
   CatalogProduct,
 } from '../types/catalog.types';
 
-const FALLBACK_LOGO_SRC = '/logo.png';
+const FALLBACK_LOGO_SRC = BRAND_LOGO_PATH;
 const COMING_SOON_BADGE = 'Proximamente...';
 const UPCOMING_CATEGORY_IDS = new Set<CatalogCategoryId>(['sazonador', 'dulces_paletas']);
 
@@ -29,42 +34,6 @@ const CATEGORY_DISPLAY_ORDER: CatalogCategoryId[] = [
   'pinatero',
   'gomitas_grenetina',
 ];
-
-const CATEGORY_CARD_IMAGE_MAP: Record<CatalogCategoryId, string> = {
-  sazonador: '/ISOTIPOS/ISOTIPOS-N-01.webp',
-  chamoy: '/ISOTIPOS/ISOTIPO-CHAMOY.webp',
-  gomitas_almidon: '/ISOTIPOS/ISOTIPOS-N-05.webp',
-  dulces_paletas: '/ISOTIPOS/ISOTIPOS-N-04.webp',
-  pinatero: '/ISOTIPOS/ISOTIPOS-N-03.webp',
-  gomitas_grenetina: '/ISOTIPOS/ISOTIPO-GOMITAS-GRENETINA.webp',
-};
-
-const CATEGORY_FONDOS_MAP: Record<CatalogCategoryId, { primary: string; hover: string }> = {
-  sazonador: {
-    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_POLVOS 1.webp',
-    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_POLVOS 2.webp',
-  },
-  chamoy: {
-    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_DULCES 1.webp',
-    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_DULCES 2.webp',
-  },
-  gomitas_almidon: {
-    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_JELLIES 1.webp',
-    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_JELLIES 2.webp',
-  },
-  dulces_paletas: {
-    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PALETAS 1.webp',
-    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PALETAS 2.webp',
-  },
-  pinatero: {
-    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_ PIÑATERO 1.webp',
-    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_PIÑATERO 2.webp',
-  },
-  gomitas_grenetina: {
-    primary: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_GOMAS 1.webp',
-    hover: '/fondos-productos/FONDOS/PLANTILLA FONDO PRODUCTO_GOMAS 2.webp',
-  },
-};
 
 const getLogoFilename = (logoSrc: string) => logoSrc.split('/').pop() ?? '';
 const getProductMatcher = (product: CatalogProduct) => product.productFamily ?? product.name;
@@ -104,8 +73,8 @@ const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) 
 export const getCatalogCategories = (): CatalogCategoryCard[] =>
   CATEGORY_DISPLAY_ORDER.map((categoryId) => {
     const category = catalogData[categoryId];
-    const fondos = CATEGORY_FONDOS_MAP[categoryId];
-    const categoryImage = CATEGORY_CARD_IMAGE_MAP[categoryId];
+    const fondos = CATEGORY_BACKGROUND_PATHS[categoryId];
+    const categoryImage = CATEGORY_CARD_IMAGE_PATHS[categoryId];
 
     return {
       id: categoryId,
@@ -203,3 +172,4 @@ export const getNextLogoState = (
     products: getProductsByLogo(currentState.categoryId, currentState.originalProducts, nextLogo.src),
   };
 };
+
