@@ -1,12 +1,13 @@
 import type { CatalogLogoOption, CatalogProduct, CatalogSpec } from '../types/catalog.types';
 import { buildBrandMarkPath, buildCatalogBowlPath, buildCatalogCarouselPath, buildCatalogLogoPath, buildCatalogProductPath } from '@/shared/assets/publicAssets';
+import {
+  chamoybearsBowlImage,
+  chamoyringspeachBowlImage,
+  chamoyringswatermelonBowlImage,
+  chamoywormsBowlImage,
+} from './chamoyAssets';
 
 const buildAltDefAssetPath = (...segments: string[]) => buildCatalogCarouselPath(...segments);
-
-const chamoybearsBowlImage = buildCatalogBowlPath('chamoy/chamoy-bears-assorted.webp');
-const chamoyringspeachBowlImage = buildCatalogBowlPath('chamoy/chamoy-rings-peach-assorted.webp');
-const chamoyringswatermelonBowlImage = buildCatalogBowlPath('chamoy/chamoy-rings-watermelon-assorted.webp');
-const chamoywormsBowlImage = buildCatalogBowlPath('chamoy/chamoy-worms-assorted.webp');
 
 const happymixBearsBowlImage = buildCatalogBowlPath('pinatero/happy-mix-assorted.webp');
 const revolcadosmixBowlImage = buildCatalogBowlPath('pinatero/revolcados-mix-assorted.webp');
