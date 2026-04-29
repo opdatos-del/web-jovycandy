@@ -52,10 +52,10 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
   });
 
   useEffect(() => {
-    if (scrollerRef.current) {
+    if (scrollerRef.current && filters.gramaje) {
       scrollerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
     }
-  }, [filteredProducts]);
+  }, [filters.gramaje]);
 
   useEffect(() => {
     if (filters.gramaje && !gramajes.includes(filters.gramaje)) {
@@ -95,6 +95,16 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
   };
 
   const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    // Ignore mousedown if it's on a product button (child element)
+    const target = event.target as HTMLElement;
+    if (target !== scrollerRef.current && scrollerRef.current?.contains(target)) {
+      // Check if the click is on or inside a motion.button (product item)
+      const button = target.closest('button');
+      if (button && scrollerRef.current.contains(button)) {
+        return;
+      }
+    }
+
     if (!scrollerRef.current) {
       return;
     }
@@ -282,7 +292,10 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                       <motion.button
                         key={product.id}
                         type="button"
-                        onClick={() => onProductSelect?.(product)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onProductSelect?.(product);
+                        }}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}

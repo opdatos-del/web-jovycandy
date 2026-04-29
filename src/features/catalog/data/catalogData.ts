@@ -62,6 +62,8 @@ const productImageMap: Record<string, Record<string, string>> = {
 };
 
 const chilirokasBowlImage = buildCatalogBowlPath('Chilirokas-Assorted.png');
+const tamarosBowlImage = buildCatalogBowlPath('tamaros-assorted.webp');
+const enchilokasBowlImage = buildCatalogBowlPath('enchilokas-assorted.webp');
 
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
   gomitas_grenetina: gomitasGrenetinaAltDefLogos,
@@ -284,6 +286,7 @@ export const catalogData: CatalogData = {
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
+        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -304,6 +307,7 @@ export const catalogData: CatalogData = {
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
+        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [
@@ -324,6 +328,7 @@ export const catalogData: CatalogData = {
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
+        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -344,6 +349,7 @@ export const catalogData: CatalogData = {
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
+        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [
@@ -364,6 +370,7 @@ export const catalogData: CatalogData = {
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
+        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -384,6 +391,7 @@ export const catalogData: CatalogData = {
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
+        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [
@@ -907,6 +915,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-1-lb-7-oz-300x300.webp'),
+          bowlImage: tamarosBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -939,6 +948,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-4.9-oz-300x300.webp'),
+            bowlImage: tamarosBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
@@ -971,6 +981,7 @@ export const catalogData: CatalogData = {
           buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp'),
         secondaryImage:
           buildCatalogProductPath('spicy', 'HARD CANDY', 'TÁMAROS', 'JOVY-HARD-CANDY-Tamaros-6-oz-300x300.webp'),
+          bowlImage: tamarosBowlImage,
         certifications: ['SGS'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
