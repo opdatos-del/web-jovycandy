@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { ContactModal } from '@/features/contact';
 import { LocationModal } from '@/features/location/LocationModal';
 
@@ -10,6 +11,10 @@ import { AppNavbar } from './navigation/AppNavbar';
 import { JovyEasterEgg } from '@/shared/ui/JovyEasterEgg';
 
 export default function App() {
+  useEffect(() => {
+    console.log('%c¿Qué buscas aquí compa?', 'color: #FF0004; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+  }, []);
+
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useMobileMenu();
   const {
     activeModal,
