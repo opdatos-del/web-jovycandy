@@ -55,7 +55,7 @@ const ringsWatermelonTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const ringsNeonTemplate: ProductTemplate = {
@@ -88,7 +88,7 @@ const ringsNeonTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 105. Azucares: 18g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const ringsPeachTemplate: ProductTemplate = {
@@ -122,7 +122,7 @@ const ringsPeachTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const ringsGreenAppleTemplate: ProductTemplate = {
@@ -156,7 +156,7 @@ const ringsGreenAppleTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const wormsOriginalTemplate: ProductTemplate = {
@@ -189,7 +189,7 @@ const wormsOriginalTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const wormsNeonTemplate: ProductTemplate = {
@@ -223,7 +223,7 @@ const wormsNeonTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 109. Azucares: 19g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const bearsClassicTemplate: ProductTemplate = {
@@ -257,7 +257,7 @@ const bearsClassicTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 106. Azucares: 18g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const bearsNeonTemplate: ProductTemplate = {
@@ -290,7 +290,7 @@ const bearsNeonTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 107. Azucares: 18g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const watermelonSlicesTemplate: ProductTemplate = {
@@ -323,7 +323,7 @@ const watermelonSlicesTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const frutastikaTemplate: ProductTemplate = {
@@ -352,7 +352,7 @@ const frutastikaTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const blueSharksTemplate: ProductTemplate = {
@@ -380,7 +380,7 @@ const blueSharksTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 107. Azucares: 18g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const sharksMixTemplate: ProductTemplate = {
@@ -408,119 +408,7 @@ const sharksMixTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
     },
   ],
-  type: 'Dulce',
-};
-
-const chamoyBearsTemplate: ProductTemplate = {
-  id: 'chamoy-bears-template',
-  name: 'Chamoy Bears',
-  productFamily: 'Chamoy Bears',
-  subtitle: 'Gummy candy\nChamoy Coated',
-  description: 'Ositos enchilados con recubrimiento de chamoy y perfil agridulce.',
-  image: buildCatalogAssetPath('100g', 'Mockup Chamoy Bears MX 100g.webp'),
-  certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
-    { label: 'Pieces per bag', value: '24 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 100 g' },
-    { label: 'Bags per Box', value: '12' },
-    { label: 'Box Weight', value: 'Net Wt. 1.2 kg' },
-  ],
-  collapsibleInfo: [
-    {
-      title: 'Ingredientes',
-      content: 'Azucar, jarabe de maiz, grenetina, chile, sal y acido citrico.',
-    },
-    {
-      title: 'Informacion Nutrimental',
-      content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
-    },
-  ],
-  type: 'Picante',
-};
-
-const chamoyWormsTemplate: ProductTemplate = {
-  id: 'chamoy-worms-template',
-  name: 'Chamoy Worms',
-  productFamily: 'Chamoy Worms',
-  subtitle: 'Gummy candy\nChamoy Coated',
-  description: 'Worms enchilados con capa de chamoy para un perfil mas intenso.',
-  image: buildCatalogAssetPath('100g', 'Mockup Chamoy Worms MX 100g.webp'),
-  certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 100 g' },
-    { label: 'Bags per Box', value: '12' },
-    { label: 'Box Weight', value: 'Net Wt. 1.2 kg' },
-  ],
-  collapsibleInfo: [
-    {
-      title: 'Ingredientes',
-      content: 'Azucar, jarabe de maiz, grenetina, chile, sal y acido citrico.',
-    },
-    {
-      title: 'Informacion Nutrimental',
-      content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
-    },
-  ],
-  type: 'Picante',
-};
-
-const chamoyRingsWatermelonTemplate: ProductTemplate = {
-  id: 'chamoy-rings-watermelon-template',
-  name: 'Chamoy Rings Watermelon',
-  productFamily: 'Chamoy Rings Watermelon',
-  subtitle: 'Gummy candy\nChamoy Watermelon',
-  description: 'Aros de sandia cubiertos con chamoy para un perfil dulce y picante.',
-  image: buildCatalogAssetPath('1kg', 'Mckup Chamoy Rings Sandia MX 1 kg_Mayo 24.webp'),
-  certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 1 kg' },
-    { label: 'Bags per Box', value: '10' },
-    { label: 'Box Weight', value: 'Net Wt. 10 kg' },
-  ],
-  collapsibleInfo: [
-    {
-      title: 'Ingredientes',
-      content: 'Azucar, jarabe de maiz, grenetina, chile, sal y acido citrico.',
-    },
-    {
-      title: 'Informacion Nutrimental',
-      content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
-    },
-  ],
-  type: 'Picante',
-};
-
-const chamoyRingsPeachTemplate: ProductTemplate = {
-  id: 'chamoy-rings-peach-template',
-  name: 'Chamoy Rings Peach',
-  productFamily: 'Chamoy Rings Peach',
-  subtitle: 'Gummy candy\nChamoy Peach',
-  description: 'Aros de durazno cubiertos con chamoy para un perfil dulce y picante.',
-  image: buildCatalogAssetPath('1kg', 'Mckup Chamoy Rings Durazno MX 1 kg_Mayo 24.webp'),
-  certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 1 kg' },
-    { label: 'Bags per Box', value: '10' },
-    { label: 'Box Weight', value: 'Net Wt. 10 kg' },
-  ],
-  collapsibleInfo: [
-    {
-      title: 'Ingredientes',
-      content: 'Azucar, jarabe de maiz, grenetina, chile, sal y acido citrico.',
-    },
-    {
-      title: 'Informacion Nutrimental',
-      content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
-    },
-  ],
-  type: 'Picante',
+  
 };
 
 export const gomitasGrenetinaProducts: CatalogProduct[] = [
@@ -726,42 +614,6 @@ export const gomitasGrenetinaProducts: CatalogProduct[] = [
     gramaje: '1 kg',
     carouselImage: buildCatalogAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Sharks Mix -1kg-MX.webp'),
   }),
-  createVariant(chamoyBearsTemplate, {
-    id: 'g-chamoy-bears-100g',
-    gramaje: '100 g',
-    carouselImage: buildCatalogAssetPath('100g', 'Mockup Chamoy Bears MX 100g.webp'),
-  }),
-  createVariant(chamoyBearsTemplate, {
-    id: 'g-chamoy-bears-1kg',
-    gramaje: '1 kg',
-    carouselImage: buildCatalogAssetPath('1kg', 'Mckup Chamoy Bears MX 1 kg_Mayo 24.webp'),
-  }),
-  createVariant(chamoyWormsTemplate, {
-    id: 'g-chamoy-worms-100g',
-    gramaje: '100 g',
-    carouselImage: buildCatalogAssetPath('100g', 'Mockup Chamoy Worms MX 100g.webp'),
-  }),
-  createVariant(chamoyWormsTemplate, {
-    id: 'g-chamoy-worms-1kg',
-    gramaje: '1 kg',
-    carouselImage: buildCatalogAssetPath('1kg', 'Mckup Chamoy worms MX 1 kg_Mayo 24.webp'),
-  }),
-  createVariant(chamoyRingsWatermelonTemplate, {
-    id: 'g-chamoy-rings-watermelon-1kg',
-    gramaje: '1 kg',
-    carouselImage: buildCatalogAssetPath(
-      '1kg',
-      'Mckup Chamoy Rings Sandia MX 1 kg_Mayo 24.webp'
-    ),
-  }),
-  createVariant(chamoyRingsPeachTemplate, {
-    id: 'g-chamoy-rings-peach-1kg',
-    gramaje: '1 kg',
-    carouselImage: buildCatalogAssetPath(
-      '1kg',
-      'Mckup Chamoy Rings Durazno MX 1 kg_Mayo 24.webp'
-    ),
-  }),
 ];
 
 export const gomitasGrenetinaLogos: CatalogLogoOption[] = [
@@ -782,23 +634,6 @@ export const gomitasGrenetinaLogos: CatalogLogoOption[] = [
     alt: 'Gomitas Watermelon Slices',
   },
   { src: gummiesAssortedLogo, alt: 'Gomitas surtidas' },
-  {
-    src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Rings-Revolcado-300x300.webp'),
-    alt: 'Gomitas Rings Revolcado',
-  },
-  {
-    src: buildCatalogLogoPath(
-      'spicy',
-      'GUMMIES',
-      'LOGOS',
-      'Worms-Revolcado-1-300x300.webp'
-    ),
-    alt: 'Gomitas Worms Revolcado',
-  },
-  {
-    src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Bears_Revolcado-1-300x300.webp'),
-    alt: 'Gomitas Bears Revolcado',
-  },
 ];
 
 export const gomitasGrenetinaLogoProductsMap: Record<string, string[]> = {
@@ -820,16 +655,6 @@ export const gomitasGrenetinaLogoProductsMap: Record<string, string[]> = {
     'Watermelon Slices',
   ],
   [gummiesAssortedLogo]: ['Frutastika', 'Blue Sharks', 'Sharks Mix'],
-  [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Rings-Revolcado-300x300.webp')]: [
-    'Chamoy Rings Watermelon',
-    'Chamoy Rings Peach',
-  ],
-  [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Worms-Revolcado-1-300x300.webp')]: [
-    'Chamoy Worms',
-  ],
-  [buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Bears_Revolcado-1-300x300.webp')]: [
-    'Chamoy Bears',
-  ],
 };
 
 export function buildGomitasGrenetina(): CatalogCategory {

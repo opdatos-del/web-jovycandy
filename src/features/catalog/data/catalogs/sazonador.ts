@@ -1,16 +1,16 @@
 import type { CatalogCategory } from '../../types/catalog.types';
 import type { CatalogProduct } from '../../types/catalog.types';
 
-export function buildSazonador(getProductImagePath: (type: 'Picante' | 'Dulce', categoryId: string, productName: string) => string): CatalogCategory {
+export function buildSazonador(getProductImagePath: (categoryId: string, productName: string) => string): CatalogCategory {
   const products: CatalogProduct[] = [
     {
       id: 'p1',
       name: 'Acirrico',
       subtitle: 'Tamarind Powder\nSour & Sweet',
       description: 'Polvo saborizante intenso con tamarindo y un toque de picante.',
-      image: getProductImagePath('Picante', 'sazonador', 'Acirrico'),
-      sampleImage: getProductImagePath('Picante', 'sazonador', 'Acirrico'),
-      secondaryImage: getProductImagePath('Picante', 'sazonador', 'Acirrico'),
+      image: getProductImagePath('sazonador', 'Acirrico'),
+      sampleImage: getProductImagePath('sazonador', 'Acirrico'),
+      secondaryImage: getProductImagePath('sazonador', 'Acirrico'),
       certifications: ['SGS', 'Halal'],
       specs: [
         { label: 'Weight per piece', value: 'Net Wt. 0.05 oz (1.5g)' },
@@ -24,16 +24,15 @@ export function buildSazonador(getProductImagePath: (type: 'Picante' | 'Dulce', 
         { title: 'Informacion Nutrimental', content: 'Tamano de la porcion: 5g. Calorias: 20. Azucares: 4g.' },
       ],
       gramaje: '56 g',
-      type: 'Picante',
     },
     {
       id: 'p2',
       name: 'Limonazo',
       subtitle: 'Chamoy Powder\nSweet & Tangy',
       description: 'Polvo con aroma y sabor a chamoy, perfecto para cubrir frutas.',
-      image: getProductImagePath('Dulce', 'sazonador', 'Limonazo'),
-      sampleImage: getProductImagePath('Dulce', 'sazonador', 'Limonazo'),
-      secondaryImage: getProductImagePath('Dulce', 'sazonador', 'Limonazo'),
+      image: getProductImagePath('sazonador', 'Limonazo'),
+      sampleImage: getProductImagePath('sazonador', 'Limonazo'),
+      secondaryImage: getProductImagePath('sazonador', 'Limonazo'),
       certifications: ['SGS'],
       specs: [
         { label: 'Weight per piece', value: 'Net Wt. 0.05 oz (1.5g)' },
@@ -47,7 +46,6 @@ export function buildSazonador(getProductImagePath: (type: 'Picante' | 'Dulce', 
         { title: 'Informacion Nutrimental', content: 'Tamano de la porcion: 5g. Calorias: 18. Azucares: 4g.' },
       ],
       gramaje: '56 g',
-      type: 'Dulce',
     },
   ];
 

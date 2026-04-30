@@ -37,26 +37,13 @@ const CATEGORY_DISPLAY_ORDER: CatalogCategoryId[] = [
 
 const getLogoFilename = (logoSrc: string) => logoSrc.split('/').pop() ?? '';
 const getProductMatcher = (product: CatalogProduct) => product.productFamily ?? product.name;
-const isSpicyProduct = (product: CatalogProduct) => product.type === 'Picante';
 const isUpcomingCategory = (categoryId: CatalogCategoryId) => UPCOMING_CATEGORY_IDS.has(categoryId);
 
 const getCategoryDisplayTitle = (categoryId: CatalogCategoryId) =>
   CATEGORY_TITLE_MAP[categoryId] ?? catalogData[categoryId].title;
 
 const getCategoryProducts = (categoryId: CatalogCategoryId): CatalogProduct[] => {
-  switch (categoryId) {
-    case 'chamoy':
-      return [
-        ...catalogData.chamoy.products.filter(isSpicyProduct),
-        ...catalogData.gomitas_grenetina.products.filter(isSpicyProduct),
-      ];
-    case 'gomitas_almidon':
-      return catalogData.gomitas_almidon.products.filter((product) => !isSpicyProduct(product));
-    case 'gomitas_grenetina':
-      return catalogData.gomitas_grenetina.products.filter((product) => !isSpicyProduct(product));
-    default:
-      return catalogData[categoryId].products;
-  }
+  return catalogData[categoryId].products;
 };
 
 const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) => {

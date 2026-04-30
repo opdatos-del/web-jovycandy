@@ -56,8 +56,17 @@ const productImageMap: Record<string, Record<string, string>> = {
     ),
   },
   dulces_paletas: {
-    'Mango revolcado':
-      buildCatalogProductPath('spicy', 'LOLLIPOPS', 'MANGO REVOLCADO', 'JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp'),
+    'Lollipop Cherry': buildCatalogProductPath(
+      'sweet',
+      'HARD CANDY',
+      'JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp'
+    ),
+    'Mango revolcado': buildCatalogProductPath(
+      'spicy',
+      'LOLLIPOPS',
+      'MANGO REVOLCADO',
+      'JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp'
+    ),
   },
 };
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
@@ -68,7 +77,10 @@ export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }
     { src: buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Orange_slices-300x300.webp'), alt: 'Jellies Orange' },
   ],
   chamoy: chamoyCategoryLogos,
-  dulces_paletas: [{ src: buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp'), alt: 'Paletas Mango' }],
+  dulces_paletas: [
+    { src: buildCatalogLogoPath('sweet', 'HARD CANDY', 'LOGOS', 'Jovy_Fruit-300x300.webp'), alt: 'Dulces Fruit' },
+    { src: buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp'), alt: 'Paletas Mango' },
+  ],
   pinatero: pinateroLogos,
 };
 
@@ -83,16 +95,13 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
   },
   chamoy: chamoyCategoryLogoProductsMap,
   dulces_paletas: {
+    [buildCatalogLogoPath('sweet', 'HARD CANDY', 'LOGOS', 'Jovy_Fruit-300x300.webp')]: ['Lollipop Cherry'],
     [buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp')]: ['Mango revolcado'],
   },
   pinatero: pinateroLogoProductsMap,
 };
 
-function getProductImagePath(
-  _type: 'Picante' | 'Dulce',
-  categoryId: string,
-  productName: string
-): string {
+function getProductImagePath(categoryId: string, productName: string): string {
   const categoryImages = productImageMap[categoryId];
 
   if (categoryImages && categoryImages[productName]) {
@@ -107,7 +116,7 @@ const gomitas_grenetina = buildGomitasGrenetina();
 const pinatero = buildPinatero();
 const sazonador = buildSazonador(getProductImagePath);
 const dulces_paletas = buildDulcesPaletas(getProductImagePath);
-const chamoy = buildChamoy(getProductImagePath);
+const chamoy = buildChamoy();
 
 export const rawCatalogData: CatalogData = {
   sazonador,

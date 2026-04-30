@@ -46,7 +46,7 @@ const happyMixTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 115. Azucares: 21g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 const revolcadosMixTemplate: ProductTemplate = {
@@ -79,7 +79,7 @@ const revolcadosMixTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
     },
   ],
-  type: 'Picante',
+  
 };
 
 const premiumMixTemplate: ProductTemplate = {
@@ -107,7 +107,7 @@ const premiumMixTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 112. Azucares: 20g.',
     },
   ],
-  type: 'Dulce',
+  
 };
 
 export const pinateroProducts: CatalogProduct[] = [

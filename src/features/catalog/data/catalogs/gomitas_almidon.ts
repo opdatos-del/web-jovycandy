@@ -1,7 +1,7 @@
 import type { CatalogCategory } from '../../types/catalog.types';
 
 export function buildGomitasAlmidon(
-  getProductImagePath: (type: 'Picante' | 'Dulce', categoryId: string, productName: string) => string
+  getProductImagePath: (categoryId: string, productName: string) => string
 ): CatalogCategory {
   return {
     id: 'gomitas_almidon',
@@ -13,9 +13,9 @@ export function buildGomitasAlmidon(
         name: 'CHERRY SLICES 5LB',
         subtitle: 'Strawberry Jelly\nSmooth & Sweet',
         description: 'Gelatina de fresa con textura suave y sabor intenso.',
-        image: getProductImagePath('Dulce', 'gomitas_almidon', 'CHERRY SLICES 5LB'),
-        sampleImage: getProductImagePath('Dulce', 'gomitas_almidon', 'CHERRY SLICES 5LB'),
-        secondaryImage: getProductImagePath('Dulce', 'gomitas_almidon', 'CHERRY SLICES 5LB'),
+        image: getProductImagePath('gomitas_almidon', 'CHERRY SLICES 5LB'),
+        sampleImage: getProductImagePath('gomitas_almidon', 'CHERRY SLICES 5LB'),
+        secondaryImage: getProductImagePath('gomitas_almidon', 'CHERRY SLICES 5LB'),
         certifications: ['SGS', 'OU Kosher', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -35,16 +35,15 @@ export function buildGomitasAlmidon(
           },
         ],
         gramaje: '170 g',
-        type: 'Dulce',
       },
       {
         id: 'j2',
         name: 'ORANGE SLICES',
         subtitle: 'Orange Jelly\nCitrus & Sweet',
         description: 'Gelatina de naranja con sabor citrico intenso.',
-        image: getProductImagePath('Dulce', 'gomitas_almidon', 'ORANGE SLICES'),
-        sampleImage: getProductImagePath('Dulce', 'gomitas_almidon', 'ORANGE SLICES'),
-        secondaryImage: getProductImagePath('Dulce', 'gomitas_almidon', 'ORANGE SLICES'),
+        image: getProductImagePath('gomitas_almidon', 'ORANGE SLICES'),
+        sampleImage: getProductImagePath('gomitas_almidon', 'ORANGE SLICES'),
+        secondaryImage: getProductImagePath('gomitas_almidon', 'ORANGE SLICES'),
         certifications: ['SGS', 'Halal'],
         specs: [
           { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
@@ -65,7 +64,6 @@ export function buildGomitasAlmidon(
           },
         ],
         gramaje: '170 g',
-        type: 'Dulce',
       },
     ],
   };

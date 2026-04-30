@@ -12,7 +12,6 @@ export type CatalogProductId = string;
 
 export type CatalogCertification = 'SGS' | 'OU Kosher' | 'Halal';
 
-export type ProductType = 'Dulce' | 'Picante';
 
 export type CatalogSpec = {
   label: string;
@@ -47,7 +46,7 @@ export type CatalogProduct = {
   gramaje?: string;
   productFamily?: string;
   bowlFamilyKey?: string;
-  type: ProductType;
+  // 'type' (Dulce/Picante) removed — flavor is no longer modeled on product objects
 };
 
 export type CatalogCategory = {
