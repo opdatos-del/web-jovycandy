@@ -46,6 +46,7 @@ export type CatalogProduct = {
   collapsibleInfo: CatalogInfoItem[];
   gramaje?: string;
   productFamily?: string;
+  bowlFamilyKey?: string;
   type: ProductType;
 };
 

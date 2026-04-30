@@ -1,11 +1,8 @@
-import { buildCatalogBowlPath } from '@/shared/assets/publicAssets';
 import type { CatalogCategory } from '../../types/catalog.types';
 
 export function buildGomitasAlmidon(
   getProductImagePath: (type: 'Picante' | 'Dulce', categoryId: string, productName: string) => string
 ): CatalogCategory {
-  const enchilokasBowlImage = buildCatalogBowlPath('chamoy/enchilokas-assorted.webp');
-
   return {
     id: 'gomitas_almidon',
     title: 'Gomitas Almidón',
@@ -77,7 +74,6 @@ export function buildGomitasAlmidon(
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 150G'),
-        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -98,7 +94,6 @@ export function buildGomitasAlmidon(
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS WATERMELON 482G'),
-        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [
@@ -119,7 +114,6 @@ export function buildGomitasAlmidon(
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 150G'),
-        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -140,7 +134,6 @@ export function buildGomitasAlmidon(
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS PINEAPPLE 482G'),
-        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [
@@ -161,7 +154,6 @@ export function buildGomitasAlmidon(
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 150G'),
-        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
         collapsibleInfo: [
@@ -182,7 +174,6 @@ export function buildGomitasAlmidon(
         image: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
         sampleImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
         secondaryImage: getProductImagePath('Picante', 'gomitas_almidon', 'ENCHILOKAS MANGO 482G'),
-        bowlImage: enchilokasBowlImage,
         certifications: ['SGS'],
         specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
         collapsibleInfo: [

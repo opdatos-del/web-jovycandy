@@ -1,27 +1,22 @@
 import type { CatalogData } from '../types/catalog.types';
 import {
   BRAND_LOGO_PATH,
-  buildCatalogBowlPath,
   buildCatalogLogoPath,
   buildCatalogProductPath,
 } from '@/shared/assets/publicAssets';
 import {
   chamoyCategoryLogoProductsMap,
   chamoyCategoryLogos,
-  chamoyProductImageMap,
-  chamoybearsBowlImage,
-  chamoyringspeachBowlImage,
-  chamoyringswatermelonBowlImage,
-  chamoywormsBowlImage,
 } from './chamoyAssets';
+import { resolveCatalogDataBowls } from './catalogs/catalogBowls.shared';
 import {
-  gomitasGrenetinaAltDefLogoProductsMap,
-  gomitasGrenetinaAltDefLogos,
-  gomitasGrenetinaAltDefProducts,
-  pinateroAltDefLogoProductsMap,
-  pinateroAltDefLogos,
-  pinateroAltDefProducts,
-} from './altDefCatalogData';
+  gomitasGrenetinaLogoProductsMap,
+  gomitasGrenetinaLogos,
+} from './catalogs/gomitas_grenetina';
+import {
+  pinateroLogoProductsMap,
+  pinateroLogos,
+} from './catalogs/pinatero';
 import { buildGomitasAlmidon } from './catalogs/gomitas_almidon';
 import { buildGomitasGrenetina } from './catalogs/gomitas_grenetina';
 import { buildPinatero } from './catalogs/pinatero';
@@ -48,24 +43,55 @@ const productImageMap: Record<string, Record<string, string>> = {
     Acirrico: buildCatalogProductPath('spicy', 'POWDERS', 'Acirrico.webp'),
     Limonazo: buildCatalogProductPath('spicy', 'POWDERS', 'Limonazo.webp'),
   },
+  gomitas_almidon: {
+    'CHERRY SLICES 5LB': buildCatalogProductPath(
+      'sweet',
+      'JELLIES',
+      'JOVY-SWEET-JELLIES-Cherry-Slices-5-lb-300x300.webp'
+    ),
+    'ORANGE SLICES': buildCatalogProductPath(
+      'sweet',
+      'JELLIES',
+      'JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp'
+    ),
+    'ENCHILOKAS WATERMELON 150G': buildCatalogProductPath(
+      'spicy',
+      'JELLIES',
+      'JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp'
+    ),
+    'ENCHILOKAS WATERMELON 482G': buildCatalogProductPath(
+      'spicy',
+      'JELLIES',
+      'JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp'
+    ),
+    'ENCHILOKAS PINEAPPLE 150G': buildCatalogProductPath(
+      'spicy',
+      'JELLIES',
+      'JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp'
+    ),
+    'ENCHILOKAS PINEAPPLE 482G': buildCatalogProductPath(
+      'spicy',
+      'JELLIES',
+      'JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp'
+    ),
+    'ENCHILOKAS MANGO 150G': buildCatalogProductPath(
+      'spicy',
+      'JELLIES',
+      'JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp'
+    ),
+    'ENCHILOKAS MANGO 482G': buildCatalogProductPath(
+      'spicy',
+      'JELLIES',
+      'JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp'
+    ),
+  },
   dulces_paletas: {
     'Mango revolcado':
       buildCatalogProductPath('spicy', 'LOLLIPOPS', 'MANGO REVOLCADO', 'JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp'),
   },
 };
-const chilirokasBowlImage = buildCatalogBowlPath('chamoy/Chilirokas-Assorted.png');
-const chilirokasmangoBowlImage = buildCatalogBowlPath('chamoy/chilirokas-mango-assorted.webp');
-const chilirokastamarindoBowlImage = buildCatalogBowlPath('chamoy/chilirokas-tamarindo-assorted.webp');
-const chilirokawatermelonBowlImage = buildCatalogBowlPath('chamoy/chilirokas-watermelon-assorted.webp');
-const enchilokasBowlImage = buildCatalogBowlPath('chamoy/enchilokas-assorted.webp');
-const revolcaditasBowlImage = buildCatalogBowlPath('chamoy/revolcaditas-assorted.webp');
-const tamarosBowlImage = buildCatalogBowlPath('chamoy/tamaros-assorted.webp');
-const vallenitomangoBowlImage = buildCatalogBowlPath('chamoy/vallenito-mango-assorted.webp');
-const vallenitoBowlImage = buildCatalogBowlPath('chamoy/vallenito-assorted.webp');
-const vallenitowatermelonBowlImage = buildCatalogBowlPath('chamoy/vallenito-watermelon-assorted.webp');
-
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
-  gomitas_grenetina: gomitasGrenetinaAltDefLogos,
+  gomitas_grenetina: gomitasGrenetinaLogos,
   sazonador: [{ src: buildCatalogLogoPath('spicy', 'POWDERS', 'LOGOS', 'Acirrico-300x300.webp'), alt: 'Polvos Acirrico' }],
   gomitas_almidon: [
     { src: buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Cherry_Slices-300x300.webp'), alt: 'Jellies Cherry' },
@@ -74,11 +100,11 @@ export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }
   ],
   chamoy: chamoyCategoryLogos,
   dulces_paletas: [{ src: buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp'), alt: 'Paletas Mango' }],
-  pinatero: pinateroAltDefLogos,
+  pinatero: pinateroLogos,
 };
 
 export const categoryLogoProductsMap: Record<string, Record<string, string[]>> = {
-  gomitas_grenetina: gomitasGrenetinaAltDefLogoProductsMap,
+  gomitas_grenetina: gomitasGrenetinaLogoProductsMap,
   sazonador: {
     [buildCatalogLogoPath('spicy', 'POWDERS', 'LOGOS', 'Acirrico-300x300.webp')]: ['Acirrico', 'Limonazo'],
   },
@@ -91,11 +117,11 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
   dulces_paletas: {
     [buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp')]: ['Mango revolcado'],
   },
-  pinatero: pinateroAltDefLogoProductsMap,
+  pinatero: pinateroLogoProductsMap,
 };
 
 function getProductImagePath(
-  type: 'Picante' | 'Dulce',
+  _type: 'Picante' | 'Dulce',
   categoryId: string,
   productName: string
 ): string {
@@ -104,17 +130,6 @@ function getProductImagePath(
   if (categoryImages && categoryImages[productName]) {
     return categoryImages[productName];
   }
-
-  const typeFolder = type === 'Picante' ? 'SPICY' : 'SWEET';
-  const categoryFolderMap: Record<string, string> = {
-    sazonador: 'POWDERS',
-    gomitas_almidon: 'JELLIES',
-    chamoy: 'HARD CANDY',
-    dulces_paletas: 'LOLLIPOPS',
-    gomitas_grenetina: 'GUMMIES',
-  };
-  const categoryFolder = categoryFolderMap[categoryId] || categoryId.toUpperCase();
-  const productSubfolder = productName.split(' ')[0].toUpperCase();
 
   return BRAND_LOGO_PATH;
 }
@@ -126,7 +141,7 @@ const sazonador = buildSazonador(getProductImagePath);
 const dulces_paletas = buildDulcesPaletas(getProductImagePath);
 const chamoy = buildChamoy(getProductImagePath);
 
-export const catalogData: CatalogData = {
+export const rawCatalogData: CatalogData = {
   sazonador,
   gomitas_almidon,
   chamoy,
@@ -134,3 +149,5 @@ export const catalogData: CatalogData = {
   pinatero,
   gomitas_grenetina,
 };
+
+export const catalogData: CatalogData = resolveCatalogDataBowls(rawCatalogData);

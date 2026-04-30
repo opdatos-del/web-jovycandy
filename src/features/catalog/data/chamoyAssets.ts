@@ -1,9 +1,13 @@
 import { buildCatalogBowlPath, buildCatalogLogoPath, buildCatalogProductPath } from '@/shared/assets/publicAssets';
 
-export const chamoybearsBowlImage = buildCatalogBowlPath('chamoy-bears-assorted.webp');
-export const chamoyringspeachBowlImage = buildCatalogBowlPath('chamoy-rings-peach-assorted.webp');
-export const chamoyringswatermelonBowlImage = buildCatalogBowlPath('chamoy-rings-watermelon-assorted.webp');
-export const chamoywormsBowlImage = buildCatalogBowlPath('chamoy-worms-assorted.webp');
+export const chamoybearsBowlImage = buildCatalogBowlPath('chamoy/chamoy-bears-assorted.webp');
+export const chamoyringspeachBowlImage = buildCatalogBowlPath(
+  'chamoy/chamoy-rings-peach-assorted.webp'
+);
+export const chamoyringswatermelonBowlImage = buildCatalogBowlPath(
+  'chamoy/chamoy-rings-watermelon-assorted.webp'
+);
+export const chamoywormsBowlImage = buildCatalogBowlPath('chamoy/chamoy-worms-assorted.webp');
 
 export const chamoyProductImageMap: Record<string, string> = {
   'Lollipop Cherry': buildCatalogProductPath('sweet', 'HARD CANDY', 'JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp'),
