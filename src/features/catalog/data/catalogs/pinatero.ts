@@ -17,7 +17,6 @@ import { createStandardSpecs } from '../helpers/catalogSpecsFactory.ts';
 const buildPinateroCarouselPath = (filename: string) =>
   buildCatalogCarouselPath('pinateros', filename);
 
-const premiumMixLogo = buildBrandMarkPath('BRAND JOVY.png');
 
 const happyMixTemplate: ProductTemplate = {
   id: 'happy-mix-template',
@@ -94,9 +93,8 @@ const premiumMixTemplate: ProductTemplate = {
   productFamily: 'Premium Mix',
   subtitle: 'Assorted Mix\nPremium Selection',
   description: 'Presentacion premium de pinatero para surtido de alto gramaje.',
-  image: buildPinateroCarouselPath('Jovy-Pinateros-Premium-5-kg-MX.webp'),
-  // There is no dedicated bowl asset for Premium Mix yet; keep the visible asset explicit.
-  bowlImage: buildPinateroCarouselPath('Jovy-Pinateros-Premium-5-kg-MX.webp'),
+  image:buildCatalogProductPath('spicy', 'PINATERO', 'LOGOS', 'premium-mix-01.webp'),
+  bowlImage: buildCatalogBowlPath('pinatero/premium-mix-assorted.webp'),
   certifications: ['SGS'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.5 oz (14g)',
@@ -157,7 +155,7 @@ export const pinateroLogoGroups: CatalogLogoGroup[] = [
     families: ['revolcados-mix'],
   },
   {
-    src: premiumMixLogo,
+    src: buildCatalogLogoPath('spicy', 'PINATERO', 'LOGOS', 'premium-mix-01.webp'),
     alt: 'Pinatero Premium Mix',
     families: ['premium-mix'],
   },
