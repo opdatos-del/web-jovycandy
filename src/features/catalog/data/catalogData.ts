@@ -13,15 +13,26 @@ import {
   gomitasAlmidonLogos,
   gomitasAlmidonProductImageMap,
 } from './gomitasAlmidonAssets';
-import { resolveCatalogDataBowls } from './catalogs/catalogBowls.shared';
 import {
   gomitasGrenetinaLogoProductsMap,
   gomitasGrenetinaLogos,
-} from './catalogs/gomitas_grenetina';
+  gomitasGrenetinaProductImageMap,
+} from './assets/gomitasGrenetinaAssets';
+import {
+  sazonadorLogoProductsMap,
+  sazonadorLogos,
+  sazonadorProductImageMap,
+} from './assets/sazonadorAssets';
+import {
+  dulcespaletasLogoProductsMap,
+  dulcespaletasLogos,
+  dulcespaletasProductImageMap,
+} from './assets/dulcespaletasAssets';
 import {
   pinateroLogoProductsMap,
   pinateroLogos,
-} from './catalogs/pinatero';
+} from './assets/pinateroAssets';
+import { resolveCatalogDataBowls } from './catalogs/catalogBowls.shared';
 import { buildGomitasAlmidon } from './catalogs/gomitas_almidon';
 import { buildGomitasGrenetina } from './catalogs/gomitas_grenetina';
 import { buildPinatero } from './catalogs/pinatero';
@@ -30,62 +41,26 @@ import { buildDulcesPaletas } from './catalogs/dulces_paletas';
 import { buildChamoy } from './catalogs/chamoy';
 
 const productImageMap: Record<string, Record<string, string>> = {
-  gomitas_grenetina: {
-    'Rings Watermelon':
-      buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp'),
-    'Rings Neon':
-      buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp'),
-    'Gummies Peach':
-      buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp'),
-    'Gummies Cherry':
-      buildCatalogProductPath('sweet', 'GUMMIES', 'RINGS', 'JOVY-SWEET-GUMMIES-Rings-Cherry-5-lb-1-300x300.webp'),
-    'Worms Original':
-      buildCatalogProductPath('sweet', 'GUMMIES', 'WORMS', 'JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp'),
-    'Bears Classic':
-      buildCatalogProductPath('sweet', 'GUMMIES', 'BEARS', 'JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp'),
-  },
-  sazonador: {
-    Acirrico: buildCatalogProductPath('spicy', 'POWDERS', 'Acirrico.webp'),
-    Limonazo: buildCatalogProductPath('spicy', 'POWDERS', 'Limonazo.webp'),
-  },
+  gomitas_grenetina: gomitasGrenetinaProductImageMap,
+  sazonador: sazonadorProductImageMap,
   gomitas_almidon: gomitasAlmidonProductImageMap,
-  dulces_paletas: {
-    'Lollipop Cherry': buildCatalogProductPath(
-      'sweet',
-      'HARD CANDY',
-      'JOVY-SWEET-HARD-CANDY-Jovy-Fruit-6-oz-300x300.webp'
-    ),
-    'Mango revolcado': buildCatalogProductPath(
-      'spicy',
-      'LOLLIPOPS',
-      'MANGO REVOLCADO',
-      'JOVY-LOLLIPOP-Mango-Revolcado-5.29-oz-300x300.webp'
-    ),
-  },
+  dulces_paletas: dulcespaletasProductImageMap,
 };
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
   gomitas_grenetina: gomitasGrenetinaLogos,
-  sazonador: [{ src: buildCatalogLogoPath('spicy', 'POWDERS', 'LOGOS', 'Acirrico-300x300.webp'), alt: 'Polvos Acirrico' }],
+  sazonador: sazonadorLogos,
   gomitas_almidon: gomitasAlmidonLogos,
   chamoy: chamoyCategoryLogos,
-  dulces_paletas: [
-    { src: buildCatalogLogoPath('sweet', 'HARD CANDY', 'LOGOS', 'Jovy_Fruit-300x300.webp'), alt: 'Dulces Fruit' },
-    { src: buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp'), alt: 'Paletas Mango' },
-  ],
+  dulces_paletas: dulcespaletasLogos,
   pinatero: pinateroLogos,
 };
 
 export const categoryLogoProductsMap: Record<string, Record<string, string[]>> = {
   gomitas_grenetina: gomitasGrenetinaLogoProductsMap,
-  sazonador: {
-    [buildCatalogLogoPath('spicy', 'POWDERS', 'LOGOS', 'Acirrico-300x300.webp')]: ['Acirrico', 'Limonazo'],
-  },
+  sazonador: sazonadorLogoProductsMap,
   gomitas_almidon: gomitasAlmidonLogoProductsMap,
   chamoy: chamoyCategoryLogoProductsMap,
-  dulces_paletas: {
-    [buildCatalogLogoPath('sweet', 'HARD CANDY', 'LOGOS', 'Jovy_Fruit-300x300.webp')]: ['Lollipop Cherry'],
-    [buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp')]: ['Mango revolcado'],
-  },
+  dulces_paletas: dulcespaletasLogoProductsMap,
   pinatero: pinateroLogoProductsMap,
 };
 

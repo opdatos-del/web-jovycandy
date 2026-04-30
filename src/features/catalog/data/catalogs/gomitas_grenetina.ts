@@ -9,6 +9,7 @@ import {
   buildCatalogProductPath,
 } from '@/shared/assets/publicAssets';
 import { createVariant, type ProductTemplate } from './catalogVariant.shared';
+import { createStandardSpecs } from '../helpers/catalogSpecsFactory';
 
 const buildCatalogAssetPath = (...segments: string[]) => buildCatalogCarouselPath(...segments);
 
@@ -37,13 +38,13 @@ const ringsWatermelonTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp'
   ),
   certifications: ['SGS', 'OU Kosher', 'Halal'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+    piecesPerBag: 21,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -71,13 +72,13 @@ const ringsNeonTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp'
   ),
   certifications: ['SGS', 'Halal'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+    piecesPerBag: 21,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -104,13 +105,13 @@ const ringsPeachTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp'
   ),
   certifications: ['SGS', 'OU Kosher'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+    piecesPerBag: 21,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -138,13 +139,13 @@ const ringsGreenAppleTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Rings-Green-Apple-5-lb-1-300x300.webp'
   ),
   certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+    piecesPerBag: 21,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -172,13 +173,13 @@ const wormsOriginalTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp'
   ),
   certifications: ['SGS', 'Halal'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+    piecesPerBag: 21,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -205,13 +206,13 @@ const wormsNeonTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Worms-Neon-5-lb-1-300x300.webp'
   ),
   certifications: ['SGS', 'Halal'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+    piecesPerBag: 21,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -239,13 +240,13 @@ const bearsClassicTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp'
   ),
   certifications: ['SGS', 'OU Kosher', 'Halal'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
-    { label: 'Pieces per bag', value: '24 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.25 oz (7g)',
+    piecesPerBag: 24,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -273,13 +274,13 @@ const bearsNeonTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Bears-Neon-5-lb-1-300x300.webp'
   ),
   certifications: ['SGS', 'Halal'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
-    { label: 'Pieces per bag', value: '24 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.25 oz (7g)',
+    piecesPerBag: 24,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -306,13 +307,13 @@ const watermelonSlicesTemplate: ProductTemplate = {
     'JOVY-SWEET-GUMMIES-Watermelon-Slices-5-lb-300x300.webp'
   ),
   certifications: ['SGS', 'Halal'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.3 oz (8g)' },
-    { label: 'Pieces per bag', value: '21 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 170 g' },
-    { label: 'Bags per Box', value: '24' },
-    { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+    piecesPerBag: 21,
+    bagWeight: '170 g',
+    bagsPerBox: 24,
+    boxWeight: '8 lb 13 oz (4.08 kg)',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -335,13 +336,13 @@ const frutastikaTemplate: ProductTemplate = {
     'Mezcla surtida de gomitas con enfoque frutal para presentaciones individuales.',
   image: buildCatalogAssetPath('100g', 'Mockup Frutastika MX 100g.webp'),
   certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
-    { label: 'Pieces per bag', value: '24 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 100 g' },
-    { label: 'Bags per Box', value: '12' },
-    { label: 'Box Weight', value: 'Net Wt. 1.2 kg' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.25 oz (7g)',
+    piecesPerBag: 24,
+    bagWeight: '100 g',
+    bagsPerBox: 12,
+    boxWeight: '1.2 kg',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -363,13 +364,13 @@ const blueSharksTemplate: ProductTemplate = {
   description: 'Gomitas tipo tiburon con acabado brillante y perfil frutal.',
   image: buildCatalogAssetPath('100g', 'Mockup Blue Sharks Mx 100g.webp'),
   certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
-    { label: 'Pieces per bag', value: '24 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 100 g' },
-    { label: 'Bags per Box', value: '12' },
-    { label: 'Box Weight', value: 'Net Wt. 1.2 kg' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.25 oz (7g)',
+    piecesPerBag: 24,
+    bagWeight: '100 g',
+    bagsPerBox: 12,
+    boxWeight: '1.2 kg',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -391,13 +392,13 @@ const sharksMixTemplate: ProductTemplate = {
   description: 'Surtido de tiburones de gomita en una presentacion de alto gramaje.',
   image: buildCatalogAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Sharks Mix -1kg-MX.webp'),
   certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.25 oz (7g)' },
-    { label: 'Pieces per bag', value: '24 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 1 kg' },
-    { label: 'Bags per Box', value: '10' },
-    { label: 'Box Weight', value: 'Net Wt. 10 kg' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.25 oz (7g)',
+    piecesPerBag: 24,
+    bagWeight: '1 kg',
+    bagsPerBox: 10,
+    boxWeight: '10 kg',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',

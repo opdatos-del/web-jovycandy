@@ -1,5 +1,6 @@
 import type { CatalogCategory } from '../../types/catalog.types';
 import type { CatalogProduct } from '../../types/catalog.types';
+import { createStandardSpecs } from '../helpers/catalogSpecsFactory';
 
 export function buildDulcesPaletas(getProductImagePath: (categoryId: string, productName: string) => string): CatalogCategory {
   const products: CatalogProduct[] = [
@@ -9,16 +10,14 @@ export function buildDulcesPaletas(getProductImagePath: (categoryId: string, pro
       subtitle: 'Cherry Lollipop\nClassic Hard Candy',
       description: 'Caramelos macizos con sabor intenso a cereza.',
       image: getProductImagePath('dulces_paletas', 'Lollipop Cherry'),
-      sampleImage: getProductImagePath('dulces_paletas', 'Lollipop Cherry'),
-      secondaryImage: getProductImagePath('dulces_paletas', 'Lollipop Cherry'),
       certifications: ['SGS', 'OU Kosher'],
-      specs: [
-        { label: 'Weight per piece', value: 'Net Wt. 0.15 oz (4g)' },
-        { label: 'Pieces per bag', value: '40 aprox' },
-        { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-        { label: 'Bags per Box', value: '24' },
-        { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-      ],
+      specs: createStandardSpecs({
+        weightPerPiece: 'Net Wt. 0.15 oz (4g)',
+        piecesPerBag: 40,
+        bagWeight: '6 oz (170g)',
+        bagsPerBox: 24,
+        boxWeight: '8 lb 13 oz (4.08 kg)',
+      }),
       collapsibleInfo: [
         { title: 'Ingredientes', content: 'Azucar, jarabe de maiz, acido malico y saborizante de cereza.' },
         { title: 'Informacion Nutrimental', content: 'Tamano de la porcion: 15g. Calorias: 60. Azucares: 12g.' },
@@ -31,8 +30,6 @@ export function buildDulcesPaletas(getProductImagePath: (categoryId: string, pro
       subtitle: 'Mango revolcado\nPaleta',
       description: 'Paleta con chamoy y chile.',
       image: getProductImagePath('dulces_paletas', 'Mango revolcado'),
-      sampleImage: getProductImagePath('dulces_paletas', 'Mango revolcado'),
-      secondaryImage: getProductImagePath('dulces_paletas', 'Mango revolcado'),
       certifications: ['SGS'],
       specs: [],
       collapsibleInfo: [],

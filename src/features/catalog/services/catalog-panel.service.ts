@@ -67,7 +67,7 @@ export const getCatalogCategories = (): CatalogCategoryCard[] =>
       title: getCategoryDisplayTitle(categoryId),
       accent: category.accent || DEFAULT_ACCENT_COLOR,
       productCount: getCategoryProducts(categoryId).length,
-      image: categoryImage || fondos?.primary || category.products[0]?.sampleImage || category.products[0]?.image || '',
+      image: categoryImage || fondos?.primary || category.products[0]?.image || '',
       hoverImage: fondos?.hover,
       disabled: isUpcomingCategory(categoryId),
       badge: isUpcomingCategory(categoryId) ? COMING_SOON_BADGE : undefined,

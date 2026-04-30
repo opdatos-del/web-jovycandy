@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
+    "validate-catalog": "node ./scripts/validate-catalog.ts",
     "audit:assets": "node ./scripts/audit-assets.mjs",
     "audit:bowls": "node ./scripts/audit-bowls.mjs"
   },

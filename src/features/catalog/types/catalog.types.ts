@@ -37,8 +37,10 @@ export type CatalogProduct = {
   description: string;
   image: string;
   carouselImage?: string;
+  /** Optional: defaults to image if not provided */
   sampleImage?: string;
-  secondaryImage: string;
+  /** Optional: defaults to image if not provided */
+  secondaryImage?: string;
   bowlImage?: string;
   certifications: CatalogCertification[];
   specs: CatalogSpec[];

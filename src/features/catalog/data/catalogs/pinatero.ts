@@ -10,6 +10,7 @@ import {
   buildCatalogProductPath,
 } from '@/shared/assets/publicAssets';
 import { createVariant, type ProductTemplate } from './catalogVariant.shared';
+import { createStandardSpecs } from '../helpers/catalogSpecsFactory';
 
 const buildCatalogAssetPath = (...segments: string[]) => buildCatalogCarouselPath(...segments);
 
@@ -29,13 +30,13 @@ const happyMixTemplate: ProductTemplate = {
     'JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp'
   ),
   certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-    { label: 'Pieces per bag', value: '12 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 2.26 kg' },
-    { label: 'Bags per Box', value: '1' },
-    { label: 'Box Weight', value: 'Net Wt. 5 kg' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+    piecesPerBag: 12,
+    bagWeight: '2.26 kg',
+    bagsPerBox: 1,
+    boxWeight: '5 kg',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -62,13 +63,13 @@ const revolcadosMixTemplate: ProductTemplate = {
     'JOVY-PINATEROS-Revolcados-Mix-5-lb-300x300.webp'
   ),
   certifications: ['SGS', 'Halal'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-    { label: 'Pieces per bag', value: '12 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 2.26 kg' },
-    { label: 'Bags per Box', value: '1' },
-    { label: 'Box Weight', value: 'Net Wt. 5 kg' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+    piecesPerBag: 12,
+    bagWeight: '2.26 kg',
+    bagsPerBox: 1,
+    boxWeight: '5 kg',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',
@@ -90,13 +91,13 @@ const premiumMixTemplate: ProductTemplate = {
   description: 'Presentacion premium de pinatero para surtido de alto gramaje.',
   image: buildCatalogAssetPath('Pi\u00f1ateros', 'Jovy-Pi\u00f1ateros-Premium-5-kg-MX.webp'),
   certifications: ['SGS'],
-  specs: [
-    { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-    { label: 'Pieces per bag', value: '12 aprox' },
-    { label: 'Weight per bag', value: 'Net Wt. 5 kg' },
-    { label: 'Bags per Box', value: '1' },
-    { label: 'Box Weight', value: 'Net Wt. 5 kg' },
-  ],
+  specs: createStandardSpecs({
+    weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+    piecesPerBag: 12,
+    bagWeight: '5 kg',
+    bagsPerBox: 1,
+    boxWeight: '5 kg',
+  }),
   collapsibleInfo: [
     {
       title: 'Ingredientes',

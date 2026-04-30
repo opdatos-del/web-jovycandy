@@ -1,4 +1,5 @@
 import type { CatalogCategory } from '../../types/catalog.types';
+import { createStandardSpecs } from '../helpers/catalogSpecsFactory';
 
 export function buildGomitasAlmidon(
   getProductImagePath: (categoryId: string, productName: string) => string
@@ -14,16 +15,14 @@ export function buildGomitasAlmidon(
         subtitle: 'Strawberry Jelly\nSmooth & Sweet',
         description: 'Gelatina de fresa con textura suave y sabor intenso.',
         image: getProductImagePath('gomitas_almidon', 'CHERRY SLICES 5LB'),
-        sampleImage: getProductImagePath('gomitas_almidon', 'CHERRY SLICES 5LB'),
-        secondaryImage: getProductImagePath('gomitas_almidon', 'CHERRY SLICES 5LB'),
         certifications: ['SGS', 'OU Kosher', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+          piecesPerBag: 12,
+          bagWeight: '6 oz (170g)',
+          bagsPerBox: 24,
+          boxWeight: '8 lb 13 oz (4.08 kg)',
+        }),
         collapsibleInfo: [
           {
             title: 'Ingredientes',
@@ -42,16 +41,14 @@ export function buildGomitasAlmidon(
         subtitle: 'Orange Jelly\nCitrus & Sweet',
         description: 'Gelatina de naranja con sabor citrico intenso.',
         image: getProductImagePath('gomitas_almidon', 'ORANGE SLICES'),
-        sampleImage: getProductImagePath('gomitas_almidon', 'ORANGE SLICES'),
-        secondaryImage: getProductImagePath('gomitas_almidon', 'ORANGE SLICES'),
         certifications: ['SGS', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 6 oz (170g)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+          piecesPerBag: 12,
+          bagWeight: '6 oz (170g)',
+          bagsPerBox: 24,
+          boxWeight: '8 lb 13 oz (4.08 kg)',
+        }),
         collapsibleInfo: [
           {
             title: 'Ingredientes',
@@ -71,16 +68,14 @@ export function buildGomitasAlmidon(
         subtitle: 'Fruit Jelly\nAssorted Slices',
         description: 'Gelatina surtida de frutas con un perfil suave y clasico.',
         image: getProductImagePath('gomitas_almidon', 'FRUIT ASSORTED SLICES'),
-        sampleImage: getProductImagePath('gomitas_almidon', 'FRUIT ASSORTED SLICES'),
-        secondaryImage: getProductImagePath('gomitas_almidon', 'FRUIT ASSORTED SLICES'),
         certifications: ['SGS', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 5 lb (2.26kg)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+          piecesPerBag: 12,
+          bagWeight: '5 lb (2.26kg)',
+          bagsPerBox: 24,
+          boxWeight: '8 lb 13 oz (4.08 kg)',
+        }),
         collapsibleInfo: [
           {
             title: 'Ingredientes',
@@ -102,13 +97,13 @@ export function buildGomitasAlmidon(
         sampleImage: getProductImagePath('gomitas_almidon', 'GUM DROPS'),
         secondaryImage: getProductImagePath('gomitas_almidon', 'GUM DROPS'),
         certifications: ['SGS', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 5 lb (2.26kg)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+          piecesPerBag: 12,
+          bagWeight: '5 lb (2.26kg)',
+          bagsPerBox: 24,
+          boxWeight: '8 lb 13 oz (4.08 kg)',
+        }),
         collapsibleInfo: [
           {
             title: 'Ingredientes',
@@ -130,13 +125,13 @@ export function buildGomitasAlmidon(
         sampleImage: getProductImagePath('gomitas_almidon', 'SPICE DROPS'),
         secondaryImage: getProductImagePath('gomitas_almidon', 'SPICE DROPS'),
         certifications: ['SGS'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 5 lb (2.26kg)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+          piecesPerBag: 12,
+          bagWeight: '5 lb (2.26kg)',
+          bagsPerBox: 24,
+          boxWeight: '8 lb 13 oz (4.08 kg)',
+        }),
         collapsibleInfo: [
           {
             title: 'Ingredientes',
@@ -158,13 +153,13 @@ export function buildGomitasAlmidon(
         sampleImage: getProductImagePath('gomitas_almidon', 'SPEARMINT LEAVES'),
         secondaryImage: getProductImagePath('gomitas_almidon', 'SPEARMINT LEAVES'),
         certifications: ['SGS'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 5 lb (2.26kg)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+          piecesPerBag: 12,
+          bagWeight: '5 lb (2.26kg)',
+          bagsPerBox: 24,
+          boxWeight: '8 lb 13 oz (4.08 kg)',
+        }),
         collapsibleInfo: [
           {
             title: 'Ingredientes',
@@ -186,13 +181,13 @@ export function buildGomitasAlmidon(
         sampleImage: getProductImagePath('gomitas_almidon', 'CHERRY JELLY SOUR'),
         secondaryImage: getProductImagePath('gomitas_almidon', 'CHERRY JELLY SOUR'),
         certifications: ['SGS', 'Halal'],
-        specs: [
-          { label: 'Weight per piece', value: 'Net Wt. 0.5 oz (14g)' },
-          { label: 'Pieces per bag', value: '12 aprox' },
-          { label: 'Weight per bag', value: 'Net Wt. 5 lb (2.26kg)' },
-          { label: 'Bags per Box', value: '24' },
-          { label: 'Box Weight', value: 'Net Wt. 8 lb 13 oz (4.08 kg)' },
-        ],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.5 oz (14g)',
+          piecesPerBag: 12,
+          bagWeight: '5 lb (2.26kg)',
+          bagsPerBox: 24,
+          boxWeight: '8 lb 13 oz (4.08 kg)',
+        }),
         collapsibleInfo: [
           {
             title: 'Ingredientes',
