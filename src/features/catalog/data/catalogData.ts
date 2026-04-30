@@ -8,6 +8,11 @@ import {
   chamoyCategoryLogoProductsMap,
   chamoyCategoryLogos,
 } from './chamoyAssets';
+import {
+  gomitasAlmidonLogoProductsMap,
+  gomitasAlmidonLogos,
+  gomitasAlmidonProductImageMap,
+} from './gomitasAlmidonAssets';
 import { resolveCatalogDataBowls } from './catalogs/catalogBowls.shared';
 import {
   gomitasGrenetinaLogoProductsMap,
@@ -43,18 +48,7 @@ const productImageMap: Record<string, Record<string, string>> = {
     Acirrico: buildCatalogProductPath('spicy', 'POWDERS', 'Acirrico.webp'),
     Limonazo: buildCatalogProductPath('spicy', 'POWDERS', 'Limonazo.webp'),
   },
-  gomitas_almidon: {
-    'CHERRY SLICES 5LB': buildCatalogProductPath(
-      'sweet',
-      'JELLIES',
-      'JOVY-SWEET-JELLIES-Cherry-Slices-5-lb-300x300.webp'
-    ),
-    'ORANGE SLICES': buildCatalogProductPath(
-      'sweet',
-      'JELLIES',
-      'JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp'
-    ),
-  },
+  gomitas_almidon: gomitasAlmidonProductImageMap,
   dulces_paletas: {
     'Lollipop Cherry': buildCatalogProductPath(
       'sweet',
@@ -72,10 +66,7 @@ const productImageMap: Record<string, Record<string, string>> = {
 export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }>> = {
   gomitas_grenetina: gomitasGrenetinaLogos,
   sazonador: [{ src: buildCatalogLogoPath('spicy', 'POWDERS', 'LOGOS', 'Acirrico-300x300.webp'), alt: 'Polvos Acirrico' }],
-  gomitas_almidon: [
-    { src: buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Cherry_Slices-300x300.webp'), alt: 'Jellies Cherry' },
-    { src: buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Orange_slices-300x300.webp'), alt: 'Jellies Orange' },
-  ],
+  gomitas_almidon: gomitasAlmidonLogos,
   chamoy: chamoyCategoryLogos,
   dulces_paletas: [
     { src: buildCatalogLogoPath('sweet', 'HARD CANDY', 'LOGOS', 'Jovy_Fruit-300x300.webp'), alt: 'Dulces Fruit' },
@@ -89,10 +80,7 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
   sazonador: {
     [buildCatalogLogoPath('spicy', 'POWDERS', 'LOGOS', 'Acirrico-300x300.webp')]: ['Acirrico', 'Limonazo'],
   },
-  gomitas_almidon: {
-    [buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Cherry_Slices-300x300.webp')]: ['CHERRY SLICES 5LB'],
-    [buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Orange_slices-300x300.webp')]: ['ORANGE SLICES'],
-  },
+  gomitas_almidon: gomitasAlmidonLogoProductsMap,
   chamoy: chamoyCategoryLogoProductsMap,
   dulces_paletas: {
     [buildCatalogLogoPath('sweet', 'HARD CANDY', 'LOGOS', 'Jovy_Fruit-300x300.webp')]: ['Lollipop Cherry'],
