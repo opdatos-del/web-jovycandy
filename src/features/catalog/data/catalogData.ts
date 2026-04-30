@@ -54,36 +54,6 @@ const productImageMap: Record<string, Record<string, string>> = {
       'JELLIES',
       'JOVY-SWEET-JELLIES-Orange-Slices-5-lb-300x300.webp'
     ),
-    'ENCHILOKAS WATERMELON 150G': buildCatalogProductPath(
-      'spicy',
-      'JELLIES',
-      'JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp'
-    ),
-    'ENCHILOKAS WATERMELON 482G': buildCatalogProductPath(
-      'spicy',
-      'JELLIES',
-      'JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp'
-    ),
-    'ENCHILOKAS PINEAPPLE 150G': buildCatalogProductPath(
-      'spicy',
-      'JELLIES',
-      'JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp'
-    ),
-    'ENCHILOKAS PINEAPPLE 482G': buildCatalogProductPath(
-      'spicy',
-      'JELLIES',
-      'JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp'
-    ),
-    'ENCHILOKAS MANGO 150G': buildCatalogProductPath(
-      'spicy',
-      'JELLIES',
-      'JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp'
-    ),
-    'ENCHILOKAS MANGO 482G': buildCatalogProductPath(
-      'spicy',
-      'JELLIES',
-      'JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp'
-    ),
   },
   dulces_paletas: {
     'Mango revolcado':
@@ -96,7 +66,6 @@ export const categoryLogosMap: Record<string, Array<{ src: string; alt: string }
   gomitas_almidon: [
     { src: buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Cherry_Slices-300x300.webp'), alt: 'Jellies Cherry' },
     { src: buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Orange_slices-300x300.webp'), alt: 'Jellies Orange' },
-    { src: buildCatalogLogoPath('spicy', 'JELLIES', 'LOGOS', 'enchilokas-300x300.webp'), alt: 'Jellies Enchilokas' },
   ],
   chamoy: chamoyCategoryLogos,
   dulces_paletas: [{ src: buildCatalogLogoPath('spicy', 'LOLLIPOPS', 'LOGOS', 'Mango_Revolcado-300x300.webp'), alt: 'Paletas Mango' }],
@@ -111,7 +80,6 @@ export const categoryLogoProductsMap: Record<string, Record<string, string[]>> =
   gomitas_almidon: {
     [buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Cherry_Slices-300x300.webp')]: ['CHERRY SLICES 5LB'],
     [buildCatalogLogoPath('sweet', 'JELLIES', 'LOGOS', 'Orange_slices-300x300.webp')]: ['ORANGE SLICES'],
-    [buildCatalogLogoPath('spicy', 'JELLIES', 'LOGOS', 'enchilokas-300x300.webp')]: ['Enchilokas'],
   },
   chamoy: chamoyCategoryLogoProductsMap,
   dulces_paletas: {

@@ -53,6 +53,7 @@ const categoryBowlFamilyRegistry: Partial<
     [normalizeBowlKey('Chilirokas Watermelon')]: buildCatalogBowlPath(
       'chamoy/chilirokas-watermelon-assorted.webp'
     ),
+    [normalizeBowlKey('Enchilokas')]: buildCatalogBowlPath('chamoy/enchilokas-assorted.webp'),
     [normalizeBowlKey('Revolcaditas')]: buildCatalogBowlPath(
       'chamoy/revolcaditas-assorted.webp'
     ),
@@ -64,9 +65,6 @@ const categoryBowlFamilyRegistry: Partial<
     [normalizeBowlKey('Vallenito Watermelon')]: buildCatalogBowlPath(
       'chamoy/vallenito-watermelon-assorted.webp'
     ),
-  },
-  gomitas_almidon: {
-    [normalizeBowlKey('Enchilokas')]: buildCatalogBowlPath('chamoy/enchilokas-assorted.webp'),
   },
   gomitas_grenetina: {
     [normalizeBowlKey('Chamoy Bears')]: buildCatalogBowlPath(

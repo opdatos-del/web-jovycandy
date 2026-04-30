@@ -43,6 +43,204 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
       },
       {
         id: 'd2',
+        name: 'ENCHILOKAS WATERMELON 150G',
+        productFamily: 'Enchilokas',
+        subtitle: 'Watermelon Jelly\nSpicy & Fruity',
+        description: 'Jelly enchilado sabor sandia con cubierta picante.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp'
+        ),
+        sampleImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp'
+        ),
+        secondaryImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Watermelon-5.29-oz-300x300.webp'
+        ),
+        bowlImage: enchilokasBowlImage,
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor sandia.',
+          },
+        ],
+        gramaje: '150 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd3',
+        name: 'ENCHILOKAS WATERMELON 482G',
+        productFamily: 'Enchilokas',
+        subtitle: 'Watermelon Jelly\nSpicy & Fruity',
+        description: 'Jelly enchilado sabor sandia en presentacion grande.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp'
+        ),
+        sampleImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp'
+        ),
+        secondaryImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Watermelon-1-lb-1-oz-300x300.webp'
+        ),
+        bowlImage: enchilokasBowlImage,
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor sandia.',
+          },
+        ],
+        gramaje: '482 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd4',
+        name: 'ENCHILOKAS PINEAPPLE 150G',
+        productFamily: 'Enchilokas',
+        subtitle: 'Pineapple Jelly\nSpicy & Tangy',
+        description: 'Jelly enchilado sabor pina con perfil acidito y picante.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp'
+        ),
+        sampleImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp'
+        ),
+        secondaryImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Pineapple-5.29-oz-300x300.webp'
+        ),
+        bowlImage: enchilokasBowlImage,
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor pina.',
+          },
+        ],
+        gramaje: '150 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd5',
+        name: 'ENCHILOKAS PINEAPPLE 482G',
+        productFamily: 'Enchilokas',
+        subtitle: 'Pineapple Jelly\nSpicy & Tangy',
+        description: 'Jelly enchilado sabor pina en presentacion grande.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp'
+        ),
+        sampleImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp'
+        ),
+        secondaryImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Pineapple-1-lb-1-oz-300x300.webp'
+        ),
+        bowlImage: enchilokasBowlImage,
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor pina.',
+          },
+        ],
+        gramaje: '482 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd6',
+        name: 'ENCHILOKAS MANGO 150G',
+        productFamily: 'Enchilokas',
+        subtitle: 'Mango Jelly\nSpicy & Tropical',
+        description: 'Jelly enchilado sabor mango con acabado picante.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp'
+        ),
+        sampleImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp'
+        ),
+        secondaryImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Mango-5.29-oz-300x300.webp'
+        ),
+        bowlImage: enchilokasBowlImage,
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 5.29 oz (150g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor mango.',
+          },
+        ],
+        gramaje: '150 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd7',
+        name: 'ENCHILOKAS MANGO 482G',
+        productFamily: 'Enchilokas',
+        subtitle: 'Mango Jelly\nSpicy & Tropical',
+        description: 'Jelly enchilado sabor mango en presentacion grande.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp'
+        ),
+        sampleImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp'
+        ),
+        secondaryImage: buildCatalogProductPath(
+          'spicy',
+          'JELLIES',
+          'JOVY-JELLIES-Enchilokas-Mango-1-lb-1-oz-300x300.webp'
+        ),
+        bowlImage: enchilokasBowlImage,
+        certifications: ['SGS'],
+        specs: [{ label: 'Weight per bag', value: 'Net Wt. 1 lb 1 oz (482g)' }],
+        collapsibleInfo: [
+          {
+            title: 'Presentacion',
+            content: 'Bolsa enchilada sabor mango.',
+          },
+        ],
+        gramaje: '482 g',
+        type: 'Picante',
+      },
+      {
+        id: 'd8',
         name: 'Chilirokas Assorted 1 lb 3 oz',
         productFamily: 'Chilirokas',
         subtitle: 'Assorted Hard Candy\n1 lb 3 oz',
@@ -67,7 +265,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd3',
+        id: 'd9',
         name: 'Chilirokas Assorted 5.29 oz',
         productFamily: 'Chilirokas',
         subtitle: 'Assorted Hard Candy\n5.29 oz',
@@ -92,7 +290,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd4',
+        id: 'd10',
         name: 'Chilirokas Assorted 6 oz',
         productFamily: 'Chilirokas',
         subtitle: 'Assorted Hard Candy\n6 oz',
@@ -117,7 +315,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd5',
+        id: 'd11',
         name: 'Chilirokas Mango 1 lb 3 oz',
         productFamily: 'Chilirokas',
         subtitle: 'Mango Hard Candy\n1 lb 3 oz',
@@ -142,7 +340,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd6',
+        id: 'd12',
         name: 'Chilirokas Mango 6 oz',
         productFamily: 'Chilirokas',
         subtitle: 'Mango Hard Candy\n6 oz',
@@ -167,7 +365,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd7',
+        id: 'd13',
         name: 'Chilirokas Tamarind 1 lb 3 oz',
         productFamily: 'Chilirokas',
         subtitle: 'Tamarind Hard Candy\n1 lb 3 oz',
@@ -192,7 +390,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd8',
+        id: 'd14',
         name: 'Chilirokas Tamarind 6 oz',
         productFamily: 'Chilirokas',
         subtitle: 'Tamarind Hard Candy\n6 oz',
@@ -217,7 +415,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd9',
+        id: 'd15',
         name: 'Chilirokas Watermelon 1 lb 3 oz',
         productFamily: 'ChiliROKAS',
         subtitle: 'Watermelon Hard Candy\n1 lb 3 oz',
@@ -242,7 +440,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd10',
+        id: 'd16',
         name: 'Chilirokas Watermelon 6 oz',
         productFamily: 'ChiliROKAS',
         subtitle: 'Watermelon Hard Candy\n6 oz',
@@ -267,7 +465,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd11',
+        id: 'd17',
         name: 'Revolcaditas Assorted 6 oz',
         productFamily: 'Revolcaditas',
         subtitle: 'Assorted Hard Candy\n6 oz',
@@ -292,7 +490,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd12',
+        id: 'd18',
         name: 'Revolcaditas Mango 1 lb 5 16 oz',
         productFamily: 'Revolcaditas',
         subtitle: 'Mango Hard Candy\n1 lb 5 16 oz',
@@ -317,7 +515,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd13',
+        id: 'd19',
         name: 'Revolcaditas Mango 6 oz',
         productFamily: 'Revolcaditas',
         subtitle: 'Mango Hard Candy\n6 oz',
@@ -342,7 +540,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd14',
+        id: 'd20',
         name: 'Revolcaditas Watermelon 1 lb 5 16 oz',
         productFamily: 'Revolcaditas',
         subtitle: 'Watermelon Hard Candy\n1 lb 5 16 oz',
@@ -367,7 +565,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd15',
+        id: 'd21',
         name: 'Revolcaditas Watermelon 6 oz',
         productFamily: 'Revolcaditas',
         subtitle: 'Watermelon Hard Candy\n6 oz',
@@ -392,7 +590,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd16',
+        id: 'd22',
         name: 'Tamaros 1 lb 7 oz',
         productFamily: 'Tamaros',
         subtitle: 'Tamarind Hard Candy\n1 lb 7 oz',
@@ -417,7 +615,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd17',
+        id: 'd23',
         name: 'Tamaros 4.9 oz',
         productFamily: 'Tamaros',
         subtitle: 'Tamarind Hard Candy\n4.9 oz',
@@ -442,7 +640,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd18',
+        id: 'd24',
         name: 'Tamaros 6 oz',
         productFamily: 'Tamaros',
         subtitle: 'Tamarind Hard Candy\n6 oz',
@@ -467,7 +665,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd19',
+        id: 'd25',
         name: 'Vallenito Assorted 1 lb 7 oz',
         productFamily: 'Vallenito',
         subtitle: 'Assorted Hard Candy\n1 lb 7 oz',
@@ -492,7 +690,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd20',
+        id: 'd26',
         name: 'Vallenito Assorted 6 oz',
         productFamily: 'Vallenito',
         subtitle: 'Assorted Hard Candy\n6 oz',
@@ -517,7 +715,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd21',
+        id: 'd27',
         name: 'Vallenito Mango 6 oz',
         productFamily: 'Vallenito',
         subtitle: 'Mango Hard Candy\n6 oz',
@@ -542,7 +740,7 @@ export function buildChamoy(getProductImagePath: (type: 'Picante' | 'Dulce', cat
         type: 'Picante',
       },
       {
-        id: 'd22',
+        id: 'd28',
         name: 'Vallenito Watermelon 6 oz',
         productFamily: 'Vallenito',
         subtitle: 'Watermelon Hard Candy\n6 oz',

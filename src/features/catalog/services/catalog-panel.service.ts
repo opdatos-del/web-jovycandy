@@ -48,7 +48,6 @@ const getCategoryProducts = (categoryId: CatalogCategoryId): CatalogProduct[] =>
     case 'chamoy':
       return [
         ...catalogData.chamoy.products.filter(isSpicyProduct),
-        ...catalogData.gomitas_almidon.products.filter(isSpicyProduct),
         ...catalogData.gomitas_grenetina.products.filter(isSpicyProduct),
       ];
     case 'gomitas_almidon':
