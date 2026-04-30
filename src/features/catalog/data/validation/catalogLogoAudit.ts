@@ -1,5 +1,5 @@
 import type { CatalogCategoryId } from '../../types/catalog.types';
-import { catalogData, categoryLogoProductsMap, categoryLogosMap } from '../catalogData';
+import { catalogData, categoryModulesMap } from '../catalogData.ts';
 
 export interface LogoAuditResult {
   categoryId: CatalogCategoryId;
@@ -22,9 +22,12 @@ export function auditLogomappings(): LogoAuditResult[] {
   const results: LogoAuditResult[] = [];
 
   (Object.keys(catalogData) as CatalogCategoryId[]).forEach((categoryId) => {
-    const logos = categoryLogosMap[categoryId] || [];
-    const logoProducts = categoryLogoProductsMap[categoryId] || {};
     const products = catalogData[categoryId]?.products || [];
+    const categoryModule = categoryModulesMap[categoryId];
+    const logos = categoryModule.logos;
+    const logoProducts = Object.fromEntries(
+      categoryModule.logos.map((logo) => [logo.src, logo.families])
+    );
 
     const issues: string[] = [];
     const recommendations: string[] = [];
@@ -44,7 +47,8 @@ export function auditLogomappings(): LogoAuditResult[] {
     });
 
     products.forEach((product) => {
-      if (!mappedProductNames.has(product.name)) {
+      const matcher = product.familyId ?? product.name;
+      if (!mappedProductNames.has(matcher)) {
         issues.push(`Product "${product.name}" not mapped to any logo`);
       }
     });

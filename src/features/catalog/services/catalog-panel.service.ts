@@ -1,5 +1,5 @@
 import { DEFAULT_ACCENT_COLOR } from '../constants/catalog.constants';
-import { catalogData, categoryLogoProductsMap, categoryLogosMap } from '../data/catalogData';
+import { catalogData, categoryModulesMap } from '../data/catalogData';
 import {
   BRAND_LOGO_PATH,
   CATEGORY_BACKGROUND_PATHS,
@@ -35,8 +35,9 @@ const CATEGORY_DISPLAY_ORDER: CatalogCategoryId[] = [
   'gomitas_grenetina',
 ];
 
-const getLogoFilename = (logoSrc: string) => logoSrc.split('/').pop() ?? '';
-const getProductMatcher = (product: CatalogProduct) => product.productFamily ?? product.name;
+const getCategoryModule = (categoryId: CatalogCategoryId) => categoryModulesMap[categoryId];
+const getProductFamilyKey = (product: CatalogProduct) =>
+  product.familyId ?? product.productFamily ?? product.name;
 const isUpcomingCategory = (categoryId: CatalogCategoryId) => UPCOMING_CATEGORY_IDS.has(categoryId);
 
 const getCategoryDisplayTitle = (categoryId: CatalogCategoryId) =>
@@ -47,13 +48,7 @@ const getCategoryProducts = (categoryId: CatalogCategoryId): CatalogProduct[] =>
 };
 
 const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) => {
-  const categoryLogoProducts = categoryLogoProductsMap[categoryId];
-
-  if (!categoryLogoProducts) {
-    return [];
-  }
-
-  return categoryLogoProducts[logoSrc] || categoryLogoProducts[getLogoFilename(logoSrc)] || [];
+  return getCategoryModule(categoryId).logos.find((logo) => logo.src === logoSrc)?.families ?? [];
 };
 
 export const getCatalogCategories = (): CatalogCategoryCard[] =>
@@ -79,8 +74,10 @@ export const getCategoryLogos = (
   categoryTitle: string,
   products: CatalogProduct[]
 ): CatalogLogoOption[] => {
-  const categoryLogos = categoryLogosMap[categoryId] || [{ src: FALLBACK_LOGO_SRC, alt: categoryTitle }];
-  const availableMatchers = new Set(products.map(getProductMatcher));
+  const categoryLogos = getCategoryModule(categoryId).logos ?? [
+    { src: FALLBACK_LOGO_SRC, alt: categoryTitle },
+  ];
+  const availableMatchers = new Set(products.map(getProductFamilyKey));
   const filteredLogos = categoryLogos.filter((logo) => {
     const logoMatchers = getLogoProductMatchers(categoryId, logo.src);
 
@@ -96,7 +93,9 @@ export const getProductsByLogo = (
   logoSrc: string
 ): CatalogProduct[] => {
   const productMatchers = getLogoProductMatchers(categoryId, logoSrc);
-  const filteredProducts = products.filter((product) => productMatchers.includes(getProductMatcher(product)));
+  const filteredProducts = products.filter((product) =>
+    productMatchers.includes(getProductFamilyKey(product))
+  );
 
   return filteredProducts.length > 0 ? filteredProducts : products;
 };
@@ -158,4 +157,3 @@ export const getNextLogoState = (
     products: getProductsByLogo(currentState.categoryId, currentState.originalProducts, nextLogo.src),
   };
 };
-

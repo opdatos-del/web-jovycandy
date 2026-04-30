@@ -6,7 +6,7 @@
  * Or add to package.json: "validate-catalog": "ts-node scripts/validate-catalog.ts"
  */
 
-import { validateCatalog, formatValidationResults, assertCatalogValid } from '../src/features/catalog/data/validation/catalogBuildValidator';
+import { validateCatalog, formatValidationResults } from '../src/features/catalog/data/validation/catalogBuildValidator.ts';
 
 async function main() {
   console.log('🔍 Validating catalog...\n');

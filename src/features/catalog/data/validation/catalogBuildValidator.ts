@@ -1,5 +1,5 @@
 import type { CatalogData, CatalogProduct, CatalogCategoryId } from '../../types/catalog.types';
-import { catalogData, categoryLogosMap, categoryLogoProductsMap } from '../catalogData';
+import { catalogData, categoryModulesMap } from '../catalogData.ts';
 
 export interface CatalogValidationResult {
   valid: boolean;
@@ -30,36 +30,54 @@ export function validateCatalog(
     });
   });
 
-  // 2. Validate logo-product mappings exist and are consistent
-  Object.entries(categoryLogoProductsMap).forEach(([categoryId, logoMap]) => {
-    const logos = categoryLogosMap[categoryId] || [];
+  Object.entries(categoryModulesMap).forEach(([categoryId, categoryModule]) => {
+    const familyIds = new Set(
+      categoryModule.category.products
+        .map((product) => product.familyId)
+        .filter((familyId): familyId is string => Boolean(familyId))
+    );
+    const mappedFamilies = new Set<string>();
 
-    // Check that all logos have product matches
-    logos.forEach(({ src, alt }) => {
-      const products = logoMap[src];
-      if (!products || products.length === 0) {
-        warnings.push(`[${categoryId}] Logo "${alt}" (${src}) has no product mappings`);
+    categoryModule.category.products.forEach((product) => {
+      if (!product.familyId) {
+        errors.push(`[${categoryId}] Product "${product.name}" has no familyId`);
+      }
+
+      if (!product.carouselImage) {
+        errors.push(`[${categoryId}] Product "${product.name}" has no carouselImage`);
+      }
+
+      if (!product.bowlImage) {
+        errors.push(`[${categoryId}] Product "${product.name}" has no bowlImage`);
       }
     });
 
-    // Check that product mappings reference valid products
-    const categoryProducts = data[categoryId as CatalogCategoryId];
-    if (categoryProducts) {
-      const validProductNames = new Set(categoryProducts.products.map((p: CatalogProduct) => p.name));
+    categoryModule.logos.forEach(({ alt, families }) => {
+      if (!families.length) {
+        warnings.push(`[${categoryId}] Logo "${alt}" has no families mapped`);
+      }
 
-      Object.entries(logoMap).forEach(([logoSrc, productNames]) => {
-        productNames.forEach((productName) => {
-          if (!validProductNames.has(productName)) {
-            errors.push(
-              `[${categoryId}] Logo mapping references unknown product "${productName}"`
-            );
-          }
-        });
+      families.forEach((familyId) => {
+        mappedFamilies.add(familyId);
+
+        if (!familyIds.has(familyId)) {
+          errors.push(
+            `[${categoryId}] Logo mapping references unknown family "${familyId}"`
+          );
+        }
       });
-    }
+    });
+
+    categoryModule.category.products.forEach((product) => {
+      if (product.familyId && !mappedFamilies.has(product.familyId)) {
+        errors.push(
+          `[${categoryId}] Product "${product.name}" family "${product.familyId}" is not mapped to any logo`
+        );
+      }
+    });
   });
 
-  // 3. Validate all specs have required fields
+  // 2. Validate all specs have required fields
   (Object.entries(data) as Array<[CatalogCategoryId, any]>).forEach(([categoryId, category]) => {
     category.products.forEach((product: CatalogProduct) => {
       if (product.specs && Array.isArray(product.specs)) {
@@ -74,7 +92,7 @@ export function validateCatalog(
     });
   });
 
-  // 4. Validate certifications are valid
+  // 3. Validate certifications are valid
   const VALID_CERTIFICATIONS = ['SGS', 'Halal', 'OU Kosher', 'Vegano', 'FSSC 22000'];
   (Object.entries(data) as Array<[CatalogCategoryId, any]>).forEach(([categoryId, category]) => {
     category.products.forEach((product: CatalogProduct) => {

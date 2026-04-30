@@ -14,6 +14,7 @@ export type ProductTemplate = Omit<
 
 export type VariantConfig = {
   id: string;
+  familyId?: string;
   gramaje: string;
   bagWeight?: string;
   carouselImage: string;
@@ -30,6 +31,7 @@ export const createVariant = (
   return {
     ...template,
     id: variant.id,
+    familyId: variant.familyId ?? template.familyId,
     image: fallbackImage,
     sampleImage: fallbackImage,
     secondaryImage: fallbackImage,

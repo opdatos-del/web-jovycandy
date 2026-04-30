@@ -1,15 +1,18 @@
 import type {
   CatalogCategory,
-  CatalogLogoOption,
+  CatalogCategoryModule,
+  CatalogLogoGroup,
+  CatalogModuleProduct,
   CatalogProduct,
 } from '../../types/catalog.types';
 import {
+  buildCatalogBowlPath,
   buildCatalogCarouselPath,
   buildCatalogLogoPath,
   buildCatalogProductPath,
-} from '@/shared/assets/publicAssets';
-import { createVariant, type ProductTemplate } from './catalogVariant.shared';
-import { createStandardSpecs } from '../helpers/catalogSpecsFactory';
+} from '../../../../shared/assets/publicAssets.ts';
+import { createVariant, type ProductTemplate } from './catalogVariant.shared.ts';
+import { createStandardSpecs } from '../helpers/catalogSpecsFactory.ts';
 
 const buildCatalogAssetPath = (...segments: string[]) => buildCatalogCarouselPath(...segments);
 
@@ -20,12 +23,15 @@ const gummiesAssortedLogo = buildCatalogLogoPath(
   'FRUTASTIKA-BLUES.webp'
 );
 
+const grenetinaBowlPath = (filename: string) => buildCatalogBowlPath(`grenetina/${filename}`);
+
 
 
 
 
 const ringsWatermelonTemplate: ProductTemplate = {
   id: 'rings-watermelon-template',
+  familyId: 'rings-watermelon',
   name: 'Rings Watermelon',
   productFamily: 'Rings Watermelon',
   subtitle: 'Gummy candy\nFlavor: Watermelon',
@@ -37,6 +43,7 @@ const ringsWatermelonTemplate: ProductTemplate = {
     'RINGS',
     'JOVY-SWEET-GUMMIES-Rings-Watermelon-5-lb-1-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('rings-watermelon-assorted.webp'),
   certifications: ['SGS', 'OU Kosher', 'Halal'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.3 oz (8g)',
@@ -61,6 +68,7 @@ const ringsWatermelonTemplate: ProductTemplate = {
 
 const ringsNeonTemplate: ProductTemplate = {
   id: 'rings-neon-template',
+  familyId: 'rings-neon',
   name: 'Rings Neon',
   productFamily: 'Rings Neon',
   subtitle: 'Gummy candy\nNeon Colors',
@@ -71,6 +79,7 @@ const ringsNeonTemplate: ProductTemplate = {
     'RINGS',
     'JOVY-SWEET-GUMMIES-Rings-Neon-5-lb-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('rings-neon-assorted.webp'),
   certifications: ['SGS', 'Halal'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.3 oz (8g)',
@@ -94,6 +103,7 @@ const ringsNeonTemplate: ProductTemplate = {
 
 const ringsPeachTemplate: ProductTemplate = {
   id: 'rings-peach-template',
+  familyId: 'rings-peach',
   name: 'Gummies Peach',
   productFamily: 'Gummies Peach',
   subtitle: 'Gummy candy\nFlavor: Peach',
@@ -104,6 +114,7 @@ const ringsPeachTemplate: ProductTemplate = {
     'RINGS',
     'JOVY-SWEET-GUMMIES-Rings-Peach-5-lb-1-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('gummies-peach-assorted.webp'),
   certifications: ['SGS', 'OU Kosher'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.3 oz (8g)',
@@ -128,6 +139,7 @@ const ringsPeachTemplate: ProductTemplate = {
 
 const ringsGreenAppleTemplate: ProductTemplate = {
   id: 'rings-green-apple-template',
+  familyId: 'rings-green-apple',
   name: 'Rings Green Apple',
   productFamily: 'Rings Green Apple',
   subtitle: 'Gummy candy\nFlavor: Green Apple',
@@ -138,6 +150,7 @@ const ringsGreenAppleTemplate: ProductTemplate = {
     'RINGS',
     'JOVY-SWEET-GUMMIES-Rings-Green-Apple-5-lb-1-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('rings-green-apple-assorted.webp'),
   certifications: ['SGS'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.3 oz (8g)',
@@ -162,6 +175,7 @@ const ringsGreenAppleTemplate: ProductTemplate = {
 
 const wormsOriginalTemplate: ProductTemplate = {
   id: 'worms-original-template',
+  familyId: 'worms-original',
   name: 'Worms Original',
   productFamily: 'Worms Original',
   subtitle: 'Gummy candy\nFruit Mix',
@@ -172,6 +186,7 @@ const wormsOriginalTemplate: ProductTemplate = {
     'WORMS',
     'JOVY-SWEET-GUMMIES-Worms-5-lb-1-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('worms-original-assorted.webp'),
   certifications: ['SGS', 'Halal'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.3 oz (8g)',
@@ -195,6 +210,7 @@ const wormsOriginalTemplate: ProductTemplate = {
 
 const wormsNeonTemplate: ProductTemplate = {
   id: 'worms-neon-template',
+  familyId: 'worms-neon',
   name: 'Worms Neon',
   productFamily: 'Worms Neon',
   subtitle: 'Gummy candy\nNeon Fruit Mix',
@@ -205,6 +221,7 @@ const wormsNeonTemplate: ProductTemplate = {
     'WORMS',
     'JOVY-SWEET-GUMMIES-Worms-Neon-5-lb-1-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('worms-neon-assorted.webp'),
   certifications: ['SGS', 'Halal'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.3 oz (8g)',
@@ -229,6 +246,7 @@ const wormsNeonTemplate: ProductTemplate = {
 
 const bearsClassicTemplate: ProductTemplate = {
   id: 'bears-classic-template',
+  familyId: 'bears-classic',
   name: 'Bears Classic',
   productFamily: 'Bears Classic',
   subtitle: 'Gummy candy\n12 Flavors',
@@ -239,6 +257,7 @@ const bearsClassicTemplate: ProductTemplate = {
     'BEARS',
     'JOVY-SWEET-GUMMIES-Bears-12-Flavors-5-lb-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('bears-classic-assorted.webp'),
   certifications: ['SGS', 'OU Kosher', 'Halal'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.25 oz (7g)',
@@ -263,6 +282,7 @@ const bearsClassicTemplate: ProductTemplate = {
 
 const bearsNeonTemplate: ProductTemplate = {
   id: 'bears-neon-template',
+  familyId: 'bears-neon',
   name: 'Bears Neon',
   productFamily: 'Bears Neon',
   subtitle: 'Gummy candy\nNeon Mix',
@@ -273,6 +293,7 @@ const bearsNeonTemplate: ProductTemplate = {
     'BEARS',
     'JOVY-SWEET-GUMMIES-Bears-Neon-5-lb-1-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('bears-neon-assorted.webp'),
   certifications: ['SGS', 'Halal'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.25 oz (7g)',
@@ -296,6 +317,7 @@ const bearsNeonTemplate: ProductTemplate = {
 
 const watermelonSlicesTemplate: ProductTemplate = {
   id: 'watermelon-slices-template',
+  familyId: 'watermelon-slices',
   name: 'Watermelon Slices',
   productFamily: 'Watermelon Slices',
   subtitle: 'Gummy candy\nFlavor: Watermelon',
@@ -306,6 +328,7 @@ const watermelonSlicesTemplate: ProductTemplate = {
     'WATERMELON SLICES',
     'JOVY-SWEET-GUMMIES-Watermelon-Slices-5-lb-300x300.webp'
   ),
+  bowlImage: grenetinaBowlPath('watermelon-slices-assorted.webp'),
   certifications: ['SGS', 'Halal'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.3 oz (8g)',
@@ -329,12 +352,14 @@ const watermelonSlicesTemplate: ProductTemplate = {
 
 const frutastikaTemplate: ProductTemplate = {
   id: 'frutastika-template',
+  familyId: 'frutastika',
   name: 'Frutastika',
   productFamily: 'Frutastika',
   subtitle: 'Gummy candy\nFruit Mix',
   description:
     'Mezcla surtida de gomitas con enfoque frutal para presentaciones individuales.',
   image: buildCatalogAssetPath('100g', 'Mockup Frutastika MX 100g.webp'),
+  bowlImage: grenetinaBowlPath('frutastika-assorted.webp'),
   certifications: ['SGS'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.25 oz (7g)',
@@ -358,11 +383,13 @@ const frutastikaTemplate: ProductTemplate = {
 
 const blueSharksTemplate: ProductTemplate = {
   id: 'blue-sharks-template',
+  familyId: 'blue-sharks',
   name: 'Blue Sharks',
   productFamily: 'Blue Sharks',
   subtitle: 'Gummy candy\nOcean Mix',
   description: 'Gomitas tipo tiburon con acabado brillante y perfil frutal.',
   image: buildCatalogAssetPath('100g', 'Mockup Blue Sharks Mx 100g.webp'),
+  bowlImage: grenetinaBowlPath('blue-sharks-assorted.webp'),
   certifications: ['SGS'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.25 oz (7g)',
@@ -386,11 +413,13 @@ const blueSharksTemplate: ProductTemplate = {
 
 const sharksMixTemplate: ProductTemplate = {
   id: 'sharks-mix-template',
+  familyId: 'sharks-mix',
   name: 'Sharks Mix',
   productFamily: 'Sharks Mix',
   subtitle: 'Gummy candy\nAssorted Sharks',
   description: 'Surtido de tiburones de gomita en una presentacion de alto gramaje.',
   image: buildCatalogAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Sharks Mix -1kg-MX.webp'),
+  bowlImage: grenetinaBowlPath('sharks-mix-assorted.webp'),
   certifications: ['SGS'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.25 oz (7g)',
@@ -412,7 +441,7 @@ const sharksMixTemplate: ProductTemplate = {
   
 };
 
-export const gomitasGrenetinaProducts: CatalogProduct[] = [
+export const gomitasGrenetinaProducts = [
   createVariant(ringsWatermelonTemplate, {
     id: 'g-rings-watermelon-100g',
     gramaje: '100 g',
@@ -615,54 +644,56 @@ export const gomitasGrenetinaProducts: CatalogProduct[] = [
     gramaje: '1 kg',
     carouselImage: buildCatalogAssetPath('1kg', 'Jovy-Gomitas-Grenetina-Sharks Mix -1kg-MX.webp'),
   }),
-];
+] as CatalogModuleProduct[];
 
-export const gomitasGrenetinaLogos: CatalogLogoOption[] = [
+export const gomitasGrenetinaLogoGroups: CatalogLogoGroup[] = [
   {
     src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Rings-300x300.webp'),
     alt: 'Gomitas Rings',
+    families: ['rings-watermelon', 'rings-neon', 'rings-peach', 'rings-green-apple'],
   },
   {
     src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Worms-300x300.webp'),
     alt: 'Gomitas Worms',
+    families: ['worms-original'],
+  },
+  {
+    src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Worms-Neon-300x300.webp'),
+    alt: 'Gomitas Worms Neon',
+    families: ['worms-neon'],
   },
   {
     src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Bears-300x300.webp'),
     alt: 'Gomitas Bears',
+    families: ['bears-classic'],
+  },
+  {
+    src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Bears-Neon-300x300.webp'),
+    alt: 'Gomitas Bears Neon',
+    families: ['bears-neon'],
   },
   {
     src: buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'watermelon_slices-300x300.webp'),
     alt: 'Gomitas Watermelon Slices',
+    families: ['watermelon-slices'],
   },
-  { src: gummiesAssortedLogo, alt: 'Gomitas surtidas' },
+  {
+    src: gummiesAssortedLogo,
+    alt: 'Gomitas surtidas',
+    families: ['frutastika', 'blue-sharks', 'sharks-mix'],
+  },
 ];
 
-export const gomitasGrenetinaLogoProductsMap: Record<string, string[]> = {
-  [buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Rings-300x300.webp')]: [
-    'Rings Watermelon',
-    'Rings Neon',
-    'Gummies Peach',
-    'Rings Green Apple',
-  ],
-  [buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Worms-300x300.webp')]: [
-    'Worms Original',
-    'Worms Neon',
-  ],
-  [buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'Bears-300x300.webp')]: [
-    'Bears Classic',
-    'Bears Neon',
-  ],
-  [buildCatalogLogoPath('sweet', 'GUMMIES', 'LOGOS', 'watermelon_slices-300x300.webp')]: [
-    'Watermelon Slices',
-  ],
-  [gummiesAssortedLogo]: ['Frutastika', 'Blue Sharks', 'Sharks Mix'],
-};
-
-export function buildGomitasGrenetina(): CatalogCategory {
-  return {
+export const gomitasGrenetinaModule: CatalogCategoryModule<CatalogModuleProduct> = {
+  category: {
     id: 'gomitas_grenetina',
     title: 'Gomitas Grenetina',
     accent: '#00AFAA',
     products: gomitasGrenetinaProducts,
-  };
+  },
+  logos: gomitasGrenetinaLogoGroups,
+};
+
+export function buildGomitasGrenetina(): CatalogCategory {
+  return gomitasGrenetinaModule.category;
 }

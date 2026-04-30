@@ -1,34 +1,38 @@
 import type {
   CatalogCategory,
-  CatalogLogoOption,
-  CatalogProduct,
+  CatalogCategoryModule,
+  CatalogLogoGroup,
+  CatalogModuleProduct,
 } from '../../types/catalog.types';
 import {
   buildBrandMarkPath,
+  buildCatalogBowlPath,
   buildCatalogCarouselPath,
   buildCatalogLogoPath,
   buildCatalogProductPath,
-} from '@/shared/assets/publicAssets';
-import { createVariant, type ProductTemplate } from './catalogVariant.shared';
-import { createStandardSpecs } from '../helpers/catalogSpecsFactory';
+} from '../../../../shared/assets/publicAssets.ts';
+import { createVariant, type ProductTemplate } from './catalogVariant.shared.ts';
+import { createStandardSpecs } from '../helpers/catalogSpecsFactory.ts';
 
-const buildCatalogAssetPath = (...segments: string[]) => buildCatalogCarouselPath(...segments);
+const buildPinateroCarouselPath = (filename: string) =>
+  buildCatalogCarouselPath('pinateros', filename);
 
 const premiumMixLogo = buildBrandMarkPath('BRAND JOVY.png');
 
 const happyMixTemplate: ProductTemplate = {
   id: 'happy-mix-template',
+  familyId: 'happy-mix',
   name: 'Happy Mix',
   productFamily: 'Happy Mix',
   subtitle: 'Assorted Mix\nMulti Flavor',
-  description:
-    'Surtido de dulces variados con las nuevas presentaciones de alta definicion.',
+  description: 'Surtido de dulces variados con las nuevas presentaciones de alta definicion.',
   image: buildCatalogProductPath(
     'spicy',
-    'PI\u00d1ATERO',
+    'PINATERO',
     'HAPPY MIX',
     'JOVY-PINATEROS-Happy-Mix-5-lb-300x300.webp'
   ),
+  bowlImage: buildCatalogBowlPath('pinatero/happy-mix-assorted.webp'),
   certifications: ['SGS'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.5 oz (14g)',
@@ -47,21 +51,22 @@ const happyMixTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 115. Azucares: 21g.',
     },
   ],
-  
 };
 
 const revolcadosMixTemplate: ProductTemplate = {
   id: 'revolcados-mix-template',
+  familyId: 'revolcados-mix',
   name: 'Revolcados Mix',
   productFamily: 'Revolcados Mix',
   subtitle: 'Sweet & Spicy Mix\nBalanced Heat',
   description: 'Mix especial de dulces y picantes para pinateros tradicionales.',
   image: buildCatalogProductPath(
     'spicy',
-    'PI\u00d1ATERO',
+    'PINATERO',
     'REVOLCADOS MIX',
     'JOVY-PINATEROS-Revolcados-Mix-5-lb-300x300.webp'
   ),
+  bowlImage: buildCatalogBowlPath('pinatero/revolcados-mix-assorted.webp'),
   certifications: ['SGS', 'Halal'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.5 oz (14g)',
@@ -80,16 +85,18 @@ const revolcadosMixTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 110. Azucares: 20g.',
     },
   ],
-  
 };
 
 const premiumMixTemplate: ProductTemplate = {
   id: 'premium-mix-template',
+  familyId: 'premium-mix',
   name: 'Premium Mix',
   productFamily: 'Premium Mix',
   subtitle: 'Assorted Mix\nPremium Selection',
   description: 'Presentacion premium de pinatero para surtido de alto gramaje.',
-  image: buildCatalogAssetPath('Pi\u00f1ateros', 'Jovy-Pi\u00f1ateros-Premium-5-kg-MX.webp'),
+  image: buildPinateroCarouselPath('Jovy-Pinateros-Premium-5-kg-MX.webp'),
+  // There is no dedicated bowl asset for Premium Mix yet; keep the visible asset explicit.
+  bowlImage: buildPinateroCarouselPath('Jovy-Pinateros-Premium-5-kg-MX.webp'),
   certifications: ['SGS'],
   specs: createStandardSpecs({
     weightPerPiece: 'Net Wt. 0.5 oz (14g)',
@@ -108,84 +115,64 @@ const premiumMixTemplate: ProductTemplate = {
       content: 'Tamano de la porcion: 30g. Calorias: 112. Azucares: 20g.',
     },
   ],
-  
 };
 
-export const pinateroProducts: CatalogProduct[] = [
+export const pinateroProducts = [
   createVariant(happyMixTemplate, {
     id: 'pi-happy-mix-2-26kg',
     gramaje: '2.26 kg',
-    carouselImage: buildCatalogAssetPath(
-      'Pi\u00f1ateros',
-      'Jovy-Pi\u00f1ateros-Happy Mix-2.26-kg-MX.webp'
-    ),
+    carouselImage: buildPinateroCarouselPath('Jovy-Pinateros-Happy Mix-2.26-kg-MX.webp'),
   }),
   createVariant(happyMixTemplate, {
     id: 'pi-happy-mix-5kg',
     gramaje: '5 kg',
-    carouselImage: buildCatalogAssetPath(
-      'Pi\u00f1ateros',
-      'Jovy-Pi\u00f1ateros-Happy Mix-5-kg-MX.webp'
-    ),
+    carouselImage: buildPinateroCarouselPath('Jovy-Pinateros-Happy Mix-5-kg-MX.webp'),
   }),
   createVariant(revolcadosMixTemplate, {
     id: 'pi-revolcados-mix-2-26kg',
     gramaje: '2.26 kg',
-    carouselImage: buildCatalogAssetPath(
-      'Pi\u00f1ateros',
-      'Jovy-Pi\u00f1ateros-Revolcados Mix-2.26-kg-MX.webp'
-    ),
+    carouselImage: buildPinateroCarouselPath('Jovy-Pinateros-Revolcados Mix-2.26-kg-MX.webp'),
   }),
   createVariant(revolcadosMixTemplate, {
     id: 'pi-revolcados-mix-5kg',
     gramaje: '5 kg',
-    carouselImage: buildCatalogAssetPath(
-      'Pi\u00f1ateros',
-      'Jovy-Pi\u00f1ateros-Revolcados Mix-5-kg-MX.webp'
-    ),
+    carouselImage: buildPinateroCarouselPath('Jovy-Pinateros-Revolcados Mix-5-kg-MX.webp'),
   }),
   createVariant(premiumMixTemplate, {
     id: 'pi-premium-mix-5kg',
     gramaje: '5 kg',
-    carouselImage: buildCatalogAssetPath(
-      'Pi\u00f1ateros',
-      'Jovy-Pi\u00f1ateros-Premium-5-kg-MX.webp'
-    ),
+    carouselImage: buildPinateroCarouselPath('Jovy-Pinateros-Premium-5-kg-MX.webp'),
   }),
-];
+] as CatalogModuleProduct[];
 
-export const pinateroLogos: CatalogLogoOption[] = [
+export const pinateroLogoGroups: CatalogLogoGroup[] = [
   {
-    src: buildCatalogLogoPath('spicy', 'PI\u00d1ATERO', 'LOGOS', 'happy-mix-300x300.webp'),
+    src: buildCatalogLogoPath('spicy', 'PINATERO', 'LOGOS', 'happy-mix-300x300.webp'),
     alt: 'Pinatero Happy Mix',
+    families: ['happy-mix'],
   },
   {
-    src: buildCatalogLogoPath(
-      'spicy',
-      'PI\u00d1ATERO',
-      'LOGOS',
-      'Revolcados-mix-300x300.webp'
-    ),
-    alt: 'Pinatero Revolcados',
+    src: buildCatalogLogoPath('spicy', 'PINATERO', 'LOGOS', 'revolcados-mix-300x300.webp'),
+    alt: 'Pinatero Revolcados Mix',
+    families: ['revolcados-mix'],
   },
-  { src: premiumMixLogo, alt: 'Pinatero Premium' },
+  {
+    src: premiumMixLogo,
+    alt: 'Pinatero Premium Mix',
+    families: ['premium-mix'],
+  },
 ];
 
-export const pinateroLogoProductsMap: Record<string, string[]> = {
-  [buildCatalogLogoPath('spicy', 'PI\u00d1ATERO', 'LOGOS', 'happy-mix-300x300.webp')]: [
-    'Happy Mix',
-  ],
-  [buildCatalogLogoPath('spicy', 'PI\u00d1ATERO', 'LOGOS', 'Revolcados-mix-300x300.webp')]: [
-    'Revolcados Mix',
-  ],
-  [premiumMixLogo]: ['Premium Mix'],
+export const pinateroModule: CatalogCategoryModule<CatalogModuleProduct> = {
+  category: {
+    id: 'pinatero',
+    title: 'Pinatero',
+    accent: '#FD3B1F',
+    products: pinateroProducts,
+  },
+  logos: pinateroLogoGroups,
 };
 
 export function buildPinatero(): CatalogCategory {
-  return {
-    id: 'pinatero',
-    title: 'Pi\u00f1atero',
-    accent: '#FD3B1F',
-    products: pinateroProducts,
-  };
+  return pinateroModule.category;
 }

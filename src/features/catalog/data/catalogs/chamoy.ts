@@ -1,6 +1,16 @@
-import type { CatalogCategory } from '../../types/catalog.types';
-import { buildCatalogProductPath, buildCatalogBowlPath } from '@/shared/assets/publicAssets';
-import { createStandardSpecs } from '../helpers/catalogSpecsFactory';
+import type {
+  CatalogCategory,
+  CatalogCategoryModule,
+  CatalogLogoGroup,
+  CatalogModuleProduct,
+} from '../../types/catalog.types';
+import {
+  buildCatalogBowlPath,
+  buildCatalogCarouselPath,
+  buildCatalogLogoPath,
+  buildCatalogProductPath,
+} from '../../../../shared/assets/publicAssets.ts';
+import { createStandardSpecs } from '../helpers/catalogSpecsFactory.ts';
 
 export function buildChamoy(): CatalogCategory {
   const chilirokasBowlImage = buildCatalogBowlPath('chamoy/Chilirokas-Assorted.png');
@@ -8,6 +18,12 @@ export function buildChamoy(): CatalogCategory {
   const chilirokastamarindoBowlImage = buildCatalogBowlPath('chamoy/chilirokas-tamarindo-assorted.webp');
   const chilirokawatermelonBowlImage = buildCatalogBowlPath('chamoy/chilirokas-watermelon-assorted.webp');
   const enchilokasBowlImage = buildCatalogBowlPath('chamoy/enchilokas-assorted.webp');
+  const chamoyBearsBowlImage = buildCatalogBowlPath('chamoy/chamoy-bears-assorted.webp');
+  const chamoyRingsPeachBowlImage = buildCatalogBowlPath('chamoy/chamoy-rings-peach-assorted.webp');
+  const chamoyRingsWatermelonBowlImage = buildCatalogBowlPath(
+    'chamoy/chamoy-rings-watermelon-assorted.webp'
+  );
+  const chamoyWormsBowlImage = buildCatalogBowlPath('chamoy/chamoy-worms-assorted.webp');
   const revolcaditasBowlImage = buildCatalogBowlPath('chamoy/revolcaditas-assorted.webp');
   const tamarosBowlImage = buildCatalogBowlPath('chamoy/tamaros-assorted.webp');
   const vallenitomangoBowlImage = buildCatalogBowlPath('chamoy/vallenito-mango-assorted.webp');
@@ -150,6 +166,204 @@ export function buildChamoy(): CatalogCategory {
           },
         ],
         gramaje: '482 g',
+      },
+      {
+        id: 'g-chamoy-bears-100g',
+        name: 'CHAMOY BEARS 100G',
+        productFamily: 'Chamoy Bears',
+        subtitle: 'Chamoy Bears\nSpicy & Fruity',
+        description: 'Ositos de gomita con chamoy y chile en presentacion individual.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'GUMMIES',
+          'BEARS REVOLCADOS',
+          'JOVY-GUMMIES-Bears-Revolcado-5-lb-300x300.webp'
+        ),
+        bowlImage: chamoyBearsBowlImage,
+        certifications: ['SGS'],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.25 oz (7g)',
+          piecesPerBag: 24,
+          bagWeight: '100 g',
+          bagsPerBox: 12,
+          boxWeight: '1.2 kg',
+        }),
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, grenetina, chamoy, chile y acido citrico.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
+          },
+        ],
+        gramaje: '100 g',
+      },
+      {
+        id: 'g-chamoy-bears-1kg',
+        name: 'CHAMOY BEARS 1KG',
+        productFamily: 'Chamoy Bears',
+        subtitle: 'Chamoy Bears\nSpicy & Fruity',
+        description: 'Ositos de gomita con chamoy y chile en presentacion familiar.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'GUMMIES',
+          'BEARS REVOLCADOS',
+          'JOVY-GUMMIES-Bears-Revolcado-5-lb-300x300.webp'
+        ),
+        bowlImage: chamoyBearsBowlImage,
+        certifications: ['SGS'],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.25 oz (7g)',
+          piecesPerBag: 24,
+          bagWeight: '1 kg',
+          bagsPerBox: 10,
+          boxWeight: '10 kg',
+        }),
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, grenetina, chamoy, chile y acido citrico.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
+          },
+        ],
+        gramaje: '1 kg',
+      },
+      {
+        id: 'g-chamoy-worms-100g',
+        name: 'CHAMOY WORMS 100G',
+        productFamily: 'Chamoy Worms',
+        subtitle: 'Chamoy Worms\nSpicy & Fruity',
+        description: 'Gomitas tipo worm con recubrimiento de chamoy y chile.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'GUMMIES',
+          'WORMS REVOLCADOS',
+          'JOVY-GUMMIES-Worms-Revolcado-5-lb-300x300.webp'
+        ),
+        bowlImage: chamoyWormsBowlImage,
+        certifications: ['SGS'],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+          piecesPerBag: 21,
+          bagWeight: '100 g',
+          bagsPerBox: 12,
+          boxWeight: '1.2 kg',
+        }),
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, grenetina, chamoy, chile y saborizantes.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 109. Azucares: 19g.',
+          },
+        ],
+        gramaje: '100 g',
+      },
+      {
+        id: 'g-chamoy-worms-1kg',
+        name: 'CHAMOY WORMS 1KG',
+        productFamily: 'Chamoy Worms',
+        subtitle: 'Chamoy Worms\nSpicy & Fruity',
+        description: 'Gomitas tipo worm con recubrimiento de chamoy y chile en formato grande.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'GUMMIES',
+          'WORMS REVOLCADOS',
+          'JOVY-GUMMIES-Worms-Revolcado-5-lb-300x300.webp'
+        ),
+        bowlImage: chamoyWormsBowlImage,
+        certifications: ['SGS'],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+          piecesPerBag: 21,
+          bagWeight: '1 kg',
+          bagsPerBox: 10,
+          boxWeight: '10 kg',
+        }),
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, grenetina, chamoy, chile y saborizantes.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 109. Azucares: 19g.',
+          },
+        ],
+        gramaje: '1 kg',
+      },
+      {
+        id: 'g-chamoy-rings-watermelon-1kg',
+        name: 'CHAMOY RINGS WATERMELON 1KG',
+        productFamily: 'Chamoy Rings Watermelon',
+        subtitle: 'Chamoy Rings\nWatermelon',
+        description: 'Aros de gomita sabor sandia con chamoy y chile.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'GUMMIES',
+          'RINGS REVOLCADO',
+          'JOVY-GUMMIES-Rings-Watermelon-Revolcado-5-lb-300x300.webp'
+        ),
+        bowlImage: chamoyRingsWatermelonBowlImage,
+        certifications: ['SGS'],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+          piecesPerBag: 21,
+          bagWeight: '1 kg',
+          bagsPerBox: 10,
+          boxWeight: '10 kg',
+        }),
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, grenetina, chamoy, chile y sabor sandia.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
+          },
+        ],
+        gramaje: '1 kg',
+      },
+      {
+        id: 'g-chamoy-rings-peach-1kg',
+        name: 'CHAMOY RINGS PEACH 1KG',
+        productFamily: 'Chamoy Rings Peach',
+        subtitle: 'Chamoy Rings\nPeach',
+        description: 'Aros de gomita sabor durazno con chamoy y chile.',
+        image: buildCatalogProductPath(
+          'spicy',
+          'GUMMIES',
+          'RINGS REVOLCADO',
+          'JOVY-GUMMIES-Rings-Peach-Revolcado-5-lb-300x300.webp'
+        ),
+        bowlImage: chamoyRingsPeachBowlImage,
+        certifications: ['SGS'],
+        specs: createStandardSpecs({
+          weightPerPiece: 'Net Wt. 0.3 oz (8g)',
+          piecesPerBag: 21,
+          bagWeight: '1 kg',
+          bagsPerBox: 10,
+          boxWeight: '10 kg',
+        }),
+        collapsibleInfo: [
+          {
+            title: 'Ingredientes',
+            content: 'Azucar, jarabe de maiz, grenetina, chamoy, chile y sabor durazno.',
+          },
+          {
+            title: 'Informacion Nutrimental',
+            content: 'Tamano de la porcion: 30g. Calorias: 108. Azucares: 19g.',
+          },
+        ],
+        gramaje: '1 kg',
       },
       {
         id: 'd7',
@@ -616,4 +830,95 @@ export function buildChamoy(): CatalogCategory {
     ],
   };
 }
+
+const chamoyFamilyIdMap: Record<string, string> = {
+  enchilokas: 'enchilokas',
+  chilirokas: 'chilirokas',
+  chilirokaswatermelon: 'chilirokas',
+  revolcaditas: 'revolcaditas',
+  tamaros: 'tamaros',
+  vallenito: 'vallenito',
+};
+
+const normalizeFamilyKey = (value: string) =>
+  value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '');
+
+export const chamoyProducts = buildChamoy().products.map((product) => ({
+  ...product,
+  familyId:
+    chamoyFamilyIdMap[normalizeFamilyKey(product.productFamily ?? product.name)] ??
+    normalizeFamilyKey(product.productFamily ?? product.name),
+  carouselImage:
+    product.id === 'g-chamoy-bears-100g'
+      ? buildCatalogCarouselPath('100g', 'Mockup Chamoy Bears MX 100g.webp')
+      : product.id === 'g-chamoy-bears-1kg'
+        ? buildCatalogCarouselPath('1kg', 'Mckup Chamoy Bears MX 1 kg_Mayo 24.webp')
+        : product.id === 'g-chamoy-worms-100g'
+          ? buildCatalogCarouselPath('100g', 'Mockup Chamoy Worms MX 100g.webp')
+          : product.id === 'g-chamoy-worms-1kg'
+            ? buildCatalogCarouselPath('1kg', 'Mckup Chamoy worms MX 1 kg_Mayo 24.webp')
+            : product.id === 'g-chamoy-rings-watermelon-1kg'
+              ? buildCatalogCarouselPath('1kg', 'Mckup Chamoy Rings Sandia MX 1 kg_Mayo 24.webp')
+              : product.id === 'g-chamoy-rings-peach-1kg'
+                ? buildCatalogCarouselPath('1kg', 'Mckup Chamoy Rings Durazno MX 1 kg_Mayo 24.webp')
+                : product.image,
+  bowlImage: product.bowlImage ?? product.image,
+})) as CatalogModuleProduct[];
+
+export const chamoyLogoGroups: CatalogLogoGroup[] = [
+  {
+    src: buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'chillirokas-300x300.webp'),
+    alt: 'Dulces Chilirokas',
+    families: ['chilirokas'],
+  },
+  {
+    src: buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Revolcaditas-300x300.webp'),
+    alt: 'Dulces Revolcaditas',
+    families: ['revolcaditas'],
+  },
+  {
+    src: buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Tamaros-300x300.webp'),
+    alt: 'Dulces Tamaros',
+    families: ['tamaros'],
+  },
+  {
+    src: buildCatalogLogoPath('spicy', 'HARD CANDY', 'LOGOS', 'Vallenito-300x300.webp'),
+    alt: 'Dulces Vallenito',
+    families: ['vallenito'],
+  },
+  {
+    src: buildCatalogLogoPath('spicy', 'JELLIES', 'LOGOS', 'enchilokas-300x300.webp'),
+    alt: 'Chamoy Enchilokas',
+    families: ['enchilokas'],
+  },
+  {
+    src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Rings-Revolcado-300x300.webp'),
+    alt: 'Chamoy Rings',
+    families: ['chamoyringswatermelon', 'chamoyringspeach'],
+  },
+  {
+    src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Worms-Revolcado-1-300x300.webp'),
+    alt: 'Chamoy Worms',
+    families: ['chamoyworms'],
+  },
+  {
+    src: buildCatalogLogoPath('spicy', 'GUMMIES', 'LOGOS', 'Bears_Revolcado-1-300x300.webp'),
+    alt: 'Chamoy Bears',
+    families: ['chamoybears'],
+  },
+];
+
+export const chamoyModule: CatalogCategoryModule<CatalogModuleProduct> = {
+  category: {
+    id: 'chamoy',
+    title: 'Chamoy',
+    accent: '#C8102E',
+    products: chamoyProducts,
+  },
+  logos: chamoyLogoGroups,
+};
 

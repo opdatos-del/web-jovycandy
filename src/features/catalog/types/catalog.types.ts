@@ -30,8 +30,13 @@ export type CatalogLogo = {
 
 export type CatalogLogoOption = CatalogLogo;
 
+export type CatalogLogoGroup = CatalogLogo & {
+  families: string[];
+};
+
 export type CatalogProduct = {
   id: CatalogProductId;
+  familyId?: string;
   name: string;
   subtitle: string;
   description: string;
@@ -51,11 +56,22 @@ export type CatalogProduct = {
   // 'type' (Dulce/Picante) removed — flavor is no longer modeled on product objects
 };
 
-export type CatalogCategory = {
+export type CatalogModuleProduct = CatalogProduct & {
+  familyId: string;
+  carouselImage: string;
+  bowlImage: string;
+};
+
+export type CatalogCategory<TProduct extends CatalogProduct = CatalogProduct> = {
   id: CatalogCategoryId;
   title: string;
   accent: string;
-  products: CatalogProduct[];
+  products: TProduct[];
+};
+
+export type CatalogCategoryModule<TProduct extends CatalogProduct = CatalogModuleProduct> = {
+  category: CatalogCategory<TProduct>;
+  logos: CatalogLogoGroup[];
 };
 
 export type CatalogCategoryCard = {

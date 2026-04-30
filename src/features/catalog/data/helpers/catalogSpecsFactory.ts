@@ -1,4 +1,4 @@
-import type { CatalogSpec, CatalogProduct } from '../../types/catalog.types';
+import type { CatalogSpec } from '../../types/catalog.types';
 
 /**
  * Configuration for creating standard product specifications
@@ -60,55 +60,4 @@ export const createStandardSpecs = (config: StandardSpecsConfig): CatalogSpec[] 
   }
 
   return specs;
-};
-
-/**
- * Configuration for creating product image properties
- */
-export type ImageConfig = {
-  imagePath: string;
-  useSamePath?: boolean; // if true, sampleImage = secondaryImage = image
-};
-
-/**
- * Factory to create product image properties
- * When useSamePath is true, automatically handles image redundancy
- *
- * @example
- * const images = createProductImages({
- *   imagePath: getProductImagePath('gomitas_almidon', 'CHERRY SLICES'),
- * });
- * // Returns: { image, sampleImage: undefined, secondaryImage: undefined }
- * // (sampleImage/secondaryImage default to image in types)
- */
-export const createProductImages = (config: ImageConfig) => {
-  return {
-    image: config.imagePath,
-    // If useSamePath is true, we intentionally don't set sampleImage/secondaryImage
-    // They will default to image when accessed
-    ...(config.useSamePath === false && {
-      sampleImage: config.imagePath,
-      secondaryImage: config.imagePath,
-    }),
-  };
-};
-
-/**
- * Factory to fill in default values for optional product properties
- */
-export const createProductWithDefaults = (
-  product: Partial<CatalogProduct> & Pick<CatalogProduct, 'id' | 'name' | 'image'>
-): CatalogProduct => {
-  return {
-    // Defaults
-    subtitle: '',
-    description: '',
-    secondaryImage: product.image,
-    certifications: [],
-    specs: [],
-    collapsibleInfo: [],
-
-    // Overrides
-    ...product,
-  };
 };
