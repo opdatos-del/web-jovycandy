@@ -19,6 +19,10 @@ const gummiesAssortedLogo = buildCatalogLogoPath(
   'FRUTASTIKA-BLUES.webp'
 );
 
+
+
+
+
 const ringsWatermelonTemplate: ProductTemplate = {
   id: 'rings-watermelon-template',
   name: 'Rings Watermelon',

@@ -67,6 +67,42 @@ const categoryBowlFamilyRegistry: Partial<
     ),
   },
   gomitas_grenetina: {
+    [normalizeBowlKey('Rings Watermelon')]: buildCatalogBowlPath(
+      'grenetina/rings-watermelon-assorted.webp'
+    ),
+    [normalizeBowlKey('Rings Neon')]: buildCatalogBowlPath(
+      'grenetina/rings-neon-assorted.webp'
+    ),
+    [normalizeBowlKey('Gummies Peach')]: buildCatalogBowlPath(
+      'grenetina/gummies-peach-assorted.webp'
+    ),
+    [normalizeBowlKey('Rings Green Apple')]: buildCatalogBowlPath(
+      'grenetina/rings-green-apple-assorted.webp'
+    ),
+    [normalizeBowlKey('Worms Original')]: buildCatalogBowlPath(
+      'grenetina/worms-original-assorted.webp'
+    ),
+    [normalizeBowlKey('Worms Neon')]: buildCatalogBowlPath(
+      'grenetina/worms-neon-assorted.webp'
+    ),
+    [normalizeBowlKey('Bears Classic')]: buildCatalogBowlPath(
+      'grenetina/bears-classic-assorted.webp'
+    ),
+    [normalizeBowlKey('Bears Neon')]: buildCatalogBowlPath(
+      'grenetina/bears-neon-assorted.webp'
+    ),
+    [normalizeBowlKey('Watermelon Slices')]: buildCatalogBowlPath(
+      'grenetina/watermelon-slices-assorted.webp'
+    ),
+    [normalizeBowlKey('Frutastika')]: buildCatalogBowlPath(
+      'grenetina/frutastika-assorted.webp'
+    ),
+    [normalizeBowlKey('Blue Sharks')]: buildCatalogBowlPath(
+      'grenetina/blue-sharks-assorted.webp'
+    ),
+    [normalizeBowlKey('Sharks Mix')]: buildCatalogBowlPath(
+      'grenetina/sharks-mix-assorted.webp'
+    ),
     [normalizeBowlKey('Chamoy Bears')]: buildCatalogBowlPath(
       'chamoy/chamoy-bears-assorted.webp'
     ),
