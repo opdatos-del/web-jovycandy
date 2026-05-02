@@ -1,12 +1,11 @@
 import type { MouseEvent } from 'react';
 
-export type CatalogCategoryId =
-  | 'sazonador'
-  | 'chamoy'
-  | 'gomitas_almidon'
-  | 'dulces_paletas'
-  | 'pinatero'
-  | 'gomitas_grenetina';
+/**
+ * CatalogCategoryId is derived from the config so it never goes out of sync.
+ * Adding a new category only requires editing catalog.config.ts.
+ */
+import type { CatalogCategoryId as _CatalogCategoryId } from '../data/config/catalog.config';
+export type CatalogCategoryId = _CatalogCategoryId;
 
 export type CatalogProductId = string;
 

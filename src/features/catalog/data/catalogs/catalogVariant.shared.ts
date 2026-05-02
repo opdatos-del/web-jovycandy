@@ -20,6 +20,8 @@ export type VariantConfig = {
   carouselImage: string;
   image?: string;
   bowlImage?: string;
+  /** Override the template specs entirely for this variant. */
+  specs?: CatalogSpec[];
 };
 
 export const createVariant = (
@@ -38,6 +40,6 @@ export const createVariant = (
     carouselImage: variant.carouselImage,
     bowlImage: variant.bowlImage ?? template.bowlImage,
     gramaje: variant.gramaje,
-    specs: updateBagWeight(template.specs, variant.bagWeight ?? variant.gramaje),
+    specs: variant.specs ?? updateBagWeight(template.specs, variant.bagWeight ?? variant.gramaje),
   };
 };
