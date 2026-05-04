@@ -9,6 +9,7 @@ import { useAppModals } from './hooks/useAppModals';
 import { useMobileMenu } from './hooks/useMobileMenu';
 import { AppNavbar } from './navigation/AppNavbar';
 import { JovyEasterEgg } from '@/shared/ui/JovyEasterEgg';
+import { ErrorBoundary } from '@/shared/ui/ErrorBoundary';
 
 export default function App() {
   useEffect(() => {
@@ -24,24 +25,26 @@ export default function App() {
   } = useAppModals({ onBeforeOpenModal: closeMobileMenu });
 
   return (
-    <main className="relative overflow-x-clip bg-[#fff5d4] selection:bg-stone-900 selection:text-white">
-      <AppScrollProgress />
-      <AppNavbar
-        isMobileMenuOpen={isMobileMenuOpen}
-        onContactClick={openContactModal}
-        onLocationClick={openLocationModal}
-        toggleMobileMenu={toggleMobileMenu}
-      />
-      <AppSections />
-      <JovyEasterEgg />
-      <AppFooter onContactClick={openContactModal} />
+    <ErrorBoundary>
+      <main className="relative overflow-x-clip bg-[#fff5d4] selection:bg-stone-900 selection:text-white">
+        <AppScrollProgress />
+        <AppNavbar
+          isMobileMenuOpen={isMobileMenuOpen}
+          onContactClick={openContactModal}
+          onLocationClick={openLocationModal}
+          toggleMobileMenu={toggleMobileMenu}
+        />
+        <AppSections />
+        <JovyEasterEgg />
+        <AppFooter onContactClick={openContactModal} />
 
-      <ContactModal open={activeModal === 'contact'} onClose={closeActiveModal} />
-      <LocationModal
-        open={activeModal === 'location'}
-        onClose={closeActiveModal}
-        onOpenContact={openContactModal}
-      />
-    </main>
+        <ContactModal open={activeModal === 'contact'} onClose={closeActiveModal} />
+        <LocationModal
+          open={activeModal === 'location'}
+          onClose={closeActiveModal}
+          onOpenContact={openContactModal}
+        />
+      </main>
+    </ErrorBoundary>
   );
 }

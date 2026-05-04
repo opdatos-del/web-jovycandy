@@ -1,20 +1,55 @@
-import React, { useEffect, useRef, useState } from 'react';
+/**
+ * ProductCarouselCentered — Horizontal product carousel with drag-to-scroll and gramaje filter.
+ *
+ * Features:
+ * - Drag-to-scroll with momentum/inertia after mouse release
+ * - Gramaje (weight/size) filter chips to narrow products
+ * - Logo navigation (prev/next) to switch between product families
+ * - Mobile and desktop layouts (different logo orientation)
+ * - Entrance/exit animations via motion/react
+ *
+ * Performance notes:
+ * - `gramajes` uses useMemo to avoid recomputing on every render
+ * - `filteredProducts` uses useMemo to avoid recomputing when gramaje filter changes
+ * - `scrollByAmount`, `handleMouseDown`, `toggleFilter` wrapped in useCallback
+ * - `animationRef` cleanup via useEffect return to prevent memory leaks
+ *
+ * Drag mechanics:
+ * - mousedown on scroller starts drag if not clicking a product button
+ * - mousemove tracks velocity (px/ms) for momentum calculation
+ * - mouseup applies friction-based momentum animation (0.92 decay per frame)
+ * - animationRef is cancelled on new mousedown to prevent stale animations
+ *
+ * Memory leak fix:
+ * - The component cleans up animationRef on unmount via useEffect return
+ * - dragStateRef only keeps isDown/startX/scrollLeft (velocity removed — computed locally in handlers)
+ */
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from 'lucide-react';
 
 import type { CatalogProduct } from '../types/catalog.types';
 import { getCatalogSpecValueEs } from '../utils/specFormatters';
 
+/** Props for ProductCarouselCentered */
 interface ProductCarouselCenteredProps {
+  /** Current logo image source */
   logoSrc: string;
+  /** Logo alt text */
   logoAlt: string;
+  /** Category title displayed in carousel header */
   categoryTitle: string;
+  /** Products to display in the carousel */
   products: CatalogProduct[];
+  /** Background accent color for the carousel shell */
   accentColor: string;
+  /** Called when user navigates to prev/next logo */
   onLogoChange?: (direction: 'prev' | 'next') => void;
+  /** Called when user clicks a product */
   onProductSelect?: (product: CatalogProduct) => void;
 }
 
+/** Internal filter state — currently only gramaje filter is supported */
 interface FilterState {
   gramaje: string | null;
 }
@@ -28,77 +63,118 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
   onLogoChange,
   onProductSelect,
 }) => {
+  /** Reference to the scrollable container div */
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+
+  /**
+   * Drag state — lightweight ref that persists across renders without causing re-renders.
+   * Only tracks: isDown (dragging?), startX (initial mouse X), scrollLeft (scroll position at drag start).
+   * Note: velocity/lastX/lastTime are computed locally inside mouse handlers since they
+   * don't need to persist across renders.
+   */
   const dragStateRef = useRef({
     isDown: false,
     startX: 0,
     scrollLeft: 0,
-    velocity: 0,
-    lastX: 0,
-    lastTime: 0,
   });
+
+  /**
+   * Holds the current requestAnimationFrame ID for momentum animation.
+   * Cleaned up on unmount to prevent memory leaks.
+   */
   const animationRef = useRef<number | null>(null);
+
+  /** Tracks whether user is currently dragging (controls cursor style) */
   const [isDragging, setIsDragging] = useState(false);
+
+  /** Gramaje filter state */
   const [filters, setFilters] = useState<FilterState>({ gramaje: null });
 
-  const gramajes = Array.from(new Set(products.map((product) => product.gramaje).filter(Boolean))) as string[];
+  /**
+   * Unique gramaje values extracted from products.
+   * memoized because Array.from + Set + filter is O(n) over all products.
+   */
+  const gramajes = useMemo(
+    () => Array.from(new Set(products.map((product) => product.gramaje).filter(Boolean))) as string[],
+    [products]
+  );
 
-  const filteredProducts = products.filter((product) => {
-    if (filters.gramaje && product.gramaje !== filters.gramaje) {
-      return false;
-    }
+  /**
+   * Products filtered by selected gramaje.
+   * Returns all products if no filter is active.
+   */
+  const filteredProducts = useMemo(() => {
+    if (!filters.gramaje) return products;
+    return products.filter((product) => product.gramaje === filters.gramaje);
+  }, [products, filters.gramaje]);
 
-    return true;
-  });
-
+  /**
+   * Reset scroll position when gramaje filter changes.
+   * Ensures user sees first filtered product rather than staying scrolled to previous position.
+   */
   useEffect(() => {
     if (scrollerRef.current && filters.gramaje) {
       scrollerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
     }
   }, [filters.gramaje]);
 
+  /**
+   * If currently selected gramaje is removed from available gramajes (e.g., category changed),
+   * automatically clear the filter.
+   */
   useEffect(() => {
     if (filters.gramaje && !gramajes.includes(filters.gramaje)) {
       setFilters({ gramaje: null });
     }
   }, [filters.gramaje, gramajes]);
 
-  const applyMomentum = () => {
-    if (!scrollerRef.current) {
-      return;
-    }
-
-    let velocity = dragStateRef.current.velocity;
-    const friction = 0.92;
-
-    const momentum = () => {
-      if (Math.abs(velocity) < 0.5) {
+  /**
+   * Cleanup: cancel any pending momentum animation on unmount.
+   * Without this, setState after unmount would cause "Can't update on unmounted component" warnings.
+   */
+  useEffect(() => {
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
         animationRef.current = null;
-        return;
       }
-
-      scrollerRef.current!.scrollLeft += velocity;
-      velocity *= friction;
-      animationRef.current = requestAnimationFrame(momentum);
     };
+  }, []);
 
-    animationRef.current = requestAnimationFrame(momentum);
-  };
-
-  const scrollByAmount = (direction: 1 | -1) => {
+  /**
+   * Scrolls the scroller by a calculated amount in the given direction.
+   * Amount is 72% of container width, minimum 240px.
+   *
+   * @param direction  1 = scroll right (next), -1 = scroll left (prev)
+   */
+  const scrollByAmount = useCallback((direction: 1 | -1) => {
     if (!scrollerRef.current) {
       return;
     }
 
     const amount = Math.max(240, Math.floor(scrollerRef.current.clientWidth * 0.72));
     scrollerRef.current.scrollBy({ left: amount * direction, behavior: 'smooth' });
-  };
+  }, []);
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
-    // Ignore mousedown if it's on a product button (child element)
+  /**
+   * Handles mousedown on the scroller — initiates drag-to-scroll.
+   *
+   * Guards:
+   * - Ignores clicks on product buttons (user intends to select product, not scroll)
+   * - Cancels any existing momentum animation before starting new drag
+   *
+   * Momentum is computed locally inside the handler (not stored in dragStateRef) because:
+   * - velocity only matters during active drag and momentum phases
+   * - storing it in the ref would cause stale closures in the momentum loop
+   *
+   * The momentum loop runs inside handleMouseUp and uses local variables (currentVelocity, friction)
+   * to avoid closure issues with the requestAnimationFrame loop.
+   */
+  const handleMouseDown = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLElement;
+
+    // Ignore mousedown if it's on a product button (child element)
     if (target !== scrollerRef.current && scrollerRef.current?.contains(target)) {
-      // Check if the click is on or inside a motion.button (product item)
       const button = target.closest('button');
       if (button && scrollerRef.current.contains(button)) {
         return;
@@ -109,21 +185,28 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
       return;
     }
 
+    // Cancel any running momentum animation before starting new drag
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
       animationRef.current = null;
     }
 
+    // Local variables for velocity tracking — computed during mousemove
+    let lastX = event.clientX;
+    let lastTime = Date.now();
+    let velocity = 0;
+
     dragStateRef.current = {
       isDown: true,
       startX: event.clientX,
       scrollLeft: scrollerRef.current.scrollLeft,
-      velocity: 0,
-      lastX: event.clientX,
-      lastTime: Date.now(),
     };
     setIsDragging(true);
 
+    /**
+     * mousemove handler — calculates velocity for momentum.
+     * velocity = -(distance / timeDelta) * 25  gives a usable pixels-per-second-like value.
+     */
     const handleMouseMove = (moveEvent: MouseEvent) => {
       if (!scrollerRef.current || !dragStateRef.current.isDown) {
         return;
@@ -133,36 +216,60 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
       scrollerRef.current.scrollLeft = dragStateRef.current.scrollLeft - walk;
 
       const currentTime = Date.now();
-      const timeDelta = Math.max(1, currentTime - dragStateRef.current.lastTime);
+      const timeDelta = Math.max(1, currentTime - lastTime);
 
       if (timeDelta > 0) {
-        const distance = moveEvent.clientX - dragStateRef.current.lastX;
-        dragStateRef.current.velocity = -(distance / timeDelta) * 25;
+        const distance = moveEvent.clientX - lastX;
+        velocity = -(distance / timeDelta) * 25;
       }
 
-      dragStateRef.current.lastX = moveEvent.clientX;
-      dragStateRef.current.lastTime = currentTime;
+      lastX = moveEvent.clientX;
+      lastTime = currentTime;
     };
 
+    /**
+     * mouseup handler — stops drag and applies momentum.
+     * Momentum loop: velocity *= 0.92 each frame (friction), stops when |velocity| < 0.5.
+     * Uses local variables (currentVelocity, friction) inside the closure to avoid stale refs.
+     */
     const handleMouseUp = () => {
       dragStateRef.current.isDown = false;
       setIsDragging(false);
-      applyMomentum();
 
+      let currentVelocity = velocity;
+      const friction = 0.92;
+      const momentum = () => {
+        if (Math.abs(currentVelocity) < 0.5) {
+          animationRef.current = null;
+          return;
+        }
+        if (scrollerRef.current) {
+          scrollerRef.current.scrollLeft += currentVelocity;
+        }
+        currentVelocity *= friction;
+        animationRef.current = requestAnimationFrame(momentum);
+      };
+      animationRef.current = requestAnimationFrame(momentum);
+
+      // Clean up listeners after use
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
 
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
-  };
+  }, []);
 
-  const toggleFilter = (value: string) => {
+  /**
+   * Toggles the gramaje filter on/off.
+   * If the clicked gramaje is already selected, clears the filter.
+   */
+  const toggleFilter = useCallback((value: string) => {
     setFilters((prev) => ({
       ...prev,
       gramaje: prev.gramaje === value ? null : value,
     }));
-  };
+  }, []);
 
   return (
     <motion.div
@@ -172,7 +279,9 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
       className="catalog-carousel-shell relative rounded-none text-white"
       style={{ backgroundColor: accentColor }}
     >
+      {/* Radial highlight overlay */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_42%,rgba(255,255,255,0.12),transparent_40%)]" />
+      {/* Top border line */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/35" />
 
       <div className="relative">
@@ -183,7 +292,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
         </div>
 
         <div className="catalog-carousel-layout grid grid-cols-1 md:grid-cols-[auto_1fr] gap-0 md:gap-6">
-          {/* Mobile Logo Section - Horizontal Layout */}
+          {/* Mobile Logo Section — horizontal layout below the filter row */}
           <div className="md:hidden flex items-center justify-center gap-3 mb-4">
             <button
               onClick={() => onLogoChange?.('prev')}
@@ -213,7 +322,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
             </button>
           </div>
 
-          {/* Desktop Logo Section - Vertical Layout */}
+          {/* Desktop Logo Section — vertical layout beside the product scroller */}
           <div className="hidden md:flex md:flex-col items-center justify-center gap-4">
             <button
               onClick={() => onLogoChange?.('prev')}
@@ -244,6 +353,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
           </div>
 
           <div className="flex flex-col gap-4 overflow-hidden">
+            {/* Gramaje filter chips */}
             <div className="catalog-carousel-filters flex flex-col">
               {gramajes.length > 0 ? (
                 <div className="flex flex-col gap-2">
@@ -269,6 +379,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
               ) : null}
             </div>
 
+            {/* Scrolling product area with prev/next nav buttons */}
             <div className="relative">
               <button
                 onClick={() => scrollByAmount(-1)}
@@ -279,6 +390,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                 <div className="absolute inset-0 rounded-full border border-white/0 group-hover:border-white/40 transition-all duration-300" />
               </button>
 
+              {/* Main scrollable product list */}
               <div
                 ref={scrollerRef}
                 onMouseDown={handleMouseDown}
@@ -301,11 +413,19 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                         exit={{ opacity: 0, y: -10 }}
                         className="catalog-carousel-item flex shrink-0 flex-col items-center text-center transition-transform hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                       >
+                        {/*
+                         * Product image — uses carouselImage if available, falls back to product.image.
+                         * loading="lazy" defers off-screen image loading.
+                         * explicit width/height prevent Cumulative Layout Shift (CLS).
+                         */}
                         <img
                           src={product.carouselImage ?? product.image}
                           alt={product.name}
                           className="catalog-carousel-image w-full object-contain"
                           draggable={false}
+                          loading="lazy"
+                          width={180}
+                          height={180}
                         />
                         <h4 className="catalog-carousel-name mt-2 font-extrabold uppercase leading-tight">
                           {product.name}

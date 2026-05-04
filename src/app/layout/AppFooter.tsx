@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { footerPolicyLinks, footerSectionLinks } from '../config/navigation';
-import { AppSocialLinks } from '../navigation/AppSocialLinks';
 import { BRAND_LOGO_PATH, INSTAGRAM_POST_PATHS } from '@/shared/assets/publicAssets';
 import { ScrollReveal } from '@/shared/ui/ScrollReveal';
 import "../../styles/responsive/AppFooter.css";

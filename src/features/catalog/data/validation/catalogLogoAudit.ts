@@ -77,7 +77,7 @@ export function auditLogomappings(): LogoAuditResult[] {
  * Returns pattern name or null if inconsistent
  */
 function identifyMappingPattern(
-  categoryId: CatalogCategoryId,
+  _categoryId: CatalogCategoryId,
   products: any[],
   logos: any[]
 ): string | null {
