@@ -17,7 +17,7 @@
  * This pattern avoids CategoryGrid needing to know about service internals.
  * CategoryGrid just calls handleCategoryClick(id) and reads panelState.
  */
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import {
   buildCatalogPanelState,
@@ -25,6 +25,8 @@ import {
   getNextLogoState,
 } from '../services/catalog-panel.service';
 import type { CatalogCategoryId, CatalogPanelState } from '../types/catalog.types';
+import { fetchCatalogSource } from '../services/catalog-api.service';
+import { STATIC_CATALOG_SOURCE, type CatalogSource } from '../data/catalogData';
 
 /** Default/initial state for the panel — all fields empty/null, panel closed */
 const INITIAL_PANEL_STATE: CatalogPanelState = {
@@ -43,13 +45,49 @@ const INITIAL_PANEL_STATE: CatalogPanelState = {
 export const useCatalogFacade = () => {
   /** The current panel state — driving the ProductCarouselCentered display */
   const [panelState, setPanelState] = useState<CatalogPanelState>(INITIAL_PANEL_STATE);
+  const [catalogSource, setCatalogSource] = useState<CatalogSource>(STATIC_CATALOG_SOURCE);
 
   /**
    * Categories list — computed once and cached.
    * getCatalogCategories() is a pure function, but we wrap in useMemo so it's
    * not re-run on every render (the array is stable after mount).
    */
-  const categories = useMemo(() => getCatalogCategories(), []);
+  const categories = useMemo(() => getCatalogCategories(catalogSource), [catalogSource]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetchCatalogSource(controller.signal)
+      .then((source) => {
+        setCatalogSource(source);
+      })
+      .catch((error) => {
+        if (controller.signal.aborted) return;
+        console.warn('[catalog] Falling back to static catalog data:', error);
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    setPanelState((currentState) => {
+      if (!currentState.isOpen || !currentState.categoryId) {
+        return currentState;
+      }
+
+      return {
+        ...buildCatalogPanelState(
+          {
+            ...currentState,
+            isOpen: false,
+          },
+          currentState.categoryId,
+          catalogSource
+        ),
+        isOpen: true,
+      };
+    });
+  }, [catalogSource]);
 
   /**
    * Handles category card click — opens the panel for that category, or closes if already open.
@@ -58,7 +96,7 @@ export const useCatalogFacade = () => {
    * @param categoryId - ID of the category being selected
    */
   const handleCategoryClick = (categoryId: CatalogCategoryId) => {
-    setPanelState((currentState) => buildCatalogPanelState(currentState, categoryId));
+    setPanelState((currentState) => buildCatalogPanelState(currentState, categoryId, catalogSource));
   };
 
   /**
@@ -70,7 +108,7 @@ export const useCatalogFacade = () => {
    */
   const handleLogoNavigation = (direction: 'prev' | 'next') => {
     setPanelState((currentState) => {
-      const nextLogoState = getNextLogoState(currentState, direction);
+      const nextLogoState = getNextLogoState(currentState, direction, catalogSource);
 
       if (!nextLogoState) {
         return currentState;

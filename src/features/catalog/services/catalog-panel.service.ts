@@ -18,7 +18,7 @@
  *   const panelState = buildCatalogPanelState(currentState, 'chamoy');
  */
 import { DEFAULT_ACCENT_COLOR, COMING_SOON_BADGE } from '../constants/catalog.constants';
-import { catalogData, categoryModulesMap } from '../data/catalogData';
+import { STATIC_CATALOG_SOURCE, type CatalogSource } from '../data/catalogData';
 import {
   BRAND_LOGO_PATH,
   CATEGORY_BACKGROUND_PATHS,
@@ -59,7 +59,7 @@ const CATEGORY_DISPLAY_ORDER: CatalogCategoryId[] = [
 ];
 
 /** Returns the module (products + logos) for a given category ID */
-const getCategoryModule = (categoryId: CatalogCategoryId) => categoryModulesMap[categoryId];
+const getCategoryModule = (source: CatalogSource, categoryId: CatalogCategoryId) => source.categoryModulesMap[categoryId];
 
 /**
  * Derives the product family key for a product.
@@ -74,19 +74,19 @@ const isUpcomingCategory = (categoryId: CatalogCategoryId) => UPCOMING_CATEGORY_
 
 /** Returns display title for a category — uses map, falls back to data title */
 const getCategoryDisplayTitle = (categoryId: CatalogCategoryId) =>
-  CATEGORY_TITLE_MAP[categoryId] ?? catalogData[categoryId].title;
+  CATEGORY_TITLE_MAP[categoryId];
 
 /** Returns the product list for a category */
-const getCategoryProducts = (categoryId: CatalogCategoryId): CatalogProduct[] => {
-  return catalogData[categoryId].products;
+const getCategoryProducts = (source: CatalogSource, categoryId: CatalogCategoryId): CatalogProduct[] => {
+  return source.catalogData[categoryId].products;
 };
 
 /**
  * Returns the list of product family keys associated with a specific logo.
  * Used to filter products when a logo is selected in the carousel.
  */
-const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) => {
-  return getCategoryModule(categoryId).logos.find((logo) => logo.src === logoSrc)?.families ?? [];
+const getLogoProductMatchers = (source: CatalogSource, categoryId: CatalogCategoryId, logoSrc: string) => {
+  return getCategoryModule(source, categoryId).logos.find((logo) => logo.src === logoSrc)?.families ?? [];
 };
 
 /**
@@ -98,9 +98,9 @@ const getLogoProductMatchers = (categoryId: CatalogCategoryId, logoSrc: string) 
  * 2. CATEGORY_BACKGROUND_PATHS.primary (fallback background image)
  * 3. category.products[0].image (first product image as last resort)
  */
-export const getCatalogCategories = (): CatalogCategoryCard[] =>
+export const getCatalogCategories = (source: CatalogSource = STATIC_CATALOG_SOURCE): CatalogCategoryCard[] =>
   CATEGORY_DISPLAY_ORDER.map((categoryId) => {
-    const category = catalogData[categoryId];
+    const category = source.catalogData[categoryId];
     const fondos = CATEGORY_BACKGROUND_PATHS[categoryId];
     const categoryImage = CATEGORY_CARD_IMAGE_PATHS[categoryId];
 
@@ -108,7 +108,7 @@ export const getCatalogCategories = (): CatalogCategoryCard[] =>
       id: categoryId,
       title: getCategoryDisplayTitle(categoryId),
       accent: category.accent || DEFAULT_ACCENT_COLOR,
-      productCount: getCategoryProducts(categoryId).length,
+      productCount: getCategoryProducts(source, categoryId).length,
       image: categoryImage || fondos?.primary || category.products[0]?.image || '',
       hoverImage: fondos?.hover,
       disabled: isUpcomingCategory(categoryId),
@@ -132,14 +132,15 @@ export const getCatalogCategories = (): CatalogCategoryCard[] =>
 export const getCategoryLogos = (
   categoryId: CatalogCategoryId,
   categoryTitle: string,
-  products: CatalogProduct[]
+  products: CatalogProduct[],
+  source: CatalogSource = STATIC_CATALOG_SOURCE
 ): CatalogLogoOption[] => {
-  const categoryLogos = getCategoryModule(categoryId).logos ?? [
+  const categoryLogos = getCategoryModule(source, categoryId).logos ?? [
     { src: FALLBACK_LOGO_SRC, alt: categoryTitle },
   ];
   const availableMatchers = new Set(products.map(getProductFamilyKey));
   const filteredLogos = categoryLogos.filter((logo) => {
-    const logoMatchers = getLogoProductMatchers(categoryId, logo.src);
+    const logoMatchers = getLogoProductMatchers(source, categoryId, logo.src);
 
     return logoMatchers.length === 0 || logoMatchers.some((matcher) => availableMatchers.has(matcher));
   });
@@ -158,9 +159,10 @@ export const getCategoryLogos = (
 export const getProductsByLogo = (
   categoryId: CatalogCategoryId,
   products: CatalogProduct[],
-  logoSrc: string
+  logoSrc: string,
+  source: CatalogSource = STATIC_CATALOG_SOURCE
 ): CatalogProduct[] => {
-  const productMatchers = getLogoProductMatchers(categoryId, logoSrc);
+  const productMatchers = getLogoProductMatchers(source, categoryId, logoSrc);
   const filteredProducts = products.filter((product) =>
     productMatchers.includes(getProductFamilyKey(product))
   );
@@ -182,16 +184,17 @@ export const getProductsByLogo = (
  */
 export const buildCatalogPanelState = (
   currentState: CatalogPanelState,
-  categoryId: CatalogCategoryId
+  categoryId: CatalogCategoryId,
+  source: CatalogSource = STATIC_CATALOG_SOURCE
 ): CatalogPanelState => {
   if (isUpcomingCategory(categoryId)) {
     return currentState;
   }
 
-  const category = catalogData[categoryId];
+  const category = source.catalogData[categoryId];
   const categoryTitle = getCategoryDisplayTitle(categoryId);
-  const originalProducts = getCategoryProducts(categoryId);
-  const availableLogos = getCategoryLogos(categoryId, categoryTitle, originalProducts);
+  const originalProducts = getCategoryProducts(source, categoryId);
+  const availableLogos = getCategoryLogos(categoryId, categoryTitle, originalProducts, source);
   const isSameCategory = currentState.categoryId === categoryId;
   const shouldClosePanel = isSameCategory && currentState.isOpen;
 
@@ -211,7 +214,7 @@ export const buildCatalogPanelState = (
     isOpen: !shouldClosePanel,
     categoryId,
     categoryTitle,
-    products: getProductsByLogo(categoryId, originalProducts, selectedLogo.src),
+    products: getProductsByLogo(categoryId, originalProducts, selectedLogo.src, source),
     originalProducts,
     accentColor: category.accent || DEFAULT_ACCENT_COLOR,
     logoSrc: selectedLogo.src,
@@ -231,7 +234,8 @@ export const buildCatalogPanelState = (
  */
 export const getNextLogoState = (
   currentState: CatalogPanelState,
-  direction: 'prev' | 'next'
+  direction: 'prev' | 'next',
+  source: CatalogSource = STATIC_CATALOG_SOURCE
 ): Pick<CatalogPanelState, 'logoSrc' | 'logoAlt' | 'currentLogoIndex' | 'products'> | null => {
   if (!currentState.availableLogos.length || !currentState.categoryId) {
     return null;
@@ -248,6 +252,6 @@ export const getNextLogoState = (
     logoSrc: nextLogo.src,
     logoAlt: nextLogo.alt,
     currentLogoIndex: nextIndex,
-    products: getProductsByLogo(currentState.categoryId, currentState.originalProducts, nextLogo.src),
+    products: getProductsByLogo(currentState.categoryId, currentState.originalProducts, nextLogo.src, source),
   };
 };
