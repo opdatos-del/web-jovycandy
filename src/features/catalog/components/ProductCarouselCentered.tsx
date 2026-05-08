@@ -54,6 +54,9 @@ interface FilterState {
   gramaje: string | null;
 }
 
+const normalizeGramajeKey = (value: string | null | undefined) =>
+  value?.trim().toLowerCase().replace(/\s+/g, '') ?? '';
+
 export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = ({
   logoSrc,
   logoAlt,
@@ -94,10 +97,18 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
    * Unique gramaje values extracted from products.
    * memoized because Array.from + Set + filter is O(n) over all products.
    */
-  const gramajes = useMemo(
-    () => Array.from(new Set(products.map((product) => product.gramaje).filter(Boolean))) as string[],
-    [products]
-  );
+  const gramajes = useMemo(() => {
+    const uniqueGramajes = new Map<string, string>();
+
+    products.forEach((product) => {
+      const label = product.gramaje?.trim();
+      const key = normalizeGramajeKey(label);
+      if (!label || !key || uniqueGramajes.has(key)) return;
+      uniqueGramajes.set(key, label.toUpperCase());
+    });
+
+    return Array.from(uniqueGramajes.entries()).map(([key, label]) => ({ key, label }));
+  }, [products]);
 
   /**
    * Products filtered by selected gramaje.
@@ -105,7 +116,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
    */
   const filteredProducts = useMemo(() => {
     if (!filters.gramaje) return products;
-    return products.filter((product) => product.gramaje === filters.gramaje);
+    return products.filter((product) => normalizeGramajeKey(product.gramaje) === filters.gramaje);
   }, [products, filters.gramaje]);
 
   /**
@@ -123,7 +134,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
    * automatically clear the filter.
    */
   useEffect(() => {
-    if (filters.gramaje && !gramajes.includes(filters.gramaje)) {
+    if (filters.gramaje && !gramajes.some((gramaje) => gramaje.key === filters.gramaje)) {
       setFilters({ gramaje: null });
     }
   }, [filters.gramaje, gramajes]);
@@ -363,15 +374,15 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                   <div className="flex flex-wrap gap-2">
                     {gramajes.map((gramaje) => (
                       <button
-                        key={gramaje}
-                        onClick={() => toggleFilter(gramaje)}
+                        key={gramaje.key}
+                        onClick={() => toggleFilter(gramaje.key)}
                         className={`catalog-carousel-filter-chip rounded-full font-semibold uppercase tracking-wider transition-all ${
-                          filters.gramaje === gramaje
+                          filters.gramaje === gramaje.key
                             ? 'bg-white text-black'
                             : 'bg-white/15 text-white/90 hover:bg-white/25'
                         }`}
                       >
-                        {gramaje}
+                        {gramaje.label}
                       </button>
                     ))}
                   </div>
