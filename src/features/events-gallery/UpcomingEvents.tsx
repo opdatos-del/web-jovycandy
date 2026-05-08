@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { UpcomingEventsTrack } from './components/UpcomingEventsTrack';
+import { STATIC_UPCOMING_EVENTS } from './data/upcoming-events.data';
 import { useUpcomingEventsHorizontalScroll } from './hooks/useUpcomingEventsHorizontalScroll';
+import { fetchUpcomingEvents } from './services/upcoming-events-api.service';
 import type { UpcomingEvent } from './types/upcoming-events.types';
 
 export const UpcomingEvents = () => {
   const { sectionRef, viewportRef, trackRef } = useUpcomingEventsHorizontalScroll();
+  const [events, setEvents] = useState<UpcomingEvent[]>(STATIC_UPCOMING_EVENTS);
   const [activeEvent, setActiveEvent] = useState<UpcomingEvent | null>(null);
 
   const closeModal = () => {
@@ -16,6 +19,22 @@ export const UpcomingEvents = () => {
       window.history.back();
     }
   };
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetchUpcomingEvents(controller.signal)
+      .then((nextEvents) => {
+        setEvents(nextEvents);
+      })
+      .catch(() => {
+        // fetchUpcomingEvents already falls back and logs
+      });
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   useEffect(() => {
     if (!activeEvent) {
@@ -58,7 +77,7 @@ export const UpcomingEvents = () => {
         ref={viewportRef}
         className="events-viewport mobile-scroll relative overflow-x-auto snap-x snap-mandatory lg:overflow-hidden lg:snap-none"
       >
-        <UpcomingEventsTrack trackRef={trackRef} onImageOpen={setActiveEvent} />
+        <UpcomingEventsTrack events={events} trackRef={trackRef} onImageOpen={setActiveEvent} />
       </div>
 
       {activeEvent &&
@@ -67,16 +86,27 @@ export const UpcomingEvents = () => {
             className="events-modal fixed inset-0 z-[120] flex items-center justify-center bg-black/80"
             role="dialog"
             aria-modal="true"
-            aria-label={activeEvent.alt}
+            aria-label={activeEvent.title || activeEvent.alt}
             onClick={closeModal}
           >
             <div className="relative flex h-full w-full max-w-[min(96vw,var(--modal-max-width-xl))] items-center justify-center">
-              <img
-                src={activeEvent.image}
-                alt={activeEvent.alt}
-                className="events-modal-image w-auto max-w-full rounded-xl bg-white object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:rounded-2xl"
-                draggable={false}
-              />
+              {activeEvent.mediaType === 'video' ? (
+                <video
+                  src={activeEvent.mediaUrl}
+                  className="events-modal-image w-auto max-w-full rounded-xl bg-white object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:rounded-2xl"
+                  controls
+                  autoPlay
+                  playsInline
+                  onClick={(event) => event.stopPropagation()}
+                />
+              ) : (
+                <img
+                  src={activeEvent.mediaUrl}
+                  alt={activeEvent.alt}
+                  className="events-modal-image w-auto max-w-full rounded-xl bg-white object-contain shadow-[0_20px_80px_rgba(0,0,0,0.5)] sm:rounded-2xl"
+                  draggable={false}
+                />
+              )}
             </div>
           </div>,
           document.body

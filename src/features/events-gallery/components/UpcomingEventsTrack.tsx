@@ -1,10 +1,10 @@
 import type { RefObject } from 'react';
 
-import { upcomingEvents } from '../data/upcoming-events.data';
 import type { UpcomingEvent } from '../types/upcoming-events.types';
 import { UpcomingEventCard } from './UpcomingEventCard';
 
 type UpcomingEventsTrackProps = {
+  events: UpcomingEvent[];
   trackRef: RefObject<HTMLDivElement | null>;
   onImageOpen?: (event: UpcomingEvent) => void;
 };
@@ -23,14 +23,14 @@ const COLLAGE_LAYOUT = [
   'col-span-3 row-span-2 sm:col-span-2 lg:col-start-7 lg:col-span-3 lg:row-start-6 lg:row-span-2',
 ] as const;
 
-export const UpcomingEventsTrack = ({ trackRef, onImageOpen }: UpcomingEventsTrackProps) => (
+export const UpcomingEventsTrack = ({ events, trackRef, onImageOpen }: UpcomingEventsTrackProps) => (
   <div
     ref={trackRef}
     className="events-track relative z-20 flex min-w-max items-center will-change-transform"
   >
     <div className="events-collage shrink-0">
       <div className="events-grid grid">
-        {upcomingEvents.slice(0, 11).map((event, index) => (
+        {events.map((event, index) => (
           <UpcomingEventCard
             key={event.id}
             event={event}
