@@ -4,10 +4,11 @@
  * Assembles the Gomitas Grenetina catalog module from its parts.
  */
 
-import type { CatalogCategoryModule, CatalogModuleProduct } from '../../../types/catalog.types';
+import type { CatalogCategoryModule, CatalogModuleProduct, CatalogLogoGroup } from '../../../types/catalog.types';
 import { CATALOG_CATEGORY_CONFIG } from '../../config/catalog.config';
 import { gomitasGrenetinaProducts } from './products';
-import { gomitasGrenetinaLogos } from './logos';
+
+// Los logos ahora se cargan dinámicamente desde la API del admin
 
 export const gomitasGrenetinaModule: CatalogCategoryModule<CatalogModuleProduct> = {
   category: {
@@ -16,5 +17,5 @@ export const gomitasGrenetinaModule: CatalogCategoryModule<CatalogModuleProduct>
     accent: CATALOG_CATEGORY_CONFIG.gomitas_grenetina.accent,
     products: gomitasGrenetinaProducts,
   },
-  logos: gomitasGrenetinaLogos,
+  logos: [] as CatalogLogoGroup[],
 };

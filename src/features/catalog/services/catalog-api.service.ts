@@ -5,6 +5,7 @@ import type {
   CatalogInfoItem,
   CatalogProduct,
   CatalogSpec,
+  CatalogLogoGroup,
 } from '../types/catalog.types';
 import { buildCatalogSource, STATIC_CATALOG_SOURCE, type CatalogSource } from '../data/catalogData';
 import { CATALOG_MODULE_REGISTRY } from '../data/registry';
@@ -33,18 +34,71 @@ type ApiCatalogProduct = {
 };
 
 const DEFAULT_CATALOG_API_URL = 'http://localhost:3001/api/products/published';
-const API_BASE_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, '') || null;
+const DEFAULT_LOGOS_API_URL = 'http://localhost:3001/api/logos?active=true';
+const RAW_API_BASE_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, '') || null;
+const API_BASE_URL = RAW_API_BASE_URL?.endsWith('/api')
+  ? RAW_API_BASE_URL
+  : RAW_API_BASE_URL
+    ? `${RAW_API_BASE_URL}/api`
+    : null;
+const API_ORIGIN = API_BASE_URL ? API_BASE_URL.replace(/\/api$/, '') : null;
 const CATALOG_API_URL = import.meta.env.VITE_CATALOG_API_URL
   || (API_BASE_URL ? `${API_BASE_URL}/products/published` : DEFAULT_CATALOG_API_URL);
+const LOGOS_API_URL = API_BASE_URL
+  ? `${API_BASE_URL}/logos?active=true`
+  : DEFAULT_LOGOS_API_URL;
+
+type ApiLogo = {
+  id: number;
+  slug: string;
+  name: string;
+  src: string;
+  alt: string | null;
+  families: string[] | string | null;
+  active: boolean;
+  position: number;
+};
+
+const resolveLogoImageUrl = (url: string): string => {
+  if (!url) return '';
+  if (url.startsWith('http')) return url;
+  if (url.startsWith('/uploads/')) {
+    const base = API_ORIGIN || '';
+    return base ? `${base}${url}` : url;
+  }
+  return url;
+};
 
 const resolveImageUrl = (url: string | null | undefined): string => {
   if (!url) return '';
   if (url.startsWith('http')) return url;
   if (url.startsWith('/uploads/')) {
-    const base = API_BASE_URL ? API_BASE_URL.replace('/api', '') : '';
+    const base = API_ORIGIN || '';
     return base ? `${base}${url}` : url;
   }
   return url;
+};
+
+const normalizeLogoFamilies = (families: ApiLogo['families']): string[] => {
+  if (Array.isArray(families)) {
+    return families
+      .map((family) => normalizeMatcherKey(family))
+      .filter((family): family is string => Boolean(family));
+  }
+
+  const normalized = normalizeText(families);
+  if (!normalized) return [];
+
+  try {
+    const parsed = JSON.parse(normalized);
+    if (Array.isArray(parsed)) {
+      return parsed
+        .map((family) => normalizeMatcherKey(family))
+        .filter((family): family is string => Boolean(family));
+    }
+  } catch {}
+
+  return [normalizeMatcherKey(normalized)];
 };
 
 const STATIC_CATEGORY_REGISTRY = CATALOG_MODULE_REGISTRY as Record<
@@ -56,6 +110,11 @@ const normalizeText = (value: unknown): string | null => {
   if (typeof value !== 'string') return null;
   const trimmed = value.trim();
   return trimmed ? trimmed : null;
+};
+
+const normalizeMatcherKey = (value: unknown): string => {
+  const normalized = normalizeText(value);
+  return normalized ? normalized.toLowerCase().replace(/[^a-z0-9]+/g, '') : '';
 };
 
 const normalizeImagePath = (value: unknown): string | null => {
@@ -144,7 +203,7 @@ const mapApiProductToCatalogProduct = (
   };
 };
 
-const buildRuntimeRegistry = (apiProducts: ApiCatalogProduct[]) => {
+const buildRuntimeRegistry = (apiProducts: ApiCatalogProduct[], apiLogos: ApiLogo[] = []) => {
   const groupedProducts = new Map<CatalogCategoryId, CatalogProduct[]>();
 
   apiProducts.forEach((product) => {
@@ -157,10 +216,41 @@ const buildRuntimeRegistry = (apiProducts: ApiCatalogProduct[]) => {
     groupedProducts.set(categoryId, categoryProducts);
   });
 
+  const transformApiLogoToCatalogLogoGroup = (logo: ApiLogo): CatalogLogoGroup => ({
+    src: resolveLogoImageUrl(logo.src),
+    alt: logo.alt || logo.name,
+    families: normalizeLogoFamilies(logo.families),
+  });
+
+  const getCategoryLogosFromApi = (products: CatalogProduct[]): CatalogLogoGroup[] => {
+    if (apiLogos.length === 0) return [];
+
+    const productFamilies = new Set(
+      products
+        .map((p) => normalizeMatcherKey(p.familyId))
+        .filter(Boolean)
+    );
+
+    return apiLogos
+      .map(transformApiLogoToCatalogLogoGroup)
+      .filter((logo) => {
+        if (!logo.families || logo.families.length === 0) return true;
+        return logo.families.some((family) => productFamilies.has(family));
+      });
+  };
+
   const runtimeRegistry = Object.fromEntries(
     (Object.keys(STATIC_CATEGORY_REGISTRY) as CatalogCategoryId[]).map((categoryId) => {
       const staticModule = STATIC_CATEGORY_REGISTRY[categoryId];
       const runtimeProducts = groupedProducts.get(categoryId);
+
+      const apiLogosForCategory = runtimeProducts && apiLogos.length > 0
+        ? getCategoryLogosFromApi(runtimeProducts)
+        : [];
+
+      const logos = apiLogosForCategory.length > 0
+        ? apiLogosForCategory
+        : [];
 
       return [
         categoryId,
@@ -172,6 +262,7 @@ const buildRuntimeRegistry = (apiProducts: ApiCatalogProduct[]) => {
               ? runtimeProducts
               : staticModule.category.products,
           },
+          logos,
         } satisfies CatalogCategoryModule<CatalogProduct>,
       ];
     })
@@ -180,17 +271,35 @@ const buildRuntimeRegistry = (apiProducts: ApiCatalogProduct[]) => {
   return buildCatalogSource(runtimeRegistry);
 };
 
-export async function fetchCatalogSource(signal?: AbortSignal): Promise<CatalogSource> {
-  const response = await fetch(CATALOG_API_URL, { signal });
+const fetchLogos = async (signal?: AbortSignal): Promise<ApiLogo[]> => {
+  try {
+    const response = await fetch(LOGOS_API_URL, { signal });
+    if (!response.ok) {
+      console.warn('[catalog-api] Failed to fetch logos:', response.status);
+      return [];
+    }
+    const data = await response.json();
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    console.warn('[catalog-api] Error fetching logos:', error);
+    return [];
+  }
+};
 
-  if (!response.ok) {
-    throw new Error(`Catalog API request failed with status ${response.status}`);
+export async function fetchCatalogSource(signal?: AbortSignal): Promise<CatalogSource> {
+  const [productsResponse, logosData] = await Promise.all([
+    fetch(CATALOG_API_URL, { signal }),
+    fetchLogos(signal),
+  ]);
+
+  if (!productsResponse.ok) {
+    throw new Error(`Catalog API request failed with status ${productsResponse.status}`);
   }
 
-  const data = (await response.json()) as ApiCatalogProduct[];
+  const data = (await productsResponse.json()) as ApiCatalogProduct[];
   if (!Array.isArray(data) || data.length === 0) {
     return STATIC_CATALOG_SOURCE;
   }
 
-  return buildRuntimeRegistry(data);
+  return buildRuntimeRegistry(data, logosData);
 }

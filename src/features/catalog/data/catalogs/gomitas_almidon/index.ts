@@ -4,10 +4,11 @@
  * Assembles the Gomitas Almidón catalog module from its parts.
  */
 
-import type { CatalogCategoryModule, CatalogModuleProduct } from '../../../types/catalog.types';
+import type { CatalogCategoryModule, CatalogModuleProduct, CatalogLogoGroup } from '../../../types/catalog.types';
 import { CATALOG_CATEGORY_CONFIG } from '../../config/catalog.config';
 import { gomitasAlmidonProducts } from './products';
-import { gomitasAlmidonLogos } from './logos';
+
+// Los logos ahora se cargan dinámicamente desde la API del admin
 
 export const gomitasAlmidonModule: CatalogCategoryModule<CatalogModuleProduct> = {
   category: {
@@ -16,5 +17,5 @@ export const gomitasAlmidonModule: CatalogCategoryModule<CatalogModuleProduct> =
     accent: CATALOG_CATEGORY_CONFIG.gomitas_almidon.accent,
     products: gomitasAlmidonProducts,
   },
-  logos: gomitasAlmidonLogos,
+  logos: [] as CatalogLogoGroup[],
 };

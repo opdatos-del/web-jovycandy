@@ -69,6 +69,9 @@ const getCategoryModule = (source: CatalogSource, categoryId: CatalogCategoryId)
 const getProductFamilyKey = (product: CatalogProduct) =>
   product.familyId ?? product.productFamily ?? product.name;
 
+const normalizeMatcherKey = (value: string | null | undefined) =>
+  value?.trim().toLowerCase().replace(/[^a-z0-9]+/g, '') ?? '';
+
 /** Returns true if the category is upcoming/not yet clickable */
 const isUpcomingCategory = (categoryId: CatalogCategoryId) => UPCOMING_CATEGORY_IDS.has(categoryId);
 
@@ -138,11 +141,16 @@ export const getCategoryLogos = (
   const categoryLogos = getCategoryModule(source, categoryId).logos ?? [
     { src: FALLBACK_LOGO_SRC, alt: categoryTitle },
   ];
-  const availableMatchers = new Set(products.map(getProductFamilyKey));
+  const availableMatchers = new Set(
+    products
+      .map((product) => normalizeMatcherKey(getProductFamilyKey(product)))
+      .filter(Boolean)
+  );
   const filteredLogos = categoryLogos.filter((logo) => {
     const logoMatchers = getLogoProductMatchers(source, categoryId, logo.src);
 
-    return logoMatchers.length === 0 || logoMatchers.some((matcher) => availableMatchers.has(matcher));
+    return logoMatchers.length === 0
+      || logoMatchers.some((matcher) => availableMatchers.has(normalizeMatcherKey(matcher)));
   });
 
   return filteredLogos.length > 0 ? filteredLogos : categoryLogos;
@@ -163,8 +171,9 @@ export const getProductsByLogo = (
   source: CatalogSource = STATIC_CATALOG_SOURCE
 ): CatalogProduct[] => {
   const productMatchers = getLogoProductMatchers(source, categoryId, logoSrc);
+  const normalizedMatchers = new Set(productMatchers.map((matcher) => normalizeMatcherKey(matcher)).filter(Boolean));
   const filteredProducts = products.filter((product) =>
-    productMatchers.includes(getProductFamilyKey(product))
+    normalizedMatchers.has(normalizeMatcherKey(getProductFamilyKey(product)))
   );
 
   return filteredProducts.length > 0 ? filteredProducts : products;
@@ -197,6 +206,22 @@ export const buildCatalogPanelState = (
   const availableLogos = getCategoryLogos(categoryId, categoryTitle, originalProducts, source);
   const isSameCategory = currentState.categoryId === categoryId;
   const shouldClosePanel = isSameCategory && currentState.isOpen;
+
+  // Si no hay logos disponibles, devolver estado sin logo
+  if (availableLogos.length === 0) {
+    return {
+      isOpen: !shouldClosePanel,
+      categoryId,
+      categoryTitle,
+      products: originalProducts,
+      originalProducts,
+      accentColor: category.accent || DEFAULT_ACCENT_COLOR,
+      logoSrc: '',
+      logoAlt: '',
+      currentLogoIndex: 0,
+      availableLogos: [],
+    };
+  }
 
   /**
    * Retains the current logo if switching to the same category (preserves scroll position

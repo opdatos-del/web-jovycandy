@@ -7,7 +7,7 @@ const FRAME_PADDING = 2;
 const FRAME_ROOT_MARGIN = '150% 0px';
 const FRAMES = Array.from({ length: TOTAL_FRAMES }, (_, index) => {
   const frameNumber = String(index + 1).padStart(FRAME_PADDING, '0');
-  return buildMarketingFramePath(`frame_${frameNumber}.webp`);
+  return buildMarketingFramePath(`frame-${frameNumber}.webp`);
 });
 
 const getSectionHeight = () => {

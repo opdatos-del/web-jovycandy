@@ -4,10 +4,11 @@
  * Assembles the Dulces y Paletas catalog module from its parts.
  */
 
-import type { CatalogCategoryModule, CatalogModuleProduct } from '../../../types/catalog.types';
+import type { CatalogCategoryModule, CatalogModuleProduct, CatalogLogoGroup } from '../../../types/catalog.types';
 import { CATALOG_CATEGORY_CONFIG } from '../../config/catalog.config';
 import { dulcesPaletasProducts } from './products';
-import { dulcesPaletasLogos } from './logos';
+
+// Los logos ahora se cargan dinámicamente desde la API del admin
 
 export const dulcesPaletasModule: CatalogCategoryModule<CatalogModuleProduct> = {
   category: {
@@ -16,5 +17,5 @@ export const dulcesPaletasModule: CatalogCategoryModule<CatalogModuleProduct> = 
     accent: CATALOG_CATEGORY_CONFIG.dulces_paletas.accent,
     products: dulcesPaletasProducts,
   },
-  logos: dulcesPaletasLogos,
+  logos: [] as CatalogLogoGroup[],
 };
