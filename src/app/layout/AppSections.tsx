@@ -33,6 +33,6 @@ export const AppSections = () => (
     <div id="nuestra-esencia">
       <About />
     </div>
-    <SectionColorTransition fromColor="#f8ebe6" toColor="#00afaa" heightClassName="h-[clamp(4rem,7vw,7rem)]" />
+    <SectionColorTransition fromColor="#f8ebe6" toColor="var(--hero-theme-color, #00AFAA)" heightClassName="h-[clamp(4rem,7vw,7rem)]" />
   </>
 );

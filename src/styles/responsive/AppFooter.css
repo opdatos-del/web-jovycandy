@@ -188,7 +188,7 @@
   justify-content: center;
   padding: 0.65rem 1rem;
   border-radius: 999px;
-  background: #00afaa;
+  background: var(--hero-theme-color, #00afaa);
   color: #ffffff;
   text-decoration: none;
   font-size: clamp(0.82rem, 1vw, 0.9rem);
@@ -228,7 +228,7 @@
 }
 
 .instagram-footer-link a {
-  color: #00afaa;
+  color: var(--hero-theme-color, #00afaa);
   text-decoration: none;
   font-weight: 700;
   font-size: 0.9rem;
@@ -236,7 +236,7 @@
 
 .instagram-follow-btn:focus-visible,
 .instagram-footer-link a:focus-visible {
-  outline: 2px solid #00afaa;
+  outline: 2px solid var(--hero-theme-color, #00afaa);
   outline-offset: 3px;
 }
 

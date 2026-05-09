@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import type { CSSProperties } from 'react';
 import { footerPolicyLinks, footerSectionLinks } from '../config/navigation';
 import { BRAND_LOGO_PATH, INSTAGRAM_POST_PATHS } from '@/shared/assets/publicAssets';
 import { ScrollReveal } from '@/shared/ui/ScrollReveal';
@@ -19,6 +20,12 @@ declare global {
 }
 
 export const AppFooter = ({ onContactClick }: AppFooterProps) => {
+    const footerStyle = {
+        backgroundColor: 'var(--hero-theme-color, #00AFAA)',
+        backgroundImage:
+            'linear-gradient(to bottom, var(--hero-theme-color, #00AFAA), color-mix(in srgb, var(--hero-theme-color, #00AFAA) 82%, black))',
+    } satisfies CSSProperties;
+
     useEffect(() => {
         const scriptId = 'facebook-jssdk';
 
@@ -51,7 +58,7 @@ export const AppFooter = ({ onContactClick }: AppFooterProps) => {
     }, []);
 
     return (
-        <footer className="app-footer bg-gradient-to-b from-[#00afaa] to-[#008b7f] text-white">
+        <footer className="app-footer text-white" style={footerStyle}>
             <div className="pb-2 sm:pb-4 lg:pb-6 xl:pb-8 2xl:pb-10">
                 <div className="page-shell">
                     <ScrollReveal>

@@ -3,16 +3,9 @@ import { createPortal } from 'react-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Facebook, Instagram, Music2 } from 'lucide-react';
-import { buildMarketingEventPath } from '@/shared/assets/publicAssets';
+import { fetchCasaJovyGalleryImages } from './services/casa-jovy-gallery.service';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const galleryImages = [
-  buildMarketingEventPath('1.webp'),
-  buildMarketingEventPath('4.webp'),
-  buildMarketingEventPath('8.webp'),
-  buildMarketingEventPath('11.webp'),
-];
 
 const casaJovySocials = [
   {
@@ -39,10 +32,26 @@ export const TaglineSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
+  const [galleryItems, setGalleryItems] = useState<string[]>([]);
 
   const closeModal = () => {
     setActiveImage(null);
   };
+
+  useEffect(() => {
+    let active = true;
+
+    fetchCasaJovyGalleryImages()
+      .then((images) => {
+        if (!active || images.length === 0) return;
+        setGalleryItems(images);
+      })
+      .catch(() => {});
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -157,27 +166,33 @@ export const TaglineSection = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                {galleryImages.map((src, index) => (
-                  <button
-                    type="button"
-                    key={`${src}-${index}`}
-                    onClick={() =>
-                      setActiveImage({
-                        src,
-                        alt: `Casa Jovy galeria ${index + 1}`,
-                      })
-                    }
-                    aria-label={`Ver imagen completa Casa Jovy galeria ${index + 1}`}
-                    className="aspect-square overflow-hidden bg-[#e9d3c4]"
-                  >
-                    <img
-                      src={src}
-                      alt={`Casa Jovy galeria ${index + 1}`}
-                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
-                      draggable={false}
-                    />
-                  </button>
-                ))}
+                {galleryItems.length > 0 ? (
+                  galleryItems.map((src, index) => (
+                    <button
+                      type="button"
+                      key={`${src}-${index}`}
+                      onClick={() =>
+                        setActiveImage({
+                          src,
+                          alt: `Casa Jovy galeria ${index + 1}`,
+                        })
+                      }
+                      aria-label={`Ver imagen completa Casa Jovy galeria ${index + 1}`}
+                      className="aspect-square overflow-hidden bg-[#e9d3c4]"
+                    >
+                      <img
+                        src={src}
+                        alt={`Casa Jovy galeria ${index + 1}`}
+                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
+                        draggable={false}
+                      />
+                    </button>
+                  ))
+                ) : (
+                  <div className="col-span-2 flex aspect-[2/1] items-center justify-center border border-dashed border-white/35 bg-white/10 px-4 text-center text-sm text-white/70">
+                    No hay imagenes publicadas en Casa Jovy.
+                  </div>
+                )}
               </div>
             </div>
           </article>
