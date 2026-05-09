@@ -6,7 +6,14 @@ export const useHeroAutoplay = (totalPromos: number) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (totalPromos <= 1) {
+    if (totalPromos <= 0) {
+      setActiveIndex(0);
+      return undefined;
+    }
+
+    setActiveIndex((currentIndex) => (currentIndex >= totalPromos ? 0 : currentIndex));
+
+    if (totalPromos === 1) {
       return undefined;
     }
 

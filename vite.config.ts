@@ -89,11 +89,6 @@ export default defineConfig(({ mode }) => {
                 return 'icons';
               }
 
-              // motion/react: animation library (heavy, used on multiple features)
-              if (normalizedId.includes('/motion/')) {
-                return 'motion';
-              }
-
               // Everything else: react, react-dom, utilities, etc.
               return 'vendor';
             }

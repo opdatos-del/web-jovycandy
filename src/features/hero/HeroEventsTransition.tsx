@@ -1,5 +1,5 @@
 export const HeroEventsTransition = () => (
-  <section aria-hidden="true" className="relative -mb-px overflow-hidden bg-[#00AFAA]">
+  <section aria-hidden="true" className="relative -mb-px overflow-hidden bg-[var(--hero-theme-color,#00AFAA)]">
     <svg
       viewBox="0 0 1440 200"
       preserveAspectRatio="none"
