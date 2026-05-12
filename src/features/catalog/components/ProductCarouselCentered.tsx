@@ -271,6 +271,14 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
     document.addEventListener('mouseup', handleMouseUp);
   }, []);
 
+  /** Clears active gramaje filter. */
+  const clearFilter = useCallback(() => {
+    setFilters((prev) => ({
+      ...prev,
+      gramaje: null,
+    }));
+  }, []);
+
   /**
    * Toggles the gramaje filter on/off.
    * If the clicked gramaje is already selected, clears the filter.
@@ -368,14 +376,24 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
             <div className="catalog-carousel-filters flex flex-col">
               {gramajes.length > 0 ? (
                 <div className="flex flex-col gap-2">
-                  <label className="catalog-carousel-filter-label font-semibold uppercase tracking-wider text-white/80">
-                    Gramaje
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {gramajes.map((gramaje) => (
-                      <button
-                        key={gramaje.key}
-                        onClick={() => toggleFilter(gramaje.key)}
+                   <label className="catalog-carousel-filter-label font-semibold uppercase tracking-wider text-white/80">
+                     Gramaje
+                   </label>
+                   <div className="flex flex-wrap gap-2">
+                     <button
+                       onClick={clearFilter}
+                       className={`catalog-carousel-filter-chip rounded-full font-semibold uppercase tracking-wider transition-all ${
+                         filters.gramaje === null
+                           ? 'bg-white text-black'
+                           : 'bg-white/15 text-white/90 hover:bg-white/25'
+                       }`}
+                     >
+                       Todos
+                     </button>
+                     {gramajes.map((gramaje) => (
+                       <button
+                         key={gramaje.key}
+                         onClick={() => toggleFilter(gramaje.key)}
                         className={`catalog-carousel-filter-chip rounded-full font-semibold uppercase tracking-wider transition-all ${
                           filters.gramaje === gramaje.key
                             ? 'bg-white text-black'
