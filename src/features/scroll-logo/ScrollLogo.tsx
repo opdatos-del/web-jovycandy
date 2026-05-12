@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'motion/react';
+import { GiSoccerBall } from 'react-icons/gi';
 import { buildMarketingFramePath } from '@/shared/assets/publicAssets';
 
 const TOTAL_FRAMES = 120;
 const FRAME_PADDING = 2;
 const FRAME_ROOT_MARGIN = '150% 0px';
+const MOBILE_HINT_BREAKPOINT = 640;
 const FRAMES = Array.from({ length: TOTAL_FRAMES }, (_, index) => {
   const frameNumber = String(index + 1).padStart(FRAME_PADDING, '0');
   return buildMarketingFramePath(`frame-${frameNumber}.webp`);
@@ -54,6 +56,9 @@ export function ScrollLogo() {
   const currentFrameRef = useRef(0);
   const rafRef = useRef<number | null>(null);
   const [shouldLoadFrames, setShouldLoadFrames] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(() =>
+    typeof window !== 'undefined' && window.innerWidth < MOBILE_HINT_BREAKPOINT
+  );
   const [sectionHeight, setSectionHeight] = useState(() =>
     typeof window === 'undefined' ? '286svh' : getSectionHeight()
   );
@@ -65,7 +70,11 @@ export function ScrollLogo() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.08, 1], [1, 1, 1]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1.04]);
-  const hintOpacity = useTransform(scrollYProgress, [0.05, 0.15, 0.8, 0.9], [0, 1, 1, 0]);
+  const hintProgress = isMobileViewport
+    ? [0.022, 0.042, 0.9, 0.97]
+    : [0.04, 0.12, 0.9, 0.97];
+  const hintOpacity = useTransform(scrollYProgress, hintProgress, [0, 1, 1, 0]);
+  const hintY = useTransform(scrollYProgress, hintProgress, [18, 0, 0, -10]);
 
   const drawFrame = (frameIndex: number) => {
     const canvas = canvasRef.current;
@@ -161,6 +170,7 @@ export function ScrollLogo() {
 
     const handleResize = () => {
       setSectionHeight(getSectionHeight());
+      setIsMobileViewport(window.innerWidth < MOBILE_HINT_BREAKPOINT);
     };
 
     handleResize();
@@ -264,12 +274,18 @@ export function ScrollLogo() {
         </motion.div>
 
         <motion.div
-          style={{ opacity: hintOpacity }}
+          style={{ opacity: hintOpacity, y: hintY }}
           className="scroll-logo-hint absolute"
         >
-          <span className="scroll-logo-hint-badge">
-            es tu mejor selección
-          </span>
+          <div className="scroll-logo-hint-badge">
+            <span className="scroll-logo-hint-icon" aria-hidden="true">
+              <GiSoccerBall className="scroll-logo-hint-ball" />
+            </span>
+            <span className="scroll-logo-hint-copy">
+              <span className="scroll-logo-hint-kicker">Es tu mejor</span>
+              <span className="scroll-logo-hint-text">selección</span>
+            </span>
+          </div>
         </motion.div>
       </div>
     </section>
