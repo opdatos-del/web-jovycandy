@@ -1,5 +1,10 @@
 import type { RefObject } from 'react';
 
+export type AboutValue = {
+  title: string;
+  description: string;
+};
+
 export type AboutLayer = {
   id: string;
   kicker: string;
@@ -8,6 +13,7 @@ export type AboutLayer = {
   detail: string;
   tone: string;
   iconType: 'target' | 'rocket' | 'heart' | 'sparkles';
+  values?: AboutValue[];
 };
 
 export type AboutMetric = {

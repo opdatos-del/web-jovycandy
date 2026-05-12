@@ -64,10 +64,10 @@ export const Certifications: React.FC = () => {
             Nuestros Certificados.
           </h2>
           <h3 className="certifications-title mb-6 font-bold leading-tight tracking-tight text-white">
-            Calidad Garantizada
+            ESTÁNDARES DE CALIDAD Y CERTIFICADOS
           </h3>
           <p className="certifications-body max-w-[min(92vw,calc(54rem*var(--content-scale)))] font-medium leading-relaxed text-justify text-white/88">
-            Cumplimos con los más altos estándares de calidad que satisfacen a miles de personas en los mercados nacionales e internacionales. Contamos con normas de aseguramiento de calidad, protocolos y procedimientos que incluyen cuidadosas inspecciones en todas las fases de nuestra operación, para asegurar que solo los productos de la más alta calidad lleguen a ti.
+          Nuestros estándares de aseguramiento de calidad, protocolos y procedimientos incluyen inspecciones cuidadosas a lo largo de todas las fases de nuestra operación para asegurarnos de que solamente los productos de la más alta calidad lleguen a usted y a su familia.
           </p>
         </motion.div>
 

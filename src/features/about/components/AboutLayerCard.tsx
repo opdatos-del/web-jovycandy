@@ -98,7 +98,18 @@ export const AboutLayerCard = ({ item }: AboutLayerCardProps) => {
             {item.body}
           </p>
 
-          <div className="flex items-start gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-stone-500">
+          {item.values && item.values.length > 0 && (
+            <div className="mt-3 space-y-2">
+              {item.values.map((value, index) => (
+                <div key={index} className="border-l-2 border-pink-200 pl-2 sm:pl-3">
+                  <p className="text-[10px] sm:text-xs font-semibold text-stone-700">{value.title}</p>
+                  <p className="text-[9px] sm:text-[10px] leading-tight text-stone-500">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="flex items-start gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-stone-500 mt-3">
             <span className="h-px w-4 sm:w-5 shrink-0 bg-stone-300" style={{ marginTop: '2px' }} />
             <span className="break-words leading-tight">{item.detail}</span>
           </div>
