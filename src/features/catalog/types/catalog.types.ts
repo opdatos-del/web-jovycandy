@@ -1,14 +1,16 @@
 import type { MouseEvent } from 'react';
 
-export type CatalogCategoryId = 'polvos' | 'jellies' | 'dulces' | 'paletas' | 'pinatero' | 'gomitas';
+/**
+ * CatalogCategoryId is derived from the config so it never goes out of sync.
+ * Adding a new category only requires editing catalog.config.ts.
+ */
+import type { CatalogCategoryId as _CatalogCategoryId } from '../data/config/catalog.config';
+export type CatalogCategoryId = _CatalogCategoryId;
 
 export type CatalogProductId = string;
 
 export type CatalogCertification = 'SGS' | 'OU Kosher' | 'Halal';
 
-export type ProductType = 'Dulce' | 'Picante';
-
-export type CatalogFilterType = ProductType | undefined;
 
 export type CatalogSpec = {
   label: string;
@@ -27,28 +29,48 @@ export type CatalogLogo = {
 
 export type CatalogLogoOption = CatalogLogo;
 
+export type CatalogLogoGroup = CatalogLogo & {
+  families: string[];
+};
+
 export type CatalogProduct = {
   id: CatalogProductId;
+  familyId?: string;
   name: string;
   subtitle: string;
   description: string;
   image: string;
   carouselImage?: string;
+  /** Optional: defaults to image if not provided */
   sampleImage?: string;
-  secondaryImage: string;
+  /** Optional: defaults to image if not provided */
+  secondaryImage?: string;
+  bowlImage?: string;
   certifications: CatalogCertification[];
   specs: CatalogSpec[];
   collapsibleInfo: CatalogInfoItem[];
   gramaje?: string;
   productFamily?: string;
-  type: ProductType;
+  bowlFamilyKey?: string;
+  // 'type' (Dulce/Picante) removed — flavor is no longer modeled on product objects
 };
 
-export type CatalogCategory = {
+export type CatalogModuleProduct = CatalogProduct & {
+  familyId: string;
+  carouselImage: string;
+  bowlImage: string;
+};
+
+export type CatalogCategory<TProduct extends CatalogProduct = CatalogProduct> = {
   id: CatalogCategoryId;
   title: string;
   accent: string;
-  products: CatalogProduct[];
+  products: TProduct[];
+};
+
+export type CatalogCategoryModule<TProduct extends CatalogProduct = CatalogModuleProduct> = {
+  category: CatalogCategory<TProduct>;
+  logos: CatalogLogoGroup[];
 };
 
 export type CatalogCategoryCard = {
@@ -57,6 +79,9 @@ export type CatalogCategoryCard = {
   accent: string;
   productCount: number;
   image: string;
+  hoverImage?: string;
+  disabled?: boolean;
+  badge?: string;
 };
 
 export type CatalogPanelState = {
@@ -70,7 +95,6 @@ export type CatalogPanelState = {
   logoAlt: string;
   currentLogoIndex: number;
   availableLogos: CatalogLogoOption[];
-  filterType?: CatalogFilterType;
 };
 
 export type CatalogData = Record<CatalogCategoryId, CatalogCategory>;

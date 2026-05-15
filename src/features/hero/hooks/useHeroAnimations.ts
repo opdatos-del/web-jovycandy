@@ -14,7 +14,7 @@ export const useHeroAnimations = (promos: HeroPromo[], activeIndex: number) => {
   const shellRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const detailRef = useRef<HTMLDivElement>(null);
+  const detailRef = useRef<HTMLAnchorElement>(null);
   const haloRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
   const raysRef = useRef<HTMLDivElement>(null);

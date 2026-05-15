@@ -11,7 +11,7 @@ import { SectionColorTransition } from '@/shared/ui/SectionColorTransition';
 export const AppSections = () => (
   <>
     <ScrollLogo />
-    <SectionColorTransition fromColor="#edf5ff" toColor="#00AFAA" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
+    <SectionColorTransition fromColor="#edf5ff" toColor="var(--hero-theme-color, #00AFAA)" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
     <div id="inicio">
       <Hero />
     </div>
@@ -27,9 +27,12 @@ export const AppSections = () => (
     <div id="tienda">
       <CategoryGrid />
     </div>
+    <SectionColorTransition fromColor="#ffffff" toColor="#FF0004" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
     <TaglineSection />
+    <SectionColorTransition fromColor="#FF0004" toColor="#f8ebe6" heightClassName="h-[clamp(3.25rem,6vw,6.25rem)]" />
     <div id="nuestra-esencia">
       <About />
     </div>
+    <SectionColorTransition fromColor="#f8ebe6" toColor="var(--hero-theme-color, #00AFAA)" heightClassName="h-[clamp(4rem,7vw,7rem)]" />
   </>
 );

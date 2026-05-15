@@ -1,9 +1,15 @@
 import type { RefObject } from 'react';
 
+export type UpcomingEventMediaType = 'image' | 'video' | 'gif';
+
 export type UpcomingEvent = {
   id: string;
-  image: string;
+  mediaUrl: string;
+  mediaType: UpcomingEventMediaType;
   alt: string;
+  title?: string;
+  slug?: string;
+  startsAt?: string | null;
 };
 
 export type UpcomingEventsHorizontalScrollResult = {

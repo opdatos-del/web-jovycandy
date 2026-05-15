@@ -13,7 +13,7 @@ export const ABOUT_LAYERS: AboutLayer[] = [
     kicker: 'Misión',
     title: 'Elevar el dulce a una categoría de lujo.',
     body:
-      'Transformamos el consumo en una experiencia de diseño y sofisticación, donde cada pieza debe sentirse tan pensada como deseable.',
+      'Creamos gomas, caramelos y productos frutales llenos de sabor y calidad, hechos con compromiso, seguridad y responsabilidad, para brindar bienestar y una experiencia deliciosa en cada bite.',
     detail: 'experiencia y sofisticación',
     tone: 'rgba(41, 37, 36, 0.08)',
     iconType: 'target',
@@ -23,7 +23,7 @@ export const ABOUT_LAYERS: AboutLayer[] = [
     kicker: 'Visión',
     title: 'Construir un atelier de confitería sin límites.',
     body:
-      'Queremos ser un referente contemporáneo donde innovación, sabor y lenguaje visual convivan como una misma firma de marca.',
+      'Ser la marca líder nacional e internacional en gomas, caramelos y productos frutales, reconocida por su innovación, calidad y compromiso; inspirando confianza y bienestar en cada cliente, destacando por nuestro sabor y experiencia sensorial.',
     detail: 'referencia global',
     tone: 'rgba(120, 113, 108, 0.11)',
     iconType: 'rocket',
@@ -33,19 +33,51 @@ export const ABOUT_LAYERS: AboutLayer[] = [
     kicker: 'Valores',
     title: 'Rigor, detalle y sensibilidad en cada decisión.',
     body:
-      'Trabajamos con calidad sin concesiones, coherencia estética y una atención obsesiva por la experiencia del usuario en cada punto de contacto.',
+      '',
     detail: 'coherencia y excelencia',
     tone: 'rgba(168, 162, 158, 0.14)',
     iconType: 'heart',
+    values: [
+      {
+        title: 'Confianza',
+        description:
+          'Base de nuestras relaciones; actuamos con transparencia, cumplimiento y coherencia.',
+      },
+      {
+        title: 'Integridad',
+        description:
+          'Mantenemos un comportamiento ético y honesto en cada decisión.',
+      },
+      {
+        title: 'Responsabilidad',
+        description:
+          'Cumplimos con calidad, seguridad e inocuidad, asegurando el bienestar del consumidor.',
+      },
+      {
+        title: 'Innovación',
+        description:
+          'Impulsamos la creatividad, la mejora continua y la búsqueda de nuevas soluciones que fortalezcan nuestros productos y procesos.',
+      },
+      {
+        title: 'Fiabilidad',
+        description:
+          'Generamos seguridad y consistencia en nuestras operaciones y relaciones.',
+      },
+      {
+        title: 'Generosidad',
+        description:
+          'Promovemos la colaboración, el respeto y el apoyo mutuo dentro y fuera de la empresa.',
+      },
+    ],
   },
-  {
-    id: 'philosophy',
-    kicker: 'Filosofía',
-    title: 'El sabor también puede ser diseño.',
-    body:
-      'Creemos que cada dulce es una oportunidad para expresar una visión estética única. El sabor no es separable del contexto visual, emocional y sensorial que lo envuelve.',
-    detail: 'diseño y experiencia',
-    tone: 'rgba(100, 116, 139, 0.12)',
-    iconType: 'sparkles',
-  },
+  // {
+  //   id: 'philosophy',
+  //   kicker: 'Filosofía',
+  //   title: 'El sabor también puede ser diseño.',
+  //   body:
+  //     'Creemos que cada dulce es una oportunidad para expresar una visión estética única. El sabor no es separable del contexto visual, emocional y sensorial que lo envuelve.',
+  //   detail: 'diseño y experiencia',
+  //   tone: 'rgba(100, 116, 139, 0.12)',
+  //   iconType: 'sparkles',
+  // },
 ];

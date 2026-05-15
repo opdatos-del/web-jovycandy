@@ -5,9 +5,10 @@ type HeroPromoDetailsProps = Pick<HeroSceneRefs, 'detailRef'> & {
 };
 
 export const HeroPromoDetails = ({ detailRef, promo }: HeroPromoDetailsProps) => (
-  <div
+  <a
     ref={detailRef}
-    className="hero-promo-details relative z-20 flex w-full flex-col items-center text-center md:absolute md:left-1/2 md:-translate-x-1/2"
+    href="#tienda"
+    className="hero-promo-details relative z-20 flex w-full flex-col items-center text-center md:absolute md:left-1/2 md:-translate-x-1/2 cursor-pointer"
   >
     <div className="hero-promo-chip rounded-full border border-white/45 bg-white/20 font-bold uppercase text-white backdrop-blur-xl">
       {promo.label}
@@ -17,5 +18,5 @@ export const HeroPromoDetails = ({ detailRef, promo }: HeroPromoDetailsProps) =>
         {promo.note}
       </p>
     </div>
-  </div>
+  </a>
 );

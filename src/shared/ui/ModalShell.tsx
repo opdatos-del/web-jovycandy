@@ -1,18 +1,54 @@
+/**
+ * ModalShell — Generic modal wrapper component.
+ *
+ * Features:
+ * - Scroll lock on body when open (via useBodyScrollLock hook)
+ * - Escape key closes modal
+ * - Click outside modal surface closes modal
+ * - Entrance/exit animations via motion/react
+ * - Three size variants: md, lg, xl
+ * - Accessible: role="dialog", aria-modal, aria-label
+ *
+ * Usage:
+ *   <ModalShell
+ *     open={isOpen}
+ *     onClose={() => setIsOpen(false)}
+ *     title="Contact Us"
+ *     size="lg"
+ *   >
+ *     <ContactForm />
+ *   </ModalShell>
+ */
 import { useEffect, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { X } from 'lucide-react';
 
+import { useBodyScrollLock } from '@/shared/hooks/useBodyScrollLock';
+
+/** Props for the ModalShell component */
 type ModalShellProps = {
+  /** Controls whether the modal is visible */
   open: boolean;
+  /** Called when user closes the modal (via X button, Escape, or click outside) */
   onClose: () => void;
+  /** Title displayed in the modal header */
   title: string;
+  /** Optional subtitle shown above the title */
   subtitle?: string;
+  /** Modal body content */
   children: ReactNode;
+  /** Size preset controlling max-width. Defaults to 'lg' */
   size?: 'md' | 'lg' | 'xl';
+  /** Whether modal body scrolls when content overflows. Defaults to true */
   contentScrollable?: boolean;
+  /** Additional CSS classes for the modal body */
   contentClassName?: string;
 };
 
+/**
+ * Maps size prop to corresponding CSS max-width class.
+ * Uses CSS custom properties (defined elsewhere) for responsive breakpoints.
+ */
 const SIZE_CLASSNAME: Record<NonNullable<ModalShellProps['size']>, string> = {
   md: 'max-w-[min(var(--modal-max-width-md),96vw)]',
   lg: 'max-w-[min(var(--modal-max-width-lg),96vw)]',
@@ -29,19 +65,17 @@ export const ModalShell = ({
   contentScrollable = true,
   contentClassName = '',
 }: ModalShellProps) => {
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
+  /**
+   * Scroll lock — prevents background page scrolling while modal is open.
+   * The hook uses a module-level counter so it works correctly even when
+   * multiple modals are open simultaneously.
+   */
+  useBodyScrollLock(open);
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [open]);
-
+  /**
+   * Keyboard handling — closes modal when Escape key is pressed.
+   * Only registers listener when modal is open.
+   */
   useEffect(() => {
     if (!open) {
       return;
@@ -60,6 +94,10 @@ export const ModalShell = ({
   return (
     <AnimatePresence>
       {open ? (
+        /**
+         * Overlay — fixed fullscreen backdrop with blur.
+         * Clicking on it (not the modal surface) triggers onClose.
+         */
         <motion.div
           className="modal-shell-overlay fixed inset-0 z-[120] flex justify-center bg-stone-950/45 backdrop-blur-sm"
           initial={{ opacity: 0 }}
@@ -72,6 +110,11 @@ export const ModalShell = ({
             }
           }}
         >
+          {/*
+           * Modal surface — the actual modal card.
+           * Animates in (fade + slide up) and out (fade + slide down).
+           * role/dialog and aria-modal for accessibility.
+           */}
           <motion.div
             role="dialog"
             aria-modal="true"
@@ -82,7 +125,9 @@ export const ModalShell = ({
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.16, ease: 'easeOut' }}
           >
-
+            {/*
+             * Header — contains subtitle, title, and close button (X).
+             */}
             <div className="modal-shell-header relative flex items-start justify-between border-b border-stone-100 px-6 py-5">
               <div>
                 {subtitle ? (
@@ -101,6 +146,10 @@ export const ModalShell = ({
               </button>
             </div>
 
+            {/*
+             * Content area — scrollable if contentScrollable=true.
+             * Accepts arbitrary children (forms, text, images, etc.).
+             */}
             <div
               className={`modal-shell-content relative px-6 py-5 ${contentScrollable ? 'overflow-y-auto' : 'overflow-hidden'} ${contentClassName}`}
             >

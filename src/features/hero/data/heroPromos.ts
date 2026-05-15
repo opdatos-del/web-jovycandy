@@ -1,12 +1,14 @@
 import type { HeroPromo } from '../types/hero.types';
+import { buildMarketingHeroPath } from '@/shared/assets/publicAssets';
 
 export const HERO_PROMOS: HeroPromo[] = [
   {
     id: 'baby-gummy-mix',
-    src: '/hero/baby-gummy-mix.png',
-    alt: 'Promoción de Baby Gummy Mix',
+    src: buildMarketingHeroPath('baby-gummy-mix.png'),
+    alt: 'Promocion de Baby Gummy Mix',
     label: 'Baby Gummy Mix',
     note: 'Gomitas mini, colores vibrantes y sabor en cada bocado.',
+    backgroundColor: '#00AFAA',
     accent: '#ff8aa0',
     secondary: '#9ff3eb',
     shadow: 'rgba(255, 138, 160, 0.30)',
@@ -33,10 +35,11 @@ export const HERO_PROMOS: HeroPromo[] = [
   },
   {
     id: 'happy-mix-58',
-    src: '/hero/happy-mix-58.png',
-    alt: 'Promoción de Happy Mix 58',
+    src: buildMarketingHeroPath('happy-mix-58.png'),
+    alt: 'Promocion de Happy Mix 58',
     label: 'Happy Mix 58',
     note: 'Figuras y sabores surtidos con variedad y antojo al instante.',
+    backgroundColor: '#00AFAA',
     accent: '#ffd166',
     secondary: '#7fd8ff',
     shadow: 'rgba(255, 209, 102, 0.30)',

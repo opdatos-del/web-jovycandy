@@ -13,6 +13,7 @@ export type HeroPromo = {
   alt: string;
   label: string;
   note: string;
+  backgroundColor: string;
   accent: string;
   secondary: string;
   shadow: string;
@@ -48,7 +49,7 @@ export type HeroSceneRefs = {
   shellRef: RefObject<HTMLDivElement | null>;
   backgroundRef: RefObject<HTMLDivElement | null>;
   headlineRef: RefObject<HTMLHeadingElement | null>;
-  detailRef: RefObject<HTMLDivElement | null>;
+  detailRef: RefObject<HTMLAnchorElement | null>;
   haloRef: RefObject<HTMLDivElement | null>;
   glowRef: RefObject<HTMLDivElement | null>;
   raysRef: RefObject<HTMLDivElement | null>;
@@ -59,7 +60,8 @@ export type SetHeroImageRef = (index: number) => (element: HTMLImageElement | nu
 
 export type UseHeroResult = {
   activeIndex: number;
-  activePromo: HeroPromo;
+  activePromo: HeroPromo | null;
+  backgroundColor: string;
   promos: HeroPromo[];
   refs: HeroSceneRefs;
   setImageRef: SetHeroImageRef;

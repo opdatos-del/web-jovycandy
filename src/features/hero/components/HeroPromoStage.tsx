@@ -34,13 +34,13 @@ export const HeroPromoStage = ({ activePromo, promos, raysRef, setImageRef }: He
 
     {promos.map((promo, index) => (
       <div key={promo.id} className={`${promoStageItemClassName} z-10`} style={getHeroPromoStyle(promo)}>
-        <div className="translate-y-[var(--promo-offset-mobile)] md:translate-y-[var(--promo-offset-desktop)]">
+        <div className="hero-promo-image-shell translate-y-[var(--promo-offset-mobile)] md:translate-y-[var(--promo-offset-desktop)]">
           <img
             ref={setImageRef(index)}
             src={promo.src}
             alt={promo.alt}
             loading={index === 0 ? 'eager' : 'lazy'}
-            className="block h-auto w-full object-contain drop-shadow-[0_30px_50px_rgba(76,46,14,0.22)]"
+            className="hero-promo-image block h-auto w-full object-contain drop-shadow-[0_30px_50px_rgba(76,46,14,0.22)]"
           />
         </div>
       </div>

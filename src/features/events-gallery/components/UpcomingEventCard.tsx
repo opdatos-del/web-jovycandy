@@ -16,16 +16,29 @@ export const UpcomingEventCard = ({ event, collageClassName = '', onOpen }: Upco
       type="button"
       onClick={() => onOpen?.(event)}
       className="events-card group relative h-full w-full overflow-hidden border border-white/30 bg-white/80 p-1 text-left shadow-[0_14px_42px_rgba(42,33,28,0.2)]"
-      aria-label={`Ver imagen completa de ${event.alt}`}
+      aria-label={`Ver evento ${event.alt}`}
     >
       <div className="events-card-inner relative h-full w-full overflow-hidden bg-[#f8eee8]">
-        <img
-          src={event.image}
-          alt={event.alt}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-          draggable={false}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-transparent opacity-70" />
+        {event.mediaType === 'video' ? (
+          <video
+            src={event.mediaUrl}
+            aria-label={event.alt}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        ) : (
+          <img
+            src={event.mediaUrl}
+            alt={event.alt}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+            draggable={false}
+          />
+        )}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-transparent opacity-30" />
       </div>
     </button>
   </ScrollReveal>

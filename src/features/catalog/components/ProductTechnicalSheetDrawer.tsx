@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
-import { ExternalLink, FileText, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
-import { getProductTechnicalSheet } from '../data/technicalSheets';
 import type { CatalogProduct } from '../types/catalog.types';
 import { getCatalogSpecEs } from '../utils/specFormatters';
 
@@ -19,7 +18,9 @@ export const ProductTechnicalSheetDrawer = ({
   onClose,
 }: ProductTechnicalSheetDrawerProps) => {
   const [mounted, setMounted] = useState(false);
-  const technicalSheet = product ? getProductTechnicalSheet(product) : null;
+  const [activeBowlImage, setActiveBowlImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const closeBowlPreview = () => setActiveBowlImage(null);
 
   useEffect(() => {
     setMounted(true);
@@ -41,18 +42,29 @@ export const ProductTechnicalSheetDrawer = ({
 
   useEffect(() => {
     if (!product) {
+      setActiveBowlImage(null);
+    }
+  }, [product]);
+
+  useEffect(() => {
+    if (!product) {
       return;
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
+        if (activeBowlImage) {
+          closeBowlPreview();
+          return;
+        }
+
         onClose();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [product, onClose]);
+  }, [activeBowlImage, product, onClose]);
 
   if (!mounted) {
     return null;
@@ -125,7 +137,7 @@ export const ProductTechnicalSheetDrawer = ({
             </div>
 
             <div className="flex flex-1 flex-col overflow-y-auto">
-              <div className="grid gap-4 border-b border-stone-200 bg-white px-4 py-4 sm:px-6 sm:py-5">
+              <div className="grid gap-4 bg-white px-4 py-4 sm:px-6 sm:py-5">
                 <p className="text-sm leading-6 text-stone-600 sm:text-[0.95rem]">{product.description}</p>
 
                 <div className="flex flex-wrap gap-2">
@@ -155,67 +167,72 @@ export const ProductTechnicalSheetDrawer = ({
                     );
                   })}
                 </div>
-              </div>
 
-              <div className="flex-1 px-4 py-4 sm:px-6 sm:py-5">
-                <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">
-                      Documento
-                    </p>
-                    <h3 className="mt-2 text-lg font-bold text-stone-900">
-                      {technicalSheet ? 'Vista previa de ficha tecnica' : 'Ficha tecnica no disponible'}
-                    </h3>
+                {product.bowlImage ? (
+                  <div className="overflow-hidden rounded-3xl border border-stone-200 bg-white">
+                    <div className="border-b border-stone-200 px-4 py-3 sm:px-5">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
+                        Presentacion en bowl
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 sm:px-6 sm:py-6">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveBowlImage({
+                            src: product.bowlImage!,
+                            alt: `Bowl de ${product.name}`,
+                          })
+                        }
+                        className="w-full rounded-2xl transition-transform duration-300 hover:scale-[1.01]"
+                        aria-label={`Ver bowl de ${product.name} en pantalla completa`}
+                      >
+                        <img
+                          src={product.bowlImage}
+                          alt={`Bowl de ${product.name}`}
+                          className="max-h-[18rem] w-full object-contain"
+                          draggable={false}
+                        />
+                      </button>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400">
+                        Clic para ampliar
+                      </p>
+                    </div>
                   </div>
-
-                  {technicalSheet ? (
-                    <a
-                      href={technicalSheet.src}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-100 sm:w-auto sm:shrink-0 sm:justify-start"
-                    >
-                      <ExternalLink size={16} />
-                      Abrir
-                    </a>
-                  ) : null}
-                </div>
-
-                {technicalSheet ? (
-                  technicalSheet.type === 'pdf' ? (
-                    <div className="overflow-hidden rounded-[2rem] border border-stone-200 bg-white shadow-[0_24px_60px_rgba(28,25,23,0.08)]">
-                      <iframe
-                        title={technicalSheet.title ?? `Ficha tecnica de ${product.name}`}
-                        src={technicalSheet.src}
-                        className="h-[58dvh] min-h-[24rem] w-full bg-white sm:h-[70vh]"
-                      />
-                    </div>
-                  ) : (
-                    <div className="overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-3 shadow-[0_24px_60px_rgba(28,25,23,0.08)]">
-                      <img
-                        src={technicalSheet.src}
-                        alt={technicalSheet.title ?? `Ficha tecnica de ${product.name}`}
-                        className="h-auto w-full rounded-[1.4rem] object-contain"
-                      />
-                    </div>
-                  )
-                ) : (
-                  <div className="flex min-h-[14rem] flex-col items-center justify-center rounded-[2rem] border border-dashed border-stone-300 bg-white px-5 py-7 text-center shadow-[0_24px_60px_rgba(28,25,23,0.05)] sm:min-h-[16rem] sm:px-6 sm:py-8">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-stone-100 text-stone-500">
-                      <FileText size={22} />
-                    </div>
-                    <p className="mt-4 text-base font-semibold text-stone-900">
-                      La ficha tecnica de esta presentacion estara disponible muy pronto.
-                    </p>
-                    <p className="mt-2 max-w-md text-sm leading-6 text-stone-600">
-                      Mientras tanto, puedes explorar las demas presentaciones del producto o
-                      contactarnos para recibir mas informacion.
-                    </p>
-                  </div>
-                )}
+                ) : null}
               </div>
             </div>
           </motion.aside>
+
+          <AnimatePresence>
+            {activeBowlImage ? (
+              <motion.div
+                className="fixed inset-0 z-[140] flex items-center justify-center bg-stone-950/82 p-4 backdrop-blur-sm sm:p-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.18 }}
+                onMouseDown={(event) => {
+                  if (event.target === event.currentTarget) {
+                    closeBowlPreview();
+                  }
+                }}
+                aria-label={activeBowlImage.alt}
+                role="dialog"
+              >
+                <motion.img
+                  src={activeBowlImage.src}
+                  alt={activeBowlImage.alt}
+                  className="max-h-[92vh] max-w-[92vw] object-contain"
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.18 }}
+                  draggable={false}
+                />
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </motion.div>
       ) : null}
     </AnimatePresence>,
