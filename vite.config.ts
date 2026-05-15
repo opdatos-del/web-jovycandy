@@ -111,6 +111,11 @@ export default defineConfig(({ mode }) => {
        * In local dev, leave unset or set to 'true' for full HMR support.
        */
       hmr: process.env.DISABLE_HMR !== 'true',
+      /**
+       * allowedHosts — whitelist of hosts that Vite will accept requests from.
+       * Required for production deployments and external host access.
+       */
+      allowedHosts: ['web-jovycandy-production.up.railway.app'],
     },
   };
 });
