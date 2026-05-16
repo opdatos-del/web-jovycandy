@@ -272,10 +272,9 @@ export function ScrollLogo() {
             className="pointer-events-none h-full w-full select-none"
           />
         </motion.div>
-
         <motion.div
           style={{ opacity: hintOpacity, y: hintY }}
-          className="scroll-logo-hint absolute"
+          className="scroll-logo-hint"
         >
           <div className="scroll-logo-hint-badge">
             <span className="scroll-logo-hint-icon" aria-hidden="true">
@@ -283,7 +282,7 @@ export function ScrollLogo() {
             </span>
             <span className="scroll-logo-hint-copy">
               <span className="scroll-logo-hint-kicker">Es tu mejor</span>
-              <span className="scroll-logo-hint-text">selección</span>
+              <span className="scroll-logo-hint-text">{'selecci\u00f3n'}</span>
             </span>
           </div>
         </motion.div>

@@ -1,6 +1,7 @@
 @layer components {
   .scroll-logo-stage-shell {
     min-height: calc(var(--viewport-h) - 0.5rem);
+    flex-direction: column;
   }
 
   .scroll-logo-canvas-shell {
@@ -9,10 +10,10 @@
   }
 
   .scroll-logo-hint {
-    bottom: clamp(5.75rem, 14svh, 8.5rem);
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: clamp(0.85rem, 2.4svh, 1.8rem);
     padding-inline: 1rem;
   }
 
@@ -227,7 +228,7 @@
 
 @media (max-width: 479px) {
   .scroll-logo-hint {
-    bottom: clamp(7rem, 19svh, 10rem);
+    margin-top: clamp(0.9rem, 2.8svh, 1.6rem);
   }
 
   .scroll-logo-hint-badge {
@@ -283,7 +284,7 @@
   }
 
   .scroll-logo-hint {
-    bottom: clamp(3.6rem, 8.5svh, 6rem);
+    margin-top: clamp(0.9rem, 2.3svh, 1.7rem);
   }
 
   .scroll-logo-hint-badge {
@@ -398,7 +399,7 @@
   }
 
   .scroll-logo-hint {
-    bottom: clamp(4rem, 9svh, 6.8rem);
+    margin-top: clamp(1rem, 2.4svh, 1.9rem);
   }
 
   .scroll-logo-hint-badge {
@@ -481,7 +482,7 @@
   }
 
   .scroll-logo-hint {
-    bottom: clamp(2.6rem, 5.5svh, 4.6rem);
+    margin-top: clamp(0.9rem, 2svh, 1.6rem);
   }
 
   .scroll-logo-hint-badge {
@@ -605,13 +606,46 @@
   }
 }
 
+@media (max-height: 760px) and (min-width: 640px) {
+  .scroll-logo-hint {
+    margin-top: clamp(0.55rem, 1.5svh, 1rem);
+    padding-inline: 0.5rem;
+  }
+
+  .scroll-logo-hint-badge {
+    gap: 0.9rem;
+    max-width: min(82vw, 28rem);
+    padding: 0.5rem 0.8rem 0.44rem 0.3rem;
+  }
+
+  .scroll-logo-hint-icon {
+    width: 3.45rem;
+    height: 3.45rem;
+  }
+
+  .scroll-logo-hint-ball {
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+
+  .scroll-logo-hint-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+  }
+
+  .scroll-logo-hint-text {
+    font-size: 1.55rem;
+    letter-spacing: 0.12em;
+  }
+}
+
 @media (min-width: 1536px) {
   .scroll-logo-canvas-shell {
     width: min(70vw, calc(var(--section-max-width-wide) * 0.64 * var(--display-scale)));
   }
 
   .scroll-logo-hint {
-    bottom: clamp(3rem, 5.8svh, 5.2rem);
+    margin-top: clamp(1rem, 2svh, 1.8rem);
   }
 
   .scroll-logo-hint-badge {
@@ -693,7 +727,7 @@
   }
 
   .scroll-logo-hint {
-    bottom: clamp(3.35rem, 6svh, 5.8rem);
+    margin-top: clamp(1.1rem, 2.1svh, 1.95rem);
   }
 
   .events-section {
