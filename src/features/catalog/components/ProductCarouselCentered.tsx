@@ -464,9 +464,7 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
                             {product.gramaje}
                           </p>
                         ) : null}
-                        <p className="catalog-carousel-spec mt-1 whitespace-pre-line font-semibold leading-tight text-white/92">
-                          {product.specs[2] ? getCatalogSpecValueEs(product.specs[2].value) : product.subtitle}
-                        </p>
+
                       </motion.button>
                     ))
                   ) : (
@@ -492,3 +490,4 @@ export const ProductCarouselCentered: React.FC<ProductCarouselCenteredProps> = (
     </motion.div>
   );
 };
+
